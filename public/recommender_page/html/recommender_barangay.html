@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMEasy | Barangay</title>
+    <link rel="stylesheet" href="/homepage/homepage.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/recommender_page/css/recommender.css">
+    <link rel="stylesheet" href="/recommender_page/css/recommender_barangay.css">
+</head>
+<body>
+
+<!--SIDEBAR-->
+<nav class="sidebar close">
+    <header>
+        <div class="image-text">
+            <span class="image">
+                <img src="/images/smeasylogo.png" alt="LOGO">
+            </span>
+            <div class="text logo-text">
+                <span class="name">SMEasy</span>
+                <span class="profession">Recommender</span>
+            </div>
+        </div>
+        <i class='bx bx-chevron-right toggle'></i>
+    </header>
+    <div class="menu-bar">
+        <div class="menu">
+            <li class="search-box">
+                <i class='bx bx-search icon'></i>
+                <input type="text" placeholder="Search...">
+            </li>
+            <ul class="menu-links">
+                <li class="nav-link">
+                    <a href="/homepage/homepage.html">
+                        <i class='bx bx-home-alt icon'></i>
+                        <span class="text nav-text">Homepage</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="/analytics/analytics.html">
+                        <i class='bx bx-bar-chart-alt-2 icon'></i>
+                        <span class="text nav-text">Analytics</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="/recommender_page/html/recommender.html">
+                        <i class='bx bx-pie-chart-alt icon'></i>
+                        <span class="text nav-text">Recommender</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="/about.html/aboutUs.html">
+                        <i class='bx bx-heart icon'></i>
+                        <span class="text nav-text">About</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="bottom-content">
+            <li>
+                <a href="/Login/index.html">
+                    <i class='bx bx-log-out icon'></i>
+                    <span class="text nav-text" id="signOutButton">Logout</span>
+                </a>
+            </li>
+
+            <li class="mode">
+                <div class="sun-moon">
+                    <i class='bx bx-moon icon moon'></i>
+                    <i class='bx bx-sun icon sun'></i>
+                </div>
+                <span class="mode-text text">Dark mode</span>
+                <div class="toggle-switch">
+                    <span class="switch"></span>
+                </div>
+            </li>
+        </div>
+    </div>
+</nav>
+
+<section class="home">
+    <div class="container">
+        <div class="left-section">
+            <h2>Location Recommender</h2>
+        
+            <!-- Barangay Buttons -->
+            <div id="categories-container">
+                <h3>Select a category</h3>
+                <div id="category-buttons">
+                    <button class="barangay-btn" onclick="selectBusiness(this)">Food Services</button>
+                    <button class="barangay-btn" onclick="selectBusiness(this)">Retail Stores</button>
+                    <button class="barangay-btn" onclick="selectBusiness(this)">Healthcare Services</button>
+                    <button class="barangay-btn" onclick="selectBusiness(this)">Professional Services</button>
+                    <button class="barangay-btn" onclick="selectBusiness(this)">Manufacturing and Production</button>
+                    <button class="barangay-btn" onclick="selectBusiness(this)">Construction and Real Estate</button>
+                    <button class="barangay-btn" onclick="selectBusiness(this)">IT and Digital Service</button>
+                    <button class="barangay-btn" onclick="selectBusiness(this)">Transportation and Logistic</button>
+                    <button class="barangay-btn" onclick="selectBusiness(this)">Personal and Household Services</button>
+                    <button class="barangay-btn" onclick="selectBusiness(this)">Creative and Media Services</button>
+                    <button class="barangay-btn" onclick="selectBusiness(this)">Automotive Services</button>
+                    <button class="barangay-btn" onclick="selectBusiness(this)">Entertainment and Recreation</button>
+                    <button class="barangay-btn" onclick="selectBusiness(this)">Wholesale and Distribution</button>
+                    <button class="barangay-btn" onclick="selectBusiness(this)">Tourism and Hospitality</button>
+                    <button class="barangay-btn" onclick="selectBusiness(this)">Education Services</button>
+                    <button class="barangay-btn" onclick="selectBusiness(this)">Cooperative Business</button>
+                    <button class="barangay-btn" onclick="selectBusiness(this)">Finance and Insurance</button>
+                    <button class="barangay-btn" onclick="selectBusiness(this)">Personal Care Services</button>
+                </div>
+            </div>  
+        
+            <div class="button-section">
+                <button class="btn proceed-btn" id="proceed-button" onclick="handleProceed()">Proceed</button>
+            </div>
+        </div>
+
+    <div class="right-section" id="result-section" style="display:none;">
+        <div id="table-container" class="scrollable-table-container">
+            <h1>Top 3 Recommended Barangay</h1>
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Barangay</th>
+                        <th>Probability</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="button-section">
+            <button class="btn analyze-btn" id="analyze-button" onclick="handleAnalyze()">Analyze</button>
+        </div>
+    </div>
+</section>
+
+<div class="recommendation-section">
+    <h1>Location Recommendation for Building Your Business</h1>
+    <h2 id="barangayName">BRGY NAME: [Insert Barangay Name]</h2>
+
+    <div class="recommendation-grid">
+        <!-- Business Overview -->
+        <div class="grid-item">
+            <h3>Business Overview</h3>
+            <p>Selected Main Category: <span id="mainCategory"></span></p>
+            <p>Total Businesses in City: <span id="totalBusinesses"></span></p>
+            <p>Number of Businesses in Selected Barangay: <span id="businessesInBarangay"></span></p>
+        </div>
+
+        <!-- Market Gaps Analysis -->
+        <div class="grid-item market-gaps">
+            <h3>Market Gaps Analysis</h3>
+            <p>Legend: </p>
+            <p>Critical Gap/High Demand = <span id="highDemand"></span></p>
+            <p>Moderate Gap/Medium Demand = <span id="mediumDemand"></span></p>
+            <p>Minor Gap/Low Demand = <span id="lowDemand"></span></p>
+            <p>No Gap /Very Low Demand  = <span id="noDemand"></span></p>
+            <p>Market Demand: <span id="marketDemand"></span></p>
+            <p>Business Gaps in Industry: <span id="businessGaps"></span></p>
+        </div>
+
+        <!-- Population and Segmentation Analysis -->
+        <div class="grid-item">
+            <h3>Population and Segmentation Analysis</h3>
+            <p>Population Overview: <span id="populationOverview"></span></p>
+            <p>Customer Segmentation: <span id="customerSegmentation"></span></p>
+        </div>
+
+        <!-- Competition Analysis -->
+        <div class="grid-item">
+            <h3>Competition Analysis</h3>
+            <p>Competition Density: <span id="competitionDensity"></span></p>
+            <p>Direct Competitor: <span id="directCompetitor"></span></p>
+            <p>Indirect Competitor: <span id="indirectCompetitor"></span></p>
+            <p>Replacement Competitor: <span id="replacementCompetitor"></span></p>
+        </div>
+
+        <!-- Accessibility and Infrastructure -->
+        <div class="grid-item">
+            <h3>Accessibility and Infrastructure</h3>
+            <p>Area Type: <span id="areaType"></span></p>
+        </div>
+    </div>
+
+    <div class="recommendation-summary">
+        <h3>Recommendation Summary</h3>
+        <p id="recommendationSummary"></p>
+    </div>
+</div>
+
+
+
+
+<div id="loading-spinner" style="display: none;">
+<div class="spinner"></div>
+</div>
+
+<script src="/homepage/homepage.js"></script>
+<script src="/recommender_page/javascript/recommender_barangay.js"></script>
+<script src="/public/recommender_page/backend/barangay.js"></script>
+<script src="/public/recommender_page/backend/sub-categories.js"></script>
+
+</body>
+</html>

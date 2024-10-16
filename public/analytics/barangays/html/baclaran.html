@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMEasy | Baclaran</title>
+    <link rel="stylesheet" href="/analytics/barangays/css/baclaran.css">
+    <link rel="stylesheet" href="/homepage/homepage.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+    <!--SIDEBAR-->
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="/images/smeasylogo.png" alt="SMEasy Logo">
+                </span>
+                <div class="text logo-text">
+                    <span class="name">SMEasy</span>
+                    <span class="profession">Business Analytics</span>
+                </div>
+            </div>
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+        <div class="menu-bar">
+            <div class="menu">
+                <li class="search-box">
+                    <i class='bx bx-search icon'></i>
+                    <input type="text" placeholder="Search...">
+                </li>
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="/homepage/homepage.html">
+                            <i class='bx bx-home-alt icon'></i>
+                            <span class="text nav-text">Homepage</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="/analytics/analytics.html">
+                            <i class='bx bx-bar-chart-alt-2 icon'></i>
+                            <span class="text nav-text">Analytics</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="/recommender_page/html/recommender.html">
+                            <i class='bx bx-pie-chart-alt icon'></i>
+                            <span class="text nav-text">Recommender</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-heart icon'></i>
+                            <span class="text nav-text">About</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="bottom-content">
+                <li>
+                    <a href="/Login/index.html">
+                        <i class='bx bx-log-out icon'></i>
+                        <span class="text nav-text" id="signOutButton">Logout</span>
+                    </a>
+                </li>
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+            </div>
+        </div>
+    </nav>
+
+    <!--HEADER-->
+ <section>
+    <div class="content">
+        <h2>BACLARAN</span></h2>
+        <P>
+            Baclaran is a barangay in the city of Cabuyao, in the province of Laguna. 
+            Its population as determined by the 2020 Census was 14,606. This represented 4.11% of the total population of Cabuyao.
+        </P>
+    </div>
+    <img src="/images/baclaran.jpg">
+ </section>
+
+  <!--date filtering-->
+  <div class="content-section">
+    <div class="layout-grid">
+        <div class="left-section">
+            <div class="filters">
+                <label for="dateRange">Overall Business Categories:</label>
+                <select id="dateRange">
+                    <option>All</option>
+                    <option>Retail</option>
+                    <option>Coffee</option>
+                    <option>Industry</option>
+                    <option>Laundry</option>
+                    <option>Shop</option>
+                    <option>Whole Sale</option>
+                </select>
+            </div>
+
+            <!--left section-->
+            <div class="stat-card">
+                <h3>Total Number of Businesses</h3>
+                <p id="totalBusinesses">1234</p>
+                <span>180% vs previous 30 days</span>
+            </div>
+            
+            <div class="stat-card">
+                <h3>Number of Population</h3>
+                <p id="population">5678</p>
+                <span>23% vs previous 30 days</span>
+            </div>
+            
+            <div class="stat-card">
+                <h3>???</h3>
+                <p id="stat3">91011</p>
+                <span>91% vs previous 30 days</span>
+            </div>
+            
+            <div class="stat-card">
+                <h3>???</h3>
+                <p id="stat4">121314</p>
+                <span>562 vs previous 30 days</span>
+            </div>
+            
+            <div class="stat-card">
+                <h3>Website Visits</h3>
+                <p id="websiteVisits">20582</p>
+                <span>562 vs previous 30 days</span>
+            </div>
+        </div>
+
+        <!--right section-->
+        <div class="right-section">
+            <div class="graph-grid">
+
+                 <!--bar graph-->
+                 <div class="graph-card page-views-graph">
+                    <h3>TOTAL NUMBER OF BUSINESSES</h3>
+                    <canvas id="pageViews"></canvas>
+                  </div>
+
+                  <!--pie graph-->
+                  <div class="graph-card web-traffic-graph">
+                    <h3>TOTAL NUMBER OF POPULATION</h3>
+                    <canvas id="webTrafficConcentration"></canvas>
+                  </div>
+            </div>
+
+</body>
+<script src="/homepage/homepage.js" defer></script>
+<script src="/analytics/barangays/javascript/baclaran.js" defer></script>
+</html>

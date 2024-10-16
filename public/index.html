@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMEasy - Register & Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="firebaseauth.js"></script>
+</head>
+<body>
+    <div class="outer-container">
+        <div class="left-section">
+            <div class="icon">
+                <h2 class="logo">SMEasy</h2>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#home-section">HOME</a></li>
+                    <li><a href="#about-section">ABOUT</a></li>
+                    <li><a href="#contact-section">CONTACT</a></li>
+                    <li><a href="#services-section">SERVICES</a></li>
+                </ul>
+            </div>
+            <div class="content">
+                <h1>Your Business <br><span class="orange-text">Recommender</span> <br>Advisor</h1>
+                <p class="par">Are you looking to start a new business but unsure where to begin? 
+                    Or perhaps you have a location in mind but need guidance on the best type of business to open? Business Recommender is here to help!</p>
+                <button class="cn"><a href="#">LEARN MORE</a></button>
+            </div>
+        </div>
+        <div class="right-section">
+            <div class="container" id="signup" style="display:none;">
+                <h1 class="form-title">Create Your Account</h1>
+                <form method="post" action="">
+                    <div id="signUpMessage" class="messageDiv" style="display:none;"></div>
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="fName" required>
+                        <label for="fName">First Name</label>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="lName" required>
+                        <label for="lName">Last Name</label>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="rEmail" required>
+                        <label for="rEmail">Email</label>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="rPassword" required>
+                        <label for="rPassword">Password</label>
+                    </div>
+                    <button class="btn" id="submitSignUp">Sign Up</button>
+                </form>
+                <p class="or">---------- or ---------</p>
+                <div class="icons">
+                    <button id="signInGoogleButton" class="google-signin">
+                        <img src="/images/google.png" alt="Google Icon">
+                        Continue with Google
+                    </button>
+                </div>
+                <div class="links">
+                    <p>Already Have Account?</p>
+                    <button id="signInButton">Sign In</button>
+                </div>
+            </div>
+            <div class="container" id="signIn">
+                <h1 class="form-title">Sign In</h1>
+                <form method="post" action="">
+                    <div id="signInMessage" class="messageDiv" style="display:none;"></div>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" required>
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" required>
+                        <label for="password">Password</label>
+                    </div>
+                    <button class="btn" id="submitSignIn">Sign In</button>
+                </form>
+                <p class="or">---------- or ---------</p>
+                <div class="icons">
+                    <button id="signInGoogleButton" class="google-signin">
+                        <img src="/images/google.png" alt="Google Icon">
+                        Continue with Google
+                    </button>
+                </div>
+                <div class="links">
+                    <p>Don't have account yet?</p>
+                    <button id="signUpButton">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Full-screen sections -->
+    <section id="home-section" class="scroll-section">
+        <div class="section-content">
+            <div class="text-content">
+                <h2>Home</h2>
+                <p>Welcome to SMEasy! Your ultimate business recommendation tool in Cabuyao.</p>
+            </div>
+            <img src="/images/home-image.png" alt="Home Image" class="section-image">
+        </div>
+    </section>
+
+    <section id="about-section" class="scroll-section">
+        <div class="section-content">
+            <img src="/images/about-image.png" alt="About Image" class="section-image">
+            <div class="text-content">
+                <h2>About SMEasy</h2>
+                <p>SMEasy is designed to help entrepreneurs find the best business opportunities based on location, trends, and more.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact-section" class="scroll-section">
+        <div class="section-content">
+            <div class="text-content">
+                <h2>Contact Us</h2>
+                <p>Feel free to reach out to us for more information or assistance in starting your business.</p>
+            </div>
+            <img src="/images/contact-image.png" alt="Contact Image" class="section-image">
+        </div>
+    </section>
+
+    <section id="services-section" class="scroll-section">
+        <div class="section-content">
+            <img src="/images/services-image.png" alt="Services Image" class="section-image">
+            <div class="text-content">
+                <h2>Our Services</h2>
+                <p>We offer a range of services to help you succeed in your business ventures in Cabuyao.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-col">
+            <h4>products</h4>
+            <ul>
+                <li><a href="#">teams</a></li>
+                <li><a href="#">advertising</a></li>
+                <li><a href="#">talent</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>network</h4>
+            <ul>
+                <li><a href="#">technology</a></li>
+                <li><a href="#">science</a></li>
+                <li><a href="#">business</a></li>
+                <li><a href="#">professional</a></li>
+                <li><a href="#">API</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>company</h4>
+            <ul>
+                <li><a href="#">about</a></li>
+                <li><a href="#">legal</a></li>
+                <li><a href="#">contact us</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>follow us</h4>
+            <div class="links">
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

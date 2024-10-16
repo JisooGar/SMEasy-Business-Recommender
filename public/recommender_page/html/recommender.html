@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMEasy | Business Analysis</title>
+    <link rel="stylesheet" href="/homepage/homepage.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/recommender_page/css/recommender.css">
+</head>
+<body>
+
+<!--SIDEBAR-->
+<nav class="sidebar close">
+    <header>
+        <div class="image-text">
+            <span class="image">
+                <img src="/images/smeasylogo.png" alt="LOGO">
+            </span>
+            <div class="text logo-text">
+                <span class="name">SMEasy</span>
+                <span class="profession">Analysis</span>
+            </div>
+        </div>
+        <i class='bx bx-chevron-right toggle'></i>
+    </header>
+    <div class="menu-bar">
+        <div class="menu">
+            <li class="search-box">
+                <i class='bx bx-search icon'></i>
+                <input type="text" placeholder="Search...">
+            </li>
+            <ul class="menu-links">
+                <li class="nav-link">
+                    <a href="/homepage/homepage.html">
+                        <i class='bx bx-home-alt icon' ></i>
+                        <span class="text nav-text">Homepage</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="/analytics/analytics.html">
+                        <i class='bx bx-bar-chart-alt-2 icon' ></i>
+                        <span class="text nav-text">Visualization</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="/recommender_page/html/recommender.html">
+                        <i class='bx bx-pie-chart-alt icon' ></i>
+                        <span class="text nav-text">Analysis</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="/about.html/aboutUs.html">
+                        <i class='bx bx-heart icon' ></i>
+                        <span class="text nav-text">About</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="bottom-content">
+            <li class="">
+                <a href="/Login/index.html">
+                    <i class='bx bx-log-out icon' ></i>
+                    <span class="text nav-text" id="signOutButton">Logout</span>
+                </a>
+            </li>
+
+            <li class="mode">
+                <div class="sun-moon">
+                    <i class='bx bx-moon icon moon'></i>
+                    <i class='bx bx-sun icon sun'></i>
+                </div>
+                <span class="mode-text text">Dark mode</span>
+                <div class="toggle-switch">
+                    <span class="switch"></span>
+                </div>
+            </li>
+        </div>
+    </div>
+</nav>
+
+<!--HEADER-->
+<div class="curved-div">
+    <div class="header-content">
+        <div class="text-section">
+            <h1>Welcome to Business <span class="orange-text">Advisor!</span></h1>
+            <p>Are you looking to start a new business but unsure where to begin? 
+               <br>Or perhaps you have a location in mind but need guidance on the best type of business to open? Business Recommender is here to help!</p>
+        </div>
+        <div class="image-section">
+            <img src="/images/cellphone.png" alt="Business Image">
+        </div>
+    </div>
+</div>
+
+<!-- CONTAINER SECTION -->
+<div class="container-section">
+    <div class="section">
+        <div class="button-container">
+            <div class="text-container">
+                <h2>Choosing the Ideal Location:</h2>
+                <p>If you have a business idea but need help selecting the right location, Select your business idea,<br> and we'll suggest suitable barangays where it's likely to succeed.</p>
+                <a href="/recommender_page/html/recommender_barangay.html" class="btn" onclick="showLoadingScreen()">Barangay</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- RIGHT SECTION -->
+<div class="right-section">
+    <div class="button-container">
+        <div class="text-container">
+            <h2>Finding the Suitable Business:</h2>
+            <p>Alternatively, if you already have a location in mind, choose the barangay you're considering,<br> and we'll provide tailored recommendations for businesses that thrive in that area.</p>
+            <a href="/recommender_page/html/recommender_business.html" class="btn" onclick="showLoadingScreen()">Business</a>
+        </div>
+    </div>
+</div>
+
+<!-- Loading overlay -->
+<div id="loading-overlay" class="loading-overlay">
+    <div class="spinner"></div>
+</div>
+
+
+<!--MAIN CONTENT-->
+<script src="/recommender_page/javascript/recommender.js"></script>
+<script src="/homepage/homepage.js"></script>
+<script src="/recommender_page/javascript/recommender_barangay.js"></script>
+<script src="/recommender_page/javascript/recommender_business.js"></script>
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+<script>
+    document.querySelector('.toggle').addEventListener('click', function() {
+        document.querySelector('.sidebar').classList.toggle('close');
+        document.querySelector('.home .container').classList.toggle('sidebar-open');
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,429 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: -20px;
+  }
+  
+  .header .logo {
+    width: 230px; 
+    height: auto; 
+    margin-right: 20px; 
+  }
+  
+  .header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0; 
+    color: #444;
+  }
+  
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 70px; /* Sidebar width */
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+  
+  .container {
+    margin-left: 70px; /* Sidebar width */
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+    box-sizing: border-box;
+  }
+  
+  .content-section {
+    margin-top: 20px;
+  }
+  
+  .layout-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Left section 1/3, right section 2/3 */
+    gap: 20px;
+  }
+  
+  .left-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .right-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .filters {
+    display: flex;
+    gap: 15px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .filters label {
+    font-size: 0.875rem;
+    color: #333;
+  }
+  
+  .filters select {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 0.875rem;
+    color: #333;
+    background-color: #fff;
+  }
+  
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column for stats */
+    gap: 20px;
+  }
+  
+  .stat-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 16.5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .stat-card h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #333;
+  }
+  
+  .stat-card p {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #000;
+  }
+  
+  .stat-card span {
+    font-size: 0.875rem;
+    color: green;
+  }
+  
+  .graph-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.graph-grid .top-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.graph-grid .bottom-section {
+  display: flex;
+  gap: 20px;
+  align-items: stretch; /* Make sure both containers stretch equally */
+}
+
+.graph-card {
+  flex: 1;
+}
+
+.graph-card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex: 1; /* Allows the cards to grow and fill available space */
+  min-width: 0; /* Prevents overflow in flex container */
+}
+  
+  /* Page Views Bar Chart Container */
+  .page-views-graph {
+    margin-bottom: 20px; /* Adds space between the two containers */
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+  .page-views-graph.extended {
+    height: 600px; /* Increase the height as needed */
+}
+
+  .page-views-graph canvas {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .web-traffic-graph {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1; /* Allows the card to fill the available space */
+    min-width: 0;
+  }
+
+.graph-card h3 {
+  margin-bottom: 20px;
+  font-size: 1.25rem;
+  color: #333;
+}
+  
+  canvas {
+    max-width: 100%;
+  }
+  
+  .orange-text {
+    color: orange;
+  }
+
+  .new-metric-container {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1; /* Allows the container to grow and fill available space */
+    min-width: 0; /* Prevents overflow in flex container */
+    display: flex;
+    flex-direction: column;
+  }
+
+.new-metric-container h3 {
+    margin-bottom: 20px;
+    font-size: 1.25rem;
+    color: #333;
+}
+  
+/* Flexbox container to align BARANGAYS and the new right container side by side */
+.barangays-and-new-container {
+  display: flex;
+  gap: 20px; /* Increase this value if you need more space */
+}
+
+/* Style for the new right container */
+.new-right-container {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex: 1; /* Allows the container to grow and fill available space */
+  min-width: 0; /* Prevents overflow in flex container */
+  display: flex;
+  flex-direction: column;
+  margin-left: 490px;
+  width: 50%; /* Full width */
+}
+
+.new-right-container h3 {
+  margin-bottom: 20px;
+  font-size: 1.25rem;
+  color: #333;
+}
+
+  /* Container for the BARANGAYS OF CABUYAO */
+  .barangays-container {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 203%; /* Full width */
+    height: 500px; /* Fixed height */
+    overflow: hidden; /* Prevent the content from overflowing the container */
+    margin-right: 20px; /* Add a right margin to create space between containers */
+  }
+  
+  .barangays-container h3 {
+    margin: 0 0 15px 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Scrollable content inside the barangays container */
+  .barangays-scroll {
+    max-height: 350px; /* Make this scrollable by restricting the height */
+    overflow-y: auto; /* Enable vertical scroll */
+    padding-right: 20px; /* Space for scrollbar */
+  }
+  
+  /* Styling for each barangay item */
+  .barangay-item {
+    display: block;
+    padding: 20px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s ease;
+    border: 1px solid #ddd;
+  }
+  
+  .barangay-item:hover {
+    background-color: #e0e0e0;
+  }
+  
+  /* Loading overlay styles */
+  .loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's above all other content */
+  }
+  
+  /* Spinner styles */
+  .spinner {
+    border: 8px solid rgba(255, 255, 255, 0.3);
+    border-top: 8px solid #ffffff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+  }
+
+/* Style for the dropdown button */
+#dropdownButton {
+  background-color: #ffffff;
+  color: #333;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Style for the dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 200px;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+/* Style for dropdown items */
+.dropdown-content li {
+  padding: 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+}
+
+.dropdown-content li:hover {
+  background-color: #f1f1f1;
+}
+
+/*BUSINESS CATEGORIES CONTAINER*/
+.new-metric-container {
+  width: 100%;  /* You can adjust this if needed */
+}
+
+.scrollable-table {
+  max-height: 430px; /* Adjust this height based on your layout */
+  overflow-y: auto;  /* Enable vertical scrolling */
+}
+
+.scrollable-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.scrollable-table table th,
+.scrollable-table table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.scrollable-table table th {
+  background-color: #f2f2f2;
+}
+
+.scrollable-table table tbody tr:nth-child(even) {
+  background-color: #f9f9f9; /* Optional: alternate row colors for better readability */
+}
+
+/*SUB CATEGORIES CONTAINER*/
+.new-right-container .scrollable-table {
+  max-height: 430px; /* Adjust this height based on your layout */
+  overflow-y: auto;  /* Enable vertical scrolling */
+}
+
+.scrollable-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.scrollable-table table th,
+.scrollable-table table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.scrollable-table table th {
+  background-color: #f2f2f2;
+}
+
+.scrollable-table table tbody tr:nth-child(even) {
+  background-color: #f9f9f9; /* Optional: alternate row colors for better readability */
+}
+
+ 
+  /* Keyframes for the spinner animation */
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .header-content {
+      flex-direction: column;
+    }
+  
+    .text-section {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  
+    .image-section {
+      text-align: center;
+    }
+  
+    .text-section h1 {
+      font-size: 3rem;
+    }
+  }

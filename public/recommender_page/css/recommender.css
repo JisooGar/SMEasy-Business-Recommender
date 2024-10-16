@@ -1,0 +1,195 @@
+body {
+  margin: 0;
+  overflow-x: hidden;
+  /*padding-bottom: 300px; /* Adds space at the bottom of the page */
+}
+
+/* Full Page Header */
+.header {
+  height: 100vh; /* Takes full height of the viewport */
+}
+
+.curved-div {
+  position: relative;
+  background: linear-gradient(135deg, #ffe29f, #ffa99f);
+  color: #FFF;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 50px;
+}
+
+/* Text Section */
+.text-section {
+  flex: 1;
+  text-align: left;
+  margin-left: 70px; /* Sidebar width */
+}
+
+.text-section h1 {
+  font-size: 5rem;
+  margin: 0;
+  font-family: 'Poppins', sans-serif; /* Example of a modern font */
+  color: rgb(26, 18, 18);
+}
+
+.text-section p {
+  font-size: 1.2rem;
+  margin-top: 20px;
+  color: #000000;
+  font-family: 'Roboto', sans-serif; /* Example of a clean font for body text */
+}
+
+
+/* Image Section */
+.image-section {
+  flex: 1;
+  text-align: right;
+}
+
+.image-section img {
+  max-width: 70%;
+  height: auto;
+}
+
+/* Full Page Container Section */
+.container-section {
+  height: 100vh; /* Takes full height of the viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center content vertically */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.5) 50%), url('/images/container-section.jpg');
+  background-size: cover; /* Ensure the background covers the entire container */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent repeating of the background image */
+}
+
+/* Right Section */
+.right-section {
+  height: 100vh; /* Takes full height of the viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center content vertically */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.5) 50%), url('/images/right-section.jpg');
+  background-size: cover; /* Ensure the background covers the entire section */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent repeating of the background image */
+}
+
+.text-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 25px; /* Optional: for rounded corners */
+  display: inline-block; /* Adjust to fit content width */
+  text-align: center; /* Center the text and button */
+  height: 23vh;
+}
+
+.text-wrapper {
+  text-align: center;
+}
+
+.text-wrapper h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: black;
+}
+
+.text-wrapper p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.btn {
+  font-size: 1rem;
+  padding: 10px 20px;
+  background-color: #ffa99f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative; /* Relative positioning */
+  top: 20px; /* Move the button down by 20px */
+}
+
+
+.btn:hover {
+  background-color: #ff7f7f;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+  }
+
+  .text-section {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .image-section {
+    text-align: center;
+  }
+
+  .text-section h1 {
+    font-size: 3rem;
+  }
+}
+
+/* When the sidebar is open, push the content to the right */
+.sidebar-open {
+  margin-left: 200px; /* Adjust this value according to your sidebar width */
+  transition: margin-left 0.3s ease; /* Smooth transition when the sidebar opens/closes */
+}
+
+/* When the sidebar is closed, reset the content position */
+.sidebar.close + .container-section {
+  margin-left: 70px; /* Adjust based on the closed sidebar width */
+  transition: margin-left 0.3s ease;
+}
+
+.orange-text {
+  color: #ff7200;
+}
+
+/* Loading overlay styles */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none; /* Hidden by default */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's above all other content */
+}
+
+/* Spinner styles */
+.spinner {
+  border: 8px solid rgba(255, 255, 255, 0.3);
+  border-top: 8px solid #ffffff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+/* Keyframes for the spinner animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

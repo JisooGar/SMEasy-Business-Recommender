@@ -1,0 +1,190 @@
+/* Google Font Import - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');  
+
+*{
+    margin: 0;
+    padding: 0;
+    
+  }
+
+  section
+  {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 95px;
+    box-sizing: border-box;
+    background: linear-gradient(180deg,#0e0d09, rgb(243, 199, 95)), url(/images/mamatid.jpg)no-repeat center center/cover;
+    background-blend-mode: screen;
+  }
+
+  section .content
+  {
+    max-width: 700px;
+  }
+
+  section .content h2
+  {
+   font-size: 3em;
+   color:#070606;
+   font-family: 'Times New Roman', Times, serif;
+  }
+
+  section .content p
+  {
+   font-size: 1.2em;
+   color:rgb(48, 31, 31);
+  }
+
+  section img
+  {
+   position: relative;
+   max-width: 400px;
+   border-radius: 8px;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 70px; /* Sidebar width */
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+  .content-section {
+    margin-left: 70px; /* Sidebar width */
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+    box-sizing: border-box;
+  }
+  
+  .layout-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Left section 1/3, right section 2/3 */
+    gap: 20px;
+  }
+  
+  .left-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .right-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .filters {
+    display: flex;
+    gap: 15px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .filters label {
+    font-size: 0.875rem;
+    color: #333;
+  }
+  
+  .filters select {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 0.875rem;
+    color: #333;
+    background-color: #fff;
+  }
+  
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column for stats */
+    gap: 20px;
+  }
+  
+  .stat-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .stat-card h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #333;
+  }
+  
+  .stat-card p {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #000;
+  }
+  
+  .stat-card span {
+    font-size: 0.875rem;
+    color: green;
+  }
+  
+  .graph-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns of equal width */
+    gap: 20px;
+    width: 100%; /* Full width */
+  }
+  
+  .graph-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Page Views Bar Chart Container */
+  .page-views-graph {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 550px; /* Set a fixed height */
+  }
+  
+  .page-views-graph canvas {
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Web Traffic Concentration Pie Chart Container */
+  .web-traffic-graph {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 550px; /* Set a fixed height */
+  }
+  
+  .graph-card h3 {
+    margin-bottom: 20px;
+    font-size: 1.25rem;
+    color: #333;
+  }
+  
+  canvas {
+    max-width: 100%;
+  }
+  
+  .orange-text {
+    color: rgb(0, 0, 0);
+  }

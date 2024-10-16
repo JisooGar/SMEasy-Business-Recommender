@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMEasy | Barangay</title>
+    <link rel="stylesheet" href="/homepage/homepage.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/recommender_page/css/recommender.css">
+    <link rel="stylesheet" href="/recommender_page/css/recommender_business.css">
+</head>
+<body>
+
+<!--SIDEBAR-->
+<nav class="sidebar close">
+    <header>
+        <div class="image-text">
+            <span class="image">
+                <img src="/homepage/smeasylogo.png" alt="LOGO">
+            </span>
+            <div class="text logo-text">
+                <span class="name">SMEasy</span>
+                <span class="profession">Recommender</span>
+            </div>
+        </div>
+        <i class='bx bx-chevron-right toggle'></i>
+    </header>
+    <div class="menu-bar">
+        <div class="menu">
+            <li class="search-box">
+                <i class='bx bx-search icon'></i>
+                <input type="text" placeholder="Search...">
+            </li>
+            <ul class="menu-links">
+                <li class="nav-link">
+                    <a href="/homepage/homepage.html">
+                        <i class='bx bx-home-alt icon'></i>
+                        <span class="text nav-text">Homepage</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="/analytics/analytics.html">
+                        <i class='bx bx-bar-chart-alt-2 icon'></i>
+                        <span class="text nav-text">Analytics</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="/recommender_page/html/recommender.html">
+                        <i class='bx bx-pie-chart-alt icon'></i>
+                        <span class="text nav-text">Recommender</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="/about.html/aboutUs.html">
+                        <i class='bx bx-heart icon'></i>
+                        <span class="text nav-text">About</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="bottom-content">
+            <li>
+                <a href="/Login/index.html">
+                    <i class='bx bx-log-out icon'></i>
+                    <span class="text nav-text" id="signOutButton">Logout</span>
+                </a>
+            </li>
+
+            <li class="mode">
+                <div class="sun-moon">
+                    <i class='bx bx-moon icon moon'></i>
+                    <i class='bx bx-sun icon sun'></i>
+                </div>
+                <span class="mode-text text">Dark mode</span>
+                <div class="toggle-switch">
+                    <span class="switch"></span>
+                </div>
+            </li>
+        </div>
+    </div>
+</nav>
+
+<section class="home">
+    <div class="container">
+        <div class="left-section">
+            <h2>Business Recommender</h2>
+
+            <!-- Barangay Buttons -->
+            <div id="categories-container">
+                <h3>Select a Barangay</h3>
+                <div id="category-buttons">
+                    <button class="barangay-btn" onclick="selectBarangay(this)">Baclaran</button>
+                    <button class="barangay-btn" onclick="selectBarangay(this)">Banaybanay</button>
+                    <button class="barangay-btn" onclick="selectBarangay(this)">Banlic</button>
+                    <button class="barangay-btn" onclick="selectBarangay(this)">Bigaa</button>
+                    <button class="barangay-btn" onclick="selectBarangay(this)">Butong</button>
+                    <button class="barangay-btn" onclick="selectBarangay(this)">Casile</button>
+                    <button class="barangay-btn" onclick="selectBarangay(this)">Diezmo</button>
+                    <button class="barangay-btn" onclick="selectBarangay(this)">Gulod</button>
+                    <button class="barangay-btn" onclick="selectBarangay(this)">Mamatid</button>
+                    <button class="barangay-btn" onclick="selectBarangay(this)">Marinig</button>
+                    <button class="barangay-btn" onclick="selectBarangay(this)">Niugan</button>
+                    <button class="barangay-btn" onclick="selectBarangay(this)">Pittland</button>
+                    <button class="barangay-btn" onclick="selectBarangay(this)">Poblacion Uno</button>
+                    <button class="barangay-btn" onclick="selectBarangay(this)">Poblacion Dos</button>
+                    <button class="barangay-btn" onclick="selectBarangay(this)">Poblacion Tres</button>
+                    <button class="barangay-btn" onclick="selectBarangay(this)">Pulo</button>
+                    <button class="barangay-btn" onclick="selectBarangay(this)">Sala</button>
+                    <button class="barangay-btn" onclick="selectBarangay(this)">San Isidro</button>
+                </div>
+            </div>
+
+            <!-- Add the Proceed Button here -->
+            <div class="button-section">
+                <button class="btn proceed-btn" id="proceed-button" onclick="handleProceed()">Proceed</button>
+            </div>
+        </div>
+
+        <div class="right-section" id="result-section" style="display:none;">
+            <div id="table-container" class="scrollable-table-container">
+                <h1>Top 3 Recommended Category</h1>
+                <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>Categories</th>
+                            <th>Total Businesses</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Rows will be dynamically inserted here -->
+                    </tbody>
+                </table>
+            </div>
+            <!-- Proceed button directly below the table -->
+            <div class="button-section">
+                <button class="btn analyze-btn" id="analyze-button" onclick="handleAnalyze()">Analyze</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="recommendation-section" style="display: none;">
+    <h1>Location Recommendation for Building Your Business</h1>
+    <h2 id="barangayName">BRGY NAME: [Category Name]</h2>
+
+    <div class="recommendation-grid">
+        <!-- Business Overview -->
+        <div class="grid-item location-overview">
+            <h3>Business Overview</h3>
+            <p id="selectedBarangay">Selected Barangay: [Insert Barangay]</p>
+            <p id="barangayAreaType">Barangay Area type: [Insert Area Type]</p>
+            <p id="totalBusinesses">Total Registered SMEs: [Insert Count]</p>
+        </div>
+
+        <!-- Market Analysis -->
+        <div class="grid-item market-analysis">
+            <h3>Market Analysis</h3>
+            
+            <!-- Table: Top Striving Categories -->
+            <div class="scrollable-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Count</th>
+                        </tr>
+                    </thead>
+                    <tbody id="topStrivingCategories">
+                        <!-- Rows for Top Striving Categories will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Underserved Categories -->
+            <div class="scrollable-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Underserved Categories</th>
+                        </tr>
+                    </thead>
+                    <tbody id="underservedCategories">
+                        <!-- Rows for Underserved Categories will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Potential Market -->
+            <div class="scrollable-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Potential Market</th>
+                        </tr>
+                    </thead>
+                    <tbody id="potentialMarket">
+                        <!-- Rows for Potential Market will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+<!-- Population and Segmentation Analysis -->
+<div class="grid-item population-segmentation-analysis">
+    <h3>Population and Segmentation Analysis</h3>
+    <p id="populationOverview">Population Overview: [Insert Overview]</p>
+    <p id="segmentation">Segmentation: [Insert Segmentation]</p>
+</div>
+
+
+
+<!-- Accessibility and Infrastructure -->
+<div class="grid-item accessibility-and-infrastructure">
+    <h3>Accessibility and Infrastructure</h3>
+    
+    <!-- Area Types Table -->
+    <div class="scrollable-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Area Type</th>
+                </tr>
+            </thead>
+            <tbody id="accessibilityTable">
+                <!-- Rows for Area Types will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- Public Transport Access and Challenges -->
+    <p id="publicTransportAccess">Public Transport Access: [Insert Access]</p>
+    <p id="challenges">Challenges: [Insert Challenges]</p>
+</div>
+
+
+
+        <!-- Recommendation Summary -->
+        <div class="grid-item recommendation-summary">
+            <h3>Recommendation Summary</h3>
+            <p>(Recommended Business)</p>
+            <p id="recommendationSummary">[Insert Summary]</p>
+        </div>
+    </div>
+</div>
+
+
+<div id="loading-spinner" style="display: none;">
+    <div class="spinner"></div>
+</div>
+
+<script src="/homepage/homepage.js"></script>
+<script src="/recommender_page/javascript/recommender_business.js"></script>
+<script src="/recommender_page/backend/business.js"></script>
+
+</body>
+</html>

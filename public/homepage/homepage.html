@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMEasy | Homepage</title>
+    <link rel="stylesheet" href="homepage.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!--header navigation bar-->
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand"></a>
+            <div class="navbar-content">
+
+    <form class="search-form" role="search">
+        <input id="search-input" class="form-control" type="search" placeholder="Search Business" aria-label="Search">
+        <div id="autocomplete-list" class="autocomplete-items"></div>
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+
+    <div class="btn-group">
+        <div class="dropdown">
+            <button class="dropbtn">Barangay</button> <!-- Marker will be added dynamically -->
+            <div id="barangay-dropdown" class="dropdown-content">
+                <!-- Barangay options will be populated here -->
+            </div>
+        </div>
+    
+        <div class="dropdown">
+            <button class="dropbtn">Industry</button>
+            <div id="industry-dropdown" class="dropdown-content">
+                <!-- Industry options will be populated here -->
+            </div>
+        </div>
+        
+        <div class="dropdown">
+            <button class="dropbtn">Business Categories</button>
+            <div id="category-dropdown" class="dropdown-content">
+                <!-- Categories and subcategories will be dynamically populated here by JavaScript -->
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+    </nav>
+    <!--END OF HEADER NAVIGATION BAR-->
+
+    <!--SIDEBAR-->
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="smeasylogo.png" alt="LOGO">
+                </span>
+                <div class="text logo-text">
+                    <span class="name">SMEasy</span>
+                    <span class="profession">Business Homepage</span>
+                </div>
+            </div>
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+        <div class="menu-bar">
+            <div class="menu">
+                <li class="search-box">
+                    <i class='bx bx-search icon'></i>
+                    <input type="text" placeholder="Search...">
+                </li>
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="homepage.html">
+                            <i class='bx bx-home-alt icon' ></i>
+                            <span class="text nav-text">Homepage</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="/analytics/analytics.html">
+                            <i class='bx bx-bar-chart-alt-2 icon' ></i>
+                            <span class="text nav-text">Visualization</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="/recommender_page/html/recommender.html">
+                            <i class='bx bx-pie-chart-alt icon' ></i>
+                            <span class="text nav-text">Analysis</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="/about.html/aboutUs.html">
+                            <i class='bx bx-heart icon' ></i>
+                            <span class="text nav-text">About</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="">
+                    <a href=""  id="signOutButton">
+                        <i class='bx bx-log-out icon' ></i>
+                        <span class="text nav-text" id="signOutButton">Logout</span>
+                    </a>
+                </li>
+
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+            </div>
+        </div>
+    </nav>
+
+ <!-- Toast Notification -->
+<div id="toast" class="toast" style="display: none;">NO [subcategory] CREDITED HERE</div>
+
+<!-- Logout Modal -->
+<div id="logoutModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Log Out</h2>
+      <p>Are you sure you want to log out?</p>
+      <div class="button-container">
+        <button id="confirmLogout" class="modal-btn yes-btn">Yes, Log Out</button>
+        <button id="cancelLogout" class="modal-btn no-btn">No, Stay</button>
+      </div>
+    </div>
+  </div>
+  
+
+
+    <!-- Main content -->
+    <div id="google-map"></div>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOHl7UhfFADZokofIACrQ4oplJWdvpmPk&callback=initMap"></script>
+    <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+    <script src="mapping.js"></script>
+    <script src="homepage.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- Firebase Configuration -->
+    <script src="firebaseConfig.js" type="module"></script>
+</body>
+</html>
