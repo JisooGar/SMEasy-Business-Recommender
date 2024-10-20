@@ -45,7 +45,7 @@
                     </a>
                 </li>
                 <li class="nav-link">
-                    <a href="/recommender_page/html/recommender.html">
+                    <a href="/recommender_page/recommender.html">
                         <i class='bx bx-pie-chart-alt icon' ></i>
                         <span class="text nav-text">Recommender</span>
                     </a>
@@ -60,12 +60,12 @@
         </div>
 
         <div class="bottom-content">
-            <li class="">
-                <a href="/Login/index.html">
-                    <i class='bx bx-log-out icon' ></i>
-                    <span class="text nav-text" id="signOutButton">Logout</span>
-                </a>
-            </li>
+          <li class="">
+              <a href=""  id="signOutButton">
+                  <i class='bx bx-log-out icon' ></i>
+                  <span class="text nav-text" id="signOutButton">Logout</span>
+              </a>
+          </li>
 
             <li class="mode">
                 <div class="sun-moon">
@@ -119,7 +119,18 @@
     </div>
   </div>
 
-
+<!-- Logout Modal -->
+<div id="logoutModal" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Log Out</h2>
+    <p>Are you sure you want to log out?</p>
+    <div class="button-container">
+      <button id="confirmLogout" class="modal-btn yes-btn">Yes, Log Out</button>
+      <button id="cancelLogout" class="modal-btn no-btn">No, Stay</button>
+    </div>
+  </div>
+</div>
 
     <!-- Main content -->
     <script src="/homepage/homepage.js"></script>

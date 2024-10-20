@@ -60,7 +60,7 @@
 
         <div class="bottom-content">
             <li class="">
-                <a href="/Login/index.html">
+                <a href=""  id="signOutButton">
                     <i class='bx bx-log-out icon' ></i>
                     <span class="text nav-text" id="signOutButton">Logout</span>
                 </a>
@@ -123,19 +123,25 @@
     <div class="spinner"></div>
 </div>
 
+<!-- Logout Modal -->
+<div id="logoutModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Log Out</h2>
+      <p>Are you sure you want to log out?</p>
+      <div class="button-container">
+        <button id="confirmLogout" class="modal-btn yes-btn">Yes, Log Out</button>
+        <button id="cancelLogout" class="modal-btn no-btn">No, Stay</button>
+      </div>
+    </div>
+  </div>
 
 <!--MAIN CONTENT-->
 <script src="/recommender_page/javascript/recommender.js"></script>
-<script src="/homepage/homepage.js"></script>
 <script src="/recommender_page/javascript/recommender_barangay.js"></script>
 <script src="/recommender_page/javascript/recommender_business.js"></script>
-<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-<script>
-    document.querySelector('.toggle').addEventListener('click', function() {
-        document.querySelector('.sidebar').classList.toggle('close');
-        document.querySelector('.home .container').classList.toggle('sidebar-open');
-    });
-</script>
+<script src="/homepage/homepage.js"></script>
+
 
 </body>
 </html>

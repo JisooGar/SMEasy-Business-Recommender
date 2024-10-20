@@ -1,9 +1,11 @@
 document.querySelector('.toggle').addEventListener('click', function() {
-    document.querySelector('.sidebar').classList.toggle('close');
+
     document.querySelector('.container-section').classList.toggle('sidebar-open');
     document.querySelector('.right-section').classList.toggle('sidebar-open');
     document.querySelector('.header-content').classList.toggle('sidebar-open');
 });
+
+
 
 // Function to show the loading overlay
 function showLoadingScreen() {

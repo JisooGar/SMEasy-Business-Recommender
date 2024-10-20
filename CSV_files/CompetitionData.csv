@@ -1,0 +1,325 @@
+Barangay,Category,Direct,Indirect,Replacement,Competition Density
+Baclaran,Automotive Services,2,0,0,1.2
+Banaybanay ,Automotive Services,12,2,9,8.7
+Banlic,Automotive Services,10,2,14,8
+Bigaa,Automotive Services,6,0,1,3.7
+Butong,Automotive Services,1,1,1,1
+Casile,Automotive Services,1,0,1,0.7
+Diezmo,Automotive Services,0,2,0,0.6
+Gulod,Automotive Services,2,0,1,1.3
+Mamatid,Automotive Services,11,5,6,8.7
+Marinig,Automotive Services,3,1,6,2.7
+Niugan,Automotive Services,3,0,9,2.7
+Pittland,Automotive Services,0,0,0,0
+Poblacion Dos,Automotive Services,0,0,0,0
+Poblacion Tres,Automotive Services,2,1,3,1.8
+Poblacion Uno,Automotive Services,1,0,3,0.9
+Pulo,Automotive Services,19,6,15,14.7
+Sala,Automotive Services,16,3,13,11.8
+San Isidro,Automotive Services,5,4,2,4.4
+Baclaran,Construction and Real Estate,2,1,1,1.6
+Banaybanay ,Construction and Real Estate,37,18,21,29.7
+Banlic,Construction and Real Estate,45,16,18,33.6
+Bigaa,Construction and Real Estate,17,2,8,11.6
+Butong,Construction and Real Estate,0,1,4,0.7
+Casile,Construction and Real Estate,2,0,2,1.4
+Diezmo,Construction and Real Estate,23,12,0,17.4
+Gulod,Construction and Real Estate,9,1,5,6.2
+Mamatid,Construction and Real Estate,20,6,16,15.4
+Marinig,Construction and Real Estate,15,1,9,10.2
+Niugan,Construction and Real Estate,18,3,3,12
+Pittland,Construction and Real Estate,5,2,1,3.7
+Poblacion Dos,Construction and Real Estate,6,0,2,3.8
+Poblacion Tres,Construction and Real Estate,8,1,1,5.2
+Poblacion Uno,Construction and Real Estate,13,0,1,7.9
+Pulo,Construction and Real Estate,53,20,23,40.1
+Sala,Construction and Real Estate,31,11,12,23.1
+San Isidro,Construction and Real Estate,22,8,6,16.2
+Baclaran,Cooperative Business,1,1,3,1.2
+Banaybanay ,Cooperative Business,2,14,17,7.1
+Banlic,Cooperative Business,1,19,19,8.2
+Bigaa,Cooperative Business,2,1,2,1.7
+Butong,Cooperative Business,0,3,4,1.3
+Casile,Cooperative Business,1,2,1,1.3
+Diezmo,Cooperative Business,3,5,1,3.4
+Gulod,Cooperative Business,0,5,4,1.9
+Mamatid,Cooperative Business,2,13,13,6.4
+Marinig,Cooperative Business,1,2,5,1.7
+Niugan,Cooperative Business,0,8,5,2.9
+Pittland,Cooperative Business,1,0,0,0.6
+Poblacion Dos,Cooperative Business,3,9,5,5
+Poblacion Tres,Cooperative Business,1,8,4,3.4
+Poblacion Uno,Cooperative Business,0,7,5,2.6
+Pulo,Cooperative Business,2,34,11,12.5
+Sala,Cooperative Business,8,18,10,11.2
+San Isidro,Cooperative Business,2,10,19,6.1
+Baclaran,Creative and Media Services,3,0,0,1.8
+Banaybanay ,Creative and Media Services,6,1,9,4.8
+Banlic,Creative and Media Services,5,0,13,4.3
+Bigaa,Creative and Media Services,1,0,1,0.7
+Butong,Creative and Media Services,0,0,0,0
+Casile,Creative and Media Services,0,0,1,0.1
+Diezmo,Creative and Media Services,1,0,1,0.7
+Gulod,Creative and Media Services,1,0,0,0.6
+Mamatid,Creative and Media Services,4,1,6,3.3
+Marinig,Creative and Media Services,2,0,11,2.3
+Niugan,Creative and Media Services,2,1,0,1.5
+Pittland,Creative and Media Services,0,0,0,0
+Poblacion Dos,Creative and Media Services,0,1,1,0.4
+Poblacion Tres,Creative and Media Services,2,0,0,1.2
+Poblacion Uno,Creative and Media Services,1,0,3,0.9
+Pulo,Creative and Media Services,2,0,10,2.2
+Sala,Creative and Media Services,3,2,4,2.8
+San Isidro,Creative and Media Services,0,0,4,0.4
+Baclaran,Educational Services,1,1,3,1.2
+Banaybanay ,Educational Services,8,11,10,9.1
+Banlic,Educational Services,7,8,4,7
+Bigaa,Educational Services,1,2,0,1.2
+Butong,Educational Services,2,1,0,1.5
+Casile,Educational Services,0,1,1,0.4
+Diezmo,Educational Services,0,4,0,1.2
+Gulod,Educational Services,2,0,1,1.3
+Mamatid,Educational Services,10,5,5,8
+Marinig,Educational Services,4,3,3,3.6
+Niugan,Educational Services,1,1,1,1
+Pittland,Educational Services,0,1,0,0.3
+Poblacion Dos,Educational Services,1,3,1,1.6
+Poblacion Tres,Educational Services,1,1,2,1.1
+Poblacion Uno,Educational Services,4,1,3,3
+Pulo,Educational Services,5,6,5,5.3
+Sala,Educational Services,5,12,5,7.1
+San Isidro,Educational Services,9,5,1,7
+Baclaran,Entertainment and Recreation,0,0,3,0.3
+Banaybanay ,Entertainment and Recreation,1,3,36,5.1
+Banlic,Entertainment and Recreation,2,3,30,5.1
+Bigaa,Entertainment and Recreation,1,1,2,1.1
+Butong,Entertainment and Recreation,0,0,5,0.5
+Casile,Entertainment and Recreation,1,1,3,1.2
+Diezmo,Entertainment and Recreation,1,0,3,0.9
+Gulod,Entertainment and Recreation,0,0,6,0.6
+Mamatid,Entertainment and Recreation,1,3,16,3.1
+Marinig,Entertainment and Recreation,0,0,13,1.3
+Niugan,Entertainment and Recreation,1,0,7,1.3
+Pittland,Entertainment and Recreation,0,0,1,0.1
+Poblacion Dos,Entertainment and Recreation,1,0,5,1.1
+Poblacion Tres,Entertainment and Recreation,0,0,5,0.5
+Poblacion Uno,Entertainment and Recreation,0,0,4,0.4
+Pulo,Entertainment and Recreation,2,5,29,5.6
+Sala,Entertainment and Recreation,1,5,24,4.5
+San Isidro,Entertainment and Recreation,1,0,8,1.4
+Baclaran,Finance and Insurance,0,1,3,0.6
+Banaybanay ,Finance and Insurance,7,9,10,7.9
+Banlic,Finance and Insurance,21,8,7,15.7
+Bigaa,Finance and Insurance,1,3,0,1.5
+Butong,Finance and Insurance,0,1,2,0.5
+Casile,Finance and Insurance,0,1,0,0.3
+Diezmo,Finance and Insurance,11,3,1,7.6
+Gulod,Finance and Insurance,2,0,3,1.5
+Mamatid,Finance and Insurance,9,3,16,7.9
+Marinig,Finance and Insurance,0,1,7,1
+Niugan,Finance and Insurance,7,1,4,4.9
+Pittland,Finance and Insurance,2,1,0,1.5
+Poblacion Dos,Finance and Insurance,8,3,5,6.2
+Poblacion Tres,Finance and Insurance,5,1,1,3.4
+Poblacion Uno,Finance and Insurance,8,0,2,5
+Pulo,Finance and Insurance,14,5,17,11.6
+Sala,Finance and Insurance,13,10,4,11.2
+San Isidro,Finance and Insurance,4,4,5,4.1
+Baclaran,Food Services,2,2,11,2.9
+Banaybanay ,Food Services,26,9,35,21.8
+Banlic,Food Services,26,2,42,20.4
+Bigaa,Food Services,0,7,3,2.4
+Butong,Food Services,1,2,9,2.1
+Casile,Food Services,3,1,1,2.2
+Diezmo,Food Services,17,0,0,10.2
+Gulod,Food Services,1,3,6,2.1
+Mamatid,Food Services,9,6,34,10.6
+Marinig,Food Services,0,3,26,3.5
+Niugan,Food Services,7,1,19,6.4
+Pittland,Food Services,4,0,2,2.6
+Poblacion Dos,Food Services,7,1,31,7.6
+Poblacion Tres,Food Services,8,0,9,5.7
+Poblacion Uno,Food Services,4,0,5,2.9
+Pulo,Food Services,29,4,35,22.1
+Sala,Food Services,22,7,12,16.5
+San Isidro,Food Services,3,4,18,4.8
+Baclaran,Healthcare Services,4,0,0,2.4
+Banaybanay ,Healthcare Services,18,1,4,11.5
+Banlic,Healthcare Services,13,1,4,8.5
+Bigaa,Healthcare Services,1,0,0,0.6
+Butong,Healthcare Services,3,0,0,1.8
+Casile,Healthcare Services,0,0,0,0
+Diezmo,Healthcare Services,2,0,1,1.3
+Gulod,Healthcare Services,3,0,1,1.9
+Mamatid,Healthcare Services,19,1,2,11.9
+Marinig,Healthcare Services,11,0,2,6.8
+Niugan,Healthcare Services,7,0,0,4.2
+Pittland,Healthcare Services,0,0,0,0
+Poblacion Dos,Healthcare Services,9,1,0,5.7
+Poblacion Tres,Healthcare Services,7,1,0,4.5
+Poblacion Uno,Healthcare Services,4,0,2,2.6
+Pulo,Healthcare Services,20,2,1,12.7
+Sala,Healthcare Services,14,0,2,8.6
+San Isidro,Healthcare Services,14,0,1,8.5
+Baclaran,IT and Digital Services,1,3,0,1.5
+Banaybanay ,IT and Digital Services,4,6,4,4.6
+Banlic,IT and Digital Services,4,5,10,4.9
+Bigaa,IT and Digital Services,0,1,0,0.3
+Butong,IT and Digital Services,0,0,0,0
+Casile,IT and Digital Services,0,0,0,0
+Diezmo,IT and Digital Services,1,1,1,1
+Gulod,IT and Digital Services,0,1,0,0.3
+Mamatid,IT and Digital Services,3,4,3,3.3
+Marinig,IT and Digital Services,1,2,0,1.2
+Niugan,IT and Digital Services,2,2,0,1.8
+Pittland,IT and Digital Services,1,0,0,0.6
+Poblacion Dos,IT and Digital Services,0,0,0,0
+Poblacion Tres,IT and Digital Services,0,2,0,0.6
+Poblacion Uno,IT and Digital Services,1,1,1,1
+Pulo,IT and Digital Services,2,2,4,2.2
+Sala,IT and Digital Services,5,3,1,4
+San Isidro,IT and Digital Services,2,0,1,1.3
+Baclaran,Manufacturing and Production,0,2,24,3
+Banaybanay ,Manufacturing and Production,17,29,128,31.7
+Banlic,Manufacturing and Production,9,13,147,24
+Bigaa,Manufacturing and Production,3,1,27,4.8
+Butong,Manufacturing and Production,3,5,24,5.7
+Casile,Manufacturing and Production,0,0,7,0.7
+Diezmo,Manufacturing and Production,20,5,1,13.6
+Gulod,Manufacturing and Production,2,1,30,4.5
+Mamatid,Manufacturing and Production,13,9,103,20.8
+Marinig,Manufacturing and Production,1,3,77,9.2
+Niugan,Manufacturing and Production,11,5,51,13.2
+Pittland,Manufacturing and Production,4,2,6,3.6
+Poblacion Dos,Manufacturing and Production,1,2,53,6.5
+Poblacion Tres,Manufacturing and Production,3,0,20,3.8
+Poblacion Uno,Manufacturing and Production,0,1,19,2.2
+Pulo,Manufacturing and Production,20,12,120,27.6
+Sala,Manufacturing and Production,9,11,60,14.7
+San Isidro,Manufacturing and Production,13,12,50,16.4
+Baclaran,Personal and Household Services,1,0,0,0.6
+Banaybanay ,Personal and Household Services,10,11,1,9.4
+Banlic,Personal and Household Services,11,6,4,8.8
+Bigaa,Personal and Household Services,1,1,2,1.1
+Butong,Personal and Household Services,2,3,0,2.1
+Casile,Personal and Household Services,2,0,0,1.2
+Diezmo,Personal and Household Services,0,2,0,0.6
+Gulod,Personal and Household Services,4,2,0,3
+Mamatid,Personal and Household Services,14,3,1,9.4
+Marinig,Personal and Household Services,4,1,0,2.7
+Niugan,Personal and Household Services,7,6,0,6
+Pittland,Personal and Household Services,0,3,0,0.9
+Poblacion Dos,Personal and Household Services,1,1,0,0.9
+Poblacion Tres,Personal and Household Services,1,0,0,0.6
+Poblacion Uno,Personal and Household Services,1,3,0,1.5
+Pulo,Personal and Household Services,10,15,8,11.3
+Sala,Personal and Household Services,4,3,4,3.7
+San Isidro,Personal and Household Services,3,4,1,3.1
+Baclaran,Personal Care Services,0,1,0,0.3
+Banaybanay ,Personal Care Services,2,4,0,2.4
+Banlic,Personal Care Services,6,5,3,5.4
+Bigaa,Personal Care Services,0,1,0,0.3
+Butong,Personal Care Services,0,1,0,0.3
+Casile,Personal Care Services,0,0,0,0
+Diezmo,Personal Care Services,0,1,0,0.3
+Gulod,Personal Care Services,0,2,1,0.7
+Mamatid,Personal Care Services,4,5,2,4.1
+Marinig,Personal Care Services,0,2,1,0.7
+Niugan,Personal Care Services,0,1,0,0.3
+Pittland,Personal Care Services,0,0,0,0
+Poblacion Dos,Personal Care Services,3,5,0,3.3
+Poblacion Tres,Personal Care Services,1,3,0,1.5
+Poblacion Uno,Personal Care Services,1,2,0,1.2
+Pulo,Personal Care Services,8,3,1,5.8
+Sala,Personal Care Services,2,5,1,2.8
+San Isidro,Personal Care Services,1,5,1,2.2
+Baclaran,Professional Services,1,1,1,1
+Banaybanay ,Professional Services,28,7,10,19.9
+Banlic,Professional Services,16,14,13,15.1
+Bigaa,Professional Services,3,4,0,3
+Butong,Professional Services,4,0,1,2.5
+Casile,Professional Services,0,2,1,0.7
+Diezmo,Professional Services,4,4,3,3.9
+Gulod,Professional Services,2,1,2,1.7
+Mamatid,Professional Services,6,9,7,7
+Marinig,Professional Services,2,7,2,3.5
+Niugan,Professional Services,6,8,0,6
+Pittland,Professional Services,5,0,0,3
+Poblacion Dos,Professional Services,0,3,2,1.1
+Poblacion Tres,Professional Services,0,3,1,1
+Poblacion Uno,Professional Services,2,6,3,3.3
+Pulo,Professional Services,27,18,14,23
+Sala,Professional Services,6,16,7,9.1
+San Isidro,Professional Services,14,9,3,11.4
+Baclaran,Retail Stores,24,7,0,16.5
+Banaybanay ,Retail Stores,128,64,7,96.7
+Banlic,Retail Stores,147,42,12,102
+Bigaa,Retail Stores,26,1,2,16.1
+Butong,Retail Stores,24,8,2,17
+Casile,Retail Stores,7,3,0,5.1
+Diezmo,Retail Stores,1,23,5,8
+Gulod,Retail Stores,30,3,0,18.9
+Mamatid,Retail Stores,104,29,11,72.2
+Marinig,Retail Stores,77,9,1,49
+Niugan,Retail Stores,51,16,6,36
+Pittland,Retail Stores,6,6,4,5.8
+Poblacion Dos,Retail Stores,53,13,3,36
+Poblacion Tres,Retail Stores,20,9,0,14.7
+Poblacion Uno,Retail Stores,19,7,2,13.7
+Pulo,Retail Stores,120,50,17,88.7
+Sala,Retail Stores,60,35,7,47.2
+San Isidro,Retail Stores,50,19,7,36.4
+Baclaran,Tourism and Hospitality,0,1,0,0.3
+Banaybanay ,Tourism and Hospitality,2,13,1,5.2
+Banlic,Tourism and Hospitality,0,8,3,2.7
+Bigaa,Tourism and Hospitality,1,0,1,0.7
+Butong,Tourism and Hospitality,0,1,0,0.3
+Casile,Tourism and Hospitality,1,2,0,1.2
+Diezmo,Tourism and Hospitality,0,3,0,0.9
+Gulod,Tourism and Hospitality,1,1,0,0.9
+Mamatid,Tourism and Hospitality,3,4,2,3.2
+Marinig,Tourism and Hospitality,0,0,2,0.2
+Niugan,Tourism and Hospitality,0,4,0,1.2
+Pittland,Tourism and Hospitality,0,0,0,0
+Poblacion Dos,Tourism and Hospitality,1,2,0,1.2
+Poblacion Tres,Tourism and Hospitality,0,4,0,1.2
+Poblacion Uno,Tourism and Hospitality,0,1,1,0.4
+Pulo,Tourism and Hospitality,6,13,5,8
+Sala,Tourism and Hospitality,4,12,3,6.3
+San Isidro,Tourism and Hospitality,0,3,0,0.9
+Baclaran,Transportation and Logistics,2,0,1,1.3
+Banaybanay ,Transportation and Logistics,27,0,18,18
+Banlic,Transportation and Logistics,25,3,15,17.4
+Bigaa,Transportation and Logistics,9,0,5,5.9
+Butong,Transportation and Logistics,4,0,1,2.5
+Casile,Transportation and Logistics,0,0,2,0.2
+Diezmo,Transportation and Logistics,9,1,0,5.7
+Gulod,Transportation and Logistics,9,2,2,6.2
+Mamatid,Transportation and Logistics,12,4,13,9.7
+Marinig,Transportation and Logistics,12,0,5,7.7
+Niugan,Transportation and Logistics,11,1,9,7.8
+Pittland,Transportation and Logistics,3,0,0,1.8
+Poblacion Dos,Transportation and Logistics,0,1,0,0.3
+Poblacion Tres,Transportation and Logistics,3,0,3,2.1
+Poblacion Uno,Transportation and Logistics,2,0,3,1.5
+Pulo,Transportation and Logistics,63,2,19,40.3
+Sala,Transportation and Logistics,20,0,21,14.1
+San Isidro,Transportation and Logistics,16,0,6,10.2
+Baclaran,Wholesale and Distribution,2,24,0,8.4
+Banaybanay ,Wholesale and Distribution,29,128,17,57.5
+Banlic,Wholesale and Distribution,13,147,9,52.8
+Bigaa,Wholesale and Distribution,1,27,3,9
+Butong,Wholesale and Distribution,5,24,3,10.5
+Casile,Wholesale and Distribution,0,7,0,2.1
+Diezmo,Wholesale and Distribution,5,1,20,5.3
+Gulod,Wholesale and Distribution,1,30,2,9.8
+Mamatid,Wholesale and Distribution,9,103,13,37.6
+Marinig,Wholesale and Distribution,3,77,1,25
+Niugan,Wholesale and Distribution,5,51,11,19.4
+Pittland,Wholesale and Distribution,2,6,4,3.4
+Poblacion Dos,Wholesale and Distribution,2,53,1,17.2
+Poblacion Tres,Wholesale and Distribution,0,20,3,6.3
+Poblacion Uno,Wholesale and Distribution,1,19,0,6.3
+Pulo,Wholesale and Distribution,12,120,20,45.2
+Sala,Wholesale and Distribution,11,60,9,25.5
+San Isidro,Wholesale and Distribution,12,50,13,23.5
