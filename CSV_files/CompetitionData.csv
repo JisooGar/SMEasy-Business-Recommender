@@ -1,6 +1,6 @@
 Barangay,Category,Direct,Indirect,Replacement,Competition Density
 Baclaran,Automotive Services,2,0,0,1.2
-Banaybanay ,Automotive Services,12,2,9,8.7
+Banaybanay,Automotive Services,12,2,9,8.7
 Banlic,Automotive Services,10,2,14,8
 Bigaa,Automotive Services,6,0,1,3.7
 Butong,Automotive Services,1,1,1,1
@@ -18,7 +18,7 @@ Pulo,Automotive Services,19,6,15,14.7
 Sala,Automotive Services,16,3,13,11.8
 San Isidro,Automotive Services,5,4,2,4.4
 Baclaran,Construction and Real Estate,2,1,1,1.6
-Banaybanay ,Construction and Real Estate,37,18,21,29.7
+Banaybanay,Construction and Real Estate,37,18,21,29.7
 Banlic,Construction and Real Estate,45,16,18,33.6
 Bigaa,Construction and Real Estate,17,2,8,11.6
 Butong,Construction and Real Estate,0,1,4,0.7
@@ -36,7 +36,7 @@ Pulo,Construction and Real Estate,53,20,23,40.1
 Sala,Construction and Real Estate,31,11,12,23.1
 San Isidro,Construction and Real Estate,22,8,6,16.2
 Baclaran,Cooperative Business,1,1,3,1.2
-Banaybanay ,Cooperative Business,2,14,17,7.1
+Banaybanay,Cooperative Business,2,14,17,7.1
 Banlic,Cooperative Business,1,19,19,8.2
 Bigaa,Cooperative Business,2,1,2,1.7
 Butong,Cooperative Business,0,3,4,1.3
@@ -54,7 +54,7 @@ Pulo,Cooperative Business,2,34,11,12.5
 Sala,Cooperative Business,8,18,10,11.2
 San Isidro,Cooperative Business,2,10,19,6.1
 Baclaran,Creative and Media Services,3,0,0,1.8
-Banaybanay ,Creative and Media Services,6,1,9,4.8
+Banaybanay,Creative and Media Services,6,1,9,4.8
 Banlic,Creative and Media Services,5,0,13,4.3
 Bigaa,Creative and Media Services,1,0,1,0.7
 Butong,Creative and Media Services,0,0,0,0
@@ -72,7 +72,7 @@ Pulo,Creative and Media Services,2,0,10,2.2
 Sala,Creative and Media Services,3,2,4,2.8
 San Isidro,Creative and Media Services,0,0,4,0.4
 Baclaran,Educational Services,1,1,3,1.2
-Banaybanay ,Educational Services,8,11,10,9.1
+Banaybanay,Educational Services,8,11,10,9.1
 Banlic,Educational Services,7,8,4,7
 Bigaa,Educational Services,1,2,0,1.2
 Butong,Educational Services,2,1,0,1.5
@@ -90,7 +90,7 @@ Pulo,Educational Services,5,6,5,5.3
 Sala,Educational Services,5,12,5,7.1
 San Isidro,Educational Services,9,5,1,7
 Baclaran,Entertainment and Recreation,0,0,3,0.3
-Banaybanay ,Entertainment and Recreation,1,3,36,5.1
+Banaybanay,Entertainment and Recreation,1,3,36,5.1
 Banlic,Entertainment and Recreation,2,3,30,5.1
 Bigaa,Entertainment and Recreation,1,1,2,1.1
 Butong,Entertainment and Recreation,0,0,5,0.5
@@ -108,7 +108,7 @@ Pulo,Entertainment and Recreation,2,5,29,5.6
 Sala,Entertainment and Recreation,1,5,24,4.5
 San Isidro,Entertainment and Recreation,1,0,8,1.4
 Baclaran,Finance and Insurance,0,1,3,0.6
-Banaybanay ,Finance and Insurance,7,9,10,7.9
+Banaybanay,Finance and Insurance,7,9,10,7.9
 Banlic,Finance and Insurance,21,8,7,15.7
 Bigaa,Finance and Insurance,1,3,0,1.5
 Butong,Finance and Insurance,0,1,2,0.5
@@ -126,7 +126,7 @@ Pulo,Finance and Insurance,14,5,17,11.6
 Sala,Finance and Insurance,13,10,4,11.2
 San Isidro,Finance and Insurance,4,4,5,4.1
 Baclaran,Food Services,2,2,11,2.9
-Banaybanay ,Food Services,26,9,35,21.8
+Banaybanay,Food Services,26,9,35,21.8
 Banlic,Food Services,26,2,42,20.4
 Bigaa,Food Services,0,7,3,2.4
 Butong,Food Services,1,2,9,2.1
@@ -144,7 +144,7 @@ Pulo,Food Services,29,4,35,22.1
 Sala,Food Services,22,7,12,16.5
 San Isidro,Food Services,3,4,18,4.8
 Baclaran,Healthcare Services,4,0,0,2.4
-Banaybanay ,Healthcare Services,18,1,4,11.5
+Banaybanay,Healthcare Services,18,1,4,11.5
 Banlic,Healthcare Services,13,1,4,8.5
 Bigaa,Healthcare Services,1,0,0,0.6
 Butong,Healthcare Services,3,0,0,1.8
@@ -162,7 +162,7 @@ Pulo,Healthcare Services,20,2,1,12.7
 Sala,Healthcare Services,14,0,2,8.6
 San Isidro,Healthcare Services,14,0,1,8.5
 Baclaran,IT and Digital Services,1,3,0,1.5
-Banaybanay ,IT and Digital Services,4,6,4,4.6
+Banaybanay,IT and Digital Services,4,6,4,4.6
 Banlic,IT and Digital Services,4,5,10,4.9
 Bigaa,IT and Digital Services,0,1,0,0.3
 Butong,IT and Digital Services,0,0,0,0
@@ -180,7 +180,7 @@ Pulo,IT and Digital Services,2,2,4,2.2
 Sala,IT and Digital Services,5,3,1,4
 San Isidro,IT and Digital Services,2,0,1,1.3
 Baclaran,Manufacturing and Production,0,2,24,3
-Banaybanay ,Manufacturing and Production,17,29,128,31.7
+Banaybanay,Manufacturing and Production,17,29,128,31.7
 Banlic,Manufacturing and Production,9,13,147,24
 Bigaa,Manufacturing and Production,3,1,27,4.8
 Butong,Manufacturing and Production,3,5,24,5.7
@@ -198,7 +198,7 @@ Pulo,Manufacturing and Production,20,12,120,27.6
 Sala,Manufacturing and Production,9,11,60,14.7
 San Isidro,Manufacturing and Production,13,12,50,16.4
 Baclaran,Personal and Household Services,1,0,0,0.6
-Banaybanay ,Personal and Household Services,10,11,1,9.4
+Banaybanay,Personal and Household Services,10,11,1,9.4
 Banlic,Personal and Household Services,11,6,4,8.8
 Bigaa,Personal and Household Services,1,1,2,1.1
 Butong,Personal and Household Services,2,3,0,2.1
@@ -216,7 +216,7 @@ Pulo,Personal and Household Services,10,15,8,11.3
 Sala,Personal and Household Services,4,3,4,3.7
 San Isidro,Personal and Household Services,3,4,1,3.1
 Baclaran,Personal Care Services,0,1,0,0.3
-Banaybanay ,Personal Care Services,2,4,0,2.4
+Banaybanay,Personal Care Services,2,4,0,2.4
 Banlic,Personal Care Services,6,5,3,5.4
 Bigaa,Personal Care Services,0,1,0,0.3
 Butong,Personal Care Services,0,1,0,0.3
@@ -234,7 +234,7 @@ Pulo,Personal Care Services,8,3,1,5.8
 Sala,Personal Care Services,2,5,1,2.8
 San Isidro,Personal Care Services,1,5,1,2.2
 Baclaran,Professional Services,1,1,1,1
-Banaybanay ,Professional Services,28,7,10,19.9
+Banaybanay,Professional Services,28,7,10,19.9
 Banlic,Professional Services,16,14,13,15.1
 Bigaa,Professional Services,3,4,0,3
 Butong,Professional Services,4,0,1,2.5
@@ -252,7 +252,7 @@ Pulo,Professional Services,27,18,14,23
 Sala,Professional Services,6,16,7,9.1
 San Isidro,Professional Services,14,9,3,11.4
 Baclaran,Retail Stores,24,7,0,16.5
-Banaybanay ,Retail Stores,128,64,7,96.7
+Banaybanay,Retail Stores,128,64,7,96.7
 Banlic,Retail Stores,147,42,12,102
 Bigaa,Retail Stores,26,1,2,16.1
 Butong,Retail Stores,24,8,2,17
@@ -270,7 +270,7 @@ Pulo,Retail Stores,120,50,17,88.7
 Sala,Retail Stores,60,35,7,47.2
 San Isidro,Retail Stores,50,19,7,36.4
 Baclaran,Tourism and Hospitality,0,1,0,0.3
-Banaybanay ,Tourism and Hospitality,2,13,1,5.2
+Banaybanay,Tourism and Hospitality,2,13,1,5.2
 Banlic,Tourism and Hospitality,0,8,3,2.7
 Bigaa,Tourism and Hospitality,1,0,1,0.7
 Butong,Tourism and Hospitality,0,1,0,0.3
@@ -288,7 +288,7 @@ Pulo,Tourism and Hospitality,6,13,5,8
 Sala,Tourism and Hospitality,4,12,3,6.3
 San Isidro,Tourism and Hospitality,0,3,0,0.9
 Baclaran,Transportation and Logistics,2,0,1,1.3
-Banaybanay ,Transportation and Logistics,27,0,18,18
+Banaybanay,Transportation and Logistics,27,0,18,18
 Banlic,Transportation and Logistics,25,3,15,17.4
 Bigaa,Transportation and Logistics,9,0,5,5.9
 Butong,Transportation and Logistics,4,0,1,2.5
@@ -306,7 +306,7 @@ Pulo,Transportation and Logistics,63,2,19,40.3
 Sala,Transportation and Logistics,20,0,21,14.1
 San Isidro,Transportation and Logistics,16,0,6,10.2
 Baclaran,Wholesale and Distribution,2,24,0,8.4
-Banaybanay ,Wholesale and Distribution,29,128,17,57.5
+Banaybanay,Wholesale and Distribution,29,128,17,57.5
 Banlic,Wholesale and Distribution,13,147,9,52.8
 Bigaa,Wholesale and Distribution,1,27,3,9
 Butong,Wholesale and Distribution,5,24,3,10.5

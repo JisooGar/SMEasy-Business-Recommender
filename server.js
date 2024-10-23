@@ -1,20 +1,94 @@
 const express = require('express');
 const path = require('path');
 const { Pool } = require('pg');
+const fs = require('fs');
+const csvParser = require('csv-parser'); // For parsing CSV
 
 const app = express();
 
-// PostgreSQL connection setup
+// PostgreSQL connection setup (if you're using it)
 const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
   database: 'SME',
-  password: 'LittleStar', 
+  password: 'LittleStar',
   port: 5432, // default port for PostgreSQL
 });
 
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Utility function to read CSV files
+const readCSVFile = (filePath) => {
+  return new Promise((resolve, reject) => {
+    const results = [];
+    fs.createReadStream(filePath)
+      .pipe(csvParser())
+      .on('data', (data) => results.push(data))
+      .on('end', () => resolve(results))
+      .on('error', (err) => reject(err));
+  });
+};
+
+// API to get SME data from CSV (for clustering)
+app.get('/api/sme-data', async (req, res) => {
+  try {
+    const filePath = path.join(__dirname, 'CSV_files', 'SME.csv');
+    const data = await readCSVFile(filePath);
+    res.json(data);
+  } catch (err) {
+    console.error('Error reading SME.csv:', err);
+    res.status(500).send('Error reading SME.csv');
+  }
+});
+
+// API to get Market Demand data from CSV
+app.get('/api/market-demand-data', async (req, res) => {
+  try {
+    const filePath = path.join(__dirname, 'CSV_files', 'MarketDemandData.csv');
+    const data = await readCSVFile(filePath);
+    res.json(data);
+  } catch (err) {
+    console.error('Error reading MarketDemandData.csv:', err);
+    res.status(500).send('Error reading MarketDemandData.csv');
+  }
+});
+
+// API to get Barangay data from CSV
+app.get('/api/barangay-data', async (req, res) => {
+  try {
+    const filePath = path.join(__dirname, 'CSV_files', 'BarangayData.csv');
+    const data = await readCSVFile(filePath);
+    res.json(data);
+  } catch (err) {
+    console.error('Error reading BarangayData.csv:', err);
+    res.status(500).send('Error reading BarangayData.csv');
+  }
+});
+
+// API to get Competition data from CSV
+app.get('/api/competition-data', async (req, res) => {
+  try {
+    const filePath = path.join(__dirname, 'CSV_files', 'CompetitionData.csv');
+    const data = await readCSVFile(filePath);
+    res.json(data);
+  } catch (err) {
+    console.error('Error reading CompetitionData.csv:', err);
+    res.status(500).send('Error reading CompetitionData.csv');
+  }
+});
+
+// API to get Transportation data from CSV
+app.get('/api/transportation-data', async (req, res) => {
+  try {
+    const filePath = path.join(__dirname, 'CSV_files', 'Transportation.csv');
+    const data = await readCSVFile(filePath);
+    res.json(data);
+  } catch (err) {
+    console.error('Error reading Transportation.csv:', err);
+    res.status(500).send('Error reading Transportation.csv');
+  }
+});
 
 // Route to fetch all businesses for clustering
 app.get('/api/businesses-for-clustering', async (req, res) => {
@@ -58,7 +132,15 @@ app.get('/api/barangays', async (req, res) => {
 // Route to fetch business data by barangay
 app.get('/api/businesses', async (req, res) => {
   try {
-      const barangayId = req.query.barangayId;
+      // Parse barangayId as an integer, or set it to null if it's missing or invalid
+      const barangayId = req.query.barangayId ? parseInt(req.query.barangayId, 10) : null;
+
+      if (!barangayId) {
+          // If no barangayId is provided, return an error response
+          return res.status(400).json({ error: 'Barangay ID is required' });
+      }
+
+      // Fetch businesses for the provided barangayId
       const result = await pool.query(`
           SELECT b.business_id, b.business_name, b.address, b.latitude, b.longitude, 
                  sa.subarea_name, sc.subcategory_name, st.smetype_name
@@ -75,6 +157,7 @@ app.get('/api/businesses', async (req, res) => {
       res.status(500).send('Server Error');
   }
 });
+
 
 // Route to search businesses based on input
 app.get('/api/search-businesses', async (req, res) => {

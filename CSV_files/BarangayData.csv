@@ -1,19 +1,19 @@
-Barangay,Population Density,Commercial,Industrial,Residential
-Baclaran,12532.2314,0,0,1
-Banaybanay ,10368.79433,0,1,1
-Banlic,7326.959847,1,0,1
-Bigaa,8088.068182,1,0,1
-Butong,11462.73292,1,0,1
-Casile,417.703402,1,0,1
-Diezmo,3147.338403,1,1,1
-Gulod,5898.679868,1,0,1
-Mamatid,18428.8961,1,0,1
-Marinig,17697.44721,1,0,1
-Niugan,33337.77102,1,1,1
-Pittland,1172.695738,1,1,1
-Poblacion Dos,16677.21519,1,0,0
-Poblacion Tres,18366.99613,1,0,1
-Poblacion Uno,32644.05204,1,0,1
-Pulo,10640.58394,1,0,1
-Sala,3207.708149,1,1,1
-Sanisidro,9967.004247,1,0,1
+Barangay,Population,Population Density,Commercial,Industrial,Residential,Area Type
+Baclaran,15164,12532.2314,0,0,1,Mostly Residential Spaces
+Banaybanay,40936,10368.79433,0,1,1,Residential and Industrial Spaces
+Banlic,11496,7326.959847,1,0,1,Residential and Commercial Spaces
+Bigaa,14235,8088.068182,1,0,1,Residential and Commercial Spaces
+Butong,14764,11462.73292,1,0,1,Residential and Commercial Spaces
+Casile,3794,417.703402,1,0,1,Residential and Commercial Spaces
+Diezmo,6622,3147.338403,1,1,1,"Mixed (Residential, Commercial, Industrial) Spaces"
+Gulod,17873,5898.679868,1,0,1,Residential and Commercial Spaces
+Mamatid,56761,18428.8961,1,0,1,Residential and Commercial Spaces
+Marinig,56154,17697.44721,1,0,1,Residential and Commercial Spaces
+Niugan,87645,33337.77102,1,1,1,"Mixed (Residential, Commercial, Industrial) Spaces"
+Pittland,4733,1172.695738,1,1,1,"Mixed (Residential, Commercial, Industrial) Spaces"
+Poblacion Dos,2108,16677.21519,1,0,0,Commercial Spaces
+Poblacion Tres,4274,18366.99613,1,0,1,Residential and Commercial Spaces
+Poblacion Uno,7025,32644.05204,1,0,1,Residential and Commercial Spaces
+Pulo,36444,10640.58394,1,0,1,Residential and Commercial Spaces
+Sala,10903,3207.708149,1,1,1,"Mixed (Residential, Commercial, Industrial) Spaces"
+San Isidro,30509,9967.004247,1,0,1,Residential and Commercial Spaces
