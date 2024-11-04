@@ -40,6 +40,101 @@ function initMap() {
 
     map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
 
+    // Define the coordinates for Cabuyao's boundary (replace these with accurate coordinates)
+const cabuyaoCoords = [
+    { lat: 14.3035585, lng: 121.1276586 },
+    { lat: 14.3013129, lng: 121.1252124 },
+    { lat: 14.2981107, lng: 121.1257703 },
+    { lat: 14.2961561, lng: 121.1242253 },
+    { lat: 14.2935777, lng: 121.125427 },
+    { lat: 14.287173, lng: 121.1211783 },
+    { lat: 14.2874226, lng: 121.1192041 },
+    { lat: 14.2861749, lng: 121.1190324 },
+    { lat: 14.2852183, lng: 121.1201053 },
+    { lat: 14.2805603, lng: 121.1149983 },
+    { lat: 14.2796453, lng: 121.1118225 },
+    { lat: 14.2758605, lng: 121.1117795 },
+    { lat: 14.2715766, lng: 121.1082175 },
+    { lat: 14.2711191, lng: 121.1050417 },
+    { lat: 14.267043, lng: 121.1013938 },
+    { lat: 14.2626342, lng: 121.0902785 },
+    { lat: 14.2582252, lng: 121.0800644 },
+    { lat: 14.2529427, lng: 121.0795065 },
+    { lat: 14.2379262, lng: 121.0848281 },
+    { lat: 14.2340992, lng: 121.0706656 },
+    { lat: 14.2198719, lng: 121.0502374 },
+    { lat: 14.2133404, lng: 121.0418689 },
+    { lat: 14.178246, lng: 121.0155826 },
+    { lat: 14.1621953, lng: 121.0179112 },
+    { lat: 14.1614573, lng: 121.0202397 },
+    { lat: 14.2099292, lng: 121.0583487 },
+    { lat: 14.2146302, lng: 121.0640135 },
+    { lat: 14.2171679, lng: 121.0701076 },
+    { lat: 14.2182912, lng: 121.0750001 },
+    { lat: 14.2188736, lng: 121.0781758 },
+    { lat: 14.2199968, lng: 121.079635 },
+    { lat: 14.2201216, lng: 121.0801929 },
+    { lat: 14.220829, lng: 121.081266 },
+    { lat: 14.2209538, lng: 121.0818668 },
+    { lat: 14.2223682, lng: 121.082854 },
+    { lat: 14.2242402, lng: 121.0880468 },
+    { lat: 14.2266946, lng: 121.0896347 },
+    { lat: 14.2263618, lng: 121.0927676 },
+    { lat: 14.2279842, lng: 121.0952996 },
+    { lat: 14.2284418, lng: 121.0984754 },
+    { lat: 14.2289826, lng: 121.1020374 },
+    { lat: 14.2303554, lng: 121.1058998 },
+    { lat: 14.2318113, lng: 121.108389 },
+    { lat: 14.2333504, lng: 121.1117365 },
+    { lat: 14.2348896, lng: 121.1133672 },
+    { lat: 14.2373439, lng: 121.1151269 },
+    { lat: 14.2370528, lng: 121.1170152 },
+    { lat: 14.2346401, lng: 121.1193326 },
+    { lat: 14.234349, lng: 121.1207275 },
+    { lat: 14.2343074, lng: 121.1211782 },
+    { lat: 14.2338914, lng: 121.1225086 },
+    { lat: 14.2340369, lng: 121.1234955 },
+    { lat: 14.2339953, lng: 121.1246329 },
+    { lat: 14.2344529, lng: 121.128002 },
+    { lat: 14.2344113, lng: 121.1293108 },
+    { lat: 14.2331216, lng: 121.1303409 },
+    { lat: 14.2308961, lng: 121.1312636 },
+    { lat: 14.225821, lng: 121.1385592 },
+    { lat: 14.2305218, lng: 121.1472285 },
+    { lat: 14.232165, lng: 121.1569918 },
+    { lat: 14.2339953, lng: 121.1642019 },
+    { lat: 14.237344, lng: 121.176154 },
+    { lat: 14.244665, lng: 121.1722488 },
+    { lat: 14.2568941, lng: 121.1688155 },
+    { lat: 14.2632581, lng: 121.1660689 },
+    { lat: 14.2681245, lng: 121.1643521 },
+    { lat: 14.268374, lng: 121.1631934 },
+    { lat: 14.2688731, lng: 121.1635797 },
+    { lat: 14.2704536, lng: 121.1626784 },
+    { lat: 14.2709943, lng: 121.1614338 },
+    { lat: 14.2743217, lng: 121.1601034 },
+    { lat: 14.2806019, lng: 121.1515202 },
+    { lat: 14.289502, lng: 121.1461127 },
+    { lat: 14.2882128, lng: 121.1441385 },
+    { lat: 14.2917478, lng: 121.1408339 },
+    { lat: 14.2932034, lng: 121.1404477 },
+    { lat: 14.3010218, lng: 121.1320361 },
+    { lat: 14.3035585, lng: 121.1276586 }
+];
+
+    // Create the Cabuyao polygon
+    const cabuyaoPolygon = new google.maps.Polygon({
+        paths: cabuyaoCoords,
+        strokeColor: "#FF0000",
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: "#FF0000",
+        fillOpacity: 0,
+    });
+
+    // Add the polygon to the map
+    cabuyaoPolygon.setMap(map);
+
     fetchBarangayMarkers();
     populateBarangayDropdown();
     populateIndustryDropdown();
@@ -100,8 +195,6 @@ function fetchBarangayMarkers() {
         .catch((error) => console.error('Error fetching barangay data:', error));
 }
 
-
-
 // Center the map on a selected barangay
 function centerMap(lat, lng, zoomLevel = 17) {
     const centerCoords = { lat: parseFloat(lat), lng: parseFloat(lng) };
@@ -109,19 +202,23 @@ function centerMap(lat, lng, zoomLevel = 17) {
     map.setZoom(zoomLevel);
 }
 
-// Fetch businesses and apply K-Means clustering
 function fetchBusinessesForClustering(barangayId = null) {
-    // Construct URL based on whether barangayId is valid
     let url = '/api/businesses';
     
     if (barangayId && barangayId !== null) {
         url += `?barangayId=${barangayId}`;
     }
-    
 
     fetch(url)
         .then(response => response.json())
         .then(businesses => {
+            console.log("Businesses data:", businesses);
+
+            if (!Array.isArray(businesses)) {
+                console.error("Unexpected data format: businesses is not an array", businesses);
+                return;
+            }
+
             const businessLocations = businesses.map(business => ({
                 lat: parseFloat(business.latitude),
                 lng: parseFloat(business.longitude),
@@ -137,32 +234,42 @@ function fetchBusinessesForClustering(barangayId = null) {
                 return;
             }
 
-            // Apply K-Means clustering to the business locations
-            const { centroids, clusters } = kMeansClustering(businessLocations, 5, 10);
+            // Determine number of clusters
+            let numClusters;
+            if (businessLocations.length <= 5) {
+                numClusters = 1;
+            } else if (businessLocations.length <= 20) {
+                numClusters = Math.min(3, businessLocations.length);
+            } else {
+                numClusters = Math.min(10, Math.ceil(businessLocations.length / 5));
+            }
 
-            // Clear existing markers before displaying clusters
+            const { clusters } = kMeansClustering(businessLocations, numClusters, 10);
+
             hideCurrentMarkers();
 
-            // Add cluster markers and draw circles for centroids
             clusters.forEach((cluster, index) => {
-                cluster.forEach((location) => {
+                console.log(`Cluster ${index + 1}: ${cluster.length} businesses`);
+
+                cluster.forEach((business) => {
                     const marker = new google.maps.Marker({
-                        position: location,
+                        position: { lat: business.lat, lng: business.lng },
                         map: map,
-                        title: location.business_name,
+                        title: business.business_name,
                         icon: {
-                            url: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',  // Use red dot for businesses
+                            url: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
                             scaledSize: new google.maps.Size(20, 20)
                         }
                     });
 
+                    // Define the detailed info window content
                     const infoWindowContent = `
                         <div style="max-width: 200px;">
-                            <h5>${location.business_name}</h5>
-                            <p><strong>Address:</strong> ${location.address || 'N/A'}</p>
-                            <p><strong>Subarea:</strong> ${location.subarea_name || 'N/A'}</p>
-                            <p><strong>Subcategory:</strong> ${location.subcategory_name || 'N/A'}</p>
-                            <p><strong>Business Type:</strong> ${location.smetype_name || 'N/A'}</p>
+                            <h5>${business.business_name}</h5>
+                            <p><strong>Address:</strong> ${business.address || 'Address not available'}</p>
+                            <p><strong>Subarea:</strong> ${business.subarea_name || 'N/A'}</p>
+                            <p><strong>Subcategory:</strong> ${business.subcategory_name || 'N/A'}</p>
+                            <p><strong>Business Type:</strong> ${business.smetype_name || 'N/A'}</p>
                         </div>
                     `;
 
@@ -176,30 +283,11 @@ function fetchBusinessesForClustering(barangayId = null) {
 
                     currentBusinessMarkers.push(marker);
                 });
-
-                // Draw the cluster circle (centroid) without affecting marker info windows
-                const circle = new google.maps.Circle({
-                    strokeColor: '#800080',
-                    strokeOpacity: 0.5,
-                    strokeWeight: 1,
-                    fillColor: '#800080',
-                    fillOpacity: 0.1,
-                    map: map,
-                    center: centroids[index],
-                    radius: 500
-                });
-
-                currentCircles.push(circle);
-
-                console.log(`Cluster ${index + 1}: ${cluster.length} businesses`);
-                console.log(`Centroid ${index + 1}: (${centroids[index].lat}, ${centroids[index].lng})`);
             });
-
         })
         .catch(error => console.error('Error fetching businesses for clustering:', error));
 }
 
-  
 // Function to implement K-Means clustering in JavaScript
 function kMeansClustering(locations, k = 5, iterations = 10) {
     if (locations.length === 0) {
@@ -296,6 +384,9 @@ function populateBarangayDropdown() {
         .then(response => response.json())
         .then(barangays => {
             const dropdown = document.getElementById('barangay-dropdown');
+            const barangayButton = document.querySelector('.dropdown:nth-of-type(1) .dropbtn'); // Barangay button
+            const industryButton = document.querySelector('.dropdown:nth-of-type(2) .dropbtn');
+            const categoryButton = document.querySelector('.dropdown:nth-of-type(3) .dropbtn');
             dropdown.innerHTML = '';
 
             barangays.forEach(barangay => {
@@ -304,6 +395,13 @@ function populateBarangayDropdown() {
                 item.textContent = barangay.barangay_name;
 
                 item.onclick = () => {
+                    // Set the Barangay button text to the selected barangay name
+                    barangayButton.textContent = barangay.barangay_name;
+
+                    // Reset Industry and Business Categories buttons to default
+                    industryButton.textContent = defaultIndustryLabel;
+                    categoryButton.textContent = defaultCategoryLabel;
+
                     hideCurrentMarkers();
                     centerMap(barangay.latitude, barangay.longitude, 15);
                     selectedBarangayId = barangay.barangay_id;
@@ -317,7 +415,6 @@ function populateBarangayDropdown() {
 }
 
 
-
 // Center the map on a selected barangay
 function centerMap(lat, lng, zoomLevel = 17) {
     const centerCoords = { lat: parseFloat(lat), lng: parseFloat(lng) };
@@ -325,8 +422,21 @@ function centerMap(lat, lng, zoomLevel = 17) {
     map.setZoom(zoomLevel);
 }
 
+
 // Function to add business markers for a barangay
 function addBusinessMarkers(barangayId) {
+    // Reset Industry and Business Categories selections when a new barangay is selected
+    const industryButton = document.querySelector('.dropdown:nth-of-type(2) .dropbtn');
+    const categoryButton = document.querySelector('.dropdown:nth-of-type(3) .dropbtn');
+    
+    // Reset the button text back to default labels
+    industryButton.textContent = defaultIndustryLabel;
+    categoryButton.textContent = defaultCategoryLabel;
+
+    // Clear any previous selections or markers related to Industry and Business Categories
+    hideCurrentMarkers(); // Clears any existing markers
+
+    // Proceed to add markers for the newly selected barangay
     fetch(`/api/businesses?barangayId=${barangayId}`)
         .then((response) => response.json())
         .then((businesses) => {
@@ -341,11 +451,10 @@ function addBusinessMarkers(barangayId) {
                     },
                 });
 
-                // Create a detailed info window showing subarea, subcategory, SME type names, and address
                 const infoWindowContent = `
                     <div style="max-width: 200px;">
                         <h5>${business.business_name}</h5>
-                        <p><strong>Address:</strong> ${business.address}</p> <!-- Add address here -->
+                        <p><strong>Address:</strong> ${business.address}</p>
                         <p><strong>Subarea:</strong> ${business.subarea_name}</p>
                         <p><strong>Subcategory:</strong> ${business.subcategory_name}</p>
                         <p><strong>Business Type:</strong> ${business.smetype_name}</p>
@@ -369,12 +478,9 @@ function addBusinessMarkers(barangayId) {
 }
 
 
-
 // Call this when selecting a new barangay to hide the current markers
 hideCurrentMarkers();
 addBusinessMarkers(selectedBarangayId); // This adds the new markers for the selected barangay
-
-
 
 function populateIndustryDropdown() {
     const industryTypes = [

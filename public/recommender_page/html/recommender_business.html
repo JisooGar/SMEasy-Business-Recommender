@@ -21,7 +21,7 @@
             </span>
             <div class="text logo-text">
                 <span class="name">SMEasy</span>
-                <span class="profession">Recommender</span>
+                <span class="profession">Analysis</span>
             </div>
         </div>
         <i class='bx bx-chevron-right toggle'></i>
@@ -42,13 +42,13 @@
                 <li class="nav-link">
                     <a href="/analytics/analytics.html">
                         <i class='bx bx-bar-chart-alt-2 icon'></i>
-                        <span class="text nav-text">Analytics</span>
+                        <span class="text nav-text">Visualization</span>
                     </a>
                 </li>
                 <li class="nav-link">
                     <a href="/recommender_page/recommender.html">
                         <i class='bx bx-pie-chart-alt icon'></i>
-                        <span class="text nav-text">Recommender</span>
+                        <span class="text nav-text">Analysis</span>
                     </a>
                 </li>
                 <li class="nav-link">
@@ -134,107 +134,74 @@
     </div>
 </section>
 
-<div class="recommendation-section" style="display: none;">
+<div class="recommendation-section">
     <h1>Location Recommendation for Building Your Business</h1>
-    <h2 id="barangayName">BRGY NAME: [Category Name]</h2>
+    <h2 id="barangayName">BRGY NAME: [Insert Barangay Name]</h2>
 
     <div class="recommendation-grid">
         <!-- Business Overview -->
-        <div class="grid-item location-overview">
+        <div class="grid-item">
             <h3>Business Overview</h3>
-            <p id="selectedBarangay">Selected Barangay: [Insert Barangay]</p>
-            <p id="barangayAreaType">Barangay Area type: [Insert Area Type]</p>
-            <p id="totalBusinesses">Total Registered SMEs: [Insert Count]</p>
+            <p>Selected Main Category: <span id="mainCategory"></span></p>
+            <p>Total Businesses in Cabuyao City: <span id="totalBusinesses"></span></p>
+            <p>Number of Businesses in Selected Barangay: <span id="businessesInBarangay"></span></p>
         </div>
 
-        <!-- Market Analysis -->
-        <div class="grid-item market-analysis">
-            <h3>Market Analysis</h3>
-            
-            <!-- Table: Top Striving Categories -->
-            <div class="scrollable-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Category</th>
-                            <th>Count</th>
-                        </tr>
-                    </thead>
-                    <tbody id="topStrivingCategories">
-                        <!-- Rows for Top Striving Categories will be inserted here -->
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Underserved Categories -->
-            <div class="scrollable-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Underserved Categories</th>
-                        </tr>
-                    </thead>
-                    <tbody id="underservedCategories">
-                        <!-- Rows for Underserved Categories will be inserted here -->
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Potential Market -->
-            <div class="scrollable-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Potential Market</th>
-                        </tr>
-                    </thead>
-                    <tbody id="potentialMarket">
-                        <!-- Rows for Potential Market will be inserted here -->
-                    </tbody>
-                </table>
-            </div>
+        <!-- Market Gaps Analysis -->
+        <div class="grid-item">
+            <h3>Analysis of Market Demand and Gaps</h3>
+            <p>Legends: </p>
+            <p>Critical Gap/High Demand = <span id="highDemand"></span></p>
+            <p>Moderate Gap/Medium Demand = <span id="mediumDemand"></span></p>
+            <p>Minor Gap/Low Demand = <span id="lowDemand"></span></p>
+            <p>No Gap /Very Low Demand  = <span id="noDemand"></span></p>
+            <br>
+            <p>Market Demand: <span id="marketDemand"></span></p>
+            <p>Business Gaps: <span id="businessGaps"></span></p>
         </div>
 
-<!-- Population and Segmentation Analysis -->
-<div class="grid-item population-segmentation-analysis">
-    <h3>Population and Segmentation Analysis</h3>
-    <p id="populationOverview">Population Overview: [Insert Overview]</p>
-    <p id="segmentation">Segmentation: [Insert Segmentation]</p>
-</div>
+        <!-- Population and Segmentation Analysis -->
+        <div class="grid-item market-gaps">
+            <h3>Population and Segmentation Analysis</h3>
+            <p>Population Density: <span id="populationOverview"></span></p>
+            <p>Customer Segmentation: <span id="customerSegmentation"></span></p>
+            <br>
+            <p>Psychographics: </p>
+            <p>Motivation for choosing business: <span id="businessMotivation"></span></p>
+            <p>Shopping Traits: <span id="shopingTraits"></span></p>
+            <p>Factors for visiting new business: <span id="businessFactors"></span></p>
+            <p>Shopping Style: <span id="shopingStyle"></span></p>
+            <br>
+            <p>Behavioral: </p>
+            <p>Business Visits: <span id="businessVisits"></span></p>
+            <p>Frequency Visits: <span id="frequencyVisits"></span></p>
+            <p>Browsing Behavior: <span id="browsingBehavior"></span></p>
+            <p>Shopping Preference: <span id="shoppingPreference"></span></p>
+            <p>Satisfaction with Business: <span id="businessSatisfaction"></span></p>
+            <p>Lacking Businesses: <span id="businessLacking"></span></p>
+        </div>
 
+        <!-- Competition Analysis -->
+        <div class="grid-item">
+            <h3>Competition Analysis</h3>
+            <p>Competition Density: <span id="competitionDensity"></span></p>
+            <p>Direct Competitor: <span id="directCompetitor"></span></p>
+            <p>Indirect Competitor: <span id="indirectCompetitor"></span></p>
+            <p>Replacement: <span id="replacementCompetitor"></span></p>
+        </div>
 
-
-<!-- Accessibility and Infrastructure -->
-<div class="grid-item accessibility-and-infrastructure">
-    <h3>Accessibility and Infrastructure</h3>
-    
-    <!-- Area Types Table -->
-    <div class="scrollable-table">
-        <table>
-            <thead>
-                <tr>
-                    <th>Area Type</th>
-                </tr>
-            </thead>
-            <tbody id="accessibilityTable">
-                <!-- Rows for Area Types will be dynamically inserted here -->
-            </tbody>
-        </table>
+        <!-- Accessibility and Infrastructure -->
+        <div class="grid-item">
+            <h3>Accessibility and Infrastructure</h3>
+            <p>Area Type: <span id="areaType"></span></p>
+            <p>Public Transport Access: <span id="TranspoAccess"></span></p>
+            <p>Transport Challenges: <span id="TranspoChallenge"></span></p>
+        </div>
     </div>
-    
-    <!-- Public Transport Access and Challenges -->
-    <p id="publicTransportAccess">Public Transport Access: [Insert Access]</p>
-    <p id="challenges">Challenges: [Insert Challenges]</p>
-</div>
 
-
-
-        <!-- Recommendation Summary -->
-        <div class="grid-item recommendation-summary">
-            <h3>Recommendation Summary</h3>
-            <p>(Recommended Business)</p>
-            <p id="recommendationSummary">[Insert Summary]</p>
-        </div>
+    <div class="recommendation-summary">
+        <h3>Recommendation Summary</h3>
+        <p id="recommendationSummary"></p>
     </div>
 </div>
 

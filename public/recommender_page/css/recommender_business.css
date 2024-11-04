@@ -491,3 +491,149 @@ table th, table td {
 }
 
 
+/* Location Recommendation Section */
+.recommendation-section {
+  display: none; /* Hidden by default */
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-left: 120px;
+  margin-right: 55px;
+  margin-bottom: 50px;
+}
+
+.recommendation-section h1, .recommendation-section h2 {
+  color: #333;
+  text-align: center;
+}
+
+.recommendation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.grid-item {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.grid-item h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.grid-item p {
+  color: #555;
+  line-height: 1.5;
+}
+
+.recommendation-summary {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.recommendation-summary h3 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.recommendation-summary p {
+  color: #555;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.recommendation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  margin-top: 20px;
+}
+
+.grid-item {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-height: 150px; /* Adjust this if needed */
+}
+
+.grid-item h3 {
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.grid-item p {
+  margin: 5px 0;
+}
+
+
+
+
+
+.recommendation-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns */
+  grid-gap: 20px;
+  margin-top: 20px;
+}
+
+.grid-item {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-height: 150px; /* Adjust this if needed */
+}
+
+.grid-item.half-width {
+  grid-column: span 1; /* Stays in a single column */
+}
+
+.grid-item.full-width {
+  grid-column: span 2; /* Spans two columns */
+}
+
+.grid-item.right-large {
+  grid-column: span 1;
+  grid-row: span 2; /* Make this item span two rows */
+}
+
+.recommendation-summary {
+  grid-column: span 2;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-height: 150px;
+}
+
+.market-gaps {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  grid-column: span 1;
+  grid-row: span 2; /* Spans two rows to increase size */
+  min-height: 300px; /* Adjust this if needed */
+}
+
+.styled-table tbody tr.selected-row {
+  background-color: #28a745; /* Green background */
+  color: rgb(20, 175, 0); /* White text */
+}
+
+.styled-table tbody tr.selected-row {
+  background-color: #28a745; /* Green background */
+  color: rgb(20, 175, 0); /* White text */
+}

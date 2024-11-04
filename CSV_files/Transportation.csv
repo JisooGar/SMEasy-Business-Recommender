@@ -1,361 +1,361 @@
 Barangay,Transportation links,Commercial accessibility,Travel outside barangay,Transportation challenges
-Baclaran,4,2,3,['Lack of public transport']
-Baclaran,2,4,2,"['Traffic congestion', 'Long travel distances']"
-Baclaran,2,3,4,"['Traffic congestion', 'Long travel distances']"
-Baclaran,1,1,5,"['Poor road conditions', 'Lack of public transport']"
-Baclaran,4,2,3,['Traffic congestion']
-Baclaran,2,2,3,"['Traffic congestion', 'Poor road conditions']"
-Baclaran,2,1,2,['Lack of public transport']
-Baclaran,3,3,2,"['Poor road conditions', 'Traffic congestion']"
-Baclaran,2,1,5,['Lack of public transport']
-Baclaran,3,5,2,"['Long travel distances', 'Poor road conditions']"
-Baclaran,1,1,1,['Traffic congestion']
-Baclaran,4,2,1,"['Long travel distances', 'Poor road conditions']"
-Baclaran,4,3,3,"['Traffic congestion', 'Traffic congestion']"
-Baclaran,4,3,4,['Long travel distances']
-Baclaran,2,1,1,['Lack of public transport']
-Baclaran,3,2,4,"['Poor road conditions', 'Long travel distances']"
-Baclaran,3,1,4,"['Lack of public transport', 'Safety concerns']"
-Baclaran,2,3,1,"['Long travel distances', 'Safety concerns']"
-Baclaran,2,4,1,['Poor road conditions']
-Baclaran,3,2,4,"['Long travel distances', 'Long travel distances']"
-Banaybanay,2,5,5,['Lack of public transport']
-Banaybanay,2,5,2,"['Long travel distances', 'Traffic congestion']"
-Banaybanay,4,5,2,"['Poor road conditions', 'Traffic congestion']"
-Banaybanay,2,3,5,"['Lack of public transport', 'Long travel distances']"
-Banaybanay,2,5,2,"['Poor road conditions', 'Lack of public transport']"
-Banaybanay,1,5,5,"['Traffic congestion', 'Long travel distances']"
-Banaybanay,2,4,2,"['Traffic congestion', 'Poor road conditions']"
-Banaybanay,3,3,1,"['Traffic congestion', 'Long travel distances']"
-Banaybanay,5,4,2,['Long travel distances']
-Banaybanay,4,2,2,['Traffic congestion']
-Banaybanay,2,4,2,"['Inadequate pedestrian pathways', 'Traffic congestion']"
-Banaybanay,3,2,4,['Traffic congestion']
-Banaybanay,1,1,4,['Long travel distances']
-Banaybanay,3,4,2,"['Long travel distances', 'Safety concerns']"
-Banaybanay,2,3,4,['Long travel distances']
-Banaybanay,1,4,4,"['Long travel distances', 'Lack of public transport']"
-Banaybanay,4,4,2,"['Poor road conditions', 'Safety concerns']"
-Banaybanay,1,2,1,['Traffic congestion']
-Banaybanay,1,2,3,['Poor road conditions']
-Banaybanay,2,1,4,"['Traffic congestion', 'Traffic congestion']"
-Banlic,5,2,2,['Traffic congestion']
-Banlic,3,4,4,"['Poor road conditions', 'Poor road conditions']"
-Banlic,2,5,2,['Long travel distances']
-Banlic,4,1,4,"['Poor road conditions', 'Traffic congestion']"
-Banlic,1,1,1,['Long travel distances']
-Banlic,4,4,3,"['Lack of public transport', 'Poor road conditions']"
-Banlic,2,4,4,['Lack of public transport']
-Banlic,4,5,1,"['Lack of public transport', 'Lack of public transport']"
-Banlic,4,1,2,"['Poor road conditions', 'Lack of public transport']"
-Banlic,2,3,5,['Poor road conditions']
-Banlic,3,2,1,"['Lack of public transport', 'Poor road conditions']"
-Banlic,4,2,4,"['Lack of public transport', 'Inadequate pedestrian pathways']"
-Banlic,1,2,3,['Poor road conditions']
-Banlic,4,4,2,"['Long travel distances', 'Poor road conditions']"
-Banlic,2,4,4,"['Safety concerns', 'Inadequate pedestrian pathways']"
-Banlic,3,2,4,['Long travel distances']
-Banlic,3,2,1,"['Safety concerns', 'Traffic congestion']"
-Banlic,2,3,2,['Traffic congestion']
-Banlic,3,2,4,"['Inadequate pedestrian pathways', 'Poor road conditions']"
-Banlic,2,1,2,"['Long travel distances', 'Traffic congestion']"
-Bigaa,5,5,2,"['Poor road conditions', 'Traffic congestion']"
-Bigaa,1,4,4,['Poor road conditions']
-Bigaa,3,4,1,"['Traffic congestion', 'Long travel distances']"
-Bigaa,2,5,1,"['Traffic congestion', 'Long travel distances']"
-Bigaa,2,3,4,['Long travel distances']
-Bigaa,3,1,4,"['Traffic congestion', 'Traffic congestion']"
-Bigaa,1,3,2,['Poor road conditions']
-Bigaa,4,5,3,"['Poor road conditions', 'Lack of public transport']"
-Bigaa,2,3,2,"['Poor road conditions', 'Long travel distances']"
-Bigaa,2,4,2,['Lack of public transport']
-Bigaa,2,4,3,['Safety concerns']
-Bigaa,4,1,4,['Lack of public transport']
-Bigaa,1,2,3,"['Inadequate pedestrian pathways', 'Poor road conditions']"
-Bigaa,2,1,4,['Safety concerns']
-Bigaa,3,3,4,['Poor road conditions']
-Bigaa,2,4,3,['Safety concerns']
-Bigaa,3,2,1,"['Lack of public transport', 'Safety concerns']"
-Bigaa,3,3,1,"['Traffic congestion', 'Long travel distances']"
-Bigaa,4,1,4,"['Long travel distances', 'Lack of public transport']"
-Bigaa,2,3,3,['Long travel distances']
-Butong,1,3,4,['Poor road conditions']
-Butong,5,4,2,['Lack of public transport']
-Butong,4,2,1,['Long travel distances']
-Butong,3,5,3,"['Traffic congestion', 'Lack of public transport']"
-Butong,4,4,3,['Traffic congestion']
-Butong,5,3,4,['Lack of public transport']
-Butong,4,3,4,"['Poor road conditions', 'Long travel distances']"
-Butong,1,3,4,['Long travel distances']
-Butong,5,4,3,['Lack of public transport']
-Butong,4,4,4,"['Traffic congestion', 'Long travel distances']"
-Butong,1,2,3,"['Traffic congestion', 'Lack of public transport']"
-Butong,1,1,3,['Lack of public transport']
-Butong,2,3,1,['Inadequate pedestrian pathways']
-Butong,4,2,2,['Long travel distances']
-Butong,2,3,1,"['Lack of public transport', 'Safety concerns']"
-Butong,4,3,3,['Lack of public transport']
-Butong,1,4,2,"['Inadequate pedestrian pathways', 'Safety concerns']"
-Butong,1,3,3,"['Traffic congestion', 'Inadequate pedestrian pathways']"
-Butong,4,1,3,"['Inadequate pedestrian pathways', 'Lack of public transport']"
-Butong,1,2,2,['Safety concerns']
-Casile,5,5,5,['Long travel distances']
-Casile,4,5,4,['Traffic congestion']
-Casile,4,1,4,['Long travel distances']
-Casile,4,3,4,['Poor road conditions']
-Casile,5,3,5,['Lack of public transport']
-Casile,1,5,2,"['Lack of public transport', 'Long travel distances']"
-Casile,1,2,2,"['Poor road conditions', 'Long travel distances']"
-Casile,1,1,5,"['Lack of public transport', 'Traffic congestion']"
-Casile,2,2,5,"['Lack of public transport', 'Traffic congestion']"
-Casile,5,1,3,"['Poor road conditions', 'Lack of public transport']"
-Casile,1,2,2,"['Lack of public transport', 'Safety concerns']"
-Casile,4,4,1,"['Long travel distances', 'Safety concerns']"
-Casile,3,3,3,"['Lack of public transport', 'Long travel distances']"
-Casile,2,4,3,['Safety concerns']
-Casile,3,2,2,"['Safety concerns', 'Poor road conditions']"
-Casile,2,4,4,['Lack of public transport']
-Casile,1,1,3,"['Safety concerns', 'Inadequate pedestrian pathways']"
-Casile,1,2,3,['Lack of public transport']
-Casile,1,3,3,['Traffic congestion']
-Casile,3,3,2,"['Inadequate pedestrian pathways', 'Safety concerns']"
-Diezmo,5,1,3,"['Long travel distances', 'Long travel distances']"
-Diezmo,2,5,1,['Long travel distances']
-Diezmo,4,1,3,['Poor road conditions']
-Diezmo,2,5,3,"['Traffic congestion', 'Lack of public transport']"
-Diezmo,3,1,2,"['Long travel distances', 'Lack of public transport']"
-Diezmo,1,5,5,"['Poor road conditions', 'Traffic congestion']"
-Diezmo,4,1,3,"['Traffic congestion', 'Long travel distances']"
-Diezmo,2,5,3,"['Traffic congestion', 'Traffic congestion']"
-Diezmo,2,2,4,"['Traffic congestion', 'Traffic congestion']"
-Diezmo,4,4,1,"['Long travel distances', 'Poor road conditions']"
-Diezmo,3,4,1,"['Lack of public transport', 'Poor road conditions']"
-Diezmo,4,3,2,['Safety concerns']
-Diezmo,1,2,3,['Traffic congestion']
-Diezmo,2,4,4,"['Poor road conditions', 'Safety concerns']"
-Diezmo,1,4,4,"['Safety concerns', 'Poor road conditions']"
-Diezmo,2,1,4,['Poor road conditions']
-Diezmo,4,4,1,['Safety concerns']
-Diezmo,3,2,3,['Traffic congestion']
-Diezmo,3,3,2,"['Lack of public transport', 'Poor road conditions']"
-Diezmo,1,2,3,['Lack of public transport']
-Gulod,2,2,5,"['Lack of public transport', 'Long travel distances']"
-Gulod,3,5,5,['Long travel distances']
-Gulod,2,2,4,"['Traffic congestion', 'Traffic congestion']"
-Gulod,5,3,4,['Poor road conditions']
-Gulod,5,3,4,"['Poor road conditions', 'Traffic congestion']"
-Gulod,3,1,5,['Poor road conditions']
-Gulod,3,2,1,['Lack of public transport']
-Gulod,2,1,2,['Poor road conditions']
-Gulod,3,5,4,"['Traffic congestion', 'Long travel distances']"
-Gulod,2,2,1,['Lack of public transport']
-Gulod,2,2,2,"['Traffic congestion', 'Long travel distances']"
-Gulod,4,3,1,['Traffic congestion']
-Gulod,1,1,3,"['Lack of public transport', 'Poor road conditions']"
-Gulod,1,1,2,"['Lack of public transport', 'Inadequate pedestrian pathways']"
-Gulod,2,4,4,['Safety concerns']
-Gulod,2,3,4,['Long travel distances']
-Gulod,1,1,2,"['Long travel distances', 'Lack of public transport']"
-Gulod,1,2,4,['Inadequate pedestrian pathways']
-Gulod,1,4,2,['Lack of public transport']
-Gulod,2,1,2,['Safety concerns']
-Mamatid,4,2,3,"['Lack of public transport', 'Long travel distances']"
-Mamatid,4,3,5,['Poor road conditions']
-Mamatid,5,2,5,['Lack of public transport']
-Mamatid,1,4,5,"['Long travel distances', 'Long travel distances']"
-Mamatid,5,5,3,"['Traffic congestion', 'Lack of public transport']"
-Mamatid,1,2,2,['Poor road conditions']
-Mamatid,3,3,2,"['Long travel distances', 'Traffic congestion']"
-Mamatid,1,3,5,"['Traffic congestion', 'Poor road conditions']"
-Mamatid,5,1,1,['Lack of public transport']
-Mamatid,2,3,3,"['Traffic congestion', 'Long travel distances']"
-Mamatid,4,1,2,['Safety concerns']
-Mamatid,3,4,3,"['Long travel distances', 'Inadequate pedestrian pathways']"
-Mamatid,2,4,1,"['Lack of public transport', 'Long travel distances']"
-Mamatid,2,4,4,['Long travel distances']
-Mamatid,3,2,1,['Long travel distances']
-Mamatid,4,1,3,['Safety concerns']
-Mamatid,4,4,3,"['Lack of public transport', 'Inadequate pedestrian pathways']"
-Mamatid,2,4,3,['Safety concerns']
-Mamatid,4,4,1,"['Inadequate pedestrian pathways', 'Traffic congestion']"
-Mamatid,1,2,4,"['Safety concerns', 'Long travel distances']"
-Marinig,5,1,3,"['Long travel distances', 'Poor road conditions']"
-Marinig,5,2,5,['Long travel distances']
-Marinig,3,2,2,"['Traffic congestion', 'Long travel distances']"
-Marinig,3,2,2,['Poor road conditions']
-Marinig,2,2,1,"['Long travel distances', 'Lack of public transport']"
-Marinig,3,3,5,"['Traffic congestion', 'Poor road conditions']"
-Marinig,4,4,3,"['Poor road conditions', 'Poor road conditions']"
-Marinig,3,2,5,['Lack of public transport']
-Marinig,4,4,3,"['Poor road conditions', 'Long travel distances']"
-Marinig,1,5,5,"['Long travel distances', 'Lack of public transport']"
-Marinig,2,4,4,['Inadequate pedestrian pathways']
-Marinig,3,1,2,"['Long travel distances', 'Lack of public transport']"
-Marinig,2,3,3,['Lack of public transport']
-Marinig,2,2,4,"['Traffic congestion', 'Poor road conditions']"
-Marinig,3,1,3,['Safety concerns']
-Marinig,4,3,2,"['Lack of public transport', 'Poor road conditions']"
-Marinig,3,1,3,['Lack of public transport']
-Marinig,4,2,3,"['Safety concerns', 'Lack of public transport']"
-Marinig,2,2,3,['Long travel distances']
-Marinig,4,2,4,"['Lack of public transport', 'Lack of public transport']"
-Niugan,2,5,5,"['Long travel distances', 'Poor road conditions']"
-Niugan,4,1,5,"['Poor road conditions', 'Long travel distances']"
-Niugan,4,3,2,['Lack of public transport']
-Niugan,4,4,3,['Poor road conditions']
-Niugan,5,1,1,['Poor road conditions']
-Niugan,3,1,1,"['Long travel distances', 'Long travel distances']"
-Niugan,3,5,4,['Traffic congestion']
-Niugan,1,3,5,['Lack of public transport']
-Niugan,1,2,4,"['Lack of public transport', 'Traffic congestion']"
-Niugan,3,3,4,"['Traffic congestion', 'Poor road conditions']"
-Niugan,2,4,1,['Lack of public transport']
-Niugan,1,3,1,['Inadequate pedestrian pathways']
-Niugan,4,2,1,"['Traffic congestion', 'Long travel distances']"
-Niugan,3,4,1,['Safety concerns']
-Niugan,3,3,4,['Poor road conditions']
-Niugan,1,2,1,"['Inadequate pedestrian pathways', 'Safety concerns']"
-Niugan,3,2,4,['Long travel distances']
-Niugan,2,3,3,"['Poor road conditions', 'Long travel distances']"
-Niugan,1,2,1,"['Lack of public transport', 'Safety concerns']"
-Niugan,2,4,3,['Long travel distances']
-Pittland,3,3,4,"['Traffic congestion', 'Poor road conditions']"
-Pittland,2,5,2,"['Traffic congestion', 'Lack of public transport']"
-Pittland,4,5,5,"['Traffic congestion', 'Long travel distances']"
-Pittland,3,2,5,['Lack of public transport']
-Pittland,2,1,2,['Traffic congestion']
-Pittland,4,4,5,['Traffic congestion']
-Pittland,5,3,3,['Lack of public transport']
-Pittland,4,2,3,"['Poor road conditions', 'Long travel distances']"
-Pittland,4,2,2,['Poor road conditions']
-Pittland,3,2,1,['Traffic congestion']
-Pittland,2,2,4,"['Lack of public transport', 'Lack of public transport']"
-Pittland,2,1,1,['Long travel distances']
-Pittland,3,3,3,"['Lack of public transport', 'Traffic congestion']"
-Pittland,4,2,1,"['Safety concerns', 'Safety concerns']"
-Pittland,3,2,4,['Traffic congestion']
-Pittland,3,4,4,['Lack of public transport']
-Pittland,4,2,1,"['Inadequate pedestrian pathways', 'Inadequate pedestrian pathways']"
-Pittland,3,4,3,"['Inadequate pedestrian pathways', 'Long travel distances']"
-Pittland,1,1,2,['Long travel distances']
-Pittland,2,3,1,"['Poor road conditions', 'Traffic congestion']"
-Poblacion Dos,3,2,4,"['Poor road conditions', 'Traffic congestion']"
-Poblacion Dos,5,1,3,"['Long travel distances', 'Poor road conditions']"
-Poblacion Dos,5,1,4,"['Long travel distances', 'Long travel distances']"
-Poblacion Dos,4,4,2,['Long travel distances']
-Poblacion Dos,2,2,2,['Lack of public transport']
-Poblacion Dos,4,1,5,['Long travel distances']
-Poblacion Dos,3,3,5,['Poor road conditions']
-Poblacion Dos,4,4,5,"['Lack of public transport', 'Long travel distances']"
-Poblacion Dos,2,3,2,"['Traffic congestion', 'Lack of public transport']"
-Poblacion Dos,5,1,2,"['Traffic congestion', 'Lack of public transport']"
-Poblacion Dos,3,4,2,"['Traffic congestion', 'Inadequate pedestrian pathways']"
-Poblacion Dos,3,4,3,['Long travel distances']
-Poblacion Dos,4,2,3,"['Traffic congestion', 'Poor road conditions']"
-Poblacion Dos,2,3,4,['Poor road conditions']
-Poblacion Dos,3,1,3,['Inadequate pedestrian pathways']
-Poblacion Dos,2,3,4,"['Traffic congestion', 'Traffic congestion']"
-Poblacion Dos,4,2,3,"['Poor road conditions', 'Traffic congestion']"
-Poblacion Dos,3,3,4,['Poor road conditions']
-Poblacion Dos,2,2,4,['Traffic congestion']
-Poblacion Dos,2,3,2,"['Lack of public transport', 'Inadequate pedestrian pathways']"
-Poblacion Tres,5,1,5,['Lack of public transport']
-Poblacion Tres,2,1,4,['Poor road conditions']
-Poblacion Tres,5,2,1,"['Lack of public transport', 'Long travel distances']"
-Poblacion Tres,1,4,1,['Traffic congestion']
-Poblacion Tres,1,4,5,"['Traffic congestion', 'Lack of public transport']"
-Poblacion Tres,2,3,2,['Traffic congestion']
-Poblacion Tres,1,1,5,"['Poor road conditions', 'Traffic congestion']"
-Poblacion Tres,1,5,2,"['Poor road conditions', 'Lack of public transport']"
-Poblacion Tres,5,2,2,"['Lack of public transport', 'Lack of public transport']"
-Poblacion Tres,4,4,4,['Traffic congestion']
-Poblacion Tres,4,3,3,['Long travel distances']
-Poblacion Tres,4,3,3,"['Traffic congestion', 'Lack of public transport']"
-Poblacion Tres,4,2,4,['Traffic congestion']
-Poblacion Tres,4,2,4,['Safety concerns']
-Poblacion Tres,1,3,2,['Inadequate pedestrian pathways']
-Poblacion Tres,2,3,3,"['Long travel distances', 'Lack of public transport']"
-Poblacion Tres,4,1,4,"['Safety concerns', 'Lack of public transport']"
-Poblacion Tres,2,2,3,"['Safety concerns', 'Poor road conditions']"
-Poblacion Tres,4,4,4,['Inadequate pedestrian pathways']
-Poblacion Tres,2,2,3,"['Lack of public transport', 'Poor road conditions']"
-Poblacion Uno,3,3,2,"['Long travel distances', 'Poor road conditions']"
-Poblacion Uno,2,5,5,"['Poor road conditions', 'Traffic congestion']"
-Poblacion Uno,1,1,1,"['Poor road conditions', 'Traffic congestion']"
-Poblacion Uno,3,3,3,['Long travel distances']
-Poblacion Uno,2,2,4,"['Long travel distances', 'Long travel distances']"
-Poblacion Uno,2,3,3,"['Lack of public transport', 'Long travel distances']"
-Poblacion Uno,2,3,2,['Traffic congestion']
-Poblacion Uno,5,2,3,"['Long travel distances', 'Long travel distances']"
-Poblacion Uno,3,2,1,"['Poor road conditions', 'Long travel distances']"
-Poblacion Uno,2,5,5,['Long travel distances']
-Poblacion Uno,4,3,3,"['Long travel distances', 'Safety concerns']"
-Poblacion Uno,2,3,2,"['Poor road conditions', 'Traffic congestion']"
-Poblacion Uno,1,4,2,"['Poor road conditions', 'Safety concerns']"
-Poblacion Uno,2,4,2,['Lack of public transport']
-Poblacion Uno,3,2,1,"['Inadequate pedestrian pathways', 'Poor road conditions']"
-Poblacion Uno,2,1,1,['Lack of public transport']
-Poblacion Uno,4,2,1,"['Long travel distances', 'Poor road conditions']"
-Poblacion Uno,2,4,1,['Inadequate pedestrian pathways']
-Poblacion Uno,3,1,3,['Long travel distances']
-Poblacion Uno,2,2,4,"['Traffic congestion', 'Traffic congestion']"
-Pulo,3,2,4,"['Long travel distances', 'Long travel distances']"
-Pulo,3,1,3,['Lack of public transport']
-Pulo,5,5,1,['Lack of public transport']
-Pulo,5,2,5,"['Traffic congestion', 'Long travel distances']"
-Pulo,3,3,5,"['Lack of public transport', 'Lack of public transport']"
-Pulo,3,4,1,['Poor road conditions']
-Pulo,1,3,4,['Poor road conditions']
-Pulo,4,5,1,['Traffic congestion']
-Pulo,3,4,3,"['Long travel distances', 'Traffic congestion']"
-Pulo,5,3,4,"['Poor road conditions', 'Poor road conditions']"
-Pulo,1,4,2,"['Traffic congestion', 'Long travel distances']"
-Pulo,2,3,3,"['Long travel distances', 'Lack of public transport']"
-Pulo,4,4,4,"['Poor road conditions', 'Safety concerns']"
-Pulo,4,1,3,"['Safety concerns', 'Inadequate pedestrian pathways']"
-Pulo,3,1,2,['Inadequate pedestrian pathways']
-Pulo,1,1,3,"['Poor road conditions', 'Safety concerns']"
-Pulo,1,1,1,"['Long travel distances', 'Safety concerns']"
-Pulo,3,4,4,['Safety concerns']
-Pulo,1,2,4,"['Traffic congestion', 'Safety concerns']"
-Pulo,4,4,1,"['Lack of public transport', 'Poor road conditions']"
-Sala,3,2,3,['Poor road conditions']
-Sala,3,2,3,"['Traffic congestion', 'Poor road conditions']"
-Sala,1,3,1,"['Traffic congestion', 'Traffic congestion']"
-Sala,5,1,5,['Poor road conditions']
-Sala,4,5,1,['Long travel distances']
-Sala,5,5,5,['Poor road conditions']
-Sala,5,4,4,['Traffic congestion']
-Sala,4,3,5,['Lack of public transport']
-Sala,3,4,1,['Long travel distances']
-Sala,1,3,4,"['Long travel distances', 'Lack of public transport']"
-Sala,2,1,2,"['Long travel distances', 'Traffic congestion']"
-Sala,2,3,4,"['Safety concerns', 'Traffic congestion']"
-Sala,4,3,3,"['Safety concerns', 'Lack of public transport']"
-Sala,3,3,3,['Inadequate pedestrian pathways']
-Sala,4,1,4,['Lack of public transport']
-Sala,4,4,2,"['Traffic congestion', 'Lack of public transport']"
-Sala,3,2,4,"['Poor road conditions', 'Inadequate pedestrian pathways']"
-Sala,1,4,4,['Safety concerns']
-Sala,3,1,4,"['Long travel distances', 'Inadequate pedestrian pathways']"
-Sala,3,2,4,"['Inadequate pedestrian pathways', 'Safety concerns']"
-San Isidro,5,1,3,['Poor road conditions']
-San Isidro,2,2,2,"['Long travel distances', 'Traffic congestion']"
-San Isidro,2,5,3,"['Lack of public transport', 'Long travel distances']"
-San Isidro,5,2,3,"['Long travel distances', 'Traffic congestion']"
-San Isidro,2,1,2,['Lack of public transport']
-San Isidro,3,2,2,['Poor road conditions']
-San Isidro,5,4,4,['Long travel distances']
-San Isidro,5,1,2,"['Traffic congestion', 'Lack of public transport']"
-San Isidro,3,3,5,"['Lack of public transport', 'Lack of public transport']"
-San Isidro,1,2,1,"['Lack of public transport', 'Lack of public transport']"
-San Isidro,1,1,2,"['Inadequate pedestrian pathways', 'Long travel distances']"
-San Isidro,3,2,2,['Inadequate pedestrian pathways']
-San Isidro,3,1,4,"['Lack of public transport', 'Poor road conditions']"
-San Isidro,1,3,3,"['Long travel distances', 'Traffic congestion']"
-San Isidro,4,3,2,['Safety concerns']
-San Isidro,3,3,4,"['Traffic congestion', 'Traffic congestion']"
-San Isidro,1,4,1,['Traffic congestion']
-San Isidro,4,4,4,"['Long travel distances', 'Inadequate pedestrian pathways']"
-San Isidro,1,1,1,['Lack of public transport']
-San Isidro,1,1,2,"['Long travel distances', 'Safety concerns']"
+Baclaran,4,2,3,Lack of public transport
+Baclaran,2,4,2,"Traffic congestion, Long travel distances"
+Baclaran,2,3,4,"Traffic congestion, Long travel distances"
+Baclaran,1,1,5,"Poor road conditions, Lack of public transport"
+Baclaran,4,2,3,Traffic congestion
+Baclaran,2,2,3,"Traffic congestion, Poor road conditions"
+Baclaran,2,1,2,Lack of public transport
+Baclaran,3,3,2,"Poor road conditions, Traffic congestion"
+Baclaran,2,1,5,Lack of public transport
+Baclaran,3,5,2,"Long travel distances, Poor road conditions"
+Baclaran,1,1,1,Traffic congestion
+Baclaran,4,2,1,"Long travel distances, Poor road conditions"
+Baclaran,4,3,3,"Traffic congestion, Traffic congestion"
+Baclaran,4,3,4,Long travel distances
+Baclaran,2,1,1,Lack of public transport
+Baclaran,3,2,4,"Poor road conditions, Long travel distances"
+Baclaran,3,1,4,"Lack of public transport, Safety concerns"
+Baclaran,2,3,1,"Long travel distances, Safety concerns"
+Baclaran,2,4,1,Poor road conditions
+Baclaran,3,2,4,"Long travel distances, Long travel distances"
+Banaybanay,2,5,5,Lack of public transport
+Banaybanay,2,5,2,"Long travel distances, Traffic congestion"
+Banaybanay,4,5,2,"Poor road conditions, Traffic congestion"
+Banaybanay,2,3,5,"Lack of public transport, Long travel distances"
+Banaybanay,2,5,2,"Poor road conditions, Lack of public transport"
+Banaybanay,1,5,5,"Traffic congestion, Long travel distances"
+Banaybanay,2,4,2,"Traffic congestion, Poor road conditions"
+Banaybanay,3,3,1,"Traffic congestion, Long travel distances"
+Banaybanay,5,4,2,Long travel distances
+Banaybanay,4,2,2,Traffic congestion
+Banaybanay,2,4,2,"Inadequate pedestrian pathways, Traffic congestion"
+Banaybanay,3,2,4,Traffic congestion
+Banaybanay,1,1,4,Long travel distances
+Banaybanay,3,4,2,"Long travel distances, Safety concerns"
+Banaybanay,2,3,4,Long travel distances
+Banaybanay,1,4,4,"Long travel distances, Lack of public transport"
+Banaybanay,4,4,2,"Poor road conditions, Safety concerns"
+Banaybanay,1,2,1,Traffic congestion
+Banaybanay,1,2,3,Poor road conditions
+Banaybanay,2,1,4,"Traffic congestion, Traffic congestion"
+Banlic,5,2,2,Traffic congestion
+Banlic,3,4,4,"Poor road conditions, Poor road conditions"
+Banlic,2,5,2,Long travel distances
+Banlic,4,1,4,"Poor road conditions, Traffic congestion"
+Banlic,1,1,1,Long travel distances
+Banlic,4,4,3,"Lack of public transport, Poor road conditions"
+Banlic,2,4,4,Lack of public transport
+Banlic,4,5,1,"Lack of public transport, Lack of public transport"
+Banlic,4,1,2,"Poor road conditions, Lack of public transport"
+Banlic,2,3,5,Poor road conditions
+Banlic,3,2,1,"Lack of public transport, Poor road conditions"
+Banlic,4,2,4,"Lack of public transport, Inadequate pedestrian pathways"
+Banlic,1,2,3,Poor road conditions
+Banlic,4,4,2,"Long travel distances, Poor road conditions"
+Banlic,2,4,4,"Safety concerns, Inadequate pedestrian pathways"
+Banlic,3,2,4,Long travel distances
+Banlic,3,2,1,"Safety concerns, Traffic congestion"
+Banlic,2,3,2,Traffic congestion
+Banlic,3,2,4,"Inadequate pedestrian pathways, Poor road conditions"
+Banlic,2,1,2,"Long travel distances, Traffic congestion"
+Bigaa,5,5,2,"Poor road conditions, Traffic congestion"
+Bigaa,1,4,4,Poor road conditions
+Bigaa,3,4,1,"Traffic congestion, Long travel distances"
+Bigaa,2,5,1,"Traffic congestion, Long travel distances"
+Bigaa,2,3,4,Long travel distances
+Bigaa,3,1,4,"Traffic congestion, Traffic congestion"
+Bigaa,1,3,2,Poor road conditions
+Bigaa,4,5,3,"Poor road conditions, Lack of public transport"
+Bigaa,2,3,2,"Poor road conditions, Long travel distances"
+Bigaa,2,4,2,Lack of public transport
+Bigaa,2,4,3,Safety concerns
+Bigaa,4,1,4,Lack of public transport
+Bigaa,1,2,3,"Inadequate pedestrian pathways, Poor road conditions"
+Bigaa,2,1,4,Safety concerns
+Bigaa,3,3,4,Poor road conditions
+Bigaa,2,4,3,Safety concerns
+Bigaa,3,2,1,"Lack of public transport, Safety concerns"
+Bigaa,3,3,1,"Traffic congestion, Long travel distances"
+Bigaa,4,1,4,"Long travel distances, Lack of public transport"
+Bigaa,2,3,3,Long travel distances
+Butong,1,3,4,Poor road conditions
+Butong,5,4,2,Lack of public transport
+Butong,4,2,1,Long travel distances
+Butong,3,5,3,"Traffic congestion, Lack of public transport"
+Butong,4,4,3,Traffic congestion
+Butong,5,3,4,Lack of public transport
+Butong,4,3,4,"Poor road conditions, Long travel distances"
+Butong,1,3,4,Long travel distances
+Butong,5,4,3,Lack of public transport
+Butong,4,4,4,"Traffic congestion, Long travel distances"
+Butong,1,2,3,"Traffic congestion, Lack of public transport"
+Butong,1,1,3,Lack of public transport
+Butong,2,3,1,Inadequate pedestrian pathways
+Butong,4,2,2,Long travel distances
+Butong,2,3,1,"Lack of public transport, Safety concerns"
+Butong,4,3,3,Lack of public transport
+Butong,1,4,2,"Inadequate pedestrian pathways, Safety concerns"
+Butong,1,3,3,"Traffic congestion, Inadequate pedestrian pathways"
+Butong,4,1,3,"Inadequate pedestrian pathways, Lack of public transport"
+Butong,1,2,2,Safety concerns
+Casile,5,5,5,Long travel distances
+Casile,4,5,4,Traffic congestion
+Casile,4,1,4,Long travel distances
+Casile,4,3,4,Poor road conditions
+Casile,5,3,5,Lack of public transport
+Casile,1,5,2,"Lack of public transport, Long travel distances"
+Casile,1,2,2,"Poor road conditions, Long travel distances"
+Casile,1,1,5,"Lack of public transport, Traffic congestion"
+Casile,2,2,5,"Lack of public transport, Traffic congestion"
+Casile,5,1,3,"Poor road conditions, Lack of public transport"
+Casile,1,2,2,"Lack of public transport, Safety concerns"
+Casile,4,4,1,"Long travel distances, Safety concerns"
+Casile,3,3,3,"Lack of public transport, Long travel distances"
+Casile,2,4,3,Safety concerns
+Casile,3,2,2,"Safety concerns, Poor road conditions"
+Casile,2,4,4,Lack of public transport
+Casile,1,1,3,"Safety concerns, Inadequate pedestrian pathways"
+Casile,1,2,3,Lack of public transport
+Casile,1,3,3,Traffic congestion
+Casile,3,3,2,"Inadequate pedestrian pathways, Safety concerns"
+Diezmo,5,1,3,"Long travel distances, Long travel distances"
+Diezmo,2,5,1,Long travel distances
+Diezmo,4,1,3,Poor road conditions
+Diezmo,2,5,3,"Traffic congestion, Lack of public transport"
+Diezmo,3,1,2,"Long travel distances, Lack of public transport"
+Diezmo,1,5,5,"Poor road conditions, Traffic congestion"
+Diezmo,4,1,3,"Traffic congestion, Long travel distances"
+Diezmo,2,5,3,"Traffic congestion, Traffic congestion"
+Diezmo,2,2,4,"Traffic congestion, Traffic congestion"
+Diezmo,4,4,1,"Long travel distances, Poor road conditions"
+Diezmo,3,4,1,"Lack of public transport, Poor road conditions"
+Diezmo,4,3,2,Safety concerns
+Diezmo,1,2,3,Traffic congestion
+Diezmo,2,4,4,"Poor road conditions, Safety concerns"
+Diezmo,1,4,4,"Safety concerns, Poor road conditions"
+Diezmo,2,1,4,Poor road conditions
+Diezmo,4,4,1,Safety concerns
+Diezmo,3,2,3,Traffic congestion
+Diezmo,3,3,2,"Lack of public transport, Poor road conditions"
+Diezmo,1,2,3,Lack of public transport
+Gulod,2,2,5,"Lack of public transport, Long travel distances"
+Gulod,3,5,5,Long travel distances
+Gulod,2,2,4,"Traffic congestion, Traffic congestion"
+Gulod,5,3,4,Poor road conditions
+Gulod,5,3,4,"Poor road conditions, Traffic congestion"
+Gulod,3,1,5,Poor road conditions
+Gulod,3,2,1,Lack of public transport
+Gulod,2,1,2,Poor road conditions
+Gulod,3,5,4,"Traffic congestion, Long travel distances"
+Gulod,2,2,1,Lack of public transport
+Gulod,2,2,2,"Traffic congestion, Long travel distances"
+Gulod,4,3,1,Traffic congestion
+Gulod,1,1,3,"Lack of public transport, Poor road conditions"
+Gulod,1,1,2,"Lack of public transport, Inadequate pedestrian pathways"
+Gulod,2,4,4,Safety concerns
+Gulod,2,3,4,Long travel distances
+Gulod,1,1,2,"Long travel distances, Lack of public transport"
+Gulod,1,2,4,Inadequate pedestrian pathways
+Gulod,1,4,2,Lack of public transport
+Gulod,2,1,2,Safety concerns
+Mamatid,4,2,3,"Lack of public transport, Long travel distances"
+Mamatid,4,3,5,Poor road conditions
+Mamatid,5,2,5,Lack of public transport
+Mamatid,1,4,5,"Long travel distances, Long travel distances"
+Mamatid,5,5,3,"Traffic congestion, Lack of public transport"
+Mamatid,1,2,2,Poor road conditions
+Mamatid,3,3,2,"Long travel distances, Traffic congestion"
+Mamatid,1,3,5,"Traffic congestion, Poor road conditions"
+Mamatid,5,1,1,Lack of public transport
+Mamatid,2,3,3,"Traffic congestion, Long travel distances"
+Mamatid,4,1,2,Safety concerns
+Mamatid,3,4,3,"Long travel distances, Inadequate pedestrian pathways"
+Mamatid,2,4,1,"Lack of public transport, Long travel distances"
+Mamatid,2,4,4,Long travel distances
+Mamatid,3,2,1,Long travel distances
+Mamatid,4,1,3,Safety concerns
+Mamatid,4,4,3,"Lack of public transport, Inadequate pedestrian pathways"
+Mamatid,2,4,3,Safety concerns
+Mamatid,4,4,1,"Inadequate pedestrian pathways, Traffic congestion"
+Mamatid,1,2,4,"Safety concerns, Long travel distances"
+Marinig,5,1,3,"Long travel distances, Poor road conditions"
+Marinig,5,2,5,Long travel distances
+Marinig,3,2,2,"Traffic congestion, Long travel distances"
+Marinig,3,2,2,Poor road conditions
+Marinig,2,2,1,"Long travel distances, Lack of public transport"
+Marinig,3,3,5,"Traffic congestion, Poor road conditions"
+Marinig,4,4,3,"Poor road conditions, Poor road conditions"
+Marinig,3,2,5,Lack of public transport
+Marinig,4,4,3,"Poor road conditions, Long travel distances"
+Marinig,1,5,5,"Long travel distances, Lack of public transport"
+Marinig,2,4,4,Inadequate pedestrian pathways
+Marinig,3,1,2,"Long travel distances, Lack of public transport"
+Marinig,2,3,3,Lack of public transport
+Marinig,2,2,4,"Traffic congestion, Poor road conditions"
+Marinig,3,1,3,Safety concerns
+Marinig,4,3,2,"Lack of public transport, Poor road conditions"
+Marinig,3,1,3,Lack of public transport
+Marinig,4,2,3,"Safety concerns, Lack of public transport"
+Marinig,2,2,3,Long travel distances
+Marinig,4,2,4,"Lack of public transport, Lack of public transport"
+Niugan,2,5,5,"Long travel distances, Poor road conditions"
+Niugan,4,1,5,"Poor road conditions, Long travel distances"
+Niugan,4,3,2,Lack of public transport
+Niugan,4,4,3,Poor road conditions
+Niugan,5,1,1,Poor road conditions
+Niugan,3,1,1,"Long travel distances, Long travel distances"
+Niugan,3,5,4,Traffic congestion
+Niugan,1,3,5,Lack of public transport
+Niugan,1,2,4,"Lack of public transport, Traffic congestion"
+Niugan,3,3,4,"Traffic congestion, Poor road conditions"
+Niugan,2,4,1,Lack of public transport
+Niugan,1,3,1,Inadequate pedestrian pathways
+Niugan,4,2,1,"Traffic congestion, Long travel distances"
+Niugan,3,4,1,Safety concerns
+Niugan,3,3,4,Poor road conditions
+Niugan,1,2,1,"Inadequate pedestrian pathways, Safety concerns"
+Niugan,3,2,4,Long travel distances
+Niugan,2,3,3,"Poor road conditions, Long travel distances"
+Niugan,1,2,1,"Lack of public transport, Safety concerns"
+Niugan,2,4,3,Long travel distances
+Pittland,3,3,4,"Traffic congestion, Poor road conditions"
+Pittland,2,5,2,"Traffic congestion, Lack of public transport"
+Pittland,4,5,5,"Traffic congestion, Long travel distances"
+Pittland,3,2,5,Lack of public transport
+Pittland,2,1,2,Traffic congestion
+Pittland,4,4,5,Traffic congestion
+Pittland,5,3,3,Lack of public transport
+Pittland,4,2,3,"Poor road conditions, Long travel distances"
+Pittland,4,2,2,Poor road conditions
+Pittland,3,2,1,Traffic congestion
+Pittland,2,2,4,"Lack of public transport, Lack of public transport"
+Pittland,2,1,1,Long travel distances
+Pittland,3,3,3,"Lack of public transport, Traffic congestion"
+Pittland,4,2,1,"Safety concerns, Safety concerns"
+Pittland,3,2,4,Traffic congestion
+Pittland,3,4,4,Lack of public transport
+Pittland,4,2,1,"Inadequate pedestrian pathways, Inadequate pedestrian pathways"
+Pittland,3,4,3,"Inadequate pedestrian pathways, Long travel distances"
+Pittland,1,1,2,Long travel distances
+Pittland,2,3,1,"Poor road conditions, Traffic congestion"
+Poblacion Dos,3,2,4,"Poor road conditions, Traffic congestion"
+Poblacion Dos,5,1,3,"Long travel distances, Poor road conditions"
+Poblacion Dos,5,1,4,"Long travel distances, Long travel distances"
+Poblacion Dos,4,4,2,Long travel distances
+Poblacion Dos,2,2,2,Lack of public transport
+Poblacion Dos,4,1,5,Long travel distances
+Poblacion Dos,3,3,5,Poor road conditions
+Poblacion Dos,4,4,5,"Lack of public transport, Long travel distances"
+Poblacion Dos,2,3,2,"Traffic congestion, Lack of public transport"
+Poblacion Dos,5,1,2,"Traffic congestion, Lack of public transport"
+Poblacion Dos,3,4,2,"Traffic congestion, Inadequate pedestrian pathways"
+Poblacion Dos,3,4,3,Long travel distances
+Poblacion Dos,4,2,3,"Traffic congestion, Poor road conditions"
+Poblacion Dos,2,3,4,Poor road conditions
+Poblacion Dos,3,1,3,Inadequate pedestrian pathways
+Poblacion Dos,2,3,4,"Traffic congestion, Traffic congestion"
+Poblacion Dos,4,2,3,"Poor road conditions, Traffic congestion"
+Poblacion Dos,3,3,4,Poor road conditions
+Poblacion Dos,2,2,4,Traffic congestion
+Poblacion Dos,2,3,2,"Lack of public transport, Inadequate pedestrian pathways"
+Poblacion Tres,5,1,5,Lack of public transport
+Poblacion Tres,2,1,4,Poor road conditions
+Poblacion Tres,5,2,1,"Lack of public transport, Long travel distances"
+Poblacion Tres,1,4,1,Traffic congestion
+Poblacion Tres,1,4,5,"Traffic congestion, Lack of public transport"
+Poblacion Tres,2,3,2,Traffic congestion
+Poblacion Tres,1,1,5,"Poor road conditions, Traffic congestion"
+Poblacion Tres,1,5,2,"Poor road conditions, Lack of public transport"
+Poblacion Tres,5,2,2,"Lack of public transport, Lack of public transport"
+Poblacion Tres,4,4,4,Traffic congestion
+Poblacion Tres,4,3,3,Long travel distances
+Poblacion Tres,4,3,3,"Traffic congestion, Lack of public transport"
+Poblacion Tres,4,2,4,Traffic congestion
+Poblacion Tres,4,2,4,Safety concerns
+Poblacion Tres,1,3,2,Inadequate pedestrian pathways
+Poblacion Tres,2,3,3,"Long travel distances, Lack of public transport"
+Poblacion Tres,4,1,4,"Safety concerns, Lack of public transport"
+Poblacion Tres,2,2,3,"Safety concerns, Poor road conditions"
+Poblacion Tres,4,4,4,Inadequate pedestrian pathways
+Poblacion Tres,2,2,3,"Lack of public transport, Poor road conditions"
+Poblacion Uno,3,3,2,"Long travel distances, Poor road conditions"
+Poblacion Uno,2,5,5,"Poor road conditions, Traffic congestion"
+Poblacion Uno,1,1,1,"Poor road conditions, Traffic congestion"
+Poblacion Uno,3,3,3,Long travel distances
+Poblacion Uno,2,2,4,"Long travel distances, Long travel distances"
+Poblacion Uno,2,3,3,"Lack of public transport, Long travel distances"
+Poblacion Uno,2,3,2,Traffic congestion
+Poblacion Uno,5,2,3,"Long travel distances, Long travel distances"
+Poblacion Uno,3,2,1,"Poor road conditions, Long travel distances"
+Poblacion Uno,2,5,5,Long travel distances
+Poblacion Uno,4,3,3,"Long travel distances, Safety concerns"
+Poblacion Uno,2,3,2,"Poor road conditions, Traffic congestion"
+Poblacion Uno,1,4,2,"Poor road conditions, Safety concerns"
+Poblacion Uno,2,4,2,Lack of public transport
+Poblacion Uno,3,2,1,"Inadequate pedestrian pathways, Poor road conditions"
+Poblacion Uno,2,1,1,Lack of public transport
+Poblacion Uno,4,2,1,"Long travel distances, Poor road conditions"
+Poblacion Uno,2,4,1,Inadequate pedestrian pathways
+Poblacion Uno,3,1,3,Long travel distances
+Poblacion Uno,2,2,4,"Traffic congestion, Traffic congestion"
+Pulo,3,2,4,"Long travel distances, Long travel distances"
+Pulo,3,1,3,Lack of public transport
+Pulo,5,5,1,Lack of public transport
+Pulo,5,2,5,"Traffic congestion, Long travel distances"
+Pulo,3,3,5,"Lack of public transport, Lack of public transport"
+Pulo,3,4,1,Poor road conditions
+Pulo,1,3,4,Poor road conditions
+Pulo,4,5,1,Traffic congestion
+Pulo,3,4,3,"Long travel distances, Traffic congestion"
+Pulo,5,3,4,"Poor road conditions, Poor road conditions"
+Pulo,1,4,2,"Traffic congestion, Long travel distances"
+Pulo,2,3,3,"Long travel distances, Lack of public transport"
+Pulo,4,4,4,"Poor road conditions, Safety concerns"
+Pulo,4,1,3,"Safety concerns, Inadequate pedestrian pathways"
+Pulo,3,1,2,Inadequate pedestrian pathways
+Pulo,1,1,3,"Poor road conditions, Safety concerns"
+Pulo,1,1,1,"Long travel distances, Safety concerns"
+Pulo,3,4,4,Safety concerns
+Pulo,1,2,4,"Traffic congestion, Safety concerns"
+Pulo,4,4,1,"Lack of public transport, Poor road conditions"
+Sala,3,2,3,Poor road conditions
+Sala,3,2,3,"Traffic congestion, Poor road conditions"
+Sala,1,3,1,"Traffic congestion, Traffic congestion"
+Sala,5,1,5,Poor road conditions
+Sala,4,5,1,Long travel distances
+Sala,5,5,5,Poor road conditions
+Sala,5,4,4,Traffic congestion
+Sala,4,3,5,Lack of public transport
+Sala,3,4,1,Long travel distances
+Sala,1,3,4,"Long travel distances, Lack of public transport"
+Sala,2,1,2,"Long travel distances, Traffic congestion"
+Sala,2,3,4,"Safety concerns, Traffic congestion"
+Sala,4,3,3,"Safety concerns, Lack of public transport"
+Sala,3,3,3,Inadequate pedestrian pathways
+Sala,4,1,4,Lack of public transport
+Sala,4,4,2,"Traffic congestion, Lack of public transport"
+Sala,3,2,4,"Poor road conditions, Inadequate pedestrian pathways"
+Sala,1,4,4,Safety concerns
+Sala,3,1,4,"Long travel distances, Inadequate pedestrian pathways"
+Sala,3,2,4,"Inadequate pedestrian pathways, Safety concerns"
+San Isidro,5,1,3,Poor road conditions
+San Isidro,2,2,2,"Long travel distances, Traffic congestion"
+San Isidro,2,5,3,"Lack of public transport, Long travel distances"
+San Isidro,5,2,3,"Long travel distances, Traffic congestion"
+San Isidro,2,1,2,Lack of public transport
+San Isidro,3,2,2,Poor road conditions
+San Isidro,5,4,4,Long travel distances
+San Isidro,5,1,2,"Traffic congestion, Lack of public transport"
+San Isidro,3,3,5,"Lack of public transport, Lack of public transport"
+San Isidro,1,2,1,"Lack of public transport, Lack of public transport"
+San Isidro,1,1,2,"Inadequate pedestrian pathways, Long travel distances"
+San Isidro,3,2,2,Inadequate pedestrian pathways
+San Isidro,3,1,4,"Lack of public transport, Poor road conditions"
+San Isidro,1,3,3,"Long travel distances, Traffic congestion"
+San Isidro,4,3,2,Safety concerns
+San Isidro,3,3,4,"Traffic congestion, Traffic congestion"
+San Isidro,1,4,1,Traffic congestion
+San Isidro,4,4,4,"Long travel distances, Inadequate pedestrian pathways"
+San Isidro,1,1,1,Lack of public transport
+San Isidro,1,1,2,"Long travel distances, Safety concerns"

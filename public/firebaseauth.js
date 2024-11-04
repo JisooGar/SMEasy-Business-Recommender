@@ -1,7 +1,20 @@
-// Import the functions you need from the SDKs you need
+// Import Firebase functions
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
-import { getFirestore, setDoc, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
+import { 
+  getAuth, 
+  createUserWithEmailAndPassword, 
+  signInWithEmailAndPassword, 
+  sendEmailVerification, 
+  GoogleAuthProvider, 
+  signInWithPopup, 
+  onAuthStateChanged 
+} from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
+import { 
+  getFirestore, 
+  setDoc, 
+  doc, 
+  getDoc 
+} from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -19,42 +32,34 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 const provider = new GoogleAuthProvider();
 
-// Show message function
-function showMessage(message, divId){
-  var messageDiv = document.getElementById(divId);
-  messageDiv.style.display = "block";
-  messageDiv.innerHTML = message;
-  messageDiv.style.opacity = 1;
-  setTimeout(function(){
-    messageDiv.style.opacity = 0;
-  }, 5000);
+// Show modal function
+function showModal(message) {
+  const modal = document.getElementById('modal');
+  const modalMessage = document.getElementById('modalMessage');
+  modalMessage.innerText = message;
+  modal.style.display = 'block'; // Make sure modal is displayed
 }
 
-// Display user information in the sidebar
-function displayUserInfo(user) {
-  const nameElement = document.querySelector('.name');
-  const professionElement = document.querySelector('.profession');
+// Close modal function
+function closeModal() {
+  const modal = document.getElementById('modal');
+  modal.style.display = 'none'; // Hide the modal
+}
 
-  if (user) {
-    const uid = user.uid;
-    const docRef = doc(db, "users", uid);
+// Attach the close function to the 'X' button click
+document.querySelector('.close').addEventListener('click', closeModal);
 
-    getDoc(docRef).then((docSnap) => {
-      if (docSnap.exists()) {
-        const userData = docSnap.data();
-        nameElement.textContent = `${userData.firstName} ${userData.lastName}`;
-        professionElement.textContent = userData.email;
-      } else {
-        nameElement.textContent = "Profile";
-        professionElement.textContent = "GMAIL/ID";
+
+// Function to periodically check if the email is verified
+function checkVerification(user) {
+  const interval = setInterval(() => {
+    user.reload().then(() => {
+      if (user.emailVerified) {
+        clearInterval(interval); // Stop checking once verified
+        window.location.href = '/homepage/homepage.html'; // Redirect to homepage
       }
-    }).catch((error) => {
-      console.error("Error fetching user data: ", error);
     });
-  } else {
-    nameElement.textContent = "Profile";
-    professionElement.textContent = "GMAIL/ID";
-  }
+  }, 2000); // Check every 2 seconds
 }
 
 // Sign-Up with Email and Password
@@ -73,12 +78,18 @@ document.getElementById('submitSignUp').addEventListener('click', (event) => {
         firstName: firstName,
         lastName: lastName
       };
-      showMessage('Account Created Successfully', 'signUpMessage');
+
       const docRef = doc(db, "users", user.uid);
       setDoc(docRef, userData)
         .then(() => {
-          displayUserInfo(user);
-          window.location.href = '/homepage/homepage.html';
+          sendEmailVerification(user)
+            .then(() => {
+              showModal('Account created successfully. A verification email has been sent. Please verify to proceed. Kindly refresh your page and Sign in');
+              auth.signOut(); // Log out the user until they verify
+            })
+            .catch((error) => {
+              console.error("Error sending email verification:", error);
+            });
         })
         .catch((error) => {
           console.error("Error writing document", error);
@@ -86,10 +97,10 @@ document.getElementById('submitSignUp').addEventListener('click', (event) => {
     })
     .catch((error) => {
       const errorCode = error.code;
-      if (errorCode == 'auth/email-already-in-use') {
-        showMessage('Email Address Already Exists!', 'signUpMessage');
+      if (errorCode === 'auth/email-already-in-use') {
+        showModal('Email Address Already Exists!');
       } else {
-        showMessage('Unable to create user', 'signUpMessage');
+        showModal('Unable to create user');
       }
     });
 });
@@ -102,18 +113,30 @@ document.getElementById('submitSignIn').addEventListener('click', (event) => {
 
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      showMessage('Login is successful', 'signInMessage');
       const user = userCredential.user;
-      localStorage.setItem('loggedInUserId', user.uid);
-      displayUserInfo(user);
-      window.location.href = '/homepage/homepage.html';
+      if (user.emailVerified) {
+        // Redirect to homepage if email is verified
+        window.location.href = '/homepage/homepage.html';
+      } else {
+        sendEmailVerification(user)
+          .then(() => {
+            showModal('Please verify your email to proceed. A verification link has been sent to your email.');
+            checkVerification(user); // Start checking for verification
+            auth.signOut(); // Log out the user until they verify
+          })
+          .catch((error) => {
+            console.error("Error sending verification email:", error);
+          });
+      }
     })
     .catch((error) => {
       const errorCode = error.code;
-      if (errorCode === 'auth/invalid-credential') {
-        showMessage('Incorrect Email or Password', 'signInMessage');
+      if (errorCode === 'auth/user-not-found') {
+        showModal('No account found with this email.');
+      } else if (errorCode === 'auth/wrong-password') {
+        showModal('Incorrect password.');
       } else {
-        showMessage('Account does not exist', 'signInMessage');
+        showModal('An error occurred during sign-in.');
       }
     });
 });
@@ -126,10 +149,8 @@ document.querySelectorAll('#signInGoogleButton').forEach(button => {
         const user = result.user;
         const userRef = doc(db, "users", user.uid);
 
-        // Check if the user already exists in Firestore
         getDoc(userRef).then((docSnap) => {
           if (!docSnap.exists()) {
-            // If not, create a new user document
             const userData = {
               email: user.email,
               firstName: user.displayName.split(' ')[0],
@@ -137,32 +158,23 @@ document.querySelectorAll('#signInGoogleButton').forEach(button => {
             };
             setDoc(userRef, userData)
               .then(() => {
-                displayUserInfo(user);
                 window.location.href = '/homepage/homepage.html';
               })
               .catch((error) => {
                 console.error("Error writing document", error);
               });
           } else {
-            displayUserInfo(user);
             window.location.href = '/homepage/homepage.html';
           }
         }).catch((error) => {
-          console.error("Error fetching user data: ", error);
+          console.error("Error fetching user data:", error);
         });
-      }).catch((error) => {
-        console.error('Error during sign-in: ', error.code, error.message, error.email, GoogleAuthProvider.credentialFromError(error));
+      })
+      .catch((error) => {
+        console.error('Error during Google sign-in:', error.code, error.message);
+        showModal('An error occurred during Google sign-in. Please try again.');
       });
   });
 });
 
-// Check the user's sign-in status
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    console.log('User is signed in:', user);
-    displayUserInfo(user);
-  } else {
-    console.log('No user is signed in.');
-    displayUserInfo(null);
-  }
-});
+

@@ -90,6 +90,50 @@ app.get('/api/transportation-data', async (req, res) => {
   }
 });
 
+// API to get Psychographics data from CSV
+app.get('/api/psychographics-data', async (req, res) => {
+  try {
+    const filePath = path.join(__dirname, 'CSV_files', 'Psychographics.csv');
+    const data = await readCSVFile(filePath);
+    res.json(data);
+  } catch (err) {
+    console.error('Error reading Psychographics.csv:', err);
+    res.status(500).send('Error reading Psychographics.csv');
+  }
+});
+
+// API to get Behavioral data from CSV
+app.get('/api/behavioral-data', async (req, res) => {
+  try {
+    const filePath = path.join(__dirname, 'CSV_files', 'Behavioral.csv');
+    const data = await readCSVFile(filePath);
+    res.json(data);
+  } catch (err) {
+    console.error('Error reading Behavioral.csv:', err);
+    res.status(500).send('Error reading Behavioral.csv');
+  }
+});
+
+app.get('/api/population-data', async (req, res) => {
+  try {
+      const filePath = path.join(__dirname, 'CSV_files', 'BarangayData.csv');
+      const data = await readCSVFile(filePath);  // Using readCSVFile to read BarangayData.csv
+      
+      // If you need to only send population data, you can map the data here
+      const populationData = data.map(row => ({
+          Barangay: row.Barangay,
+          Population: row.Population,
+          PopulationDensity: row['Population Density']
+      }));
+      
+      res.json(populationData);
+  } catch (err) {
+      console.error('Error reading BarangayData.csv:', err);
+      res.status(500).send('Error reading BarangayData.csv');
+  }
+});
+
+
 // Route to fetch all businesses for clustering
 app.get('/api/businesses-for-clustering', async (req, res) => {
   try {

@@ -1,0 +1,361 @@
+Barangay,Business Visits,Frequency visits,Browsing behavior,Satisfaction with businesses,Businesses lacking,Shopping preferences
+Baclaran,"Restaurants, Banks, Pharmacies",Daily,Thorough Research,4,2,Online
+Baclaran,Clothing stores,Several times a week,In-Store Exploration,2,4,In-store
+Baclaran,Banks,Weekly,Quick Decision,2,5,In-store
+Baclaran,"Pharmacies, Banks",Monthly,Casual Browsing,1,5,In-store
+Baclaran,"Restaurants, Banks",Rarely,Social Influence,2,1,Online
+Baclaran,"Groceries, Restaurants, Pharmacies",Several times a week,Thorough Research,4,3,In-store
+Baclaran,"Pharmacies, Groceries, Clothing stores",Daily,In-Store Exploration,1,5,Online
+Baclaran,"Groceries, Banks, Clothing stores",Rarely,Quick Decision,1,1,Online
+Baclaran,Pharmacies,Weekly,Casual Browsing,5,2,In-store
+Baclaran,"Pharmacies, Restaurants",Daily,Social Influence,5,1,In-store
+Baclaran,Pharmacies,Monthly,Quick Decision,2,1,In-store
+Baclaran,"Clothing stores, Clothing stores",Several times a week,Thorough Research,4,1,In-store
+Baclaran,"Pharmacies, Pharmacies",Rarely,Casual Browsing,3,2,Online
+Baclaran,Pharmacies,Daily,In-Store Exploration,2,1,In-store
+Baclaran,"Pharmacies, Pharmacies",Monthly,Social Influence,4,4,Online
+Baclaran,Service providers,Weekly,Thorough Research,3,2,Online
+Baclaran,"Grocery stores, Restaurants and cafes",Daily,In-Store Exploration,2,4,Online
+Baclaran,"Restaurants and cafes, Restaurants and cafes, Grocery stores",Monthly,Quick Decision,3,3,In-store
+Baclaran,"Clothing stores, Pharmacies, Pharmacies",Several times a week,Casual Browsing,4,4,Online
+Baclaran,"Restaurants and cafes, Service providers",Daily,Social Influence,3,2,Online
+Banaybanay,"Clothing stores, Pharmacies",Rarely,Quick Decision,2,2,Online
+Banaybanay,"Pharmacies, Pharmacies",Weekly,Thorough Research,1,2,Online
+Banaybanay,"Groceries, Pharmacies",Daily,Casual Browsing,5,1,In-store
+Banaybanay,Pharmacies,Several times a week,In-Store Exploration,4,3,In-store
+Banaybanay,"Pharmacies, Restaurants",Rarely,Quick Decision,3,2,In-store
+Banaybanay,Restaurants,Monthly,Social Influence,5,4,In-store
+Banaybanay,Pharmacies,Weekly,Thorough Research,1,4,Online
+Banaybanay,Pharmacies,Several times a week,Quick Decision,3,3,Online
+Banaybanay,Banks,Daily,Casual Browsing,5,2,In-store
+Banaybanay,"Banks, Restaurants",Rarely,In-Store Exploration,2,3,Online
+Banaybanay,"Grocery stores, Service providers, Restaurants and cafes",Weekly,Social Influence,4,2,In-store
+Banaybanay,"Restaurants and cafes, Restaurants and cafes",Monthly,In-Store Exploration,1,2,Online
+Banaybanay,Grocery stores,Daily,Quick Decision,3,1,In-store
+Banaybanay,"Clothing stores, Pharmacies",Weekly,Thorough Research,2,2,Online
+Banaybanay,"Service providers, Grocery stores",Monthly,Casual Browsing,4,2,Online
+Banaybanay,"Service providers, Grocery stores",Rarely,Social Influence,1,4,Online
+Banaybanay,Grocery stores,Several times a week,Quick Decision,2,4,In-store
+Banaybanay,Restaurants and cafes,Daily,Thorough Research,2,1,Online
+Banaybanay,Pharmacies,Weekly,Casual Browsing,3,2,Online
+Banaybanay,"Pharmacies, Grocery stores, Clothing stores",Monthly,In-Store Exploration,4,4,In-store
+Banlic,Banks,Rarely,Social Influence,1,1,In-store
+Banlic,"Restaurants, Groceries",Daily,Thorough Research,3,4,Online
+Banlic,"Restaurants, Clothing stores",Weekly,Casual Browsing,4,3,In-store
+Banlic,"Groceries, Clothing stores",Monthly,In-Store Exploration,1,5,Online
+Banlic,"Restaurants, Pharmacies, Restaurants",Rarely,Quick Decision,2,2,In-store
+Banlic,"Restaurants, Pharmacies, Groceries",Several times a week,Thorough Research,4,4,In-store
+Banlic,"Banks, Clothing stores, Banks",Daily,Quick Decision,5,2,In-store
+Banlic,"Clothing stores, Clothing stores",Weekly,Social Influence,1,4,In-store
+Banlic,"Pharmacies, Clothing stores, Pharmacies",Rarely,In-Store Exploration,1,5,In-store
+Banlic,"Groceries, Restaurants, Clothing stores",Monthly,Casual Browsing,5,1,In-store
+Banlic,"Clothing stores, Pharmacies, Service providers",Several times a week,Thorough Research,3,1,Online
+Banlic,Grocery stores,Weekly,In-Store Exploration,3,4,In-store
+Banlic,Pharmacies,Daily,Quick Decision,3,2,In-store
+Banlic,Pharmacies,Monthly,Social Influence,1,2,Online
+Banlic,"Restaurants and cafes, Service providers",Rarely,Casual Browsing,1,4,In-store
+Banlic,"Service providers, Grocery stores, Service providers",Weekly,Quick Decision,3,1,Online
+Banlic,"Grocery stores, Service providers, Grocery stores",Several times a week,In-Store Exploration,2,1,In-store
+Banlic,"Service providers, Restaurants and cafes",Daily,Thorough Research,2,2,Online
+Banlic,Service providers,Monthly,Social Influence,1,4,In-store
+Banlic,"Grocery stores, Clothing stores, Restaurants and cafes",Rarely,Quick Decision,3,1,Online
+Bigaa,Banks,Daily,Casual Browsing,2,2,In-store
+Bigaa,"Groceries, Restaurants, Pharmacies",Weekly,Thorough Research,4,1,In-store
+Bigaa,Banks,Monthly,In-Store Exploration,3,1,In-store
+Bigaa,"Restaurants, Banks, Groceries",Daily,Social Influence,3,5,In-store
+Bigaa,"Restaurants, Clothing stores",Several times a week,Casual Browsing,4,2,Online
+Bigaa,"Groceries, Banks",Weekly,Quick Decision,5,3,In-store
+Bigaa,Clothing stores,Rarely,Thorough Research,3,5,Online
+Bigaa,"Banks, Clothing stores, Banks",Monthly,In-Store Exploration,4,1,Online
+Bigaa,"Pharmacies, Groceries",Daily,Social Influence,5,4,Online
+Bigaa,Clothing stores,Several times a week,Quick Decision,3,2,In-store
+Bigaa,Clothing stores,Weekly,Thorough Research,2,4,Online
+Bigaa,"Grocery stores, Clothing stores, Grocery stores",Rarely,In-Store Exploration,3,3,Online
+Bigaa,Clothing stores,Monthly,Casual Browsing,4,3,In-store
+Bigaa,"Pharmacies, Clothing stores",Daily,Social Influence,1,3,In-store
+Bigaa,Restaurants and cafes,Weekly,Thorough Research,2,3,In-store
+Bigaa,"Service providers, Grocery stores, Pharmacies",Rarely,In-Store Exploration,3,3,Online
+Bigaa,"Pharmacies, Restaurants and cafes, Clothing stores",Several times a week,Quick Decision,2,4,Online
+Bigaa,Service providers,Monthly,Casual Browsing,4,3,Online
+Bigaa,"Pharmacies, Grocery stores",Daily,Social Influence,4,2,Online
+Bigaa,"Restaurants and cafes, Pharmacies",Weekly,Quick Decision,2,2,In-store
+Butong,Groceries,Rarely,Thorough Research,1,3,Online
+Butong,"Groceries, Pharmacies, Restaurants",Several times a week,Casual Browsing,1,1,In-store
+Butong,"Restaurants, Pharmacies",Daily,In-Store Exploration,1,4,Online
+Butong,"Groceries, Banks, Restaurants",Weekly,Social Influence,4,4,Online
+Butong,Clothing stores,Rarely,Quick Decision,4,4,In-store
+Butong,Banks,Monthly,Casual Browsing,4,5,Online
+Butong,"Pharmacies, Clothing stores",Daily,Thorough Research,3,1,In-store
+Butong,"Pharmacies, Groceries",Several times a week,In-Store Exploration,2,3,Online
+Butong,"Groceries, Clothing stores",Weekly,Social Influence,5,4,Online
+Butong,Restaurants,Rarely,Quick Decision,2,1,Online
+Butong,"Pharmacies, Clothing stores",Monthly,Thorough Research,1,1,Online
+Butong,"Restaurants and cafes, Clothing stores, Clothing stores",Daily,In-Store Exploration,1,3,In-store
+Butong,"Clothing stores, Pharmacies",Weekly,Quick Decision,2,3,Online
+Butong,Clothing stores,Several times a week,Casual Browsing,2,2,In-store
+Butong,Clothing stores,Rarely,Social Influence,1,4,Online
+Butong,"Service providers, Restaurants and cafes, Clothing stores",Monthly,Thorough Research,3,1,In-store
+Butong,"Restaurants and cafes, Service providers",Daily,In-Store Exploration,1,4,In-store
+Butong,"Clothing stores, Pharmacies",Weekly,Quick Decision,1,2,Online
+Butong,"Service providers, Restaurants and cafes",Rarely,Casual Browsing,1,3,In-store
+Butong,Grocery stores,Daily,Social Influence,4,2,In-store
+Casile,Pharmacies,Daily,Quick Decision,3,3,In-store
+Casile,"Pharmacies, Clothing stores",Several times in a week,Thorough Research,1,5,Online
+Casile,Groceries,Several times in a week,Casual Browsing,3,4,Online
+Casile,Banks,Weekly,In-Store Exploration,3,1,In-store
+Casile,"Restaurants, Restaurants",Weekly,Social Influence,5,1,Online
+Casile,Clothing stores,Monthly,Quick Decision,2,2,In-store
+Casile,Pharmacies,Rarely,Thorough Research,2,1,In-store
+Casile,"Restaurants, Clothing stores, Banks",Several times in a week,Thorough Research,5,1,In-store
+Casile,Clothing stores,Daily,In-Store Exploration,5,4,Online
+Casile,"Restaurants, Restaurants, Restaurants",Weekly,In-Store Exploration,4,5,Online
+Casile,Clothing stores,Monthly,Quick Decision,1,2,Online
+Casile,"Clothing stores, Clothing stores, Grocery stores",Rarely,Quick Decision,4,3,In-store
+Casile,"Grocery stores, Pharmacies",Daily,Casual Browsing,3,1,Online
+Casile,"Restaurants and cafes, Pharmacies",Weekly,Casual Browsing,2,4,Online
+Casile,"Restaurants and cafes, Restaurants and cafes, Restaurants and cafes",Several times in a week,Social Influence,2,4,In-store
+Casile,"Grocery stores, Grocery stores",Monthly,Social Influence,2,4,In-store
+Casile,"Service providers, Clothing stores",Rarely,Thorough Research,1,1,Online
+Casile,"Grocery stores, Clothing stores, Clothing stores",Daily,In-Store Exploration,3,3,Online
+Casile,"Grocery stores, Grocery stores, Grocery stores",Daily,Quick Decision,3,1,Online
+Casile,"Service providers, Grocery stores, Restaurants and cafes",Several times in a week,Casual Browsing,4,3,Online
+Diezmo,Restaurants,Weekly,Social Influence,2,1,In-store
+Diezmo,"Clothing stores, Restaurants",Monthly,Thorough Research,3,3,In-store
+Diezmo,"Groceries, Pharmacies",Rarely,In-Store Exploration,2,1,In-store
+Diezmo,Groceries,Daily,Quick Decision,1,4,In-store
+Diezmo,Groceries,Weekly,Casual Browsing,2,4,Online
+Diezmo,"Clothing stores, Groceries, Pharmacies",Several times in a week,Social Influence,5,5,In-store
+Diezmo,"Restaurants, Groceries",Monthly,Quick Decision,4,3,In-store
+Diezmo,Pharmacies,Rarely,Thorough Research,5,4,In-store
+Diezmo,"Restaurants, Groceries, Clothing stores",Daily,Casual Browsing,4,4,In-store
+Diezmo,"Restaurants, Clothing stores, Restaurants",Weekly,In-Store Exploration,1,1,Online
+Diezmo,"Restaurants and cafes, Restaurants and cafes, Pharmacies",Daily,Quick Decision,2,2,In-store
+Diezmo,Grocery stores,Several times in a week,Social Influence,2,3,In-store
+Diezmo,"Clothing stores, Service providers",Weekly,Thorough Research,3,3,Online
+Diezmo,"Clothing stores, Clothing stores, Grocery stores",Monthly,Quick Decision,3,1,Online
+Diezmo,"Restaurants and cafes, Clothing stores, Clothing stores",Rarely,Casual Browsing,2,4,In-store
+Diezmo,"Grocery stores, Clothing stores, Pharmacies",Daily,In-Store Exploration,2,3,Online
+Diezmo,Pharmacies,Several times in a week,Social Influence,3,4,Online
+Diezmo,Restaurants and cafes,Weekly,In-Store Exploration,4,4,In-store
+Diezmo,Pharmacies,Monthly,Quick Decision,1,2,In-store
+Diezmo,Grocery stores,Rarely,Thorough Research,1,1,In-store
+Gulod,Banks,Daily,Casual Browsing,5,5,Online
+Gulod,Groceries,Daily,Social Influence,5,4,Online
+Gulod,"Groceries, Pharmacies, Pharmacies",Several times in a week,Quick Decision,5,2,In-store
+Gulod,"Pharmacies, Clothing stores, Clothing stores",Weekly,Thorough Research,3,1,In-store
+Gulod,"Banks, Banks, Clothing stores",Monthly,Casual Browsing,1,2,In-store
+Gulod,"Groceries, Pharmacies, Clothing stores",Rarely,In-Store Exploration,2,2,Online
+Gulod,"Clothing stores, Restaurants",Weekly,Social Influence,4,5,In-store
+Gulod,"Clothing stores, Clothing stores, Banks",Monthly,Thorough Research,2,3,In-store
+Gulod,"Banks, Groceries",Rarely,Casual Browsing,1,1,In-store
+Gulod,"Restaurants, Clothing stores",Daily,In-Store Exploration,5,2,In-store
+Gulod,Clothing stores,Daily,Quick Decision,4,3,In-store
+Gulod,"Clothing stores, Grocery stores",Several times in a week,Thorough Research,3,4,In-store
+Gulod,"Grocery stores, Restaurants and cafes, Pharmacies",Several times in a week,Quick Decision,3,1,Online
+Gulod,Pharmacies,Weekly,Social Influence,3,2,Online
+Gulod,"Grocery stores, Clothing stores, Clothing stores",Weekly,In-Store Exploration,2,2,In-store
+Gulod,"Restaurants and cafes, Clothing stores, Grocery stores",Monthly,Casual Browsing,1,4,Online
+Gulod,"Restaurants and cafes, Pharmacies",Monthly,Thorough Research,2,3,Online
+Gulod,"Service providers, Clothing stores, Clothing stores",Rarely,In-Store Exploration,2,1,In-store
+Gulod,"Pharmacies, Service providers, Grocery stores",Daily,Quick Decision,2,2,In-store
+Gulod,"Pharmacies, Restaurants and cafes",Daily,Social Influence,1,4,In-store
+Mamatid,Groceries,Weekly,Casual Browsing,2,1,In-store
+Mamatid,Groceries,Monthly,Quick Decision,2,1,In-store
+Mamatid,Pharmacies,Rarely,In-Store Exploration,3,1,Online
+Mamatid,"Pharmacies, Restaurants",Several times in a week,Thorough Research,3,5,In-store
+Mamatid,"Restaurants, Banks, Restaurants",Weekly,Social Influence,5,4,In-store
+Mamatid,Pharmacies,Monthly,Quick Decision,3,1,In-store
+Mamatid,"Pharmacies, Restaurants",Daily,Casual Browsing,1,4,In-store
+Mamatid,Restaurants,Rarely,Thorough Research,5,3,Online
+Mamatid,"Banks, Pharmacies",Daily,In-Store Exploration,4,2,Online
+Mamatid,Banks,Weekly,Social Influence,2,1,In-store
+Mamatid,Pharmacies,Weekly,Casual Browsing,4,3,In-store
+Mamatid,"Grocery stores, Service providers, Restaurants and cafes",Monthly,Quick Decision,2,4,Online
+Mamatid,"Clothing stores, Restaurants and cafes, Service providers",Several times in a week,Thorough Research,1,4,In-store
+Mamatid,"Restaurants and cafes, Service providers, Service providers",Daily,In-Store Exploration,1,4,Online
+Mamatid,Clothing stores,Weekly,Social Influence,1,3,In-store
+Mamatid,"Grocery stores, Grocery stores, Pharmacies",Monthly,Quick Decision,3,3,Online
+Mamatid,Grocery stores,Rarely,Thorough Research,2,1,In-store
+Mamatid,Clothing stores,Several times in a week,In-Store Exploration,4,3,Online
+Mamatid,"Grocery stores, Grocery stores, Restaurants and cafes",Daily,Casual Browsing,2,4,Online
+Mamatid,"Clothing stores, Clothing stores",Daily,Social Influence,4,4,In-store
+Marinig,"Groceries, Restaurants, Restaurants",Weekly,Thorough Research,4,5,In-store
+Marinig,"Groceries, Banks",Monthly,In-Store Exploration,1,1,Online
+Marinig,Pharmacies,Rarely,Quick Decision,3,1,In-store
+Marinig,"Restaurants, Groceries, Banks",Several times in a week,Casual Browsing,1,5,In-store
+Marinig,"Pharmacies, Restaurants, Pharmacies",Daily,Social Influence,5,5,In-store
+Marinig,"Groceries, Groceries",Daily,Quick Decision,1,2,Online
+Marinig,Banks,Several times in a week,Thorough Research,5,3,Online
+Marinig,"Groceries, Pharmacies, Groceries",Several times in a week,Casual Browsing,1,5,Online
+Marinig,"Clothing stores, Banks",Weekly,In-Store Exploration,2,4,In-store
+Marinig,"Restaurants, Clothing stores, Pharmacies",Weekly,Social Influence,5,3,Online
+Marinig,"Restaurants and cafes, Restaurants and cafes, Restaurants and cafes",Monthly,Quick Decision,3,3,In-store
+Marinig,"Restaurants and cafes, Clothing stores",Rarely,Casual Browsing,3,2,In-store
+Marinig,"Service providers, Pharmacies",Several times in a week,Thorough Research,2,3,Online
+Marinig,"Service providers, Grocery stores, Service providers",Daily,In-Store Exploration,1,1,Online
+Marinig,"Grocery stores, Pharmacies, Restaurants and cafes",Weekly,Social Influence,4,4,Online
+Marinig,"Restaurants and cafes, Restaurants and cafes, Pharmacies",Monthly,Quick Decision,4,2,In-store
+Marinig,"Restaurants and cafes, Pharmacies, Clothing stores",Rarely,Thorough Research,4,3,Online
+Marinig,Restaurants and cafes,Daily,In-Store Exploration,1,1,In-store
+Marinig,Clothing stores,Weekly,Quick Decision,4,4,In-store
+Marinig,"Service providers, Restaurants and cafes",Several times in a week,Casual Browsing,4,1,In-store
+Niugan,Groceries,Monthly,Social Influence,4,1,Online
+Niugan,"Pharmacies, Groceries",Rarely,Thorough Research,3,5,In-store
+Niugan,"Pharmacies, Clothing stores",Daily,In-Store Exploration,1,5,In-store
+Niugan,Banks,Daily,Quick Decision,2,4,In-store
+Niugan,"Banks, Banks, Restaurants",Several times in a week,Casual Browsing,1,5,In-store
+Niugan,"Banks, Groceries, Pharmacies",Weekly,Social Influence,4,4,In-store
+Niugan,Banks,Monthly,Quick Decision,2,4,In-store
+Niugan,"Clothing stores, Pharmacies, Pharmacies",Rarely,Thorough Research,1,1,Online
+Niugan,Clothing stores,Daily,Casual Browsing,2,1,In-store
+Niugan,Pharmacies,Weekly,In-Store Exploration,1,5,In-store
+Niugan,"Pharmacies, Restaurants and cafes",Several times in a week,Social Influence,3,2,In-store
+Niugan,"Clothing stores, Grocery stores, Grocery stores",Monthly,Quick Decision,1,2,In-store
+Niugan,Grocery stores,Rarely,Thorough Research,3,1,In-store
+Niugan,"Service providers, Pharmacies, Restaurants and cafes",Daily,In-Store Exploration,2,1,Online
+Niugan,"Restaurants and cafes, Service providers",Weekly,Quick Decision,1,1,In-store
+Niugan,"Service providers, Pharmacies",Daily,Casual Browsing,1,2,In-store
+Niugan,"Restaurants and cafes, Clothing stores, Pharmacies",Several times in a week,Social Influence,3,1,Online
+Niugan,Clothing stores,Weekly,Thorough Research,4,4,In-store
+Niugan,Pharmacies,Monthly,In-Store Exploration,3,1,Online
+Niugan,"Grocery stores, Grocery stores",Rarely,Quick Decision,2,1,Online
+Pittland,Pharmacies,Daily,Casual Browsing,5,5,In-store
+Pittland,"Banks, Groceries",Several times in a week,Social Influence,4,3,In-store
+Pittland,"Clothing stores, Groceries, Restaurants",Weekly,Quick Decision,2,3,In-store
+Pittland,"Pharmacies, Pharmacies",Monthly,Thorough Research,3,1,In-store
+Pittland,"Banks, Banks",Rarely,Casual Browsing,2,3,In-store
+Pittland,"Clothing stores, Clothing stores, Pharmacies",Daily,In-Store Exploration,3,3,In-store
+Pittland,"Banks, Banks, Clothing stores",Daily,Social Influence,3,2,In-store
+Pittland,"Restaurants, Pharmacies, Banks",Several times in a week,Quick Decision,1,3,In-store
+Pittland,"Restaurants, Pharmacies",Weekly,Thorough Research,2,5,Online
+Pittland,Banks,Monthly,In-Store Exploration,1,1,Online
+Pittland,"Service providers, Grocery stores",Rarely,Quick Decision,2,4,In-store
+Pittland,"Clothing stores, Service providers",Weekly,Casual Browsing,1,3,Online
+Pittland,Restaurants and cafes,Monthly,Social Influence,4,1,In-store
+Pittland,Service providers,Rarely,Thorough Research,1,1,In-store
+Pittland,"Pharmacies, Restaurants and cafes, Clothing stores",Daily,In-Store Exploration,3,2,Online
+Pittland,"Pharmacies, Clothing stores, Clothing stores",Daily,Quick Decision,1,2,In-store
+Pittland,Restaurants and cafes,Weekly,Casual Browsing,4,1,In-store
+Pittland,"Service providers, Clothing stores",Monthly,Social Influence,1,3,In-store
+Pittland,"Grocery stores, Service providers",Rarely,Thorough Research,3,3,Online
+Pittland,"Pharmacies, Restaurants and cafes, Service providers",Several times in a week,In-Store Exploration,4,2,Online
+Poblacion Dos,Restaurants,Weekly,Quick Decision,4,3,In-store
+Poblacion Dos,Clothing stores,Monthly,Casual Browsing,3,5,In-store
+Poblacion Dos,Restaurants,Daily,Social Influence,1,2,Online
+Poblacion Dos,"Clothing stores, Banks, Groceries",Rarely,Thorough Research,5,2,In-store
+Poblacion Dos,Clothing stores,Daily,In-Store Exploration,3,4,In-store
+Poblacion Dos,Banks,Weekly,Quick Decision,1,2,Online
+Poblacion Dos,"Restaurants, Pharmacies, Banks",Weekly,Casual Browsing,2,5,Online
+Poblacion Dos,"Pharmacies, Groceries",Monthly,Social Influence,4,4,Online
+Poblacion Dos,Restaurants,Several times in a week,Thorough Research,4,2,Online
+Poblacion Dos,"Groceries, Groceries",Daily,In-Store Exploration,1,5,In-store
+Poblacion Dos,"Grocery stores, Service providers",Weekly,Quick Decision,1,1,Online
+Poblacion Dos,Restaurants and cafes,Monthly,Casual Browsing,4,2,Online
+Poblacion Dos,"Clothing stores, Clothing stores",Rarely,Social Influence,3,1,In-store
+Poblacion Dos,"Grocery stores, Clothing stores",Several times in a week,Thorough Research,4,1,Online
+Poblacion Dos,Service providers,Daily,In-Store Exploration,3,1,Online
+Poblacion Dos,Pharmacies,Daily,Quick Decision,2,2,Online
+Poblacion Dos,Clothing stores,Weekly,Casual Browsing,3,3,Online
+Poblacion Dos,Clothing stores,Monthly,Social Influence,3,2,In-store
+Poblacion Dos,Restaurants and cafes,Rarely,Thorough Research,2,2,In-store
+Poblacion Dos,"Service providers, Pharmacies, Service providers",Several times in a week,In-Store Exploration,2,4,Online
+Poblacion Tres,"Groceries, Pharmacies",Daily,Quick Decision,3,1,In-store
+Poblacion Tres,"Clothing stores, Restaurants, Clothing stores",Weekly,Casual Browsing,1,3,Online
+Poblacion Tres,"Clothing stores, Pharmacies, Restaurants",Monthly,Social Influence,2,2,Online
+Poblacion Tres,Clothing stores,Rarely,Thorough Research,5,4,Online
+Poblacion Tres,Restaurants,Daily,In-Store Exploration,4,4,In-store
+Poblacion Tres,"Pharmacies, Clothing stores, Banks",Weekly,Quick Decision,5,5,In-store
+Poblacion Tres,Restaurants,Several times in a week,Casual Browsing,2,2,In-store
+Poblacion Tres,Banks,Monthly,Social Influence,1,2,In-store
+Poblacion Tres,"Groceries, Groceries",Daily,Thorough Research,3,4,Online
+Poblacion Tres,"Banks, Groceries, Clothing stores",Weekly,In-Store Exploration,5,5,In-store
+Poblacion Tres,"Service providers, Grocery stores",Several times in a week,Quick Decision,4,3,Online
+Poblacion Tres,"Clothing stores, Clothing stores",Monthly,Casual Browsing,4,4,Online
+Poblacion Tres,"Restaurants and cafes, Pharmacies",Rarely,Social Influence,2,2,Online
+Poblacion Tres,Restaurants and cafes,Daily,Thorough Research,2,1,Online
+Poblacion Tres,"Grocery stores, Service providers",Daily,In-Store Exploration,2,4,In-store
+Poblacion Tres,"Pharmacies, Service providers",Weekly,Quick Decision,2,4,In-store
+Poblacion Tres,Grocery stores,Monthly,Casual Browsing,2,2,Online
+Poblacion Tres,Service providers,Weekly,Social Influence,3,3,Online
+Poblacion Tres,"Grocery stores, Service providers, Pharmacies",Several times in a week,Thorough Research,2,2,In-store
+Poblacion Tres,Service providers,Rarely,In-Store Exploration,3,2,Online
+Poblacion Uno,"Pharmacies, Restaurants, Banks",Daily,Quick Decision,5,4,In-store
+Poblacion Uno,"Restaurants, Pharmacies, Clothing stores",Weekly,Casual Browsing,1,4,In-store
+Poblacion Uno,"Restaurants, Pharmacies, Clothing stores",Several times in a week,Social Influence,2,3,Online
+Poblacion Uno,"Restaurants, Restaurants, Banks",Monthly,Thorough Research,2,3,In-store
+Poblacion Uno,"Pharmacies, Groceries, Clothing stores",Daily,In-Store Exploration,4,3,Online
+Poblacion Uno,"Clothing stores, Pharmacies, Restaurants",Daily,Quick Decision,4,4,Online
+Poblacion Uno,Clothing stores,Several times in a week,Casual Browsing,1,1,Online
+Poblacion Uno,Pharmacies,Weekly,Social Influence,3,2,In-store
+Poblacion Uno,"Groceries, Restaurants",Monthly,Thorough Research,2,3,In-store
+Poblacion Uno,"Banks, Banks, Clothing stores",Rarely,In-Store Exploration,3,2,In-store
+Poblacion Uno,"Restaurants and cafes, Restaurants and cafes, Clothing stores",Daily,Quick Decision,1,4,Online
+Poblacion Uno,Grocery stores,Several times in a week,Casual Browsing,1,2,Online
+Poblacion Uno,Pharmacies,Weekly,Social Influence,2,3,In-store
+Poblacion Uno,Clothing stores,Monthly,Thorough Research,2,4,Online
+Poblacion Uno,Restaurants and cafes,Rarely,In-Store Exploration,2,4,Online
+Poblacion Uno,"Clothing stores, Service providers, Service providers",Daily,Quick Decision,3,1,In-store
+Poblacion Uno,"Service providers, Service providers, Service providers",Weekly,Casual Browsing,2,2,Online
+Poblacion Uno,Clothing stores,Daily,Social Influence,2,2,In-store
+Poblacion Uno,"Service providers, Restaurants and cafes, Grocery stores",Several times in a week,Thorough Research,2,4,Online
+Poblacion Uno,Service providers,Weekly,Thorough Research,1,2,Online
+Pulo,Restaurants,Monthly,In-Store Exploration,1,4,Online
+Pulo,"Banks, Clothing stores",Rarely,In-Store Exploration,2,3,Online
+Pulo,Clothing stores,Daily,Quick Decision,5,1,In-store
+Pulo,"Restaurants, Banks, Restaurants",Several times in a week,Quick Decision,3,3,In-store
+Pulo,"Pharmacies, Groceries",Weekly,Casual Browsing,2,5,In-store
+Pulo,"Groceries, Pharmacies",Monthly,Casual Browsing,5,1,In-store
+Pulo,Banks,Daily,Social Influence,3,4,Online
+Pulo,Restaurants,Weekly,Social Influence,3,3,Online
+Pulo,Pharmacies,Several times in a week,Thorough Research,3,5,In-store
+Pulo,"Restaurants, Pharmacies, Groceries",Monthly,In-Store Exploration,5,3,In-store
+Pulo,"Clothing stores, Pharmacies, Service providers",Rarely,Quick Decision,4,2,Online
+Pulo,"Grocery stores, Restaurants and cafes, Grocery stores",Daily,Casual Browsing,3,1,Online
+Pulo,Service providers,Weekly,Social Influence,1,2,Online
+Pulo,"Restaurants and cafes, Clothing stores",Weekly,Thorough Research,1,1,In-store
+Pulo,"Grocery stores, Pharmacies, Clothing stores",Monthly,In-Store Exploration,2,1,In-store
+Pulo,"Service providers, Restaurants and cafes",Several times in a week,Quick Decision,3,2,Online
+Pulo,"Service providers, Restaurants and cafes",Rarely,Casual Browsing,3,4,Online
+Pulo,"Service providers, Restaurants and cafes, Pharmacies",Daily,Social Influence,4,3,In-store
+Pulo,Clothing stores,Weekly,Quick Decision,1,4,In-store
+Pulo,"Clothing stores, Restaurants and cafes, Clothing stores",Several times in a week,Thorough Research,1,2,In-store
+Sala,"Restaurants, Clothing stores",Monthly,Casual Browsing,5,1,In-store
+Sala,"Groceries, Restaurants, Restaurants",Daily,In-Store Exploration,1,3,Online
+Sala,"Clothing stores, Pharmacies, Clothing stores",Daily,Quick Decision,4,5,In-store
+Sala,Restaurants,Several times in a week,Social Influence,4,5,In-store
+Sala,"Groceries, Clothing stores, Clothing stores",Weekly,Thorough Research,3,2,Online
+Sala,"Banks, Banks",Monthly,Quick Decision,2,5,In-store
+Sala,Restaurants,Rarely,Casual Browsing,2,4,In-store
+Sala,"Restaurants, Clothing stores",Daily,In-Store Exploration,2,4,In-store
+Sala,Pharmacies,Several times in a week,Social Influence,1,1,Online
+Sala,"Pharmacies, Pharmacies",Weekly,In-Store Exploration,2,2,In-store
+Sala,Service providers,Monthly,Quick Decision,1,2,In-store
+Sala,"Clothing stores, Service providers",Weekly,Thorough Research,2,2,Online
+Sala,Service providers,Several times in a week,Casual Browsing,3,4,In-store
+Sala,"Service providers, Clothing stores",Monthly,Social Influence,3,3,In-store
+Sala,"Pharmacies, Service providers",Rarely,Quick Decision,2,4,In-store
+Sala,"Clothing stores, Grocery stores, Pharmacies",Daily,Thorough Research,3,1,In-store
+Sala,"Restaurants and cafes, Service providers, Restaurants and cafes",Daily,Casual Browsing,1,4,In-store
+Sala,Restaurants and cafes,Several times in a week,In-Store Exploration,4,4,In-store
+Sala,"Pharmacies, Pharmacies",Weekly,Social Influence,1,2,Online
+Sala,Service providers,Monthly,Thorough Research,1,3,Online
+San Isidro,"Restaurants, Restaurants",Rarely,Casual Browsing,1,2,In-store
+San Isidro,Restaurants,Daily,In-Store Exploration,3,4,Online
+San Isidro,"Restaurants, Pharmacies",Weekly,Quick Decision,5,5,In-store
+San Isidro,"Pharmacies, Pharmacies, Groceries",Several times in a week,Thorough Research,5,1,In-store
+San Isidro,"Banks, Banks",Monthly,Quick Decision,1,4,Online
+San Isidro,"Clothing stores, Pharmacies",Rarely,Thorough Research,5,1,Online
+San Isidro,"Banks, Restaurants, Pharmacies",Daily,Thorough Research,2,4,Online
+San Isidro,"Pharmacies, Restaurants",Weekly,In-Store Exploration,4,3,Online
+San Isidro,Clothing stores,Daily,In-Store Exploration,4,1,Online
+San Isidro,"Groceries, Restaurants",Several times in a week,Quick Decision,2,3,In-store
+San Isidro,Restaurants and cafes,Weekly,Quick Decision,3,2,Online
+San Isidro,"Clothing stores, Pharmacies",Monthly,Casual Browsing,4,4,In-store
+San Isidro,"Grocery stores, Restaurants and cafes",Rarely,Casual Browsing,4,4,In-store
+San Isidro,"Pharmacies, Service providers",Daily,Social Influence,3,1,Online
+San Isidro,Clothing stores,Several times in a week,Social Influence,3,1,Online
+San Isidro,Clothing stores,Weekly,Thorough Research,2,1,In-store
+San Isidro,"Clothing stores, Clothing stores, Service providers",Monthly,In-Store Exploration,3,2,In-store
+San Isidro,"Clothing stores, Service providers",Rarely,Quick Decision,1,3,Online
+San Isidro,Restaurants and cafes,Daily,Casual Browsing,4,2,Online
+San Isidro,Clothing stores,Daily,Social Influence,4,1,Online

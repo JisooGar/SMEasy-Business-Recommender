@@ -137,15 +137,17 @@
 
     <!-- Main content -->
     <div id="google-map"></div>
-    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOHl7UhfFADZokofIACrQ4oplJWdvpmPk&callback=initMap"></script>
-    <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
-    <script src="mapping.js"></script>
+
+  <!-- Load MarkerClusterer before mapping.js -->
+<script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+<script src="mapping.js"></script>
+
+
     <script src="homepage.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    <!-- Firebase Configuration -->
-    <script src="firebaseConfig.js" type="module"></script>
+
 </body>
 </html>
