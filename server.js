@@ -6,12 +6,19 @@ const csvParser = require('csv-parser'); // For parsing CSV
 
 const app = express();
 
+console.log('Connecting to PostgreSQL with the following settings:');
+console.log('DB_USER:', process.env.DB_USER || 'postgres');
+console.log('DB_HOST:', process.env.DB_HOST || 'localhost');
+console.log('DB_DATABASE:', process.env.DB_DATABASE || 'SME');
+console.log('DB_PASSWORD:', process.env.DB_PASSWORD ? '****' : 'Not Set');
+console.log('DB_PORT:', process.env.DB_PORT || 5432);
+
 const pool = new Pool({
-  user: process.env.DB_USER || 'postgres',           // Use environment variable or fallback to local value
-  host: process.env.DB_HOST || 'localhost',          // Use 'localhost' as fallback
-  database: process.env.DB_DATABASE || 'SME',        // Local database name
-  password: process.env.DB_PASSWORD || 'LittleStar', // Default local password
-  port: process.env.DB_PORT || 5432,                 // Default PostgreSQL port
+  user: process.env.DB_USER || 'postgres',
+  host: process.env.DB_HOST || 'localhost',
+  database: process.env.DB_DATABASE || 'SME',
+  password: process.env.DB_PASSWORD || 'LittleStar',
+  port: process.env.DB_PORT || 5432,
 });
 
 // Check if the connection is working right after setup
