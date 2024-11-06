@@ -13,12 +13,16 @@ console.log('DB_DATABASE:', process.env.DB_DATABASE || 'SME');
 console.log('DB_PASSWORD:', process.env.DB_PASSWORD ? '****' : 'Not Set');
 console.log('DB_PORT:', process.env.DB_PORT || 5432);
 
+// PostgreSQL connection setup (with SSL enabled for Render)
 const pool = new Pool({
   user: process.env.DB_USER || 'postgres',
   host: process.env.DB_HOST || 'localhost',
   database: process.env.DB_DATABASE || 'SME',
   password: process.env.DB_PASSWORD || 'LittleStar',
   port: process.env.DB_PORT || 5432,
+  ssl: {
+    rejectUnauthorized: false,  // Allows self-signed certificates
+  },
 });
 
 
