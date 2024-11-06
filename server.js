@@ -6,14 +6,24 @@ const csvParser = require('csv-parser'); // For parsing CSV
 
 const app = express();
 
-// PostgreSQL connection setup (use environment variables)
 const pool = new Pool({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_DATABASE,
-  password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT || 5432,
+  user: process.env.DB_USER || 'postgres',           // Use environment variable or fallback to local value
+  host: process.env.DB_HOST || 'localhost',          // Use 'localhost' as fallback
+  database: process.env.DB_DATABASE || 'SME',        // Local database name
+  password: process.env.DB_PASSWORD || 'LittleStar', // Default local password
+  port: process.env.DB_PORT || 5432,                 // Default PostgreSQL port
 });
+
+
+// Check if the connection is working right after setup
+pool.connect()
+  .then(client => {
+    console.log("Connected to the PostgreSQL database successfully.");
+    client.release();
+  })
+  .catch(err => {
+    console.error("Failed to connect to the PostgreSQL database:", err.message);
+  });
 
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
