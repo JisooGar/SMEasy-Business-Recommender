@@ -18,7 +18,7 @@
                 </span>
                 <div class="text logo-text">
                     <span class="name">SMEasy</span>
-                    <span class="profession">Business Analytics</span>
+                    <span class="profession">Business Visualization</span>
                 </div>
             </div>
             <i class='bx bx-chevron-right toggle'></i>
@@ -39,17 +39,17 @@
                     <li class="nav-link">
                         <a href="/analytics/analytics.html">
                             <i class='bx bx-bar-chart-alt-2 icon'></i>
-                            <span class="text nav-text">Analytics</span>
+                            <span class="text nav-text">Visualization</span>
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="/recommender_page/html/recommender.html">
+                        <a href="/recommender_page/recommender.html">
                             <i class='bx bx-pie-chart-alt icon'></i>
-                            <span class="text nav-text">Recommender</span>
+                            <span class="text nav-text">Analysis</span>
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="/about.html/aboutUs.html">
                             <i class='bx bx-heart icon'></i>
                             <span class="text nav-text">About</span>
                         </a>
@@ -57,9 +57,9 @@
                 </ul>
             </div>
             <div class="bottom-content">
-                <li>
-                    <a href="/Login/index.html">
-                        <i class='bx bx-log-out icon'></i>
+                <li class="">
+                    <a href=""  id="signOutButton">
+                        <i class='bx bx-log-out icon' ></i>
                         <span class="text nav-text" id="signOutButton">Logout</span>
                     </a>
                 </li>
@@ -88,72 +88,160 @@
     <img src="/images/diezmo.jpg">
  </section>
 
-  <!--date filtering-->
-  <div class="content-section">
-    <div class="layout-grid">
-        <div class="left-section">
-            <div class="filters">
-                <label for="dateRange">Overall Business Categories:</label>
-                <select id="dateRange">
-                    <option>All</option>
-                    <option>Retail</option>
-                    <option>Coffee</option>
-                    <option>Industry</option>
-                    <option>Laundry</option>
-                    <option>Shop</option>
-                    <option>Whole Sale</option>
-                </select>
-            </div>
-
-            <!--left section-->
-            <div class="stat-card">
-                <h3>Total Number of Businesses</h3>
-                <p id="totalBusinesses">1234</p>
-                <span>180% vs previous 30 days</span>
-            </div>
-            
-            <div class="stat-card">
-                <h3>Number of Population</h3>
-                <p id="population">5678</p>
-                <span>23% vs previous 30 days</span>
-            </div>
-            
-            <div class="stat-card">
-                <h3>???</h3>
-                <p id="stat3">91011</p>
-                <span>91% vs previous 30 days</span>
-            </div>
-            
-            <div class="stat-card">
-                <h3>???</h3>
-                <p id="stat4">121314</p>
-                <span>562 vs previous 30 days</span>
-            </div>
-            
-            <div class="stat-card">
-                <h3>Website Visits</h3>
-                <p id="websiteVisits">20582</p>
-                <span>562 vs previous 30 days</span>
-            </div>
-        </div>
-        
-        <!--right section-->
-        <div class="right-section">
-            <div class="graph-grid">
-
-                 <!--bar graph-->
-                 <div class="graph-card page-views-graph">
-                    <h3>TOTAL NUMBER OF BUSINESSES</h3>
-                    <canvas id="pageViews"></canvas>
+ 
+ <div class="container">
+    <!--date filtering-->
+    <div class="content-section">
+      <div class="layout-grid">
+          <div class="left-section">
+              <div class="filters">
+                  <label for="dateRange">Overall Business Categories:</label>
+                  <select id="dateRange">
+                      <option>All</option>
+                      <option>Automotive Services</option>
+                      <option>Construction and Real Estate</option>
+                      <option>Cooperative Business</option>
+                      <option>Creative and Media Service</option>
+                      <option>Education Services</option>
+                      <option>Entertainment and Recreation</option>
+                      <option>Finance and Insurance</option>
+                      <option>Food Services</option>
+                      <option>Healthcare Services</option>
+                      <option>EIT and Digital Services</option>
+                      <option>Manufacturing and Production</option>
+                      <option>Personal and Household Services</option>
+                      <option>Personal Care Services</option>
+                      <option>Professional Services</option>
+                      <option>Retail Stores</option>
+                      <option>Tourism and Hospitality</option>
+                      <option>Transportation and Logistics</option>
+                      <option>Wholesale and Distribution</option>
+                  </select>
+              </div>
+  
+              <!--left section-->
+              <div class="stat-card">
+                  <h3>Total Number of Businesses</h3>
+                  <p id="totalBusinesses">2679</p>
+                  <span>180% vs previous 30 days</span>
+              </div>
+              
+              <div class="stat-card">
+                  <h3>Cabuyao Population</h3>
+                  <p id="population">421,440</p>
+                  <span>23% vs previous 30 days</span>
+              </div>
+              
+              <div class="stat-card">
+                  <h3>Barangay with the most</h3>
+                  <p id="stat3">Pulo</p>
+                  <span>91% vs previous 30 days</span>
+              </div>
+              
+              <div class="stat-card"> 
+                  <h3>Barangay with the least</h3>
+                  <p id="stat4">Casile</p>
+                  <span>562 vs previous 30 days</span>
+              </div>
+              
+              <div class="stat-card">
+                  <h3>Market Demands</h3>
+                  <p id="marketDemands">???</p>
+                  <span>???</span>
+              </div>
+              <div class="stat-card">
+                  <h3>Market Gaps</h3>
+                  <p id="marketGaps"></p>
+                  <span>???</span>
+              </div>
+          </div>
+  
+  
+          <div class="graph-grid">
+              <!-- TOTAL BUSINESSES container stays on top -->
+              <div class="top-section">
+                  <div class="graph-card page-views-graph extended">
+                      <h3>TOTAL BUSINESSES</h3>
+                      <canvas id="pageViews"></canvas>
                   </div>
-
-                  <!--pie graph-->
+              </div>
+          
+              <!-- TOTAL POPULATION and NEW METRIC side by side -->
+              <div class="bottom-section">
                   <div class="graph-card web-traffic-graph">
-                    <h3>TOTAL NUMBER OF POPULATION</h3>
-                    <canvas id="webTrafficConcentration"></canvas>
+                      <h3>CABUYAO POPULATION</h3>
+                      <canvas id="webTrafficConcentration"></canvas>
                   </div>
-            </div>
-
+  
+                  <div class="new-metric-container">
+                      <h3>BARANGAY BUSINESSES COUNTS</h3>
+                      <div class="scrollable-table">
+                          <table id="businessCategoriesTable">
+                              <thead>
+                                  <tr>
+                                      <th id="categoryHeader">Business Category Name</th> <!-- Add an ID to the header for easy access -->
+                                      <th>Counts</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <!-- Rows will be dynamically generated by JavaScript -->
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+  
+              </div>
+          </div>
+  
+      <!--barangays-->
+      <div class="barangays-container">
+          <h3>BARANGAYS OF CABUYAO</h3>
+          <div class="barangays-scroll">
+              <a href="/analytics/barangays/html/baclaran.html" class="barangay-item">Baclaran</a>
+              <a href="/analytics/barangays/html/banay-banay.html" class="barangay-item">Banay-Banay</a>
+              <a href="/analytics/barangays/html/banlic.html" class="barangay-item">Banlic</a>
+              <a href="/analytics/barangays/html/bigaa.html" class="barangay-item">Bigaa</a>
+              <a href="/analytics/barangays/html/butong.html" class="barangay-item">Butong</a>
+              <a href="/analytics/barangays/html/casile.html" class="barangay-item">Casile</a>
+              <a href="/analytics/barangays/html/diezmo.html" class="barangay-item">Diezmo</a>
+              <a href="/analytics/barangays/html/gulod.html" class="barangay-item">Gulod</a>
+              <a href="/analytics/barangays/html/mamatid.html" class="barangay-item">Mamatid</a>
+              <a href="/analytics/barangays/html/marinig.html" class="barangay-item">Marinig</a>
+              <a href="/analytics/barangays/html/niugan.html" class="barangay-item">Niugan</a>
+              <a href="/analytics/barangays/html/pittland.html" class="barangay-item">Pittland</a>
+              <a href="/analytics/barangays/html/pulo.html" class="barangay-item">Pulo</a>
+              <a href="/analytics/barangays/html/sala.html" class="barangay-item">Sala</a>
+              <a href="/analytics/barangays/html/san isidro.html" class="barangay-item">San Isidro</a>
+              <a href="/analytics/barangays/html/pob1.html" class="barangay-item">Barangay I Poblacion</a>
+              <a href="/analytics/barangays/html/pob2.html" class="barangay-item">Barangay II Poblacion</a>
+              <a href="/analytics/barangays/html/pob3.html" class="barangay-item">Barangay III Poblacion</a>
+          </div>
+      </div>
+  
+  
+          <div class="new-right-container">
+              <h3>BUSINESS SUB-CATEGORIES</h3>
+              <div class="scrollable-table">
+                  <table id="subCategoriesTable">
+                      <thead>
+                          <tr>
+                              <th id="subCategoryHeader">Sub Categories</th> <!-- This will display the selected category -->
+                              <th>Counts</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <!-- Rows will be dynamically generated by JavaScript -->
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+  
+      <!-- Loading overlay -->
+  <div id="loading-overlay" class="loading-overlay">
+      <div class="spinner"></div>
+  </div>
+  
 </body>
 <script src="/homepage/homepage.js" defer></script>
 <script src="/analytics/barangays/javascript/diezmo.js" defer></script>
