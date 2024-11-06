@@ -14,7 +14,6 @@ const pool = new Pool({
   port: process.env.DB_PORT || 5432,                 // Default PostgreSQL port
 });
 
-
 // Check if the connection is working right after setup
 pool.connect()
   .then(client => {
@@ -40,9 +39,7 @@ const readCSVFile = (filePath) => {
   });
 };
 
-// API Endpoints
-
-// Example API to get CSV data
+// API to get SME data from CSV (for clustering)
 app.get('/api/sme-data', async (req, res) => {
   try {
     const filePath = path.join(__dirname, 'CSV_files', 'SME.csv');
@@ -50,128 +47,239 @@ app.get('/api/sme-data', async (req, res) => {
     res.json(data);
   } catch (err) {
     console.error('Error reading SME.csv:', err);
-    res.status(500).json({ error: 'Error reading SME.csv', details: err.message });
+    res.status(500).send('Error reading SME.csv');
   }
 });
+
+// API to get Market Demand data from CSV
+app.get('/api/market-demand-data', async (req, res) => {
+  try {
+    const filePath = path.join(__dirname, 'CSV_files', 'MarketDemandData.csv');
+    const data = await readCSVFile(filePath);
+    res.json(data);
+  } catch (err) {
+    console.error('Error reading MarketDemandData.csv:', err);
+    res.status(500).send('Error reading MarketDemandData.csv');
+  }
+});
+
+// API to get Barangay data from CSV
+app.get('/api/barangay-data', async (req, res) => {
+  try {
+    const filePath = path.join(__dirname, 'CSV_files', 'BarangayData.csv');
+    const data = await readCSVFile(filePath);
+    res.json(data);
+  } catch (err) {
+    console.error('Error reading BarangayData.csv:', err);
+    res.status(500).send('Error reading BarangayData.csv');
+  }
+});
+
+// API to get Competition data from CSV
+app.get('/api/competition-data', async (req, res) => {
+  try {
+    const filePath = path.join(__dirname, 'CSV_files', 'CompetitionData.csv');
+    const data = await readCSVFile(filePath);
+    res.json(data);
+  } catch (err) {
+    console.error('Error reading CompetitionData.csv:', err);
+    res.status(500).send('Error reading CompetitionData.csv');
+  }
+});
+
+// API to get Transportation data from CSV
+app.get('/api/transportation-data', async (req, res) => {
+  try {
+    const filePath = path.join(__dirname, 'CSV_files', 'Transportation.csv');
+    const data = await readCSVFile(filePath);
+    res.json(data);
+  } catch (err) {
+    console.error('Error reading Transportation.csv:', err);
+    res.status(500).send('Error reading Transportation.csv');
+  }
+});
+
+// API to get Psychographics data from CSV
+app.get('/api/psychographics-data', async (req, res) => {
+  try {
+    const filePath = path.join(__dirname, 'CSV_files', 'Psychographics.csv');
+    const data = await readCSVFile(filePath);
+    res.json(data);
+  } catch (err) {
+    console.error('Error reading Psychographics.csv:', err);
+    res.status(500).send('Error reading Psychographics.csv');
+  }
+});
+
+// API to get Behavioral data from CSV
+app.get('/api/behavioral-data', async (req, res) => {
+  try {
+    const filePath = path.join(__dirname, 'CSV_files', 'Behavioral.csv');
+    const data = await readCSVFile(filePath);
+    res.json(data);
+  } catch (err) {
+    console.error('Error reading Behavioral.csv:', err);
+    res.status(500).send('Error reading Behavioral.csv');
+  }
+});
+
+app.get('/api/population-data', async (req, res) => {
+  try {
+      const filePath = path.join(__dirname, 'CSV_files', 'BarangayData.csv');
+      const data = await readCSVFile(filePath);  // Using readCSVFile to read BarangayData.csv
+      
+      // If you need to only send population data, you can map the data here
+      const populationData = data.map(row => ({
+          Barangay: row.Barangay,
+          Population: row.Population,
+          PopulationDensity: row['Population Density']
+      }));
+      
+      res.json(populationData);
+  } catch (err) {
+      console.error('Error reading BarangayData.csv:', err);
+      res.status(500).send('Error reading BarangayData.csv');
+  }
+});
+
 
 // Route to fetch all businesses for clustering
 app.get('/api/businesses-for-clustering', async (req, res) => {
   try {
-    const { barangayId } = req.query;
+      const { barangayId } = req.query;  // Optional filtering by barangay
 
-    let result;
-    if (barangayId) {
-      // Fetch businesses within a specific barangay
-      result = await pool.query(
-        `SELECT b.business_id, b.business_name, b.latitude, b.longitude FROM Business b WHERE b.barangay_id = $1`,
-        [barangayId]
-      );
-    } else {
-      // Fetch all businesses
-      result = await pool.query(
-        `SELECT b.business_id, b.business_name, b.latitude, b.longitude FROM Business b`
-      );
-    }
+      let result;
+      if (barangayId) {
+          // Fetch businesses within a specific barangay
+          result = await pool.query(`
+              SELECT b.business_id, b.business_name, b.latitude, b.longitude 
+              FROM Business b
+              WHERE b.barangay_id = $1
+          `, [barangayId]);
+      } else {
+          // Fetch all businesses
+          result = await pool.query(`
+              SELECT b.business_id, b.business_name, b.latitude, b.longitude 
+              FROM Business b
+          `);
+      }
 
-    res.json(result.rows);
+      res.json(result.rows);
   } catch (err) {
-    console.error('Error fetching businesses for clustering:', err.message);
-    res.status(500).json({ error: 'Server Error', details: err.message });
+      console.error('Error fetching businesses for clustering:', err.message);
+      res.status(500).send('Server Error');
   }
 });
 
 // Route to fetch barangay data
 app.get('/api/barangays', async (req, res) => {
   try {
-    const result = await pool.query(
-      'SELECT barangay_id, barangay_name, latitude, longitude FROM barangay'
-    );
+    const result = await pool.query('SELECT barangay_id, barangay_name, latitude, longitude FROM barangay');
     res.json(result.rows);
   } catch (err) {
-    console.error('Error fetching barangays:', err.message);
-    res.status(500).json({ error: 'Server Error', details: err.message });
+    console.error(err.message);
+    res.status(500).send('Server Error');
   }
 });
 
 // Route to fetch business data by barangay
 app.get('/api/businesses', async (req, res) => {
   try {
-    const barangayId = req.query.barangayId ? parseInt(req.query.barangayId, 10) : null;
+      // Parse barangayId as an integer, or set it to null if it's missing or invalid
+      const barangayId = req.query.barangayId ? parseInt(req.query.barangayId, 10) : null;
 
-    if (!barangayId) {
-      return res.status(400).json({ error: 'Barangay ID is required and must be valid.' });
-    }
+      if (!barangayId) {
+          // If no barangayId is provided, return an error response
+          return res.status(400).json({ error: 'Barangay ID is required' });
+      }
 
-    const result = await pool.query(
-      `
-      SELECT b.business_id, b.business_name, b.address, b.latitude, b.longitude,
-             sa.subarea_name, sc.subcategory_name, st.smetype_name
-      FROM Business b
-      JOIN Subarea sa ON b.subarea_id = sa.subarea_id
-      JOIN Subcategory sc ON b.subcategory_id = sc.subcategory_id
-      JOIN smeType st ON b.smetype_id = st.smetype_id
-      WHERE b.barangay_id = $1
-    `,
-      [barangayId]
-    );
+      // Fetch businesses for the provided barangayId
+      const result = await pool.query(`
+          SELECT b.business_id, b.business_name, b.address, b.latitude, b.longitude, 
+                 sa.subarea_name, sc.subcategory_name, st.smetype_name
+          FROM Business b
+          JOIN Subarea sa ON b.subarea_id = sa.subarea_id
+          JOIN Subcategory sc ON b.subcategory_id = sc.subcategory_id
+          JOIN smeType st ON b.smetype_id = st.smetype_id
+          WHERE b.barangay_id = $1
+      `, [barangayId]);
 
-    res.json(result.rows);
+      res.json(result.rows);
   } catch (err) {
-    console.error('Error fetching businesses:', err.message);
-    res.status(500).json({ error: 'Server Error', details: err.message });
+      console.error('Error fetching businesses:', err.message);
+      res.status(500).send('Server Error');
   }
 });
+
 
 // Route to search businesses based on input
 app.get('/api/search-businesses', async (req, res) => {
   const { query } = req.query;
   try {
-    const result = await pool.query(
-      `
-      SELECT b.business_id, b.business_name, b.address, b.latitude, b.longitude,
-             sa.subarea_name, sc.subcategory_name, st.smetype_name
+    const result = await pool.query(`
+      SELECT 
+          b.business_id, 
+          b.business_name, 
+          b.address,  
+          b.latitude, 
+          b.longitude, 
+          sa.subarea_name, 
+          sc.subcategory_name, 
+          st.smetype_name
       FROM Business b
       JOIN Subarea sa ON b.subarea_id = sa.subarea_id
       JOIN Subcategory sc ON b.subcategory_id = sc.subcategory_id
       JOIN smeType st ON b.smetype_id = st.smetype_id
       WHERE b.business_name ILIKE $1
       LIMIT 10
-    `,
-      [`%${query}%`]
-    );
-
+    `, [`%${query}%`]);
+    
     res.json(result.rows);
   } catch (err) {
-    console.error('Error fetching business data:', err.message);
-    res.status(500).json({ error: 'Server Error', details: err.message });
+    console.error(err.message);
+    res.status(500).send('Server Error');
   }
 });
 
-// Route to fetch businesses based on the selected industry and barangay
+// Route to fetch businesses based on the selected industry
+app.get('/api/businesses-by-industry', async (req, res) => {
+  const { smeTypeId } = req.query;
+  try {
+      const result = await pool.query(`
+          SELECT b.business_id, b.business_name, b.address, b.latitude, b.longitude, 
+                 sa.subarea_name, sc.subcategory_name, st.smetype_name
+          FROM Business b
+          JOIN Subarea sa ON b.subarea_id = sa.subarea_id
+          JOIN Subcategory sc ON b.subcategory_id = sc.subcategory_id
+          JOIN smeType st ON b.smetype_id = st.smetype_id
+          WHERE b.smetype_id = $1
+      `, [smeTypeId]);
+
+      res.json(result.rows);
+  } catch (err) {
+      console.error('Error fetching businesses by industry:', err.message);
+      res.status(500).send('Server Error');
+  }
+});
+
+// Route to fetch businesses based on the selected barangay and industry
 app.get('/api/businesses-by-industry-and-barangay', async (req, res) => {
   const { smeTypeId, barangayId } = req.query;
   try {
-    if (!smeTypeId || !barangayId) {
-      return res.status(400).json({ error: 'Both SME Type ID and Barangay ID are required.' });
-    }
+      const result = await pool.query(`
+          SELECT b.business_id, b.business_name, b.address, b.latitude, b.longitude,  
+                 sa.subarea_name, sc.subcategory_name, st.smetype_name
+          FROM Business b
+          JOIN Subarea sa ON b.subarea_id = sa.subarea_id
+          JOIN Subcategory sc ON b.subcategory_id = sc.subcategory_id
+          JOIN smeType st ON b.smetype_id = st.smetype_id
+          WHERE b.smetype_id = $1 AND b.barangay_id = $2
+      `, [smeTypeId, barangayId]);
 
-    const result = await pool.query(
-      `
-      SELECT b.business_id, b.business_name, b.address, b.latitude, b.longitude,
-             sa.subarea_name, sc.subcategory_name, st.smetype_name
-      FROM Business b
-      JOIN Subarea sa ON b.subarea_id = sa.subarea_id
-      JOIN Subcategory sc ON b.subcategory_id = sc.subcategory_id
-      JOIN smeType st ON b.smetype_id = st.smetype_id
-      WHERE b.smetype_id = $1 AND b.barangay_id = $2
-    `,
-      [smeTypeId, barangayId]
-    );
-
-    res.json(result.rows);
+      res.json(result.rows);
   } catch (err) {
-    console.error('Error fetching businesses by industry and barangay:', err.message);
-    res.status(500).json({ error: 'Server Error', details: err.message });
+      console.error('Error fetching businesses by industry and barangay:', err.message);
+      res.status(500).send('Server Error');
   }
 });
 
@@ -279,8 +387,8 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Start the server
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
