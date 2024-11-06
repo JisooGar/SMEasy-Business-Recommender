@@ -21,6 +21,7 @@ const pool = new Pool({
   port: process.env.DB_PORT || 5432,
 });
 
+
 // Check if the connection is working right after setup
 pool.connect()
   .then(client => {
