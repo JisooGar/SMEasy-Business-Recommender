@@ -140,18 +140,34 @@
             <h3>Business Overview</h3>
             <p>Selected Main Category: <span id="mainCategory"></span></p>
             <p>Total Businesses in Cabuyao City: <span id="totalBusinesses"></span></p>
-            <p>Number of Businesses in Selected Barangay: <span id="businessesInBarangay"></span></p>
+            <p>Number of Businesses in Selected Barangay: <span id="topCounts"></span></p>
         </div>
 
         <!-- Market Gaps Analysis -->
         <div class="grid-item">
             <h3>Analysis of Market Demand and Gaps</h3>
-            <p>Legends: </p>
-            <p>Critical Gap/High Demand = <span id="highDemand"></span></p>
-            <p>Moderate Gap/Medium Demand = <span id="mediumDemand"></span></p>
-            <p>Minor Gap/Low Demand = <span id="lowDemand"></span></p>
-            <p>No Gap /Very Low Demand  = <span id="noDemand"></span></p>
-            <br>
+            <table border="1" style="border-collapse: collapse; table-layout: auto; margin-bottom: 20px;">
+                <tr>
+                    <th> Market Gap / Demand</th>
+                    <th>Legend</th>
+                </tr>
+                <tr>
+                    <td style="padding-left: 10px; padding-right: 10px;">Critical Gap / High Demand</td>
+                    <td style="padding-left: 10px; padding-right: 10px;"><span id="highDemand"></span></td>
+                </tr>
+                <tr>
+                    <td style="padding-left: 10px; padding-right: 10px;">Moderate Gap / Medium Demand</td>
+                    <td style="padding-left: 10px; padding-right: 10px;"><span id="mediumDemand"></span></td>
+                </tr>
+                <tr>
+                    <td style="padding-left: 10px; padding-right: 10px;">Minor Gap / Low Demand</td>
+                    <td style="padding-left: 10px; padding-right: 10px;"><span id="lowDemand"></span></td>
+                </tr>
+                <tr>
+                    <td style="padding-left: 10px; padding-right: 10px;">No Gap / Very Low Demand</td>
+                    <td style="padding-left: 10px; padding-right: 10px;"><span id="noDemand"></span></td>
+                </tr>
+            </table>
             <p>Market Demand: <span id="marketDemand"></span></p>
             <p>Business Gaps: <span id="businessGaps"></span></p>
         </div>
@@ -160,7 +176,7 @@
         <div class="grid-item market-gaps">
             <h3>Population and Segmentation Analysis</h3>
             <p>Population Density: <span id="populationOverview"></span></p>
-            <p>Customer Segmentation: <span id="customerSegmentation"></span></p>
+            <p>Customer Segmentation: </p>
             <br>
             <p>Psychographics: </p>
             <p>Motivation for choosing business: <span id="businessMotivation"></span></p>
@@ -180,6 +196,29 @@
         <!-- Competition Analysis -->
         <div class="grid-item">
             <h3>Competition Analysis</h3>
+            <table border="1" style="border-collapse: collapse; table-layout: auto; margin-bottom: 20px;">
+                <tr>
+                    <th>Legend</th>
+                    <th>Score</th>
+                </tr>
+                <tr>
+                    <td style="padding-left: 10px; padding-right: 10px;">Very High Competition</td>
+                    <td style="padding-left: 10px; padding-right: 10px;">76 - 100</td>
+                </tr>
+                <tr>
+                    <td style="padding-left: 10px; padding-right: 10px;">High Competition</td>
+                    <td style="padding-left: 10px; padding-right: 10px;">51 - 75</td>
+                </tr>
+                <tr>
+                    <td style="padding-left: 10px; padding-right: 10px;">Low Competition</td>
+                    <td style="padding-left: 10px; padding-right: 10px;">26 - 50</td>
+                </tr>
+                <tr>
+                    <td style="padding-left: 10px; padding-right: 10px;">Very Low Competition</td>
+                    <td style="padding-left: 10px; padding-right: 10px;">0 - 25</td>
+                </tr>
+            </table>
+
             <p>Competition Density: <span id="competitionDensity"></span></p>
             <p>Direct Competitor: <span id="directCompetitor"></span></p>
             <p>Indirect Competitor: <span id="indirectCompetitor"></span></p>
@@ -189,6 +228,55 @@
         <!-- Accessibility and Infrastructure -->
         <div class="grid-item">
             <h3>Accessibility and Infrastructure</h3>
+            <div style="display: inline-block; margin-right: 20px;">
+                <table border="1" style="border-collapse: collapse; table-layout: auto; margin-bottom: 20px;">
+                    <tr>
+                        <th>Area Type Legend</th>
+                        <th>Score</th>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 10px; padding-right: 10px;">Highly Favorable</td>
+                        <td style="padding-left: 10px; padding-right: 10px;">76 - 100</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 10px; padding-right: 10px;">Moderately Favorable</td>
+                        <td style="padding-left: 10px; padding-right: 10px;">51 - 75</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 10px; padding-right: 10px;">Somewhat Favorable</td>
+                        <td style="padding-left: 10px; padding-right: 10px;">26 - 50</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 10px; padding-right: 10px;">Unfavorable</td>
+                        <td style="padding-left: 10px; padding-right: 10px;">0 - 25</td>
+                    </tr>
+                </table>
+            </div>
+        
+            <div style="display: inline-block;">
+                <table border="1" style="border-collapse: collapse; table-layout: auto; margin-bottom: 20px;">
+                    <tr>
+                        <th>Transport Legend</th>
+                        <th>Score</th>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 10px; padding-right: 10px;">Excellent Transport</td>
+                        <td style="padding-left: 10px; padding-right: 10px;">76 - 100</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 10px; padding-right: 10px;">Good Transport</td>
+                        <td style="padding-left: 10px; padding-right: 10px;">51 - 75</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 10px; padding-right: 10px;">Limited Transport</td>
+                        <td style="padding-left: 10px; padding-right: 10px;">26 - 50</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 10px; padding-right: 10px;">Poor Transport</td>
+                        <td style="padding-left: 10px; padding-right: 10px;">0 - 25</td>
+                    </tr>
+                </table>
+            </div>
             <p>Area Type: <span id="areaType"></span></p>
             <p>Public Transport Access: <span id="TranspoAccess"></span></p>
             <p>Transport Challenges: <span id="TranspoChallenge"></span></p>

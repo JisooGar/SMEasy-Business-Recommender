@@ -521,7 +521,7 @@ const ctxWebTrafficConcentration = document.getElementById('webTrafficConcentrat
 const webTrafficConcentrationChart = new Chart(ctxWebTrafficConcentration, {
     type: 'pie',
     data: {
-        labels: dataForCategories.All.barangays, // Dynamically use barangays from default category
+        labels: ['Children 6-12', 'Children 13-17', 'Children 18-35', 'Adult 36-50', 'Adult 51-65', 'Adult 66-above'], // Dynamically use barangays from default category
         datasets: [{
             label: 'Traffic Source',
             data: dataForCategories.All.pieData,
@@ -532,18 +532,7 @@ const webTrafficConcentrationChart = new Chart(ctxWebTrafficConcentration, {
                 'rgba(75, 192, 192, 0.2)',   // Soft Teal
                 'rgba(153, 102, 255, 0.2)',  // Light Purple
                 'rgba(255, 159, 64, 0.2)',   // Orange
-                'rgba(201, 203, 207, 0.2)',  // Light Grey
-                'rgba(0, 128, 128, 0.2)',    // Teal
-                'rgba(70, 130, 180, 0.2)',   // Steel Blue
-                'rgba(46, 204, 113, 0.2)',   // Light Green
-                'rgba(231, 76, 60, 0.2)',    // Tomato Red
-                'rgba(241, 196, 15, 0.2)',   // Gold
-                'rgba(142, 68, 173, 0.2)',   // Dark Purple
-                'rgba(39, 174, 96, 0.2)',    // Emerald Green
-                'rgba(44, 62, 80, 0.2)',     // Dark Slate
-                'rgba(192, 57, 43, 0.2)',    // Brick Red
-                'rgba(41, 128, 185, 0.2)',   // Ocean Blue
-                'rgba(127, 255, 212, 0.2)'   // Aquamarine
+                
             ],
             borderColor: [
                 'rgba(255, 99, 132, 1)',   // Red
@@ -552,18 +541,7 @@ const webTrafficConcentrationChart = new Chart(ctxWebTrafficConcentration, {
                 'rgba(75, 192, 192, 1)',   // Teal
                 'rgba(153, 102, 255, 1)',  // Purple
                 'rgba(255, 159, 64, 1)',   // Orange
-                'rgba(201, 203, 207, 1)',  // Grey
-                'rgba(0, 128, 128, 1)',    // Dark Teal
-                'rgba(70, 130, 180, 1)',   // Steel Blue
-                'rgba(46, 204, 113, 1)',   // Green
-                'rgba(231, 76, 60, 1)',    // Red
-                'rgba(241, 196, 15, 1)',   // Gold
-                'rgba(142, 68, 173, 1)',   // Dark Purple
-                'rgba(39, 174, 96, 1)',    // Green
-                'rgba(44, 62, 80, 1)',     // Slate Grey
-                'rgba(192, 57, 43, 1)',    // Brick Red
-                'rgba(41, 128, 185, 1)',   // Ocean Blue
-                'rgba(127, 255, 212, 1)'   // Aquamarine
+                
             ],
             borderWidth: 1
         }]

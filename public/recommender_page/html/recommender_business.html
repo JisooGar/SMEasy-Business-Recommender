@@ -105,7 +105,7 @@
                 </div>
             </div>
 
-            <!-- Add the Proceed Button here -->
+            <!-- Proceed Button with Spinner -->
             <div class="button-section">
                 <button class="btn proceed-btn" id="proceed-button" onclick="handleProceed()">Proceed</button>
             </div>
@@ -126,10 +126,16 @@
                     </tbody>
                 </table>
             </div>
-            <!-- Proceed button directly below the table -->
-            <div class="button-section">
-                <button class="btn analyze-btn" id="analyze-button" onclick="handleAnalyze()">Analyze</button>
-            </div>
+            <!-- Analyze button with spinner below the table -->
+                <div class="button-section">
+                     <button class="btn analyze-btn" id="analyze-button" onclick="showSpinner(); handleAnalyze()">Analyze</button>
+                </div>
+
+            <!-- Spinner that appears in the middle of the screen -->
+                <div id="loading-spinner" style="display: none;">
+                    <div class="spinner"></div>
+                </div>
+
         </div>
     </div>
 </section>
@@ -147,24 +153,44 @@
             <p>Number of Businesses in Selected Barangay: <span id="businessesInBarangay"></span></p>
         </div>
 
-        <!-- Market Gaps Analysis -->
+        <!-- Analysis of Market Demand and Gaps -->
         <div class="grid-item">
             <h3>Analysis of Market Demand and Gaps</h3>
-            <p>Legends: </p>
-            <p>Critical Gap/High Demand = <span id="highDemand"></span></p>
-            <p>Moderate Gap/Medium Demand = <span id="mediumDemand"></span></p>
-            <p>Minor Gap/Low Demand = <span id="lowDemand"></span></p>
-            <p>No Gap /Very Low Demand  = <span id="noDemand"></span></p>
-            <br>
+            <table class="compact-table">
+                <thead>
+                    <tr>
+                        <th>Market Gap / Demand</th>
+                        <th>Legend</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Critical Gap / High Demand</td>
+                        <td><span id="highDemand"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Moderate Gap / Medium Demand</td>
+                        <td><span id="mediumDemand"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Minor Gap / Low Demand</td>
+                        <td><span id="lowDemand"></span></td>
+                    </tr>
+                    <tr>
+                        <td>No Gap / Very Low Demand</td>
+                        <td><span id="noDemand"></span></td>
+                    </tr>
+                </tbody>
+            </table>
             <p>Market Demand: <span id="marketDemand"></span></p>
             <p>Business Gaps: <span id="businessGaps"></span></p>
         </div>
 
-        <!-- Population and Segmentation Analysis -->
-        <div class="grid-item market-gaps">
+ <!-- Population and Segmentation Analysis -->
+        <div class="grid-item">
             <h3>Population and Segmentation Analysis</h3>
             <p>Population Density: <span id="populationOverview"></span></p>
-            <p>Customer Segmentation: <span id="customerSegmentation"></span></p>
+            <p>Customer Segmentation: </p>
             <br>
             <p>Psychographics: </p>
             <p>Motivation for choosing business: <span id="businessMotivation"></span></p>
@@ -184,6 +210,32 @@
         <!-- Competition Analysis -->
         <div class="grid-item">
             <h3>Competition Analysis</h3>
+            <table class="compact-table">
+                <thead>
+                    <tr>
+                        <th>Legend</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Very High Competition</td>
+                        <td>76 - 100</td>
+                    </tr>
+                    <tr>
+                        <td>High Competition</td>
+                        <td>51 - 75</td>
+                    </tr>
+                    <tr>
+                        <td>Low Competition</td>
+                        <td>26 - 50</td>
+                    </tr>
+                    <tr>
+                        <td>Very Low Competition</td>
+                        <td>0 - 25</td>
+                    </tr>
+                </tbody>
+            </table>
             <p>Competition Density: <span id="competitionDensity"></span></p>
             <p>Direct Competitor: <span id="directCompetitor"></span></p>
             <p>Indirect Competitor: <span id="indirectCompetitor"></span></p>
@@ -193,21 +245,75 @@
         <!-- Accessibility and Infrastructure -->
         <div class="grid-item">
             <h3>Accessibility and Infrastructure</h3>
+            <div class="table-wrapper">
+                <div class="table-container">
+                    <table class="legend-table">
+                        <thead>
+                            <tr>
+                                <th>Area Type Legend</th>
+                                <th>Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Highly Favorable</td>
+                                <td>76 - 100</td>
+                            </tr>
+                            <tr>
+                                <td>Moderately Favorable</td>
+                                <td>51 - 75</td>
+                            </tr>
+                            <tr>
+                                <td>Somewhat Favorable</td>
+                                <td>26 - 50</td>
+                            </tr>
+                            <tr>
+                                <td>Unfavorable</td>
+                                <td>0 - 25</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-container">
+                    <table class="legend-table">
+                        <thead>
+                            <tr>
+                                <th>Transport Legend</th>
+                                <th>Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Excellent Transport</td>
+                                <td>76 - 100</td>
+                            </tr>
+                            <tr>
+                                <td>Good Transport</td>
+                                <td>51 - 75</td>
+                            </tr>
+                            <tr>
+                                <td>Limited Transport</td>
+                                <td>26 - 50</td>
+                            </tr>
+                            <tr>
+                                <td>Poor Transport</td>
+                                <td>0 - 25</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             <p>Area Type: <span id="areaType"></span></p>
             <p>Public Transport Access: <span id="TranspoAccess"></span></p>
             <p>Transport Challenges: <span id="TranspoChallenge"></span></p>
         </div>
+
+        <!-- Recommendation Summary -->
+        <div class="grid-item">
+            <h3>Recommendation Summary</h3>
+            <p id="recommendationSummary"></p>
+        </div>
     </div>
-
-    <div class="recommendation-summary">
-        <h3>Recommendation Summary</h3>
-        <p id="recommendationSummary"></p>
-    </div>
-</div>
-
-
-<div id="loading-spinner" style="display: none;">
-    <div class="spinner"></div>
 </div>
 
 <script src="/homepage/homepage.js"></script>

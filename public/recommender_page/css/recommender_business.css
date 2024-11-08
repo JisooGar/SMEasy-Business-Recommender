@@ -106,6 +106,7 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  overflow: visible !important; /* Ensure spinner isn’t hidden */
 }
 
 .left-section, .right-section {
@@ -220,29 +221,6 @@ h2 {
 }
 
 
-#loading-spinner {
-  position: fixed; /* Fixed position to overlay on the screen */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-  display: none; /* Hidden by default */
-}
-
-.spinner {
-  border: 8px solid rgba(0, 0, 0, 0.1);
-  border-left: 8px solid #28a745;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
 .redirect-btn {
   margin-top: 10px; /* Add space between table and button */
   padding: 10px 20px;
@@ -281,9 +259,9 @@ h2 {
 /* Grid layout for the recommendation section */
 .recommendation-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  grid-template-columns: repeat(3, 1fr); /* Two columns */
+  grid-template-rows: auto auto auto auto; /* Define rows to allow flexibility */
   gap: 20px;
-  margin-top: 20px;
 }
 
 .grid-item {
@@ -303,34 +281,6 @@ h2 {
   line-height: 1.5;
 }
 
-/* Recommendation Summary Styles */
-.recommendation-summary {
-  margin-top: 30px;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.recommendation-summary h3 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-.recommendation-summary p {
-  color: #555;
-  line-height: 1.5;
-  text-align: center;
-}
-
-/* Main layout container */
-.recommendation-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
-  margin-bottom: 20px;
-}
 
 /* Left column stacking Location Overview and Competitor */
 .left-column {
@@ -636,4 +586,88 @@ table th, table td {
 .styled-table tbody tr.selected-row {
   background-color: #28a745; /* Green background */
   color: rgb(20, 175, 0); /* White text */
+}
+
+/* Compact Table Styles */
+.compact-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin-bottom: 20px;
+  max-width: 500px; /* You can adjust this to control the table's overall size */
+}
+
+.compact-table th, .compact-table td {
+  border: 1px solid #ddd; /* Optional, adjust for visibility */
+  padding: 6px 8px; /* Reduced padding for a more compact layout */
+  text-align: left;
+  font-size: 14px; /* Adjusted to a smaller font size */
+}
+
+.compact-table th {
+  background-color: #f4f4f4; /* Light background for headers */
+  font-weight: bold;
+}
+
+.compact-table td {
+  word-wrap: break-word; /* Prevents overflow, wraps text if too long */
+}
+
+.table-cell {
+  max-width: 500px; /* Control the width of the entire table section */
+}
+
+/* Container to hold both tables side by side */
+.table-wrapper {
+  display: flex;
+  gap: 20px; /* Space between the tables */
+  margin-bottom: 20px; /* Space below the tables */
+}
+
+/* Each individual table container */
+.table-container {
+  flex: 1; /* Tables take equal width */
+}
+
+/* General styling for the tables */
+.legend-table {
+  width: 100%; /* Full width */
+  border-collapse: collapse;
+}
+
+.legend-table th,
+.legend-table td {
+  border: 1px solid #ddd; /* Consistent border styling */
+  padding: 10px; /* Space inside the cells */
+  text-align: left; /* Align content to the left */
+}
+
+.legend-table thead th {
+  background-color: #f9f9f9; /* Light gray background for header */
+  font-weight: bold; /* Bold text for headers */
+}
+
+/* Spinner styling */
+#loading-spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none; /* Hidden by default */
+  z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #28a745;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+/* Animation for the spinner */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

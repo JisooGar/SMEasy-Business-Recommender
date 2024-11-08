@@ -223,6 +223,23 @@ async function processMarketCompetitionData(selectedCategory) {
         inverseNormalizedCompetition[barangay] = inverseMinMaxNormalize(barangayCompetitionDensity[barangay], minCompetition, maxCompetition);
     }
 
+     // Initialize objects for storing competition counts
+     const directCompetition = {};
+     const indirectCompetition = {};
+     const replacementCompetition = {};
+
+    // Filter competition data for the selected category
+    const filteredCompetitionData = competitionData.filter(row => row.Category === selectedCategory);
+ 
+     // Populate the separate competition counts
+     filteredCompetitionData.forEach(row => {
+         const barangay = row.Barangay;
+         directCompetition[barangay] = Number(row.Direct);
+         indirectCompetition[barangay] = Number(row.Indirect);
+         replacementCompetition[barangay] = Number(row.Replacement);
+     });
+ 
+
     // Step 5: Population density and normalization
     const populationDensity = {};
     barangayData.forEach(row => {
@@ -309,17 +326,65 @@ async function processMarketCompetitionData(selectedCategory) {
         transportChallenges[barangay] = mostTransportChallenges.join(', ');
     }
 
+     // Calculate area type scores
+     const areaTypeWeights = {
+        "Automotive Services": { Commercial: 50, Industrial: 15, Residential: 35 },
+        "Construction and Real Estate": { Commercial: 40, Industrial: 25, Residential: 35 },
+        "Cooperative Business": { Commercial: 45, Industrial: 20, Residential: 35 },
+        "Creative and Media Services": { Commercial: 60, Industrial: 0, Residential: 40 },
+        "Educational Services": { Commercial: 60, Industrial: 0, Residential: 40 },
+        "Entertainment and Recreation": { Commercial: 60, Industrial: 0, Residential: 40 },
+        "Finance and Insurance": { Commercial: 70, Industrial: 0, Residential: 30 },
+        "Food Services": { Commercial: 50, Industrial: 0, Residential: 50 },
+        "Healthcare Services": { Commercial: 60, Industrial: 0, Residential: 40 },
+        "IT and Digital Services": { Commercial: 70, Industrial: 0, Residential: 30 },
+        "Manufacturing and Production": { Commercial: 20, Industrial: 70, Residential: 10 },
+        "Personal and Household Services": { Commercial: 40, Industrial: 0, Residential: 60 },
+        "Personal Care Services": { Commercial: 60, Industrial: 0, Residential: 40 },
+        "Professional Services": { Commercial: 60, Industrial: 20, Residential: 20 },
+        "Retail Stores": { Commercial: 50, Industrial: 0, Residential: 50 },
+        "Tourism and Hospitality": { Commercial: 60, Industrial: 10, Residential: 30 },
+        "Transportation and Logistics": { Commercial: 30, Industrial: 60, Residential: 10 },
+        "Wholesale and Distribution": { Commercial: 40, Industrial: 50, Residential: 10 },
+    };
+
+    // Calculate area type scores directly using barangayData
+    const areaTypeScores = {};
+    barangayData.forEach(row => {
+        const barangay = row.Barangay;
+
+        // Calculate scores based on area types
+        const commercialScore = row.Commercial > 0 ? areaTypeWeights[selectedCategory].Commercial : 0;
+        const industrialScore = row.Industrial > 0 ? areaTypeWeights[selectedCategory].Industrial : 0;
+        const residentialScore = row.Residential > 0 ? areaTypeWeights[selectedCategory].Residential : 0;
+
+        // Store the total area type score for each barangay
+        areaTypeScores[barangay] = commercialScore + industrialScore + residentialScore;
+    });
+
+    const areaTypes = {};
+    barangayData.forEach(row => {
+        areaTypes[row.Barangay] = row["Area Type"];
+    });
+
     // Return all processed data as an object
     return {
+        barangayCounts,
         normalizedCounts,
         avgMarketDemands,
         normalizedDemands,
         normalizedMarketGaps,
         normalizedCompetition,
         inverseNormalizedCompetition,
+        directCompetition,
+        indirectCompetition,
+        replacementCompetition,
+        populationDensity,
         normalizedPopulation,
         normalizedTranspo,
-        transportChallenges
+        transportChallenges,
+        areaTypes,
+        areaTypeScores
     };
 }
 
@@ -424,7 +489,7 @@ async function handleAnalyze() {
             // === Step 4: Update the Business Overview ===
             document.getElementById('mainCategory').textContent = recommendationData.businessOverview.mainCategory;
             document.getElementById('totalBusinesses').textContent = recommendationData.businessOverview.totalBusinessesInCity;
-            document.getElementById('businessesInBarangay').textContent = recommendationData.businessOverview.businessesInBarangay;
+            document.getElementById('topCounts').textContent = recommendationData.businessOverview.topCounts;
 
             // === Step 5: Update Market Demand and Gaps ===
             document.getElementById('highDemand').textContent = recommendationData.marketDemandAndGaps.criticalGap;
@@ -436,7 +501,6 @@ async function handleAnalyze() {
             
             // === Step 6: Update Population and Segmentation Analysis ===
             document.getElementById('populationOverview').textContent = recommendationData.populationAndSegmentation.populationOverview || 'N/A';
-            document.getElementById('customerSegmentation').textContent = recommendationData.populationAndSegmentation.customerSegmentation || 'N/A';
             document.getElementById('businessMotivation').textContent = recommendationData.populationAndSegmentation.businessMotivation || 'N/A';
             document.getElementById('shopingTraits').textContent = recommendationData.populationAndSegmentation.shopingTraits || 'N/A';
             document.getElementById('businessFactors').textContent = recommendationData.populationAndSegmentation.businessFactors || 'N/A';
@@ -449,10 +513,10 @@ async function handleAnalyze() {
             document.getElementById('businessLacking').textContent = recommendationData.populationAndSegmentation.businessLacking || 'N/A';
 
             // === Step 7: Update Competition Analysis ===
-            document.getElementById('competitionDensity').textContent = recommendationData.competitionAnalysis.competitionDensity || 'N/A';
-            document.getElementById('directCompetitor').textContent = recommendationData.competitionAnalysis.directCompetitor || 'N/A';
-            document.getElementById('indirectCompetitor').textContent = recommendationData.competitionAnalysis.indirectCompetitor || 'N/A';
-            document.getElementById('replacementCompetitor').textContent = recommendationData.competitionAnalysis.replacementCompetitor || 'N/A';
+            document.getElementById('competitionDensity').textContent = recommendationData.competitionAnalysis.competitionDensity;
+            document.getElementById('directCompetitor').textContent = recommendationData.competitionAnalysis.directCompetitor;
+            document.getElementById('indirectCompetitor').textContent = recommendationData.competitionAnalysis.indirectCompetitor;
+            document.getElementById('replacementCompetitor').textContent = recommendationData.competitionAnalysis.replacementCompetitor;
 
             // === Step 8: Update Accessibility and Infrastructure ===
             document.getElementById('areaType').textContent = recommendationData.accessibilityAndInfrastructure.areaType || 'N/A';
@@ -766,39 +830,92 @@ async function runAnalysisModel(selectedCategory, selectedBarangay) {
 
     // Extract market and competition data for the selected barangay
     const {
+        barangayCounts,
+        normalizedCounts,
         normalizedDemands,
         normalizedMarketGaps,
         normalizedCompetition,
         inverseNormalizedCompetition,
+        directCompetition,
+        indirectCompetition,
+        replacementCompetition,
+        populationDensity,
         normalizedPopulation,
         normalizedTranspo,
         transportChallenges,
+        areaTypes,
+        areaTypeScores
     } = marketCompetitionData;
 
+    const topCounts = barangayCounts[selectedBarangay] || 0;
+    const categoryCounts = normalizedCounts[selectedBarangay] || 0;
     const marketDemandScore = normalizedDemands[selectedBarangay] || 0;
     const marketGapScore = normalizedMarketGaps[selectedBarangay] || 0;
     const competitionDensityScore = normalizedCompetition[selectedBarangay] || 0;
-    const populationDensity = normalizedPopulation[selectedBarangay] || 0;
+    const normalizedPopulationDensity = normalizedPopulation[selectedBarangay] || 0;
+    const population = populationDensity[selectedBarangay] || 0;
     const transportationAccess = normalizedTranspo[selectedBarangay] || 0;
     const transportationChallenge = transportChallenges[selectedBarangay] || "None";
+    const topAreaTypes = areaTypes[selectedBarangay] || 0;
+    const topAreaTypeScore = areaTypeScores[selectedBarangay] || 0;
+    const direct = directCompetition[selectedBarangay] || 0;
+    const indirect = indirectCompetition[selectedBarangay] || 0;
+    const replacement = replacementCompetition [selectedBarangay] || 0;
 
-    // Demand, Competition, and Market Gap Descriptions
+    // Interpretation
+    const countDescription = categoryCounts >= 76 ? "High Count" :
+                             categoryCounts >= 51 ? "Moderate Count" :
+                            categoryCounts >= 26 ? "Low Count" : "Very Low Count";
+
+    const countText = categoryCounts >= 76 ? "Strong concentration of businesses, indicating high activity and competition" :
+                              categoryCounts >= 51 ? "Moderate business presence, balancing demand with a reasonable supply" :
+                              categoryCounts >= 26 ? "Limited business availability, with some options but room for growth" :
+                              "Minimal business presence, suggesting potential for new entries";
+
     const demandDescription = marketDemandScore >= 76 ? "High Demand" :
-                             marketDemandScore >= 51 ? "Medium Demand" : "Low Demand";
-    const competitionDescription = competitionDensityScore >= 76 ? "Very High Competition" :
-                                  competitionDensityScore >= 51 ? "High Competition" : "Low Competition";
-    const businessGapDescription = marketGapScore >= 76 ? "Critical Gap" :
-                                  marketGapScore >= 51 ? "Moderate Gap" : "Minor Gap";
+                              marketDemandScore >= 51 ? "Medium Demand" : 
+                              marketDemandScore >= 26 ? "Low Demand" : "Very Low Demand";
+    const demandText = marketDemandScore >= 76 ? "Significant need, good interest" :
+                       marketDemandScore >= 51 ? "Moderate interest" :
+                       marketDemandScore >= 26 ? "Limited interest" : "Minimal or no interest";  
 
+    const businessGapDescription = marketGapScore >= 76 ? "Critical Gap" :
+                                   marketGapScore >= 51 ? "Moderate Gap" : 
+                                   marketGapScore >= 26 ? "Minor Gap" : "No Gap";
+     const businessGapText = marketGapScore >= 76 ? "Significant need for services/products" :
+                             marketGapScore >= 51 ? "Noticeable lack, but not urgent" :
+                             marketGapScore >= 26 ? "Slight shortfall, potential for improvement" : 
+                                                "Market is saturated, no apparent gaps";
+                                                
+     const competitionDescription = competitionDensityScore >= 76 ? "Very High Competition" :
+                                    competitionDensityScore >= 51 ? "High Competition" :
+                                    competitionDensityScore >= 26 ? "Low Competition" : "Very Low/No Competition";                                           
+    const competitionText = competitionDensityScore >= 76 ? "Very few market opportunities" :
+                            competitionDensityScore >= 51 ? "Limited market opportunities" :
+                            competitionDensityScore >= 26 ? "Some market opportunities" :
+                                                "Many market opportunities";
+                                                                  
     // Interpret population density
-    const populationText = populationDensity >= 15000 ? "High population density, strong customer base" :
-                           populationDensity >= 5000 ? "Moderate population density, growth potential" :
-                           "Low population density, potential for niche markets";
+    const populationText = normalizedPopulationDensity >= 76 ? "High population density, strong customer base" :
+                           normalizedPopulationDensity >= 51 ? "Moderate population density, growth potential" :
+                           normalizedPopulationDensity >= 26 ? "Low population density, but opportunities exist for attracting new customers" :
+                           "Very low population density, indicating challenges but potential for niche markets";
 
     // Interpret transportation description
     const transportationText = transportationAccess >= 76 ? "Excellent transport, very accessible" :
                                transportationAccess >= 51 ? "Good transport, mostly accessible" :
                                "Moderate transport with potential for improvement";
+    
+    const areaTypeText = topAreaTypeScore >= 76 ? "Highly Favorable" :
+                         topAreaTypeScore >= 51 ? "Moderately Favorable" :
+                         topAreaTypeScore >= 26 ? "Somewhat Favorable" : 
+                        "Unfavorable";
+          
+    const areaTypeDescription = topAreaTypeScore >= 76 ? "Ideal for your business type" :
+                                topAreaTypeScore >= 51 ? "Good for your needs with potential" :
+                                topAreaTypeScore >= 26 ? "Opportunities exist for growth" : 
+                                "Challenges present opportunities for change";
+          
 
     // Behavior satisfaction and business lacking interpretations
     const satisfaction = psychographicBehavioralData.satisfactionMean[selectedBarangay] || 0;
@@ -815,32 +932,32 @@ async function runAnalysisModel(selectedCategory, selectedBarangay) {
 
   // Generate Recommendation Summary
   const recommendationText = `Based on the analysis, we recommend that businesses focusing on ${selectedCategory.toLowerCase()} consider establishing themselves in ${selectedBarangay}.
-  The current business presence in the area falls under the category of very low count, reflecting minimal business presence, suggesting potential for new entries.
-  The demand for ${selectedCategory.toLowerCase()} is ${demandDescription.toLowerCase()}, indicating ${demandDescription === "High Demand" ? "significant need, good interest" : "moderate interest"}.
-  There is a ${businessGapDescription.toLowerCase()} in services, suggesting significant need for services/products.
-  The competition density is ${competitionDescription.toLowerCase()}, meaning many market opportunities.
+  The current business presence in the area falls under the category of ${countDescription.toLowerCase()}, reflecting ${countText.toLowerCase()}.
+  The demand for ${selectedCategory.toLowerCase()} is ${demandDescription.toLowerCase()}, indicating ${demandText.toLowerCase()}.
+  There is a ${businessGapDescription.toLowerCase()} in services, suggesting ${businessGapText.toLowerCase()}.
+  The competition density is ${competitionDescription.toLowerCase()}, meaning ${competitionText.toLowerCase()}.
   Population density in ${selectedBarangay} is ${populationText.toLowerCase()}, underscoring its potential as a suitable location.
   Transportation is ${transportationText.toLowerCase()}. Although there are some ${transportationChallenge.toLowerCase()} that could pose challenges.
-  The area type in ${selectedBarangay} is specifically categorized as residential and commercial spaces, which is highly favorable and indicates ideal for your business type.`;
+  The area type is specifically categorized as ${topAreaTypes.toLowerCase()}, which is ${areaTypeText.toLowerCase()} and indicates ${areaTypeDescription.toLowerCase()}. This makes it a suitable location for the businesses.
+  Establishing a business in ${selectedBarangay} can effectively address community needs and capitalize on market dynamics.`;
 
     // Final Result Object
     const result = {
         businessOverview: {
             mainCategory: selectedCategory,
             totalBusinessesInCity,
-            businessesInBarangay,
+            topCounts,
         },
         marketDemandAndGaps: {
-            marketDemand: demandDescription,
-            businessGaps: businessGapDescription,
+            marketDemand: `${demandDescription} (${marketDemandScore}) - ${demandText}`,
+            businessGaps:`${businessGapDescription} (${marketGapScore}) - ${businessGapText}`,
             criticalGap: "(76 - 100)",
             moderateGap: "(51 - 75)",
             minorGap: "(26 - 50)",
             noGap: "(0 - 25)"
         },
         populationAndSegmentation: {
-            populationOverview: `${populationDensity} per sq. km`,
-            customerSegmentation: psychographicBehavioralData.Motivation[selectedBarangay] || 'N/A',
+            populationOverview: `${population} per sq. km`,
             businessMotivation: psychographicBehavioralData.Motivation[selectedBarangay] || 'N/A',
             shopingTraits: psychographicBehavioralData.ShoppingTraits[selectedBarangay] || 'N/A',
             businessFactors: psychographicBehavioralData.Factors[selectedBarangay] || 'N/A',
@@ -853,13 +970,13 @@ async function runAnalysisModel(selectedCategory, selectedBarangay) {
             businessLacking: lackingText,
         },
         competitionAnalysis: {
-            competitionDensity: competitionDescription,
-            directCompetitor: CompetitionData.find(row => row.Barangay === selectedBarangay)?.Direct || 0,
-            indirectCompetitor: CompetitionData.find(row => row.Barangay === selectedBarangay)?.Indirect || 0,
-            replacementCompetitor: CompetitionData.find(row => row.Barangay === selectedBarangay)?.Replacement || 0,
+            competitionDensity: `${competitionDescription} (${competitionDensityScore}) - ${competitionText}`,
+            directCompetitor: direct ?? 0,
+            indirectCompetitor: indirect ?? 0,
+            replacementCompetitor: replacement ?? 0,
         },
         accessibilityAndInfrastructure: {
-            areaType: barangayData?.AreaType || "Residential",
+            areaType: `${topAreaTypes} (${areaTypeText})`,
             TranspoAccess: transportationText,
             TranspoChallenge: transportationChallenge
         },
