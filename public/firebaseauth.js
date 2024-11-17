@@ -49,7 +49,6 @@ function closeModal() {
 // Attach the close function to the 'X' button click
 document.querySelector('.close').addEventListener('click', closeModal);
 
-
 // Function to periodically check if the email is verified
 function checkVerification(user) {
   const interval = setInterval(() => {
@@ -69,6 +68,13 @@ document.getElementById('submitSignUp').addEventListener('click', (event) => {
   const password = document.getElementById('rPassword').value;
   const firstName = document.getElementById('fName').value;
   const lastName = document.getElementById('lName').value;
+  const termsCheckbox = document.getElementById('terms');
+
+  // Validate Terms and Conditions checkbox
+  if (!termsCheckbox.checked) {
+    showModal('You must agree to the Terms and Conditions.');
+    return;
+  }
 
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -176,5 +182,3 @@ document.querySelectorAll('#signInGoogleButton').forEach(button => {
       });
   });
 });
-
-

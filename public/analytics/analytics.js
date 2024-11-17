@@ -195,11 +195,12 @@ const dataForCategories = {
             'Poblacion Uno', 'Gulod', 'Butong', 'Diezmo', 'Bigaa', 'Pittland', 'Casile'
          ],
         counts: [20, 19, 18, 14, 14, 13, 11, 9, 7, 7, 4, 4, 3, 3, 2, 1, 0,0],
-        subCategories: ['Animal Bite Clinics', 'Dental Clinics', 'Diagnostic and Medical Clinics', 'Dialysis Center', 'Gerontology Services', 'Hospital',
-            'Laboratory Equipment Repair Service', 'Maternity Clinics & Family Planning', 'Medical Clinics', 'Medical and Health Services', 'Optical Clinics',
-            'Pharmacies', 'Pharmacy & Medica; Clinics', 'Rehabilitation Centers', 'Service Contractor', 'Therapy Centers', 'Veterinary Clinics'
-        ], 
-        subCategoryCounts: [4, 41, 10, 1, 1, 1, 1, 9, 0, 1, 2, 62, 4, 4, 1, 2, 5],  
+        subCategories: ['Animal Bite Clinics', 'Dental Clinics', 'Diagnostic and Medical Clinics', 'Dialysis Center', 'Gerontology Services', 'Hospital', 
+            'Laboratory Equipment Repair Service',  'Maternity Clinics & Family Planning', 'Medical and Healthcare Services', 'Optical Clinics', 'Pharmacies', 
+             'Pharmacy & Medical Clinics',  'Rehabilitation Centers',  'Service Contractor',  'Therapy Centers',  'Veterinary Clinics'
+        ],
+        subCategoryCounts: [4, 41, 10, 1, 1, 1, 1, 9, 1, 2, 62, 4, 4, 1, 2, 5
+        ],  
         barData: [20, 14, 18, 19, 13, 1, 14, 11, 7, 3, 4, 7, 0, 3, 4, 2, 0, 9 ],
         pieData: [36444, 10903, 40936, 56761, 11496, 14235, 30509, 56154, 87645, 17873, 15164, 4274, 3794, 14764, 7025, 6622, 4733, 2108],
         stats: {
@@ -210,7 +211,7 @@ const dataForCategories = {
             marketDemands: 0
         }
     },
-    'EIT and Digital Services': {
+    'IT and Digital Services': {
         barangays: ['Sala', 'Banlic', 'Banaybanay', 'Mamatid', 'Pulo', 'San Isidro', 'Niugan', 'Diezmo', 'Marinig', 'Poblacion Uno', 'Baclaran',
             'Pittland', 'Casile', 'Gulod', 'Bigaa', 'Poblacion Tres', 'Butong', 'Poblacion Dos' 
          ],

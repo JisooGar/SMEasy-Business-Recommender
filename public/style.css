@@ -455,3 +455,33 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+/* Style for the checkbox and text container */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Checkbox styling */
+.checkbox-container input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  accent-color: #ff6600; /* Custom checkbox color */
+  cursor: pointer;
+}
+
+/* Terms and Conditions link */
+.checkbox-container a {
+  color: #007bff;
+  text-decoration: underline;
+  margin-left: 4px;
+}
+
+.checkbox-container a:hover {
+  text-decoration: none;
+  color: #0056b3;
+}

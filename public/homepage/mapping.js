@@ -19,7 +19,7 @@ window.onload = function () {
 
 function loadGoogleMapsScript() {
     const script = document.createElement('script');
-    script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAOHl7UhfFADZokofIACrQ4oplJWdvpmPk&callback=initMap';
+    script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyA_z7u9wO-yxnehj8bCXiryGGPDjI8VT5k&callback=initMap';
     script.async = true;
     script.defer = true;
     document.head.appendChild(script);

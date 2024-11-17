@@ -20,9 +20,7 @@ const pool = new Pool({
   database: process.env.DB_DATABASE || 'SME',
   password: process.env.DB_PASSWORD || 'LittleStar',
   port: process.env.DB_PORT || 5432,
-  ssl: {
-    rejectUnauthorized: false,  // Allows self-signed certificates
-  },
+
 });
 
 

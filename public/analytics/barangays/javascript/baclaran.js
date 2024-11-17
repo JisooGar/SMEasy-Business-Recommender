@@ -27,7 +27,7 @@ document.querySelectorAll('.barangay-item').forEach(item => {
 // Data for each category including dynamic barangays
 const dataForCategories = {
     All: {
-        barangays: ['Ph 1 Mabuhay City', 'Blanks', 'Purok 3', 'Crystal Ville', 'Villa Estella Subdivision', 'Mabuhay City'],
+        barangays: ['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Purok 3', 'Villa Estella Subdivision'],
         counts: [20, 14, 8, 2, 1, 1 ], 
         subCategories: ['None'],
         subCategoryCounts: ['None'],  
@@ -44,13 +44,13 @@ const dataForCategories = {
         }
     },
     'Automotive Services': {
-barangays: ['Ph 1 Mabuhay City', 'Blanks', 'Purok 3', 'Crystal Ville', 'Villa Estella Subdivision', 'Mabuhay City'],
-        counts: [0, 0, 1, 0, 1, 0 ],  
+barangays: ['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Purok 3', 'Villa Estella Subdivision'],
+        counts: [0, 0, 0, 0, 1, 1],  
         subCategories: ['Auto Repair Services', 'Body and Welding Shops', 'Car wash and Detailing', 'Fuel Services',
             'Motorcycle Dealer', 'Specialized Automotive Services', 'Vulcanizing Services'
         ],
-        subCategoryCounts: [0], //not yet
-        barData: [0, 0, 1, 0, 1, 0 ],
+        subCategoryCounts: [0,1,0,1,0,0,0], //not yet
+        barData: [0, 0, 0, 0, 1, 1],
         pieData: [15164],
         stats: {
             totalBusinesses: 2,
@@ -61,19 +61,19 @@ barangays: ['Ph 1 Mabuhay City', 'Blanks', 'Purok 3', 'Crystal Ville', 'Villa Es
         }
     },
     'Construction and Real Estate': {
-barangays: ['Ph 1 Mabuhay City', 'Blanks', 'Purok 3', 'Crystal Ville', 'Villa Estella Subdivision', 'Mabuhay City'],
+barangays: ['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Purok 3', 'Villa Estella Subdivision'],
 
-        counts: [0, 1, 0, 1, 0, 0 ], 
+        counts: [1, 1, 0, 0, 0, 0], 
         subCategories: ['Apartment/Apartelle', 'Building Contractor', 'Construction Services', 'Contractor', 'Electrical/Mechanical Contractor', 'Facilities and Infrastracture',
             'General Contruction', 'General Contractor', 'General Engineering Contractor', 'Heavy Equipment Rental', 'Lessor (Commercial Space', 'Lessor (Excluding Subd. Operators/Lessor',
             'Lessor (Industrial Space', 'Lessor (Residential)', 'Lot Rental', 'Memorial Park', 'Property Rental and Management', 'Real Estate Developer', 'Realty', 'Realy Broker', 'Services Contractor',
             'Warehousing'
         ], 
-        subCategoryCounts: [0],  
-        barData: [0, 1, 0, 1, 0, 0 ],
+        subCategoryCounts: [1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],  
+        barData: [1, 1, 0, 0, 0, 0], 
         pieData: [15164],
         stats: {
-            totalBusinesses: 336,
+            totalBusinesses: 2,
             population: '421,440',
             stat3: 'Blanks, Crystal Ville',
             stat4: 'Ph1, Mabuhay City, Crystal Ville, Blanks',
@@ -81,17 +81,15 @@ barangays: ['Ph 1 Mabuhay City', 'Blanks', 'Purok 3', 'Crystal Ville', 'Villa Es
         }
     },
     'Cooperative Business': {
-barangays: ['Ph 1 Mabuhay City', 'Blanks', 'Purok 3', 'Crystal Ville', 'Villa Estella Subdivision', 'Mabuhay City'],
+barangays: ['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Purok 3', 'Villa Estella Subdivision'],
 
-        counts: [0, 1, 0, 0, 0, 0 ], 
+        counts: [1, 0, 0, 0, 0, 0 ], 
         subCategories: ['Cooperative'], 
         subCategoryCounts: [1],  
-        barData: [0, 1, 0, 0, 0, 0 ],
-        pieData: [15164
-
-],
+        barData: [1, 0, 0, 0, 0, 0 ], 
+        pieData: [15164],
         stats: {
-            totalBusinesses: 30,
+            totalBusinesses: 1,
             population: '421,440',
             stat3: 'Purok 3, Villa Estella',
             stat4: 'Ph1, Mabuhay City, Crystal Ville, Blanks',
@@ -99,17 +97,17 @@ barangays: ['Ph 1 Mabuhay City', 'Blanks', 'Purok 3', 'Crystal Ville', 'Villa Es
         }
     },
     'Creative and Media Service': {
-barangays: ['Ph 1 Mabuhay City', 'Blanks', 'Purok 3', 'Crystal Ville', 'Villa Estella Subdivision', 'Mabuhay City'],
+barangays: ['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Purok 3', 'Villa Estella Subdivision'],
 
-        counts: [20, 14, 8, 2, 1, 1 ], 
+        counts: [2, 0, 0, 1, 0, 0], 
         subCategories: ['Advertising and Marketing', 'Event Design Service', 'Photography and Videography', 'Printing Services'], 
-        subCategoryCounts: [5,1,4,23],  
-        barData: [2, 3, 6, 4, 5, 1, 0, 2, 2, 1, 3, 2, 0, 0, 1, 1, 0, 0],
+        subCategoryCounts: [0,0,0,3],  
+        barData: [2, 0, 0, 1, 0, 0],
         pieData: [15164
 
 ],
         stats: {
-            totalBusinesses: 30,
+            totalBusinesses: 3,
             population: '421,440',
             stat3: 'Purok 3, Villa Estella',
             stat4: 'Ph1, Mabuhay City, Crystal Ville, Blanks',
@@ -117,19 +115,17 @@ barangays: ['Ph 1 Mabuhay City', 'Blanks', 'Purok 3', 'Crystal Ville', 'Villa Es
         }
     },
     'Education Services': {
-barangays: ['Ph 1 Mabuhay City', 'Blanks', 'Purok 3', 'Crystal Ville', 'Villa Estella Subdivision', 'Mabuhay City'],
+barangays: ['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Purok 3', 'Villa Estella Subdivision'],
 
-        counts: [20, 14, 8, 2, 1, 1 ], 
+        counts: [0, 0, 0, 1, 0, 0], 
         subCategories: ['Driving School', 'Learning Center', 'Private School', 'School Service', 'Training Center', 'Tutorial Services',
             'Vocational and Special Schools' 
         ], 
-        subCategoryCounts: [2 ,8, 34, 1, 7, 4, 5],  
-        barData: [5, 5, 8, 10, 7, 1, 9, 4, 1, 2, 1, 1, 0, 2, 4, 0, 0, 1],
-        pieData: [15164
-
-],
+        subCategoryCounts: [0,0,1,0,0,0,0],  
+        barData: [0, 0, 0, 1, 0, 0],
+        pieData: [15164],
         stats: {
-            totalBusinesses: 61,
+            totalBusinesses: 1,
             population: '421,440',
             stat3: 'Mamatid',
             stat4: 'Diezmo',
@@ -137,19 +133,19 @@ barangays: ['Ph 1 Mabuhay City', 'Blanks', 'Purok 3', 'Crystal Ville', 'Villa Es
         }
     },
     'Entertainment and Recreation': {
-barangays: ['Ph 1 Mabuhay City', 'Blanks', 'Purok 3', 'Crystal Ville', 'Villa Estella Subdivision', 'Mabuhay City'],
+barangays: ['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Purok 3', 'Villa Estella Subdivision'],
 
-        counts: [20, 14, 8, 2, 1, 1 ], 
+        counts: [0, 0, 0, 0, 0, 0], 
         subCategories: ['Dining and Leisure', 'Egames/Ebingo', 'Fireworks and Pyrotechnics', 'Golf Cart Rental', 'Party Rentals', 'Play Center',
             'Sound & Light Rental', 'Sports and Fitness' 
         ], 
-        subCategoryCounts: [1, 2, 1, 1, 2, 2, 2, 2],  
-        barData: [2, 1, 1, 1, 2, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1],
+        subCategoryCounts: [0,0,0,0,0,0,0,0],  
+        barData: [0, 0, 0, 0, 0, 0],
         pieData: [15164
 
 ],
         stats: {
-            totalBusinesses: 13,
+            totalBusinesses: 0,
             population: '421,440',
             stat3: 'Banlic',
             stat4: 'Poblacion Uno',
@@ -157,19 +153,19 @@ barangays: ['Ph 1 Mabuhay City', 'Blanks', 'Purok 3', 'Crystal Ville', 'Villa Es
         }
     },
     'Finance and Insurance': {
-barangays: ['Ph 1 Mabuhay City', 'Blanks', 'Purok 3', 'Crystal Ville', 'Villa Estella Subdivision', 'Mabuhay City'],
+barangays: ['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Purok 3', 'Villa Estella Subdivision'],
 
-        counts: [20, 14, 8, 2, 1, 1 ], 
+        counts: [0, 0, 0, 0, 0, 0 ], 
         subCategories: ['ATM Off Site Stations', 'Banks', 'Financing Institutions', 'General Financial Services', 'Holding Company', 'Insurance Agents/Companies',
             'Lending Investor', 'Money Remittance/ Bill Payment', 'Pawnshop & Financial Services', 'Payment Center' 
         ], 
-        subCategoryCounts: [9 ,20, 11, 1, 8, 2, 14, 13, 31, 3],  
-        barData: [14, 13, 7, 9, 21, 1, 4, 0, 7, 2, 0, 5, 0, 0, 8, 11, 2, 8],
+        subCategoryCounts: [0,0,0,0,0,0,0,0,0,0],  
+        barData: [10, 0, 0, 0, 0, 0],
         pieData: [15164
 
 ],
         stats: {
-            totalBusinesses: 112,
+            totalBusinesses: 0,
             population: '421,440',
             stat3: 'Banlic',
             stat4: 'Baclaran',
@@ -177,19 +173,19 @@ barangays: ['Ph 1 Mabuhay City', 'Blanks', 'Purok 3', 'Crystal Ville', 'Villa Es
         }
     },
     'Food Services': {
-barangays: ['Ph 1 Mabuhay City', 'Blanks', 'Purok 3', 'Crystal Ville', 'Villa Estella Subdivision', 'Mabuhay City'],
+barangays: ['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Purok 3', 'Villa Estella Subdivision'],
 
-        counts: [20, 14, 8, 2, 1, 1 ], 
+        counts: [1, 0, 0, 0, 1, 0], 
         subCategories: ['Burger Stand', 'Canteen' , 'Catering Service', 'Coffee Shop', 'Eatery', 'Fast Food', 'Food Concessionaire', 'Food Stand',
             'Milk Tea Shop', 'Panciteria', 'Refreshment Parlor', 'Restaurant', 'Restobar'
         ], 
-        subCategoryCounts: [3, 27, 10, 11, 8, 3 ,2 , 37, 6, 1, 12, 45, 4],  
-        barData: [29, 22, 26, 9, 26, 0, 3, 0, 7, 1, 2, 8, 3, 1, 4, 17, 4, 7],
+        subCategoryCounts: [1,0,1,0,0,0,0,0,0,0,0,0,0],  
+        barData: [1, 0, 0, 0, 1, 0],
         pieData: [15164
 
 ],
         stats: {
-            totalBusinesses: 169,
+            totalBusinesses: 2,
             population: '421,440',
             stat3: 'Pulo',
             stat4: 'Bigaa',
@@ -197,35 +193,35 @@ barangays: ['Ph 1 Mabuhay City', 'Blanks', 'Purok 3', 'Crystal Ville', 'Villa Es
         }
     },
     'Healthcare Services': {
-        barangays:['Ph 1 Mabuhay City', 'Purok 3', 'Crystal Ville', 'Villa Estella Subdivision', 'Mabuhay City'],
-        counts: [20, 14, 8, 2, 1, 1 ], 
-        subCategories: ['Animal Bite Clinics', 'Dental Clinics', 'Diagnostic and Medical Clinics', 'Dialysis Center', 'Gerontology Services', 'Hospital',
-            'Laboratory Equipment Repair Service', 'Maternity Clinics & Family Planning', 'Medical Clinics', 'Medical and Health Services', 'Optical Clinics',
-            'Pharmacies', 'Pharmacy & Medica; Clinics', 'Rehabilitation Centers', 'Service Contractor', 'Therapy Centers', 'Veterinary Clinics'
+        barangays:['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Purok 3', 'Villa Estella Subdivision'],
+        counts: [0, 0, 0, 4, 0, 0 ], 
+        subCategories: ['Animal Bite Clinics', 'Dental Clinics', 'Diagnostic and Medical Clinics', 'Dialysis Center', 'Gerontology Services', 'Hospital', 
+                     'Laboratory Equipment Repair Service',  'Maternity Clinics & Family Planning', 'Medical and Healthcare Services', 'Optical Clinics', 'Pharmacies', 
+                      'Pharmacy & Medical Clinics',  'Rehabilitation Centers',  'Service Contractor',  'Therapy Centers',  'Veterinary Clinics'
         ], 
-        subCategoryCounts: [4, 41, 10, 1, 1, 1, 1, 9, 0, 1, 2, 62, 4, 4, 1, 2, 5],  
-        barData: [20, 14, 18, 19, 13, 1, 14, 11, 7, 3, 4, 7, 0, 3, 4, 2, 0, 9 ],
+        subCategoryCounts: [0,1,0,0,0,0,0,0,0,0,3,0,0,0,0,0],  
+        barData: [0, 0, 0, 4, 0, 0 ],
         pieData: [15164],
         stats: {
-            totalBusinesses: 149,
+            totalBusinesses: 4,
             population: '421,440',
             stat3: 'Pulo',
             stat4: 'Casile',
             marketDemands: 0
         }
     },
-    'EIT and Digital Services': {
-barangays: ['Ph 1 Mabuhay City', 'Blanks', 'Purok 3', 'Crystal Ville', 'Villa Estella Subdivision', 'Mabuhay City'],
+    'IT and Digital Services': {
+barangays: ['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Purok 3', 'Villa Estella Subdivision'],
 
-        counts: [20, 14, 8, 2, 1, 1 ], 
+        counts: [1, 0, 0, 0, 0, 0 ], 
         subCategories: ['Administrative Support Services', 'Audio & Video System Services', 'Computer Services / IT Services', 'Computer Shop', 'Customer Support & BPO Service',
             'Internet Service Provider', 'Repair Service', 'Service Contractor', 'Telecom Services', 'Virtual Assistance' 
         ], 
-        subCategoryCounts: [2, 1, 8, 1, 3, 1, 3, 4, 3, 1],  
-        barData: [2, 5, 4, 3, 4, 0, 2, 1, 2, 0, 1, 0, 0, 0, 1, 1, 1, 0],
+        subCategoryCounts: [0,0,0,0,0,0,0,0,1,0],  
+        barData: [1, 0, 0, 0, 0, 0],
         pieData: [15164],
         stats: {
-            totalBusinesses: 27,
+            totalBusinesses: 1,
             population: '421,440',
             stat3: 'Sala',
             stat4: 'Poblacion Dos',
@@ -233,20 +229,20 @@ barangays: ['Ph 1 Mabuhay City', 'Blanks', 'Purok 3', 'Crystal Ville', 'Villa Es
         }
     },
     'Manufacturing and Production': {
-        barangays:['Ph 1 Mabuhay City', 'Purok 3', 'Crystal Ville', 'Villa Estella Subdivision', 'Mabuhay City'], 
-        counts: [20, 14, 8, 2, 1, 1 ], 
+        barangays:['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Purok 3', 'Villa Estella Subdivision'], 
+        counts: [0, 0, 0, 0, 0, 0 ], 
         subCategories: ['Agricultural Products', 'Contractor and Service Manufacturing', 'Essential Manufacturer', 'Fabrication Services',
             'Food Products Manufacturer', 'Garment Manufacturer', 'General Manufacturing', 'Glass & Aluminum Fabrication Services', 'Hollowblock Making',
             'Industrial Equipment Services', 'Machine Fabrication and Shop', 'Metal Fabrication', 'Non-Essential Manufacturer', 'PEZA Registered Business',
             'Plastic Products Manufacturer', 'Specialty Manufacturing', 'Woodcraft'  
         ], 
-        subCategoryCounts: [4, 10, 2, 18, 15, 7, 1, 11, 2, 3, 8, 9, 19, 9, 1, 7, 3],  
-        barData: [20, 9, 17, 13, 9, 3, 13, 1, 11, 2, 0, 3, 0, 3, 0, 20, 4, 1],
+        subCategoryCounts: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],  
+        barData: [0, 0, 0, 0, 0, 0],
         pieData: [15164
 
 ],
         stats: {
-            totalBusinesses: 129,
+            totalBusinesses: 0,
             population: '421,440',
             stat3: 'Diezmo',
             stat4: 'Poblacion Uno',
@@ -254,20 +250,20 @@ barangays: ['Ph 1 Mabuhay City', 'Blanks', 'Purok 3', 'Crystal Ville', 'Villa Es
         }
     },
     'Personal and Household Services': {
-barangays: ['Ph 1 Mabuhay City', 'Blanks', 'Purok 3', 'Crystal Ville', 'Villa Estella Subdivision', 'Mabuhay City'],
+barangays: ['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Purok 3', 'Villa Estella Subdivision'],
 
-        counts: [20, 14, 8, 2, 1, 1 ], 
+        counts: [0, 0, 0, 1, 0, 0], 
         subCategories: ['Air Conditioner Services', 'Bottle Cleaning', 'Funeral Services', 'Furniture & Carpentry', 'Gown/Barong/Dress/Toga Rental',
             'Janitorial Services', 'Kitchen Equipment Repair Services', 'Laundy Shops', 'Pest Control', 'Plumbing Services', 'Refrigerator & Air Con Repair Services',
             'Service Contractor', 'Tailor and Dress Shop', 'Upholstery and Repair Shop' 
         ], 
-        subCategoryCounts: [6, 1, 8, 1, 1, 2, 1 ,31, 5, 2, 12, 2, 3, 1],  
-        barData: [10, 4, 10, 14, 11, 1, 3, 4, 7, 4, 1, 1, 2, 2, 1, 0, 0, 1],
+        subCategoryCounts: [0,0,0,0,0,0,0,1,0,0,0,0,0,0],  
+        barData: [10, 0, 0, 1, 0, 0],
         pieData: [15164
 
 ],
         stats: {
-            totalBusinesses: 76,
+            totalBusinesses: 11,
             population: '421,440',
             stat3: 'Mamatid',
             stat4: 'Pittland',
@@ -275,19 +271,19 @@ barangays: ['Ph 1 Mabuhay City', 'Blanks', 'Purok 3', 'Crystal Ville', 'Villa Es
         }
     },
     'Personal Care Services': {
-barangays: ['Ph 1 Mabuhay City', 'Blanks', 'Purok 3', 'Crystal Ville', 'Villa Estella Subdivision', 'Mabuhay City'],
+barangays: ['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Purok 3', 'Villa Estella Subdivision'],
 
-        counts: [20, 14, 8, 2, 1, 1 ], 
+        counts: [0, 0, 0, 0, 0, 0], 
         subCategories: ['Aesthetic Services', 'Barbershop', 'Beauty Taylor', 'Fitness Gym', 'Home Massage Services',
             'Nail Spa', 'Skin care Center' 
         ], 
-        subCategoryCounts: [4, 2, 14, 4, 1, 1, 2],  
-        barData: [8, 2, 2, 4, 6, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 3],
+        subCategoryCounts: [0,0,0,0,0,0,0],  
+        barData: [0, 0, 0, 0, 0, 0],
         pieData: [15164
 
 ],
         stats: {
-            totalBusinesses: 28,
+            totalBusinesses: 0,
             population: '421,440',
             stat3: 'Pulo',
             stat4: 'Niugan',
@@ -295,20 +291,20 @@ barangays: ['Ph 1 Mabuhay City', 'Blanks', 'Purok 3', 'Crystal Ville', 'Villa Es
         }
     },
     'Professional Services': {
-barangays: ['Ph 1 Mabuhay City', 'Blanks', 'Purok 3', 'Crystal Ville', 'Villa Estella Subdivision', 'Mabuhay City'],
+barangays: ['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Purok 3', 'Villa Estella Subdivision'],
 
-        counts: [20, 14, 8, 2, 1, 1 ], 
+        counts: [0, 0, 0, 0, 1, 0], 
         subCategories: ['Accounting Agencies', 'Administrative Office Services', 'Administrative Support Services', 'Business Agent', 'Calibration Services',
             'Consultancy and Management Services', 'Contracting and Manpower Services', 'Design Services', 'Emission and Testing Center', 'Engineering and Technical Services',
             'Organizations', 'Referral Service', 'Repair and Maintenance Services', 'Security Agency', 'Water Treatment and Testing Services'  
         ], 
-        subCategoryCounts: [4, 2, 14, 4, 1, 1, 2],  
-        barData: [27, 6, 28, 6, 16, 3, 14, 2, 6, 2, 1, 0, 0, 4, 2, 4, 5, 0],
+        subCategoryCounts: [0,0,0,0,0,0,0,0,0,1,0,0,0,0,0],  
+        barData: [0, 0, 0, 0, 1, 0],
         pieData: [15164
 
 ],
         stats: {
-            totalBusinesses: 126,
+            totalBusinesses: 1,
             population: '421,440',
             stat3: 'Banaybanay',
             stat4: 'Poblacion Dos',
@@ -316,20 +312,20 @@ barangays: ['Ph 1 Mabuhay City', 'Blanks', 'Purok 3', 'Crystal Ville', 'Villa Es
         }
     },
     'Retail Stores': {
-barangays: ['Ph 1 Mabuhay City', 'Blanks', 'Purok 3', 'Crystal Ville', 'Villa Estella Subdivision', 'Mabuhay City'],
+barangays: ['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Purok 3', 'Villa Estella Subdivision'],
 
-        counts: [20, 14, 8, 2, 1, 1 ], 
+        counts: [6, 1, 1, 12, 4, 0 ], 
         subCategories: ['Clothing and Apparel', 'Convenience Store', 'Electronics and Gadgets', 'Food and Beverage', 'Fuel and Energy Supplies', 'Furniture and Home Decor',
             'General Merchandise', 'Grocery and Supermarkets', 'Hardware and Constructiom Supplies', 'Health and Personal Care', 'Household Supplies', 'Online Shops', 'Sari-sari Store',
             'School and Office Supplies', 'Specialty Stores', 'Vehicle and Parts Supplies', 'Water Supply' 
         ], 
-        subCategoryCounts: [37, 44, 22, 170, 84, 11, 130, 30, 110, 10, 9, 21, 82, 15, 74, 66, 32],  
-        barData: [120, 60, 128, 104, 147, 26, 50, 77, 51, 30, 24, 20, 7, 24, 19, 1, 6, 53 ],
+        subCategoryCounts: [0,2,0,4,1,0,4,2,1,0,0,0,5,0,2,0,3],  
+        barData: [6, 1, 1, 12, 4, 0 ],
         pieData: [15164
 
 ],
         stats: {
-            totalBusinesses: 947,
+            totalBusinesses: 24,
             population: '421,440',
             stat3: 'Banlic',
             stat4: 'Diezmo',
@@ -337,18 +333,18 @@ barangays: ['Ph 1 Mabuhay City', 'Blanks', 'Purok 3', 'Crystal Ville', 'Villa Es
         }
     },
     'Tourism and Hospitality': {
-barangays: ['Ph 1 Mabuhay City', 'Blanks', 'Purok 3', 'Crystal Ville', 'Villa Estella Subdivision', 'Mabuhay City'],
+barangays: ['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Purok 3', 'Villa Estella Subdivision'],
 
-        counts: [20, 14, 8, 2, 1, 1 ], 
+        counts: [0, 0, 0, 0, 0, 0], 
         subCategories: ['Hotel', 'Resort', 'Travel Agency'
         ], 
-        subCategoryCounts: [2, 5, 12],  
-        barData: [6, 4, 2, 3, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1 ],
+        subCategoryCounts: [0,0,0],  
+        barData: [0, 0, 0, 0, 0, 0 ],
         pieData: [15164
 
 ],
         stats: {
-            totalBusinesses: 19,
+            totalBusinesses: 0,
             population: '421,440',
             stat3: 'Pulo',
             stat4: 'Niugan',
@@ -357,17 +353,17 @@ barangays: ['Ph 1 Mabuhay City', 'Blanks', 'Purok 3', 'Crystal Ville', 'Villa Es
     },
     'Transportation and Logistics': {
         barangays:['Ph 1 Mabuhay City', 'Purok 3', 'Crystal Ville', 'Villa Estella Subdivision', 'Mabuhay City'],
-        counts: [20, 14, 8, 2, 1, 1 ], 
+        counts: [1, 0, 0, 1, 0, 0], 
         subCategories: ['Car Rental', 'Common Courier', 'Delivery Services', 'Forwarder', 'Hauling Services', 'Logistic Services', 'Operator & Drivers Association',
             'Service Contractor', 'Shuttle Service/Transport', 'Transport Services', 'Trucking Services/Transport', 'Vehicle Storage', 'Warehous and Storage Services'
         ], 
-        subCategoryCounts: [2, 10, 12, 9, 17, 22, 2, 3, 11, 35, 63, 6, 35],  
-        barData: [63, 20, 27, 12, 25, 9, 16, 12, 11, 9, 2, 3, 0, 4, 2, 9, 3, 0],
+        subCategoryCounts: [0,0,1,0,0,1,0,0,0,0,0,0,0],  
+        barData: [1, 0, 0, 1, 0, 0],
         pieData: [15164
 
 ],
         stats: {
-            totalBusinesses: 227,
+            totalBusinesses: 2,
             population: '421,440',
             stat3: 'Pulo',
             stat4: 'Poblacion Dos',
@@ -376,17 +372,17 @@ barangays: ['Ph 1 Mabuhay City', 'Blanks', 'Purok 3', 'Crystal Ville', 'Villa Es
     },
     'Wholesale and Distribution': {
         barangays:['Ph 1 Mabuhay City', 'Purok 3', 'Crystal Ville', 'Villa Estella Subdivision', 'Mabuhay City'],
-        counts: [20, 14, 8, 2, 1, 1 ], 
+        counts: [1, 0, 0, 0, 1, 0 ], 
         subCategories: ['Agricultural Products', 'Auction', 'Automotive', 'Cleaning Supplies', 'Electronics Products', 'Essential/ Non Essential', 'Food Products', 'Fuel and Energy Supplies', 
             'Industrial and Construction Supplies', 'Junk Shops', 'Medical and Health Supplies', 'Non Essential', 'Office & Packaging Supplies', 'Recycle Materials', 'Service Contractor', 'Trading'
         ], 
-        subCategoryCounts: [4, 2, 5, 1, 3, 5, 16, 8, 9, 18, 3, 14, 3, 9, 2, 11],  
-        barData: [12, 11, 29, 9, 13, 1, 12, 3, 5, 1, 2, 0, 0, 5, 1, 5, 2, 2],
+        subCategoryCounts: [0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0],  
+        barData: [1, 0, 0, 0, 1, 0],
         pieData: [15164
 
 ],
         stats: {
-            totalBusinesses: 113,
+            totalBusinesses: 2,
             population: '421,440',
             stat3: 'Banaybanay',
             stat4: 'Poblacion Tres',
@@ -527,7 +523,7 @@ const ctxWebTrafficConcentration = document.getElementById('webTrafficConcentrat
 const webTrafficConcentrationChart = new Chart(ctxWebTrafficConcentration, {
     type: 'pie',
     data: {
-        labels: ['Children 6-12', 'Children 13-17', 'Children 18-35', 'Adult 36-50', 'Adult 51-65', 'Adult 66-above'], // Dynamically use barangays from default category
+        labels: ['Children 0 -5','Children 6-12', 'Children 13-17', 'Children 18-35', 'Adult 36-50', 'Adult 51-65', 'Adult 66-above'], // Dynamically use barangays from default category
         datasets: [{
             label: 'Traffic Source',
             data: dataForCategories.All.pieData,
