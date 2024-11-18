@@ -60,8 +60,8 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 12,
             population: '40,936',
-            stat3: 'Pulo',
-            stat4: 'Poblacion Dos',
+            stat3: 'National Highway',
+            stat4: '',
             marketDemands: 0
         }
     },

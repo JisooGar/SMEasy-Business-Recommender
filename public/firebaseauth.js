@@ -114,8 +114,10 @@ document.getElementById('submitSignUp').addEventListener('click', (event) => {
 // Sign-In with Email and Password
 document.getElementById('submitSignIn').addEventListener('click', (event) => {
   event.preventDefault();
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
+
+  // Correct IDs: emailSignIn and passwordSignIn
+  const email = document.getElementById('emailSignIn').value;
+  const password = document.getElementById('passwordSignIn').value;
 
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -143,9 +145,12 @@ document.getElementById('submitSignIn').addEventListener('click', (event) => {
         showModal('Incorrect password.');
       } else {
         showModal('An error occurred during sign-in.');
+        console.error("Sign-in error:", error.message);  // Log the error message to help with debugging
       }
     });
 });
+
+
 
 // Google Sign-In
 document.querySelectorAll('#signInGoogleButton').forEach(button => {
@@ -181,4 +186,36 @@ document.querySelectorAll('#signInGoogleButton').forEach(button => {
         showModal('An error occurred during Google sign-in. Please try again.');
       });
   });
+});
+
+// For Sign Up
+const passwordFieldSignUp = document.getElementById('rPassword');
+const showPasswordIconSignUp = document.getElementById('showPasswordIconSignUp');
+
+showPasswordIconSignUp.addEventListener('click', function() {
+    if (passwordFieldSignUp.type === 'password') {
+        passwordFieldSignUp.type = 'text';
+        showPasswordIconSignUp.classList.remove('fa-eye');
+        showPasswordIconSignUp.classList.add('fa-eye-slash');
+    } else {
+        passwordFieldSignUp.type = 'password';
+        showPasswordIconSignUp.classList.remove('fa-eye-slash');
+        showPasswordIconSignUp.classList.add('fa-eye');
+    }
+});
+
+// For Sign In
+const passwordFieldSignIn = document.getElementById('passwordSignIn');
+const showPasswordIconSignIn = document.getElementById('showPasswordIconSignIn');
+
+showPasswordIconSignIn.addEventListener('click', function() {
+    if (passwordFieldSignIn.type === 'password') {
+        passwordFieldSignIn.type = 'text';
+        showPasswordIconSignIn.classList.remove('fa-eye');
+        showPasswordIconSignIn.classList.add('fa-eye-slash');
+    } else {
+        passwordFieldSignIn.type = 'password';
+        showPasswordIconSignIn.classList.remove('fa-eye-slash');
+        showPasswordIconSignIn.classList.add('fa-eye');
+    }
 });

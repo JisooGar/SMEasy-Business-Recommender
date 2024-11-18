@@ -57,7 +57,7 @@ const dataForCategories = {
             population: '421,440',
             stat3: 'Pulo',
             stat4: 'Poblacion Dos',
-            marketDemands: 0
+            marketDemands: 'Diezmo'
         }
     },
     'Construction and Real Estate': {
@@ -77,7 +77,7 @@ const dataForCategories = {
             population: '421,440',
             stat3: 'Pulo',
             stat4: 'Butong',
-            marketDemands: 0
+            marketDemands: 'Sala'
         }
     },
     'Cooperative Business': {
@@ -94,7 +94,7 @@ const dataForCategories = {
             population: '421,440',
             stat3: 'Sala',
             stat4: 'Butong',
-            marketDemands: 0
+            marketDemands: 'Poblacion Tres, Pittland'
         }
     },
     'Creative and Media Service': {
@@ -111,7 +111,7 @@ const dataForCategories = {
             population: '421,440',
             stat3: 'Banaybanay',
             stat4: 'Poblacion Dos',
-            marketDemands: 0
+            marketDemands: 'Niugan'
         }
     },
     'Education Services': {
@@ -130,7 +130,7 @@ const dataForCategories = {
             population: '421,440',
             stat3: 'Mamatid',
             stat4: 'Diezmo',
-            marketDemands: 0
+            marketDemands: 'Pittland'
         }
     },
     'Entertainment and Recreation': {
@@ -149,7 +149,7 @@ const dataForCategories = {
             population: '421,440',
             stat3: 'Banlic',
             stat4: 'Poblacion Uno',
-            marketDemands: 0
+            marketDemands: 'San Isidro'
         }
     },
     'Finance and Insurance': {
@@ -168,7 +168,7 @@ const dataForCategories = {
             population: '421,440',
             stat3: 'Banlic',
             stat4: 'Baclaran',
-            marketDemands: 0
+            marketDemands: 'Marinig'
         }
     },
     'Food Services': {
@@ -187,7 +187,7 @@ const dataForCategories = {
             population: '421,440',
             stat3: 'Pulo',
             stat4: 'Bigaa',
-            marketDemands: 0
+            marketDemands: 'Poblacion Tres'
         }
     },
     'Healthcare Services': {
@@ -208,7 +208,7 @@ const dataForCategories = {
             population: '421,440',
             stat3: 'Pulo',
             stat4: 'Casile',
-            marketDemands: 0
+            marketDemands: 'Poblacion Uno'
         }
     },
     'IT and Digital Services': {
@@ -227,7 +227,7 @@ const dataForCategories = {
             population: '421,440',
             stat3: 'Sala',
             stat4: 'Poblacion Dos',
-            marketDemands: 0
+            marketDemands: 'Banlic, Casile, Pulo'
         }
     },
     'Manufacturing and Production': {
@@ -248,7 +248,7 @@ const dataForCategories = {
             population: '421,440',
             stat3: 'Diezmo',
             stat4: 'Poblacion Uno',
-            marketDemands: 0
+            marketDemands: 'Baclaran, Gulod'
         }
     },
     'Personal and Household Services': {
@@ -268,7 +268,7 @@ const dataForCategories = {
             population: '421,440',
             stat3: 'Mamatid',
             stat4: 'Pittland',
-            marketDemands: 0
+            marketDemands: 'Baclaran, Sala'
         }
     },
     'Personal Care Services': {
@@ -287,7 +287,7 @@ const dataForCategories = {
             population: '421,440',
             stat3: 'Pulo',
             stat4: 'Niugan',
-            marketDemands: 0
+            marketDemands: 'Gulod'
         }
     },
     'Professional Services': {
@@ -307,7 +307,7 @@ const dataForCategories = {
             population: '421,440',
             stat3: 'Banaybanay',
             stat4: 'Poblacion Dos',
-            marketDemands: 0
+            marketDemands: 'San Isidro'
         }
     },
     'Retail Stores': {
@@ -327,7 +327,7 @@ const dataForCategories = {
             population: '421,440',
             stat3: 'Banlic',
             stat4: 'Diezmo',
-            marketDemands: 0
+            marketDemands: 'Sala, Banaybanay'
         }
     },
     'Tourism and Hospitality': {
@@ -345,7 +345,7 @@ const dataForCategories = {
             population: '421,440',
             stat3: 'Pulo',
             stat4: 'Niugan',
-            marketDemands: 0
+            marketDemands: 'Baclaran'
         }
     },
     'Transportation and Logistics': {
@@ -364,7 +364,7 @@ const dataForCategories = {
             population: '421,440',
             stat3: 'Pulo',
             stat4: 'Poblacion Dos',
-            marketDemands: 0
+            marketDemands: 'Poblacion Dos'
         }
     },
     'Wholesale and Distribution': {
@@ -383,7 +383,7 @@ const dataForCategories = {
             population: '421,440',
             stat3: 'Banaybanay',
             stat4: 'Poblacion Tres',
-            marketDemands: 0
+            marketDemands: 'Niugan'
         }
     },
 };

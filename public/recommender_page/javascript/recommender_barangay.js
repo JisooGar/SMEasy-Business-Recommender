@@ -434,16 +434,16 @@ async function handleProceed() {
 
             // Barangay name
             const barangayCell = document.createElement('td');
-            barangayCell.textContent = `${index + 1}. ${barangay.barangay}`;
+            barangayCell.textContent = `${index + 1}. ${barangay.name}`;
             row.appendChild(barangayCell);
 
             // Score
             const scoreCell = document.createElement('td');
-            scoreCell.textContent = barangay.score;
+            scoreCell.textContent = barangay.totalScore.toFixed(2);
             row.appendChild(scoreCell);
 
             // Add event listener for selecting a row
-            row.addEventListener('click', () => selectBarangayRow(row, barangay.barangay));
+            row.addEventListener('click', () => selectBarangayRow(row, barangay.name));
 
             // Append row to table body
             tableBody.appendChild(row);
@@ -737,7 +737,7 @@ marketDemandData.forEach(row => {
       }
     
 
-    // Step 8: Calculate total scores for each barangay
+  /*  // Step 8: Calculate total scores for each barangay
     const totalScores = {};
     for (let barangay in barangayCounts) {
         totalScores[barangay] = (
@@ -753,9 +753,265 @@ marketDemandData.forEach(row => {
     }
 
     // Log Total Scores
-    console.log('Total Scores by Barangay:', totalScores);
+    console.log('Total Scores by Barangay:', totalScores);*/
 
-    // Step 9: Create clusters
+    //WEIGHTING
+    // Multiply factors by their weights
+    const factorWeights = {
+        normalizedDemands: 0.34,
+        normalizedMarketGaps: 0.28,
+        inverseNormalizedCompetition: 0.26,
+        normalizedPopulation: 0.10,
+        normalizedTranspo: 0.07,
+        areaTypeScores: 0.12
+    };
+
+    // Initialize separate objects to store weighted values for each factor
+    const weightedNormalizedDemands = {};
+    const weightedNormalizedMarketGaps = {};
+    const weightedInverseNormalizedCompetition = {};
+    const weightedNormalizedPopulation = {};
+    const weightedNormalizedTranspo = {};
+    const weightedAreaTypeScores = {};
+
+    // Calculate weighted values for each barangay without summing them up
+    for (let barangay of allBarangays) {
+        weightedNormalizedDemands[barangay] = (normalizedDemands[barangay] || 0) * factorWeights.normalizedDemands;
+        weightedNormalizedMarketGaps[barangay] = (normalizedMarketGaps[barangay] || 0) * factorWeights.normalizedMarketGaps;
+        weightedInverseNormalizedCompetition[barangay] = (inverseNormalizedCompetition[barangay] || 0) * factorWeights.inverseNormalizedCompetition;
+        weightedNormalizedPopulation[barangay] = (normalizedPopulation[barangay] || 0) * factorWeights.normalizedPopulation;
+        weightedNormalizedTranspo[barangay] = (normalizedTranspo[barangay] || 0) * factorWeights.normalizedTranspo;
+        weightedAreaTypeScores[barangay] = (areaTypeScores[barangay] || 0) * factorWeights.areaTypeScores;
+    }
+
+
+     // KMEANS CLUSTERING
+
+    // Define the number of clusters
+    const k = 3;
+
+    // Combine the weighted factors into a single array of objects
+    const factorArray = allBarangays.map(barangay => ({
+        name: barangay,
+        weightedDemands: weightedNormalizedDemands[barangay],
+        weightedGaps: weightedNormalizedMarketGaps[barangay],
+        weightedCompetition: weightedInverseNormalizedCompetition[barangay],
+        weightedPopulation: weightedNormalizedPopulation[barangay],
+        weightedTranspo: weightedNormalizedTranspo[barangay],
+        weightedAreaType: weightedAreaTypeScores[barangay]
+    }));
+
+    // Function to initialize centroids randomly
+    function initializeCentroids(data, k) {
+        const centroids = [];
+        const usedIndexes = new Set();
+
+        while (centroids.length < k) {
+            const randomIndex = Math.floor(Math.random() * data.length);
+            if (!usedIndexes.has(randomIndex)) {
+                centroids.push(data[randomIndex]);
+                usedIndexes.add(randomIndex);
+            }
+        }
+        return centroids;
+    }
+
+    // Function to calculate the distance between two points
+    function calculateDistance(point1, point2) {
+        return Math.sqrt(
+            Math.pow(point1.weightedDemands - point2.weightedDemands, 2) +
+            Math.pow(point1.weightedGaps - point2.weightedGaps, 2) +
+            Math.pow(point1.weightedCompetition - point2.weightedCompetition, 2) +
+            Math.pow(point1.weightedPopulation - point2.weightedPopulation, 2) +
+            Math.pow(point1.weightedTranspo - point2.weightedTranspo, 2) +
+            Math.pow(point1.weightedAreaType - point2.weightedAreaType, 2)
+        );
+    }
+
+    // K-means clustering function
+    function kMeansClustering(data, k, iterations = 100) {
+        let centroids = initializeCentroids(data, k);
+        let clusters = new Array(data.length).fill(null);
+
+        for (let i = 0; i < iterations; i++) {
+            // Step 1: Assign clusters based on nearest centroid
+            clusters = data.map(barangay => {
+                let closestCentroidIndex = -1;
+                let minDistance = Infinity;
+
+                centroids.forEach((centroid, index) => {
+                    const distance = calculateDistance(barangay, centroid);
+                    if (distance < minDistance) {
+                        minDistance = distance;
+                        closestCentroidIndex = index;
+                    }
+                });
+
+                return closestCentroidIndex;
+            });
+
+            // Step 2: Update centroids based on current cluster assignments
+            const newCentroids = Array.from({ length: k }, () => ({
+                weightedDemands: 0,
+                weightedGaps: 0,
+                weightedCompetition: 0,
+                weightedPopulation: 0,
+                weightedTranspo: 0,
+                weightedAreaType: 0,
+                count: 0
+            }));
+
+            clusters.forEach((clusterIndex, barangayIndex) => {
+                newCentroids[clusterIndex].weightedDemands += data[barangayIndex].weightedDemands;
+                newCentroids[clusterIndex].weightedGaps += data[barangayIndex].weightedGaps;
+                newCentroids[clusterIndex].weightedCompetition += data[barangayIndex].weightedCompetition;
+                newCentroids[clusterIndex].weightedPopulation += data[barangayIndex].weightedPopulation;
+                newCentroids[clusterIndex].weightedTranspo += data[barangayIndex].weightedTranspo;
+                newCentroids[clusterIndex].weightedAreaType += data[barangayIndex].weightedAreaType;
+                newCentroids[clusterIndex].count++;
+            });
+
+            centroids = newCentroids.map(centroid => {
+                return {
+                    weightedDemands: centroid.weightedDemands / centroid.count,
+                    weightedGaps: centroid.weightedGaps / centroid.count,
+                    weightedCompetition: centroid.weightedCompetition / centroid.count,
+                    weightedPopulation: centroid.weightedPopulation / centroid.count,
+                    weightedTranspo: centroid.weightedTranspo / centroid.count,
+                    weightedAreaType: centroid.weightedAreaType / centroid.count
+                };
+            });
+        }
+
+        return clusters;
+    }
+
+    // Execute K-means clustering
+    const clusters = kMeansClustering(factorArray, k);
+
+    // Display the clusters
+    const clusteredResults = {};
+
+    clusters.forEach((clusterIndex, index) => {
+        const barangayName = factorArray[index].name;
+        if (!clusteredResults[clusterIndex]) {
+            clusteredResults[clusterIndex] = [];
+        }
+        clusteredResults[clusterIndex].push(barangayName);
+    });
+
+    console.log("Cluster results:");
+    for (const [clusterIndex, barangays] of Object.entries(clusteredResults)) {
+        console.log(`Cluster ${clusterIndex}: ${barangays.join(', ')}`);
+    }
+
+
+        // Calculate and display average factor values for each cluster
+        const clusterAverages = Array.from({ length: k }, () => ({
+            weightedDemands: 0,
+            weightedGaps: 0,
+            weightedCompetition: 0,
+            weightedPopulation: 0,
+            weightedTranspo: 0,
+            weightedAreaType: 0,
+            count: 0,
+            compositeScore: 0
+        }));
+    
+        // Sum up factor values for each cluster
+        clusters.forEach((clusterIndex, barangayIndex) => {
+            const barangay = factorArray[barangayIndex];
+            const cluster = clusterAverages[clusterIndex];
+    
+
+            cluster.weightedDemands += barangay.weightedDemands;
+            cluster.weightedGaps += barangay.weightedGaps;
+            cluster.weightedCompetition += barangay.weightedCompetition;
+            cluster.weightedPopulation += barangay.weightedPopulation;
+            cluster.weightedTranspo += barangay.weightedTranspo;
+            cluster.weightedAreaType += barangay.weightedAreaType;
+            cluster.count++;
+        });
+    
+        // Calculate averages for each factor and composite score in each cluster
+        clusterAverages.forEach((cluster, index) => {
+            cluster.weightedDemands /= cluster.count;
+            cluster.weightedGaps /= cluster.count;
+            cluster.weightedCompetition /= cluster.count;
+            cluster.weightedPopulation /= cluster.count;
+            cluster.weightedTranspo /= cluster.count;
+            cluster.weightedAreaType /= cluster.count;
+    
+            // Calculate the composite score as the sum of the average values
+            cluster.compositeScore =
+                cluster.weightedDemands +
+                cluster.weightedGaps +
+                cluster.weightedCompetition +
+                cluster.weightedPopulation +
+                cluster.weightedTranspo +
+                cluster.weightedAreaType;
+        });
+    
+        // Display average values and composite scores for each cluster
+        console.log("\nAverage factor values and composite score for each cluster:");
+        let highestScoreCluster = { index: -1, score: -Infinity };
+    
+        clusterAverages.forEach((cluster, index) => {
+            console.log(`\nCluster ${index}:`);
+            console.log(`  Weighted Demands: ${cluster.weightedDemands.toFixed(2)}`);
+            console.log(`  Weighted Gaps: ${cluster.weightedGaps.toFixed(2)}`);
+            console.log(`  Weighted Competition: ${cluster.weightedCompetition.toFixed(2)}`);
+            console.log(`  Weighted Population: ${cluster.weightedPopulation.toFixed(2)}`);
+            console.log(`  Weighted Transpo: ${cluster.weightedTranspo.toFixed(2)}`);
+            console.log(`  Weighted Area Type: ${cluster.weightedAreaType.toFixed(2)}`);
+            console.log(`  Composite Score: ${cluster.compositeScore.toFixed(2)}`);
+    
+            // Identify the highest composite score
+            if (cluster.compositeScore > highestScoreCluster.score) {
+                highestScoreCluster = { index, score: cluster.compositeScore };
+            }
+        });
+    
+        console.log(`\nCluster with the highest composite score: Cluster ${highestScoreCluster.index} (Score: ${highestScoreCluster.score.toFixed(2)})`);
+    
+        const topClusterIndex = highestScoreCluster.index;
+    
+        // Create an array to hold barangays and their total scores in the highest scoring cluster
+        const barangayScoresInTopCluster = [];
+    
+        // Calculate the total score for each barangay in the highest scoring cluster
+        clusters.forEach((clusterIndex, barangayIndex) => {
+            if (clusterIndex === topClusterIndex) {
+                const barangay = factorArray[barangayIndex];
+                const totalScore =
+                    barangay.weightedDemands +
+                    barangay.weightedGaps +
+                    barangay.weightedCompetition +
+                    barangay.weightedPopulation +
+                    barangay.weightedTranspo +
+                    barangay.weightedAreaType;
+    
+                barangayScoresInTopCluster.push({
+                    name: barangay.name,
+                    totalScore: totalScore
+                });
+            }
+        });
+    
+        const topBarangays = barangayScoresInTopCluster
+        .sort((a, b) => b.totalScore - a.totalScore)
+        .slice(0, 3);
+    
+    // Print the top 3 barangays and their total scores
+    console.log("\nTop 3 Barangays in Cluster with Highest Score:");
+    topBarangays.forEach(({ name, totalScore }, index) => {
+        console.log(`  Rank ${index + 1}: ${name} - Total Score: ${totalScore.toFixed(2)}`);
+    });
+    
+    return topBarangays;
+}
+    
+  /*// Step 9: Create clusters
     const totalScoresArray = Object.entries(totalScores).map(([barangay, score]) => ({
         barangay,
         score: Number(score)
@@ -803,7 +1059,9 @@ marketDemandData.forEach(row => {
     });
 
     return topBarangays;
-}
+}*/
+
+
 
 
 // Function to run analysis for the selected barangay

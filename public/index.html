@@ -7,12 +7,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <script type="module" src="firebaseauth.js"></script>
+    <script type="text/javascript">
+        function preventBack(){window.history.forward()};
+        setTimeout("preventBack()",0);
+            window.onunload=function(){null;}
+    </script>
+
 </head>
 <body>
     <div class="outer-container">
         <div class="left-section">
             <div class="icon">
-                <h2 class="logo">SMEasy</h2>
+                <img src="smeasylogo-removebg.png" alt="LOGO">
             </div>
             <div class="menu">
                 <ul>
@@ -49,12 +55,15 @@
                         <input type="email" id="rEmail" required>
                         <label for="rEmail">Email</label>
                     </div>
+
+                    <!-- Sign Up Password input group -->
                     <div class="input-group">
                         <i class="fas fa-lock"></i>
                         <input type="password" id="rPassword" required>
                         <label for="rPassword">Password</label>
+                        <i class="fas fa-eye" id="showPasswordIconSignUp" style="cursor: pointer; position: absolute; left: 230px;"></i> <!-- Show password icon for Sign Up -->
                     </div>
-            
+                                
                     <!-- Added terms and conditions checkbox -->
                     <div class="checkbox-container">
                         <input type="checkbox" id="terms" required>
@@ -82,16 +91,22 @@
                 <h1 class="form-title">Sign In</h1>
                 <form method="post" action="">
                     <div id="signInMessage" class="messageDiv" style="display:none;"></div>
-                    <div class="input-group">
-                        <i class="fas fa-envelope"></i>
-                        <input type="email" id="email" required>
-                        <label for="email">Email</label>
-                    </div>
-                    <div class="input-group">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" id="password" required>
-                        <label for="password">Password</label>
-                    </div>
+
+                <!-- Sign In Email input group -->
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="emailSignIn" required>
+                    <label for="emailSignIn">Email</label>
+                </div>
+
+                <!-- Sign In Password input group -->
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="passwordSignIn" required>
+                    <label for="passwordSignIn">Password</label>
+                    <i class="fas fa-eye" id="showPasswordIconSignIn" style="cursor: pointer; position: absolute; left: 230px;"></i> <!-- Show password icon -->
+                </div>
+
                     <button class="btn" id="submitSignIn">Sign In</button>
                 </form>
                 <p class="or">---------- or ---------</p>
