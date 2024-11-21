@@ -38,9 +38,7 @@ const dataForCategories = {
             population: '15164',
             stat3: 'Ph 1 Mabuhay City ',
             stat4: 'Villa Estella Subdivision and Mabuhay City',
-            marketDemands: 0,
-            marketGaps: 'Tourism'
-            
+            marketDemands: 'Tourism and Hospitality' 
         }
     },
     'Automotive Services': {
@@ -56,7 +54,8 @@ barangays: ['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Pur
             totalBusinesses: 2,
             population: '15164',
             stat3: 'Purok 3, Villa Estella',
-            stat4: 'Ph1, Mabuhay City, Crystal Ville, Blanks',
+            stat4: 'Blanks, Crystal Ville, Mabuhay City, PH 1 Mabuhay City',
+            marketDemands: '9th'
 
         }
     },
@@ -76,8 +75,8 @@ barangays: ['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Pur
             totalBusinesses: 2,
             population: '421,440',
             stat3: 'Blanks, Crystal Ville',
-            stat4: 'Ph1, Mabuhay City, Crystal Ville, Blanks',
-            marketDemands: 0
+            stat4: 'Mabuhay City, PH 1 Mabuhay City, Purok 3, Villa Estella Subdivision',
+            marketDemands: '5th'
         }
     },
     'Cooperative Business': {
@@ -91,9 +90,9 @@ barangays: ['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Pur
         stats: {
             totalBusinesses: 1,
             population: '421,440',
-            stat3: 'Purok 3, Villa Estella',
-            stat4: 'Ph1, Mabuhay City, Crystal Ville, Blanks',
-            marketDemands: 0
+            stat3: 'Blanks',
+            stat4: 'Crystal Ville, Mabuhay City, PH 1 Mabuhay City, Purok 3, Villa Estella Subdivision',
+            marketDemands: '10th'
         }
     },
     'Creative and Media Service': {
@@ -109,9 +108,9 @@ barangays: ['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Pur
         stats: {
             totalBusinesses: 3,
             population: '421,440',
-            stat3: 'Purok 3, Villa Estella',
-            stat4: 'Ph1, Mabuhay City, Crystal Ville, Blanks',
-            marketDemands: 0
+            stat3: 'Blanks',
+            stat4: 'Crystal Ville, Mabuhay City, Purok 3, Villa Estella Subdivision',
+            marketDemands: '3rd'
         }
     },
     'Education Services': {
@@ -127,9 +126,9 @@ barangays: ['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Pur
         stats: {
             totalBusinesses: 1,
             population: '421,440',
-            stat3: 'Mamatid',
-            stat4: 'Diezmo',
-            marketDemands: 0
+            stat3: 'PH 1 Mabuhay City',
+            stat4: 'Blanks, Crystal Ville, Mabuhay City, Purok 3, Villa Estella Subdivision',
+            marketDemands: '4th'
         }
     },
     'Entertainment and Recreation': {
@@ -141,15 +140,13 @@ barangays: ['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Pur
         ], 
         subCategoryCounts: [0,0,0,0,0,0,0,0],  
         barData: [0, 0, 0, 0, 0, 0],
-        pieData: [15164
-
-],
+        pieData: [15164],
         stats: {
             totalBusinesses: 0,
             population: '421,440',
-            stat3: 'Banlic',
-            stat4: 'Poblacion Uno',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '4th'
         }
     },
     'Finance and Insurance': {
@@ -167,9 +164,9 @@ barangays: ['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Pur
         stats: {
             totalBusinesses: 0,
             population: '421,440',
-            stat3: 'Banlic',
-            stat4: 'Baclaran',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '8th'
         }
     },
     'Food Services': {
@@ -187,9 +184,9 @@ barangays: ['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Pur
         stats: {
             totalBusinesses: 2,
             population: '421,440',
-            stat3: 'Pulo',
-            stat4: 'Bigaa',
-            marketDemands: 0
+            stat3: 'Blanks, Purok 3',
+            stat4: 'Crystal Ville, Mabuhay City, PH 1 Mabuhay City, Villa Estella Subdivision',
+            marketDemands: '6th'
         }
     },
     'Healthcare Services': {
@@ -205,9 +202,9 @@ barangays: ['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Pur
         stats: {
             totalBusinesses: 4,
             population: '421,440',
-            stat3: 'Pulo',
-            stat4: 'Casile',
-            marketDemands: 0
+            stat3: 'PH 1 Mabuhay City',
+            stat4: 'Blanks, Crystal Ville, Mabuhay City, Purok 3, Villa Estella Subdivision',
+            marketDemands: '8th'
         }
     },
     'IT and Digital Services': {
@@ -223,9 +220,9 @@ barangays: ['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Pur
         stats: {
             totalBusinesses: 1,
             population: '421,440',
-            stat3: 'Sala',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'Blanks',
+            stat4: 'Crystal Ville, Mabuhay City, PH 1 Mabuhay City, Purok 3, Villa Estella Subdivision',
+            marketDemands: '7th'
         }
     },
     'Manufacturing and Production': {
@@ -244,9 +241,9 @@ barangays: ['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Pur
         stats: {
             totalBusinesses: 0,
             population: '421,440',
-            stat3: 'Diezmo',
-            stat4: 'Poblacion Uno',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '2nd'
         }
     },
     'Personal and Household Services': {
@@ -265,9 +262,9 @@ barangays: ['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Pur
         stats: {
             totalBusinesses: 11,
             population: '421,440',
-            stat3: 'Mamatid',
-            stat4: 'Pittland',
-            marketDemands: 0
+            stat3: 'PH 1 Mabuhay City',
+            stat4: 'Blanks, Crystal Ville, Mabuhay City, Purok 3, Villa Estella Subdivision',
+            marketDemands: '2nd'
         }
     },
     'Personal Care Services': {
@@ -285,9 +282,9 @@ barangays: ['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Pur
         stats: {
             totalBusinesses: 0,
             population: '421,440',
-            stat3: 'Pulo',
-            stat4: 'Niugan',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '7th'
         }
     },
     'Professional Services': {
@@ -306,9 +303,9 @@ barangays: ['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Pur
         stats: {
             totalBusinesses: 1,
             population: '421,440',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'Purok 3',
+            stat4: 'Blanks, Crystal Ville, Mabuhay City, PH 1 Mabuhay City, Villa Estella Subdivision',
+            marketDemands: '7th'
         }
     },
     'Retail Stores': {
@@ -327,9 +324,9 @@ barangays: ['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Pur
         stats: {
             totalBusinesses: 24,
             population: '421,440',
-            stat3: 'Banlic',
-            stat4: 'Diezmo',
-            marketDemands: 0
+            stat3: 'PH 1 Mabuhay City',
+            stat4: 'Villa Estella Subdivision',
+            marketDemands: '4th'
         }
     },
     'Tourism and Hospitality': {
@@ -346,9 +343,9 @@ barangays: ['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Pur
         stats: {
             totalBusinesses: 0,
             population: '421,440',
-            stat3: 'Pulo',
-            stat4: 'Niugan',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '1st'
         }
     },
     'Transportation and Logistics': {
@@ -365,9 +362,9 @@ barangays: ['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Pur
         stats: {
             totalBusinesses: 2,
             population: '421,440',
-            stat3: 'Pulo',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'Blanks, PH 1 Mabuhay City',
+            stat4: 'Crystal Ville, Mabuhay City, Purok 3, Villa Estella Subdivision',
+            marketDemands: '3rd'
         }
     },
     'Wholesale and Distribution': {
@@ -384,9 +381,9 @@ barangays: ['Blanks', 'Crystal Ville', 'Mabuhay City', 'PH 1 Mabuhay City', 'Pur
         stats: {
             totalBusinesses: 2,
             population: '421,440',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Tres',
-            marketDemands: 0
+            stat3: 'Blanks, Purok 3',
+            stat4: 'Crystal Ville, Mabuhay City, PH 1 Mabuhay City, Villa Estella Subdivision',
+            marketDemands: '9th'
         }
     },
 };

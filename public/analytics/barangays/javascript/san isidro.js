@@ -36,12 +36,12 @@ const dataForCategories = {
         barData: [60, 2, 8, 17, 3, 5, 2, 1, 9, 14, 2, 9, 3, 1, 1, 1, 18, 3, 3, 5, 3, 1],
         pieData: [4186, 4820, 2357, 10428, 5418, 1657, 575],
         stats: {
-            totalBusinesses: 2679,
+            totalBusinesses: 171,
             population: '30,509',
-            stat3: 'Pulo',
-            stat4: 'Casile',
-            marketDemands: 0,
-            marketGaps: 'Tourism'
+            stat3: 'Blanks',
+            stat4: 'Manila South Road, Purok 2, Purok 4, Purok 5, Vanessa Homes',
+            marketDemands: 'Entertainment and Recreation'
+            
             
         }
     },
@@ -57,11 +57,11 @@ const dataForCategories = {
         barData: [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0], 
         pieData: [4186, 4820, 2357, 10428, 5418, 1657, 575],
         stats: {
-            totalBusinesses: 94,
+            totalBusinesses: 5,
             population: '30,509',
-            stat3: 'Pulo',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'Blanks, Centennial Plaza, Centennial Town Homes, San Isidro Road, Tierra Allegra',
+            stat4: 'Canaan Homes, Emmanual SJB Complex, Fortezza Subdivision, IFL Compound, Manila South Road, National Highway, New Mahogany Village 3, NIA Road, Our Mahogany Village 2, Purok 1, Purok 2, Purok 4, Purok 5, San Isidro Heights, San Isidro Homes, St. Isidore Executive Village, Vanessa Homes',
+            marketDemands: '7th'
         }
     },
     'Construction and Real Estate': {
@@ -78,11 +78,11 @@ const dataForCategories = {
         barData: [10, 1, 0, 3, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 2, 0, 0, 2, 0, 0], 
         pieData: [4186, 4820, 2357, 10428, 5418, 1657, 575],
         stats: {
-            totalBusinesses: 336,
+            totalBusinesses: 22,
             population: '30,509',
-            stat3: 'Pulo',
-            stat4: 'Butong',
-            marketDemands: 0
+            stat3: 'Blanks',
+            stat4: 'Centennial Plaza, Fortezza Subdivision, IFL Compound, Manila South Road, NIA Road, Purok 1, Purok 2, Purok 4, Purok 5, San Isidro Homes, San Isidro Road, Tierra Allegra, Vanessa Homes',
+            marketDemands: '6th'
         }
     },
     'Cooperative Business': {
@@ -95,11 +95,11 @@ const dataForCategories = {
         barData: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
         pieData: [4186, 4820, 2357, 10428, 5418, 1657, 575],
         stats: {
-            totalBusinesses: 30,
+            totalBusinesses: 2,
             population: '30,509',
-            stat3: 'Sala',
-            stat4: 'Butong',
-            marketDemands: 0
+            stat3: 'Blanks, San Isidro Heights',
+            stat4: 'Canaan Homes, Centennial Plaza, Centennial Town Homes, Emmanual SJB Complex, Fortezza Subdivision, IFL Compound, Manila South Road, National Highway, New Mahogany Village 3, NIA Road, Our Mahogany Village 2, Purok 1, Purok 2, Purok 4, Purok 5, San Isidro Homes, San Isidro Road, St. Isidore Executive Village, Tierra Allegra, Vanessa Homes',
+            marketDemands: '10th'
         }
     },
     'Creative and Media Service': {
@@ -113,11 +113,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [4186, 4820, 2357, 10428, 5418, 1657, 575],
         stats: {
-            totalBusinesses: 30,
+            totalBusinesses: 0,
             population: '30,509',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '9th'
         }
     },
     'Education Services': {
@@ -133,11 +133,11 @@ const dataForCategories = {
         barData: [1, 0, 0, 2, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 3, 0, 1, 0, 0, 0],
         pieData: [4186, 4820, 2357, 10428, 5418, 1657, 575],
         stats: {
-            totalBusinesses: 61,
+            totalBusinesses: 9,
             population: '30,509',
-            stat3: 'Mamatid',
-            stat4: 'Diezmo',
-            marketDemands: 0
+            stat3: 'San Isidro Heights',
+            stat4: 'Canaan Homes, Centennial Plaza, Emmanual SJB Complex, Fortezza Subdivision, Manila South Road, National Highway, NIA Road, Our Mahogany Village 2, Purok 1, Purok 2, Purok 4, Purok 5, San Isidro Homes, St. Isidore Executive Village, Tierra Allegra, Vanessa Homes',
+            marketDemands: '6th'
         }
     },
     'Entertainment and Recreation': {
@@ -153,11 +153,11 @@ const dataForCategories = {
         barData: [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [4186, 4820, 2357, 10428, 5418, 1657, 575],
         stats: {
-            totalBusinesses: 13,
+            totalBusinesses: 1,
             population: '30,509',
-            stat3: 'Banlic',
-            stat4: 'Poblacion Uno',
-            marketDemands: 0
+            stat3: 'Centennial Plaza',
+            stat4: 'Blanks, Canaan Homes, Centennial Town Homes, Emmanual SJB Complex, Fortezza Subdivision, IFL Compound, Manila South Road, National Highway, New Mahogany Village 3, NIA Road, Our Mahogany Village 2, Purok 1, Purok 2, Purok 4, Purok 5, San Isidro Heights, San Isidro Homes, San Isidro Road, St. Isidore Executive Village, Tierra Allegra, Vanessa Homes',
+            marketDemands: '1st'
         }
     },
     'Finance and Insurance': {
@@ -173,11 +173,11 @@ const dataForCategories = {
         barData: [1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [4186, 4820, 2357, 10428, 5418, 1657, 575],
         stats: {
-            totalBusinesses: 112,
+            totalBusinesses: 4,
             population: '30,509',
-            stat3: 'Banlic',
-            stat4: 'Baclaran',
-            marketDemands: 0
+            stat3: 'Centennial Plaza',
+            stat4: 'Canaan Homes, Centennial Town Homes, Emmanual SJB Complex, Fortezza Subdivision, IFL Compound, Manila South Road, National Highway, New Mahogany Village 3, NIA Road, Purok 1, Purok 2, Purok 4, Purok 5, San Isidro Heights, San Isidro Homes, San Isidro Road, St. Isidore Executive Village, Tierra Allegra, Vanessa Homes',
+            marketDemands: '3rd'
         }
     },
     'Food Services': {
@@ -193,11 +193,11 @@ const dataForCategories = {
         barData: [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
         pieData: [4186, 4820, 2357, 10428, 5418, 1657, 575],
         stats: {
-            totalBusinesses: 169,
+            totalBusinesses: 3,
             population: '30,509',
-            stat3: 'Pulo',
-            stat4: 'Bigaa',
-            marketDemands: 0
+            stat3: 'Blanks, National Highway, San Isidro Heights',
+            stat4: 'Canaan Homes, Centennial Plaza, Centennial Town Homes, Emmanual SJB Complex, Fortezza Subdivision, IFL Compound, Manila South Road, New Mahogany Village 3, NIA Road, Our Mahogany Village 2, Purok 1, Purok 2, Purok 4, Purok 5, San Isidro Homes, San Isidro Road, St. Isidore Executive Village, Tierra Allegra, Vanessa Homes',
+            marketDemands: '10th'
         }
     },
     'Healthcare Services': {
@@ -214,11 +214,11 @@ const dataForCategories = {
         barData:  [0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0],
         pieData: [4186, 4820, 2357, 10428, 5418, 1657, 575],
         stats: {
-            totalBusinesses: 149,
+            totalBusinesses: 14,
             population: '30,509',
-            stat3: 'Pulo',
-            stat4: 'Casile',
-            marketDemands: 0
+            stat3: 'Blanks',
+            stat4: 'Canaan Homes, Emmanual SJB Complex, Fortezza Subdivision, IFL Compound, Manila South Road, National Highway, New Mahogany Village 3, NIA Road, Our Mahogany Village 2, Purok 1, Purok 4, Purok 5, San Isidro Homes, San Isidro Road, St. Isidore Executive Village, Tierra Allegra, Vanessa Homes',
+            marketDemands: '5th'
         }
     },
     'IT and Digital Services': {
@@ -234,11 +234,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [4186, 4820, 2357, 10428, 5418, 1657, 575],
         stats: {
-            totalBusinesses: 27,
+            totalBusinesses: 2,
             population: '30,509',
-            stat3: 'Sala',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'New Mahogany Village 3',
+            stat4: 'Blanks, Canaan Homes, Centennial Plaza, Centennial Town Homes, Emmanual SJB Complex, Fortezza Subdivision, IFL Compound, Manila South Road, National Highway, NIA Road, Our Mahogany Village 2, Purok 1, Purok 2, Purok 4, Purok 5, San Isidro Heights, San Isidro Homes, San Isidro Road, St. Isidore Executive Village, Tierra Allegra, Vanessa Homes',
+            marketDemands: '4th'
         }
     },
     'Manufacturing and Production': {
@@ -256,11 +256,11 @@ const dataForCategories = {
         barData: [4, 0, 2, 0, 2, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0],
         pieData: [4186, 4820, 2357, 10428, 5418, 1657, 575],
         stats: {
-            totalBusinesses: 129,
+            totalBusinesses: 13,
             population: '30,509',
-            stat3: 'Diezmo',
-            stat4: 'Poblacion Uno',
-            marketDemands: 0
+            stat3: 'Blanks',
+            stat4: 'Canaan Homes, Centennial Town Homes, Fortezza Subdivision, IFL Compound, Manila South Road, Our Mahogany Village 2, Purok 1, Purok 2, Purok 4, Purok 5, San Isidro Heights, San Isidro Road, St. Isidore Executive Village, Tierra Allegra, Vanessa Homes',
+            marketDemands: '4th'
         }
     },
     'Personal and Household Services': {
@@ -277,11 +277,11 @@ const dataForCategories = {
         barData: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [4186, 4820, 2357, 10428, 5418, 1657, 575],
         stats: {
-            totalBusinesses: 76,
+            totalBusinesses: 3,
             population: '30,509',
-            stat3: 'Mamatid',
-            stat4: 'Pittland',
-            marketDemands: 0
+            stat3: 'Blanks, Our Mahogany Village 2, Purok 1',
+            stat4: 'Canaan Homes, Centennial Plaza, Centennial Town Homes, Emmanual SJB Complex, Fortezza Subdivision, IFL Compound, Manila South Road, National Highway, New Mahogany Village 3, NIA Road, Purok 2, Purok 4, Purok 5, San Isidro Heights, San Isidro Homes, San Isidro Road, St. Isidore Executive Village, Tierra Allegra, Vanessa Homes',
+            marketDemands: '8th'
         }
     },
     'Personal Care Services': {
@@ -297,11 +297,11 @@ const dataForCategories = {
         barData: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [4186, 4820, 2357, 10428, 5418, 1657, 575],
         stats: {
-            totalBusinesses: 28,
+            totalBusinesses: 1,
             population: '30,509',
-            stat3: 'Pulo',
-            stat4: 'Niugan',
-            marketDemands: 0
+            stat3: 'Blanks',
+            stat4: 'Canaan Homes, Centennial Plaza, Centennial Town Homes, Emmanual SJB Complex, Fortezza Subdivision, IFL Compound, Manila South Road, National Highway, New Mahogany Village 3, NIA Road, Our Mahogany Village 2, Purok 1, Purok 2, Purok 4, Purok 5, San Isidro Heights, San Isidro Homes, San Isidro Road, St. Isidore Executive Village, Tierra Allegra, Vanessa Homes',
+            marketDemands: '4th'
         }
     },
     'Professional Services': {
@@ -318,11 +318,11 @@ const dataForCategories = {
         barData: [21, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 3, 0, 0, 0, 1, 3, 0, 0, 2, 0, 0],
         pieData: [4186, 4820, 2357, 10428, 5418, 1657, 575],
         stats: {
-            totalBusinesses: 126,
+            totalBusinesses: 14,
             population: '30,509',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'Our Mahogany Village 2, San Isidro Heights',
+            stat4: 'Canaan Homes, Centennial Plaza, Emmanual SJB Complex, Manila South Road, National Highway, NIA Road, Purok 1, Purok 2, Purok 4, San Isidro Homes, San Isidro Road, Tierra Allegra, Vanessa Homes',
+            marketDemands: '2nd'
         }
     },
     'Retail Stores': {
@@ -339,11 +339,11 @@ const dataForCategories = {
         barData: [19, 1, 0, 7, 0, 2, 0, 0, 5, 3, 1, 2, 2, 0, 1, 0, 4, 0, 1, 0, 1, 1],
         pieData: [4186, 4820, 2357, 10428, 5418, 1657, 575],
         stats: {
-            totalBusinesses: 947,
+            totalBusinesses: 50,
             population: '30,509',
-            stat3: 'Banlic',
-            stat4: 'Diezmo',
-            marketDemands: 0
+            stat3: 'Blanks',
+            stat4: 'Centennial Plaza, Emmanual SJB Complex, IFL Compound, Manila South Road, Purok 2, Purok 5, San Isidro Homes, St. Isidore Executive Village',
+            marketDemands: '11th'
         }
     },
     'Tourism and Hospitality': {
@@ -358,11 +358,11 @@ const dataForCategories = {
         barData:  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [4186, 4820, 2357, 10428, 5418, 1657, 575],
         stats: {
-            totalBusinesses: 19,
+            totalBusinesses: 0,
             population: '30,509',
-            stat3: 'Pulo',
-            stat4: 'Niugan',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '3rd'
         }
     },
     'Transportation and Logistics': {
@@ -378,11 +378,11 @@ const dataForCategories = {
         barData: [3, 0, 0, 1, 0, 2, 0, 0, 1, 4, 0, 0, 0, 0, 0, 0, 3, 0, 0, 1, 1, 0],
         pieData: [4186, 4820, 2357, 10428, 5418, 1657, 575],
         stats: {
-            totalBusinesses: 227,
+            totalBusinesses: 16,
             population: '30,509',
-            stat3: 'Pulo',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'New Mahogany Village 3',
+            stat4: 'Canaan Homes, Centennial Plaza, Emmanual SJB Complex, IFL Compound, Manila South Road, NIA Road, Our Mahogany Village 2, Purok 1, Purok 2, Purok 4, Purok 5, San Isidro Homes, San Isidro Road, Vanessa Homes',
+            marketDemands: '2nd'
         }
     },
     'Wholesale and Distribution': {
@@ -398,11 +398,11 @@ const dataForCategories = {
         barData: [7, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
         pieData: [4186, 4820, 2357, 10428, 5418, 1657, 575],
         stats: {
-            totalBusinesses: 113,
+            totalBusinesses: 12,
             population: '30,509',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Tres',
-            marketDemands: 0
+            stat3: 'Blanks',
+            stat4: 'Canaan Homes, Centennial Plaza, Emmanual SJB Complex, Fortezza Subdivision, IFL Compound, National Highway, NIA Road, Purok 1, Purok 2, Purok 4, Purok 5, San Isidro Heights, San Isidro Road, St. Isidore Executive Village, Tierra Allegra, Vanessa Homes',
+            marketDemands: '7th'
         }
     },
 };

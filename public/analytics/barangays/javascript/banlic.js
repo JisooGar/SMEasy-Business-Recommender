@@ -27,7 +27,7 @@ document.querySelectorAll('.barangay-item').forEach(item => {
 // Data for each category including dynamic barangays
 const dataForCategories = {
     All: {
-        barangays: ['Alimagno Compound', 'Blanks, Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
+        barangays: ['Alimagno Compound', 'Blanks', 'Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
                     'National Highway', 'Palmsville Subdivision', 'Prince Village', 'Purok 1', 'Purok 2', 'Purok 3', 'Purok 4', 'San Isidro Heights', 'Tamis Compounds'],
         counts: [1, 75, 10, 11, 2, 2, 30, 13, 52, 1, 2, 64, 12, 50, 17, 17, 2], 
         subCategories: ['None'],
@@ -36,16 +36,16 @@ const dataForCategories = {
         pieData: [11496],
         stats: {
             totalBusinesses: 361,
-            population: '11,496',
+            population: '11496',
             stat3: 'Blanks',
-            stat4: 'Alimagno Compound, Prince Village',
-            marketDemands: 0,
-            marketGaps: 'Tourism'
+            stat4: 'Alimagno Compound, Palmsville Subdivision',
+            marketDemands: 'IT and Digital Services, Educational Services',
+        
             
         }
     },
     'Automotive Services': {
-        barangays: ['Alimagno Compound', 'Blanks, Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
+        barangays: ['Alimagno Compound', 'Blanks', 'Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
             'National Highway', 'Palmsville Subdivision', 'Prince Village', 'Purok 1', 'Purok 2', 'Purok 3', 'Purok 4', 'San Isidro Heights', 'Tamis Compounds'],
         counts: [0, 3, 0, 0, 0, 0, 0, 0, 3, 0, 0, 1, 2, 0, 1, 0, 0], 
         subCategories: ['Auto Repair Services', 'Body and Welding Shops', 'Car wash and Detailing', 'Fuel Services',
@@ -56,14 +56,14 @@ const dataForCategories = {
         pieData: [11496],
         stats: {
             totalBusinesses: 10,
-            population: '11,496',
+            population: '11496',
             stat3: 'Blanks, National Highway',
-            stat4: 'Alimagno Compound, Camella Homes, Camella Homes Bermuda, Dona Ines, ',
-            marketDemands: 0
+            stat4: 'Alimagno Compound, Camella Homes, Camella Homes Bermuda, Dona Ines Compound, Felicias Compound, Gran Seville, Mamatid Road, Palmsville Subdivision, Prince Village, Purok 3, San Isidro Heights, Tamis Compounds',
+            marketDemands: '4th'
         }
     },
     'Construction and Real Estate': {
-        barangays: ['Alimagno Compound', 'Blanks, Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
+        barangays: ['Alimagno Compound', 'Blanks', 'Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
             'National Highway', 'Palmsville Subdivision', 'Prince Village', 'Purok 1', 'Purok 2', 'Purok 3', 'Purok 4', 'San Isidro Heights', 'Tamis Compounds'],
         counts: [0, 15, 3, 2, 1, 0, 1, 1, 5, 0, 2, 2, 3, 7, 1, 2, 0], 
         subCategories: ['Apartment/Apartelle', 'Building Contractor', 'Construction Services', 'Contractor', 'Electrical/Mechanical Contractor', 'Facilities and Infrastracture',
@@ -76,14 +76,14 @@ const dataForCategories = {
         pieData: [11496],
         stats: {
             totalBusinesses: 45,
-            population: '11,496',
-            stat3: '',
-            stat4: '',
-            marketDemands: 0
+            population: '11496',
+            stat3: 'Blanks',
+            stat4: 'Alimagno Compound, Felicias Compound, Palmsville Subdivision, Tamis Compounds',
+            marketDemands: '7th'
         }
     },
     'Cooperative Business': {
-        barangays: ['Alimagno Compound', 'Blanks, Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
+        barangays: ['Alimagno Compound', 'Blanks', 'Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
             'National Highway', 'Palmsville Subdivision', 'Prince Village', 'Purok 1', 'Purok 2', 'Purok 3', 'Purok 4', 'San Isidro Heights', 'Tamis Compounds'],
         counts: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
         subCategories: ['Cooperative'], 
@@ -92,14 +92,14 @@ const dataForCategories = {
         pieData: [11496],
         stats: {
             totalBusinesses: 1,
-            population: '11,496',
-            stat3: '',
-            stat4: '',
-            marketDemands: 0
+            population: '11496',
+            stat3: 'Purok 3',
+            stat4: 'Alimagno Compound, Blanks, Camella Homes, Camella Homes Bermuda, Dona Ines Compound, Felicias Compound, Gran Seville, Mamatid Road, National Highway, Palmsville Subdivision, Prince Village, Purok 1, Purok 2, Purok 4, San Isidro Heights, Tamis Compounds',
+            marketDemands: '10th'
         }
     },
     'Creative and Media Service': {
-        barangays:['Alimagno Compound', 'Blanks, Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
+        barangays:['Alimagno Compound', 'Blanks', 'Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
             'National Highway', 'Palmsville Subdivision', 'Prince Village', 'Purok 1', 'Purok 2', 'Purok 3', 'Purok 4', 'San Isidro Heights', 'Tamis Compounds'],
         counts: [0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0],
         subCategories: ['Advertising and Marketing', 'Event Design Service', 'Photography and Videography', 'Printing Services'], 
@@ -108,14 +108,14 @@ const dataForCategories = {
         pieData: [11496],
         stats: {
             totalBusinesses: 5,
-            population: '11,496',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            population: '11496',
+            stat3: 'Gran Seville, National Highway, Purok 1, Purok 3, San Isidro Heights',
+            stat4: 'Alimagno Compound, Blanks, Camella Homes, Camella Homes Bermuda, Dona Ines Compound, Felicias Compound, Mamatid Road, Palmsville Subdivision, Prince Village, Purok 2, Purok 4, Tamis Compounds',
+            marketDemands: '9th'
         }
     },
     'Education Services': {
-        barangays: ['Alimagno Compound', 'Blanks, Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
+        barangays: ['Alimagno Compound', 'Blanks', 'Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
             'National Highway', 'Palmsville Subdivision', 'Prince Village', 'Purok 1', 'Purok 2', 'Purok 3', 'Purok 4', 'San Isidro Heights', 'Tamis Compounds'],
         counts: [0, 2, 1, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
         subCategories: ['Driving School', 'Learning Center', 'Private School', 'School Service', 'Training Center', 'Tutorial Services',
@@ -125,15 +125,15 @@ const dataForCategories = {
         barData: [0, 2, 1, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
         pieData: [11496],
         stats: {
-            totalBusinesses: 7,
-            population: '11,496',
-            stat3: 'Mamatid',
-            stat4: 'Diezmo',
-            marketDemands: 0
+            totalBusinesses: 9,
+            population: '11496',
+            stat3: 'Gran Seville',
+            stat4: 'Alimagno Compound, Camella Homes, Camella Homes Bermuda, Dona Ines Compound, Felicias Compound, Gran Seville, Mamatid Road, National Highway, Palmsville Subdivision, Prince Village, Purok 2, Purok 3, Purok 4, San Isidro Heights, Tamis Compounds',
+            marketDemands: '1st'
         }
     },
     'Entertainment and Recreation': {
-        barangays: ['Alimagno Compound', 'Blanks, Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
+        barangays: ['Alimagno Compound', 'Blanks', 'Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
             'National Highway', 'Palmsville Subdivision', 'Prince Village', 'Purok 1', 'Purok 2', 'Purok 3', 'Purok 4', 'San Isidro Heights', 'Tamis Compounds'],
         counts: [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
         subCategories: ['Dining and Leisure', 'Egames/Ebingo', 'Fireworks and Pyrotechnics', 'Golf Cart Rental', 'Party Rentals', 'Play Center',
@@ -144,14 +144,14 @@ const dataForCategories = {
         pieData: [11496],
         stats: {
             totalBusinesses: 2,
-            population: '11,496',
-            stat3: 'Banlic',
-            stat4: 'Poblacion Uno',
-            marketDemands: 0
+            population: '11496',
+            stat3: 'Blanks, Purok 1',
+            stat4: 'Alimagno Compound, Camella Homes, Camella Homes Bermuda, Dona Ines Compound, Felicias Compound, Gran Seville, Mamatid Road, National Highway, Palmsville Subdivision, Prince Village, Purok 2, Purok 3, Purok 4, San Isidro Heights, Tamis Compounds',
+            marketDemands: '3rd'
         }
     },
     'Finance and Insurance': {
-        barangays: ['Alimagno Compound', 'Blanks, Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
+        barangays: ['Alimagno Compound', 'Blanks', 'Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
             'National Highway', 'Palmsville Subdivision', 'Prince Village', 'Purok 1', 'Purok 2', 'Purok 3', 'Purok 4', 'San Isidro Heights', 'Tamis Compounds'],
         counts: [0, 3, 0, 1, 0, 2, 2, 2, 8, 0, 0, 1, 0, 2, 0, 0, 0],
         subCategories: ['ATM Off Site Stations', 'Banks', 'Financing Institutions', 'General Financial Services', 'Holding Company', 'Insurance Agents/Companies',
@@ -162,14 +162,14 @@ const dataForCategories = {
         pieData: [11496],
         stats: {
             totalBusinesses: 21,
-            population: '11,496',
-            stat3: '',
-            stat4: '',
-            marketDemands: 0
+            population: '11496',
+            stat3: 'National Highway',
+            stat4: 'Alimagno Compound, Camella Homes, Dona Ines Compound, Palmsville Subdivision, Prince Village, Purok 2, Purok 4, San Isidro Heights, Tamis Compounds',
+            marketDemands: '6th'
         }
     },
     'Food Services': {
-        barangays: ['Alimagno Compound', 'Blanks, Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
+        barangays: ['Alimagno Compound', 'Blanks', 'Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
             'National Highway', 'Palmsville Subdivision', 'Prince Village', 'Purok 1', 'Purok 2', 'Purok 3', 'Purok 4', 'San Isidro Heights', 'Tamis Compounds'],
         counts: [0, 6, 0, 0, 0, 0, 1, 0, 2, 0, 0, 12, 0, 4, 1, 0, 0],
         subCategories: ['Burger Stand', 'Canteen' , 'Catering Service', 'Coffee Shop', 'Eatery', 'Fast Food', 'Food Concessionaire', 'Food Stand',
@@ -180,14 +180,14 @@ const dataForCategories = {
         pieData: [11496],
         stats: {
             totalBusinesses: 26,
-            population: '11,496',
-            stat3: '',
-            stat4: '',
-            marketDemands: 0
+            population: '11496',
+            stat3: 'Purok 1',
+            stat4: 'Alimagno Compound, Camella Homes, Camella Homes Bermuda, Dona Ines Compound, Felicias Compound, Mamatid Road, Palmsville Subdivision, Prince Village, Purok 2, San Isidro Heights, Tamis Compounds',
+            marketDemands: '6th'
         }
     },
     'Healthcare Services': {
-        barangays:['Alimagno Compound', 'Blanks, Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
+        barangays:['Alimagno Compound', 'Blanks', 'Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
             'National Highway', 'Palmsville Subdivision', 'Prince Village', 'Purok 1', 'Purok 2', 'Purok 3', 'Purok 4', 'San Isidro Heights', 'Tamis Compounds'],
         counts: [0, 4, 0, 0, 0, 0, 0, 3, 3, 0, 0, 2, 0, 1, 0, 0, 0],
         subCategories: ['Animal Bite Clinics', 'Dental Clinics', 'Diagnostic and Medical Clinics', 'Dialysis Center', 'Gerontology Services', 'Hospital', 
@@ -199,14 +199,14 @@ const dataForCategories = {
         pieData: [11496],
         stats: {
             totalBusinesses: 13,
-            population: '11,496',
-            stat3: '',
-            stat4: '',
-            marketDemands: 0
+            population: '11496',
+            stat3: 'Blanks',
+            stat4: 'Alimagno Compound, Camella Homes, Camella Homes Bermuda, Dona Ines Compound, Felicias Compound, Gran Seville, Palmsville Subdivision, Prince Village, Purok 2, Purok 4, San Isidro Heights, Tamis Compounds',
+            marketDemands: '6th'
         }
     },
     'IT and Digital Services': {
-        barangays: ['Alimagno Compound', 'Blanks, Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
+        barangays: ['Alimagno Compound', 'Blanks', 'Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
             'National Highway', 'Palmsville Subdivision', 'Prince Village', 'Purok 1', 'Purok 2', 'Purok 3', 'Purok 4', 'San Isidro Heights', 'Tamis Compounds'],
         counts: [0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
         subCategories: ['Administrative Support Services', 'Audio & Video System Services', 'Computer Services / IT Services', 'Computer Shop', 'Customer Support & BPO Service',
@@ -217,14 +217,14 @@ const dataForCategories = {
         pieData: [11496],
         stats: {
             totalBusinesses: 4,
-            population: '11,496',
-            stat3: '',
-            stat4: '',
-            marketDemands: 0
+            population: '11496',
+            stat3: 'Blanks, Camella Homes Bermuda, Dona Ines Compound, San Isidro Heights',
+            stat4: 'Alimagno Compound, Camella Homes, Felicias Compound, Gran Seville, Mamatid Road, National Highway, Palmsville Subdivision, Prince Village, Purok 1, Purok 2, Purok 3, Purok 4, Tamis Compounds',
+            marketDemands: '1st'
         }
     },
     'Manufacturing and Production': {
-        barangays:['Alimagno Compound', 'Blanks, Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
+        barangays:['Alimagno Compound', 'Blanks', 'Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
             'National Highway', 'Palmsville Subdivision', 'Prince Village', 'Purok 1', 'Purok 2', 'Purok 3', 'Purok 4', 'San Isidro Heights', 'Tamis Compounds'],
         counts: [0, 2, 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 1, 1, 1, 0, 1],
         subCategories: ['Agricultural Products', 'Contractor and Service Manufacturing', 'Essential Manufacturer', 'Fabrication Services',
@@ -237,14 +237,14 @@ const dataForCategories = {
         pieData: [11496],
         stats: {
             totalBusinesses: 9,
-            population: '11,496',
-            stat3: '',
-            stat4: '',
-            marketDemands: 0
+            population: '11496',
+            stat3: 'Blanks, Mamatid Road',
+            stat4: 'Alimagno Compound, Camella Homes, Camella Homes Bermuda, Dona Ines Compound, Felicias Compound, Gran Seville, National Highway, Palmsville Subdivision, Prince Village, San Isidro Heights',
+            marketDemands: '7th'
         }
     },
     'Personal and Household Services': {
-        barangays:['Alimagno Compound', 'Blanks, Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
+        barangays:['Alimagno Compound', 'Blanks', 'Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
             'National Highway', 'Palmsville Subdivision', 'Prince Village', 'Purok 1', 'Purok 2', 'Purok 3', 'Purok 4', 'San Isidro Heights', 'Tamis Compounds'],
         counts: [0, 4, 0, 0, 0, 0, 2, 0, 1, 0, 0, 0, 1, 2, 0, 1, 0],
         subCategories: ['Air Conditioner Services', 'Bottle Cleaning', 'Funeral Services', 'Furniture & Carpentry', 'Gown/Barong/Dress/Toga Rental',
@@ -255,15 +255,15 @@ const dataForCategories = {
         barData: [0, 4, 0, 0, 0, 0, 2, 0, 1, 0, 0, 0, 1, 2, 0, 1, 0],
         pieData: [11496],
         stats: {
-            totalBusinesses: 76,
-            population: '11,496',
-            stat3: '',
-            stat4: '',
-            marketDemands: 0
+            totalBusinesses: 11,
+            population: '11496',
+            stat3: 'Blanks',
+            stat4: 'Alimagno Compound, Camella Homes, Camella Homes Bermuda, Dona Ines Compound, Felicias Compound, Mamatid Road, Palmsville Subdivision, Prince Village, Purok 1, Purok 4, Tamis Compounds',
+            marketDemands: '8th'
         }
     },
     'Personal Care Services': {
-        barangays:['Alimagno Compound', 'Blanks, Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
+        barangays:['Alimagno Compound', 'Blanks', 'Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
             'National Highway', 'Palmsville Subdivision', 'Prince Village', 'Purok 1', 'Purok 2', 'Purok 3', 'Purok 4', 'San Isidro Heights', 'Tamis Compounds'],
         counts: [0, 2, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0, 0, 0, 0, 0],
         subCategories: ['Aesthetic Services', 'Barbershop', 'Beauty Taylor', 'Fitness Gym', 'Home Massage Services',
@@ -273,15 +273,15 @@ const dataForCategories = {
         barData: [0, 2, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0, 0, 0, 0, 0],
         pieData: [11496],
         stats: {
-            totalBusinesses: 28,
-            population: '11,496',
-            stat3: '',
-            stat4: '',
-            marketDemands: 0
+            totalBusinesses: 6,
+            population: '11496',
+            stat3: 'Blanks, National Highway, Purok 1',
+            stat4: 'Alimagno Compound, Camella Homes, Camella Homes Bermuda, Dona Ines Compound, Felicias Compound, Gran Seville, Mamatid Road, Palmsville Subdivision, Prince Village, Purok 2, Purok 3, Purok 4, San Isidro Heights, Tamis Compounds',
+            marketDemands: '7th'
         }
     },
     'Professional Services': {
-        barangays:['Alimagno Compound', 'Blanks, Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
+        barangays:['Alimagno Compound', 'Blanks', 'Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
             'National Highway', 'Palmsville Subdivision', 'Prince Village', 'Purok 1', 'Purok 2', 'Purok 3', 'Purok 4', 'San Isidro Heights', 'Tamis Compounds'],
         counts: [0, 3, 2, 2, 0, 0, 3, 1, 1, 0, 0, 0, 0, 2, 1, 1, 0],
         subCategories: ['Accounting Agencies', 'Administrative Office Services', 'Administrative Support Services', 'Business Agent', 'Calibration Services',
@@ -292,15 +292,15 @@ const dataForCategories = {
         barData: [0, 3, 2, 2, 0, 0, 3, 1, 1, 0, 0, 0, 0, 2, 1, 1, 0],
         pieData: [11496],
         stats: {
-            totalBusinesses: 126,
-            population: '11,496',
-            stat3: '',
-            stat4: '',
-            marketDemands: 0
+            totalBusinesses: 16,
+            population: '11496',
+            stat3: 'Blanks, Gran Seville',
+            stat4: 'Alimagno Compound, Dona Ines Compound, Felicias Compound, Palmsville Subdivision, Prince Village, Purok 1, Purok 2, Tamis Compounds',
+            marketDemands: '7th'
         }
     },
     'Retail Stores': {
-        barangays:['Alimagno Compound', 'Blanks, Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
+        barangays:['Alimagno Compound', 'Blanks', 'Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
             'National Highway', 'Palmsville Subdivision', 'Prince Village', 'Purok 1', 'Purok 2', 'Purok 3', 'Purok 4', 'San Isidro Heights', 'Tamis Compounds'],
         counts: [0, 23, 2, 2, 0, 0, 13, 3, 20, 1, 0, 35, 4, 26, 9, 9, 0],
         subCategories: ['Clothing and Apparel', 'Convenience Store', 'Electronics and Gadgets', 'Food and Beverage', 'Fuel and Energy Supplies', 'Furniture and Home Decor',
@@ -311,15 +311,15 @@ const dataForCategories = {
         barData: [0, 23, 2, 2, 0, 0, 13, 3, 20, 1, 0, 35, 4, 26, 9, 9, 0],
         pieData: [11496],
         stats: {
-            totalBusinesses: 947,
-            population: '11,496',
-            stat3: '',
-            stat4: '',
-            marketDemands: 0
+            totalBusinesses: 147,
+            population: '11496',
+            stat3: 'Purok 1',
+            stat4: 'Alimagno Compound, Dona Ines Compound, Felicias Compound, Prince Village, Tamis Compounds',
+            marketDemands: '9th'
         }
     },
     'Tourism and Hospitality': {
-        barangays: ['Alimagno Compound', 'Blanks, Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
+        barangays: ['Alimagno Compound', 'Blanks', 'Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
             'National Highway', 'Palmsville Subdivision', 'Prince Village', 'Purok 1', 'Purok 2', 'Purok 3', 'Purok 4', 'San Isidro Heights', 'Tamis Compounds'],
         counts: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         subCategories: ['Hotel', 'Resort', 'Travel Agency'
@@ -328,15 +328,15 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [11496],
         stats: {
-            totalBusinesses: 19,
-            population: '11,496',
-            stat3: '',
-            stat4: '',
-            marketDemands: 0
+            totalBusinesses: 0,
+            population: '11496',
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '6th'
         }
     },
     'Transportation and Logistics': {
-        barangays:['Alimagno Compound', 'Blanks, Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
+        barangays:['Alimagno Compound', 'Blanks', 'Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
             'National Highway', 'Palmsville Subdivision', 'Prince Village', 'Purok 1', 'Purok 2', 'Purok 3', 'Purok 4', 'San Isidro Heights', 'Tamis Compounds'],
         counts: [1, 3, 2, 2, 0, 0, 3, 1, 4, 0, 0, 3, 1, 1, 2, 1, 1],
         subCategories: ['Car Rental', 'Common Courier', 'Delivery Services', 'Forwarder', 'Hauling Services', 'Logistic Services', 'Operator & Drivers Association',
@@ -346,15 +346,15 @@ const dataForCategories = {
         barData: [1, 3, 2, 2, 0, 0, 3, 1, 4, 0, 0, 3, 1, 1, 2, 1, 1],
         pieData: [11496],
         stats: {
-            totalBusinesses: 227,
-            population: '11,496',
-            stat3: '',
-            stat4: '',
-            marketDemands: 0
+            totalBusinesses: 25,
+            population: '11496',
+            stat3: 'National Highway',
+            stat4: 'Dona Ines Compound, Felicias Compound, Palmsville Subdivision, Prince Village',
+            marketDemands: '2nd'
         }
     },
     'Wholesale and Distribution': {
-        barangays:['Alimagno Compound', 'Blanks, Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
+        barangays:['Alimagno Compound', 'Blanks', 'Camella Homes','Camella Homes Bermuda', 'Dona Ines Compound', 'Felicias Compound', 'Gran Seville', 'Mamatid Road', 
             'National Highway', 'Palmsville Subdivision', 'Prince Village', 'Purok 1', 'Purok 2', 'Purok 3', 'Purok 4', 'San Isidro Heights', 'Tamis Compounds'],
         counts: [0, 3, 0, 1, 0, 0, 1, 0, 2, 0, 0, 3, 0, 1, 1, 1, 0],
         subCategories: ['Agricultural Products', 'Auction', 'Automotive', 'Cleaning Supplies', 'Electronics Products', 'Essential/ Non Essential', 'Food Products', 'Fuel and Energy Supplies', 
@@ -364,11 +364,11 @@ const dataForCategories = {
         barData: [0, 3, 0, 1, 0, 0, 1, 0, 2, 0, 0, 3, 0, 1, 1, 1, 0],
         pieData: [11496],
         stats: {
-            totalBusinesses: 113,
-            population: '11,496',
-            stat3: '',
-            stat4: '',
-            marketDemands: 0
+            totalBusinesses: 13,
+            population: '11496',
+            stat3: 'Blanks, Purok 1',
+            stat4: 'Alimagno Compound, Camella Homes, Dona Ines Compound, Felicias Compound, Mamatid Road, Palmsville Subdivision, Prince Village, Purok 2, Tamis Compounds',
+            marketDemands: '5th'
         }
     },
 };

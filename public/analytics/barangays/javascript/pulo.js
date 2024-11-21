@@ -37,12 +37,12 @@ const dataForCategories = {
         barData: [34, 31, 61, 17, 7, 1, 2, 3, 4, 2, 3, 6, 8, 11, 110, 6, 2, 79, 3, 7, 15, 2], 
         pieData: [36444],
         stats: {
-            totalBusinesses: 2679,
+            totalBusinesses: 414,
             population: '36,444',
-            stat3: 'Pulo',
-            stat4: 'Casile',
-            marketDemands: 0,
-            marketGaps: 'Tourism'
+            stat3: 'National Highway',
+            stat4: 'Diezmo Road',
+            marketDemands: 'IT and Digital Services'
+         
             
         }
     },
@@ -60,11 +60,11 @@ const dataForCategories = {
         barData: [1, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 2, 0, 6, 0, 0, 7, 0, 0, 0, 0], 
         pieData: [36444],
         stats: {
-            totalBusinesses: 94,
+            totalBusinesses: 19,
             population: '36,444',
-            stat3: 'Pulo',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'Pulo-Diezmo Road',
+            stat4: 'Bimingham Village, Cabuyao Centrale, Cenntenial Town Homes 2, Diezmo Road, Don Vicente Village, Eastland 2, Evergreen Subdivision, Fortezza Sudivision, Mahogany Promenade, Millwood Ville, NIA Road, Paseo de Cabuyao, Pulo-San Isidro Road, Realica, Villa Adelinia 2, Willow Park Homes',
+            marketDemands: '8th'
         }
     },
     'Construction and Real Estate': {
@@ -83,11 +83,11 @@ const dataForCategories = {
         barData: [7, 0, 5, 5, 2, 0, 0, 1, 0, 0, 1, 0, 1, 2, 10, 0, 0, 12, 1, 1, 5, 0], 
         pieData: [36444],
         stats: {
-            totalBusinesses: 336,
+            totalBusinesses: 53,
             population: '36,444',
-            stat3: 'Pulo',
-            stat4: 'Butong',
-            marketDemands: 0
+            stat3: 'Pulo-Diezmo Road',
+            stat4: 'Birmingham Village, Diezmo Road, Divimall, Eastland 2, Evergreen Subdivision, Mahogany Promenade, NIA Road, Paseo de Cabuyao, Willow Park Homes',
+            marketDemands: '3rd'
         }
     },
     'Cooperative Business': {
@@ -101,11 +101,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1],
         pieData: [36444],
         stats: {
-            totalBusinesses: 30,
+            totalBusinesses: 2,
             population: '36,444',
-            stat3: 'Sala',
-            stat4: 'Butong',
-            marketDemands: 0
+            stat3: 'Pulo-Diezmo Road, Villa Adelinia 2',
+            stat4: 'Arabella Homes, Bimingham Village, Blanks, Cabuyao Centrale, Cenntenial Town Homes 2, Diezmo Road, Divimall, Don Vicente Village, Eastland 2, Evergreen Subdivision, Fortezza Sudivision, Mahogany Promenade, Mahogany Village Ph 1, Millwood Ville, National Highway, NIA Road, Paseo de Cabuyao, Pulo-San Isidro Road, Realica, Willow Park Homes',
+            marketDemands: '9th'
         }
     },
     'Creative and Media Service': {
@@ -120,11 +120,11 @@ const dataForCategories = {
         barData: [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
         pieData: [36444],
         stats: {
-            totalBusinesses: 30,
+            totalBusinesses: 2,
             population: '36,444',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'Blanks, National Highway',
+            stat4: 'Arabella Homes, Bimingham Village, Cabuyao Centrale, Cenntenial Town Homes 2, Diezmo Road, Divimall, Don Vicente Village, Eastland 2, Evergreen Subdivision, Fortezza Sudivision, Mahogany Promenade, Mahogany Village Ph 1, Millwood Ville, NIA Road, Paseo de Cabuyao, Pulo-Diezmo Road, Pulo-San Isidro Road, Realica, Villa Adelinia 2, Willow Park Homes',
+            marketDemands: '7th'
         }
     },
     'Education Services': {
@@ -141,11 +141,11 @@ const dataForCategories = {
         barData: [0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
         pieData: [36444],
         stats: {
-            totalBusinesses: 61,
+            totalBusinesses: 5,
             population: '36,444',
-            stat3: 'Mamatid',
-            stat4: 'Diezmo',
-            marketDemands: 0
+            stat3: 'Bimingham Village, Blanks, Mahogany Village Ph 1, Millwood Ville, National Highway',
+            stat4: 'Arabella Homes, Cabuyao Centrale, Cenntenial Town Homes 2, Diezmo Road, Divimall, Don Vicente Village, Eastland 2, Evergreen Subdivision, Fortezza Sudivision, Mahogany Promenade, NIA Road, Paseo de Cabuyao, Pulo-Diezmo Road, Pulo-San Isidro Road, Realica, Villa Adelinia 2, Willow Park Homes',
+            marketDemands: '2nd'
         }
     },
     'Entertainment and Recreation': {
@@ -162,11 +162,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0],
         pieData: [36444],
         stats: {
-            totalBusinesses: 13,
+            totalBusinesses: 2,
             population: '36,444',
-            stat3: 'Banlic',
-            stat4: 'Poblacion Uno',
-            marketDemands: 0
+            stat3: 'National Highway, Pulo-Diezmo Road',
+            stat4: 'Arabella Homes, Bimingham Village, Blanks, Cabuyao Centrale, Cenntenial Town Homes 2, Diezmo Road, Divimall, Don Vicente Village, Eastland 2, Evergreen Subdivision, Fortezza Sudivision, Mahogany Promenade, Mahogany Village Ph 1, Millwood Ville, NIA Road, Paseo de Cabuyao, Pulo-San Isidro Road, Realica, Villa Adelinia 2, Willow Park Homes',
+            marketDemands: '3rd'
         }
     },
     'Finance and Insurance': {
@@ -183,11 +183,11 @@ const dataForCategories = {
         barData: [0, 1, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 8, 0, 0, 0, 0, 0, 0, 0],
         pieData: [36444],
         stats: {
-            totalBusinesses: 112,
+            totalBusinesses: 14,
             population: '36,444',
-            stat3: 'Banlic',
-            stat4: 'Baclaran',
-            marketDemands: 0
+            stat3: 'National Highway',
+            stat4: 'Arabella Homes, Cabuyao Centrale, Cenntenial Town Homes 2, Diezmo Road, Divimall, Don Vicente Village, Eastland 2, Evergreen Subdivision, Fortezza Sudivision, Mahogany Promenade, Mahogany Village Ph 1, NIA Road, Paseo de Cabuyao, Pulo-Diezmo Road, Pulo-San Isidro Road, Realica, Villa Adelinia 2, Willow Park Homes',
+            marketDemands: '5th'
         }
     },
     'Food Services': {
@@ -204,11 +204,11 @@ const dataForCategories = {
         barData: [0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 22, 0, 0, 3, 0, 0, 1, 0],
         pieData: [36444],
         stats: {
-            totalBusinesses: 169,
+            totalBusinesses: 29,
             population: '36,444',
-            stat3: 'Pulo',
-            stat4: 'Bigaa',
-            marketDemands: 0
+            stat3: 'National Highway',
+            stat4: 'Arabella Homes, Bimingham Village, Cabuyao Centrale, Cenntenial Town Homes 2, Divimall, Don Vicente Village, Eastland 2, Evergreen Subdivision, Fortezza Sudivision, Mahogany Promenade, Mahogany Village Ph 1, Millwood Ville, NIA Road, Paseo de Cabuyao, Pulo-San Isidro Road, Realica, Willow Park Homes',
+            marketDemands: '7th'
         }
     },
     'Healthcare Services': {
@@ -226,11 +226,11 @@ const dataForCategories = {
         barData: [0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1, 8, 0, 0, 4, 0, 0, 1, 0],
         pieData: [36444],
         stats: {
-            totalBusinesses: 149,
+            totalBusinesses: 20,
             population: '36,444',
-            stat3: 'Pulo',
-            stat4: 'Casile',
-            marketDemands: 0
+            stat3: 'National Highway',
+            stat4: 'Arabella Homes, Cabuyao Centrale, Cenntenial Town Homes 2, Diezmo Road, Divimall, Don Vicente Village, Eastland 2, Evergreen Subdivision, Fortezza Sudivision, Mahogany Village Ph 1, NIA Road, Paseo de Cabuyao, Pulo-San Isidro Road, Realica, Willow Park Homes',
+            marketDemands: '6th'
         }
     },
     'IT and Digital Services': {
@@ -247,11 +247,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0],
         pieData: [36444],
         stats: {
-            totalBusinesses: 27,
+            totalBusinesses: 2,
             population: '36,444',
-            stat3: 'Sala',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'National Highway, Villa Adelinia 2',
+            stat4: 'Arabella Homes, Bimingham Village, Blanks, Cabuyao Centrale, Cenntenial Town Homes 2, Diezmo Road, Divimall, Don Vicente Village, Eastland 2, Evergreen Subdivision, Fortezza Sudivision, Mahogany Promenade, Mahogany Village Ph 1, Millwood Ville, NIA Road, Paseo de Cabuyao, Pulo-Diezmo Road, Pulo-San Isidro Road, Realica, Willow Park Homes',
+            marketDemands: '1st'
         }
     },
     'Manufacturing and Production': {
@@ -270,11 +270,11 @@ const dataForCategories = {
         barData: [3, 0, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 6, 0, 0, 0, 0 ],
         pieData: [36444],
         stats: {
-            totalBusinesses: 129,
+            totalBusinesses: 20,
             population: '36,444',
-            stat3: 'Diezmo',
-            stat4: 'Poblacion Uno',
-            marketDemands: 0
+            stat3: 'Pulo-Diezmo Road',
+            stat4: 'Bimingham Village, Cenntenial Town Homes 2, Diezmo Road, Divimall, Don Vicente Village, Eastland 2, Evergreen Subdivision, Fortezza Sudivision, Mahogany Promenade, Mahogany Village Ph 1, NIA Road, Paseo de Cabuyao, Pulo-San Isidro Road, Realica, Villa Adelinia 2, Willow Park Homes',
+            marketDemands: '2nd'
         }
     },
     'Personal and Household Services': {
@@ -292,11 +292,11 @@ const dataForCategories = {
         barData: [0, 2, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0],
         pieData: [36444],
         stats: {
-            totalBusinesses: 76,
+            totalBusinesses: 10,
             population: '36,444',
-            stat3: 'Mamatid',
-            stat4: 'Pittland',
-            marketDemands: 0
+            stat3: 'Blanks',
+            stat4: 'Arabella Homes, Cabuyao Centrale, Cenntenial Town Homes 2, Diezmo Road, Divimall, Don Vicente Village, Eastland 2, Evergreen Subdivision, Fortezza Sudivision, Mahogany Promenade, Millwood Ville, National Highway, NIA Road, Paseo de Cabuyao, Pulo-San Isidro Road, Villa Adelinia 2, Willow Park Homes',
+            marketDemands: '8th'
         }
     },
     'Personal Care Services': {
@@ -313,11 +313,11 @@ const dataForCategories = {
         barData: [1, 0, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0],
         pieData: [36444],
         stats: {
-            totalBusinesses: 28,
+            totalBusinesses: 8,
             population: '36,444',
-            stat3: 'Pulo',
-            stat4: 'Niugan',
-            marketDemands: 0
+            stat3: 'Blanks, National Highway',
+            stat4: 'Bimingham Village, Cabuyao Centrale, Cenntenial Town Homes 2, Diezmo Road, Don Vicente Village, Eastland 2, Evergreen Subdivision, Fortezza Sudivision, Mahogany Promenade, Mahogany Village Ph 1, Millwood Ville, NIA Road, Paseo de Cabuyao, Pulo-Diezmo Road, Pulo-San Isidro Road, Realica, Villa Adelinia 2, Willow Park Homes',
+            marketDemands: '5th'
         }
     },
     'Professional Services': {
@@ -335,11 +335,11 @@ const dataForCategories = {
         barData: [2, 2, 4, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 3, 1, 0, 0, 4, 0, 2, 1, 1 ],
         pieData: [36444],
         stats: {
-            totalBusinesses: 126,
+            totalBusinesses: 27,
             population: '36,444',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'Blanks, Cabuyao Centrale, Pulo-Diezmo Road',
+            stat4: 'Cenntenial Town Homes 2, Diezmo Road, Divimall, Don Vicente Village, Evergreen Subdivision, Fortezza Sudivision, Mahogany Promenade, Mahogany Village Ph 1, NIA Road, Paseo de Cabuyao, Pulo-San Isidro Road',
+            marketDemands: '5th'
         }
     },
     'Retail Stores': {
@@ -357,11 +357,11 @@ const dataForCategories = {
         barData: [13, 16, 19, 1, 3, 0, 0, 2, 0, 0, 0, 3, 2, 1, 41, 3, 0, 11, 0, 1, 4, 0],
         pieData: [36444],
         stats: {
-            totalBusinesses: 947,
+            totalBusinesses: 120,
             population: '36,444',
-            stat3: 'Banlic',
-            stat4: 'Diezmo',
-            marketDemands: 0
+            stat3: 'National Highway',
+            stat4: 'Diezmo Road, Divimall, Eastland 2, Evergreen Subdivision, Fortezza Sudivision, Paseo de Cabuyao, Pulo-San Isidro Road, Willow Park Homes',
+            marketDemands: '7th'
         }
     },
     'Tourism and Hospitality': {
@@ -377,11 +377,11 @@ const dataForCategories = {
         barData: [0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
         pieData: [36444],
         stats: {
-            totalBusinesses: 19,
+            totalBusinesses: 6,
             population: '36,444',
-            stat3: 'Pulo',
-            stat4: 'Niugan',
-            marketDemands: 0
+            stat3: 'Bimingham Village, Blanks',
+            stat4: 'Arabella Homes, Cabuyao Centrale, Cenntenial Town Homes 2, Diezmo Road, Divimall, Don Vicente Village, Eastland 2, Evergreen Subdivision, Fortezza Sudivision, Mahogany Promenade, Mahogany Village Ph 1, Millwood Ville, National Highway, NIA Road, Paseo de Cabuyao, Pulo-San Isidro Road, Realica, Villa Adelinia 2',
+            marketDemands: '5th'
         }
     },
     'Transportation and Logistics': {
@@ -398,11 +398,11 @@ const dataForCategories = {
         barData: [7, 6, 5, 3, 1, 0, 0, 0, 0, 2, 2, 0, 1, 1, 3, 1, 2, 26, 2, 0, 1, 0 ],
         pieData: [36444],
         stats: {
-            totalBusinesses: 227,
+            totalBusinesses: 63,
             population: '36,444',
-            stat3: 'Pulo',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'Pulo-Diezmo Road',
+            stat4: 'Diezmo Road, Divimall, Don Vicente Village, Eastland 2, Mahogany Promenade, Realica, Willow Park Homes',
+            marketDemands: '6th'
         }
     },
     'Wholesale and Distribution': {
@@ -419,11 +419,11 @@ const dataForCategories = {
         barData: [0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 2, 2, 0, 2, 0, 2, 0, 0],
         pieData: [36444],
         stats: {
-            totalBusinesses: 113,
+            totalBusinesses: 12,
             population: '36,444',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Tres',
-            marketDemands: 0
+            stat3: 'National Highway, NIA Road, Pulo-Diezmo Road, Realica',
+            stat4: 'Arabella Homes, Bimingham Village, Diezmo Road, Divimall, Don Vicente Village, Evergreen Subdivision, Fortezza Sudivision, Mahogany Promenade, Mahogany Village Ph 1, Millwood Ville, Paseo de Cabuyao, Pulo-San Isidro Road, Villa Adelinia 2, Willow Park Homes',
+            marketDemands: '4th'
         }
     },
 };

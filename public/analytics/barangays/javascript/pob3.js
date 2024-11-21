@@ -34,13 +34,12 @@ const dataForCategories = {
         barData: [6, 1, 11, 33, 8, 2, 1], 
         pieData: [4274],
         stats: {
-            totalBusinesses: 2679,
+            totalBusinesses: 62,
             population: '4,274',
-            stat3: 'Pulo',
-            stat4: 'Casile',
-            marketDemands: 0,
-            marketGaps: 'Tourism'
-            
+            stat3: 'JP Rizal St. ',
+            stat4: 'Cemetery Road, Sto. Nino Executive Homes',
+            marketDemands: 'Food Services',
+        
         }
     },
     'Automotive Services': {
@@ -54,11 +53,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 1, 0, 1, 0], 
         pieData: [4274],
         stats: {
-            totalBusinesses: 94,
+            totalBusinesses: 2,
             population: '4,274',
-            stat3: 'Pulo',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'JP Rizal St. , Osmena St.',
+            stat4: 'Blanks, Cemetery Road, Elsol Subdivision, Limcaoco Subdivision, Sto. Nino Executive Homes',
+            marketDemands: '4th'
         }
     },
     'Construction and Real Estate': {
@@ -74,11 +73,11 @@ const dataForCategories = {
         barData: [1, 1, 1, 5, 0, 0, 0], 
         pieData: [4274],
         stats: {
-            totalBusinesses: 336,
+            totalBusinesses: 8,
             population: '4,274',
-            stat3: 'Pulo',
-            stat4: 'Butong',
-            marketDemands: 0
+            stat3: 'JP Rizal St.',
+            stat4: 'Limcaoco Subdivision, Osmena St., Sto. Nino Executive Homes',
+            marketDemands: '6th'
         }
     },
     'Cooperative Business': {
@@ -89,11 +88,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 1, 0, 0, 0],
         pieData: [4274],
         stats: {
-            totalBusinesses: 30,
+            totalBusinesses: 1,
             population: '4,274',
-            stat3: 'Sala',
-            stat4: 'Butong',
-            marketDemands: 0
+            stat3: 'JP Rizal St.',
+            stat4: 'Blanks, Cemetery Road, Elsol Subdivision, Limcaoco Subdivision, Osmena St., Sto. Nino',
+            marketDemands: '5th'
         }
     },
     'Creative and Media Service': {
@@ -105,11 +104,11 @@ const dataForCategories = {
         barData: [0, 0, 1, 1, 0, 0, 0],
         pieData: [4274],
         stats: {
-            totalBusinesses: 30,
+            totalBusinesses: 2,
             population: '4,274',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'Elsol Subdivision, JP Rizal St',
+            stat4: 'Blanks, Cemetery Road, Limcaoco Subdivision, Osmena St., Sto. Nino Executive Homes',
+            marketDemands: '2nd'
         }
     },
     'Education Services': {
@@ -123,11 +122,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 1, 0, 0, 0],
         pieData: [4274],
         stats: {
-            totalBusinesses: 61,
+            totalBusinesses: 1,
             population: '4,274',
-            stat3: 'Mamatid',
-            stat4: 'Diezmo',
-            marketDemands: 0
+            stat3: 'JP Rizal St.',
+            stat4: 'Blanks, Cemetery Road, Elsol Subdivision, Limcaoco Subdivision, Osmena St., Sto. Nino ',
+            marketDemands: '8th'
         }
     },
     'Entertainment and Recreation': {
@@ -141,11 +140,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0],
         pieData: [4274],
         stats: {
-            totalBusinesses: 13,
+            totalBusinesses: 0,
             population: '4,274',
-            stat3: 'Banlic',
-            stat4: 'Poblacion Uno',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '3rd'
         }
     },
     'Finance and Insurance': {
@@ -159,11 +158,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 5, 0, 0, 0],
         pieData: [4274],
         stats: {
-            totalBusinesses: 112,
+            totalBusinesses: 5,
             population: '4,274',
-            stat3: 'Banlic',
-            stat4: 'Baclaran',
-            marketDemands: 0
+            stat3: 'JP Rizal St',
+            stat4: 'Blanks, Cemetery Road, Elsol Subdivision, Limcaoco Subdivision, Osmena St., Sto. Nino ',
+            marketDemands: '6th'
         }
     },
     'Food Services': {
@@ -177,11 +176,11 @@ const dataForCategories = {
         barData: [0, 0, 4, 2, 2, 0, 0],
         pieData: [4274],
         stats: {
-            totalBusinesses: 169,
+            totalBusinesses: 8,
             population: '4,274',
-            stat3: 'Pulo',
-            stat4: 'Bigaa',
-            marketDemands: 0
+            stat3: 'Elsol Subdivision',
+            stat4: 'Blanks, Cemetery Road, Osmena St., Sto. Nino Executive Homes',
+            marketDemands: '1st'
         }
     },
     'Healthcare Services': {
@@ -196,11 +195,11 @@ const dataForCategories = {
         barData: [1, 0, 0, 4, 2, 0, 0],
         pieData: [4274],
         stats: {
-            totalBusinesses: 149,
+            totalBusinesses: 7,
             population: '4,274',
-            stat3: 'Pulo',
-            stat4: 'Casile',
-            marketDemands: 0
+            stat3: 'JP Rizal St.',
+            stat4: 'Cemetery Road, Elsol Subdivision, Osmena St., Sto. Nino Executive Homes',
+            marketDemands: '9th'
         }
     },
     'IT and Digital Services': {
@@ -214,11 +213,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0],
         pieData: [4274],
         stats: {
-            totalBusinesses: 27,
+            totalBusinesses: 0,
             population: '4,274',
-            stat3: 'Sala',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '5th'
         }
     },
     'Manufacturing and Production': {
@@ -234,11 +233,11 @@ const dataForCategories = {
         barData: [1, 0, 0, 1, 1, 0, 0],
         pieData: [4274],
         stats: {
-            totalBusinesses: 129,
+            totalBusinesses: 3,
             population: '4,274',
-            stat3: 'Diezmo',
-            stat4: 'Poblacion Uno',
-            marketDemands: 0
+            stat3: 'Blanks, JP Rizal St. , Limcaoco Subdivision',
+            stat4: 'Cemetery Road, Elsol Subdivision, Osmena St., Sto. Nino Executive Homes',
+            marketDemands: '5th'
         }
     },
     'Personal and Household Services': {
@@ -253,11 +252,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 1, 0, 0],
         pieData: [4274],
         stats: {
-            totalBusinesses: 76,
+            totalBusinesses: 1,
             population: '4,274',
-            stat3: 'Mamatid',
-            stat4: 'Pittland',
-            marketDemands: 0
+            stat3: 'Limcaoco Subdivision',
+            stat4: 'Blanks, Cemetery Road, Elsol Subdivision, JP Rizal St. , Osmena St., Sto. Nino Executive Homes',
+            marketDemands: '6th'
         }
     },
     'Personal Care Services': {
@@ -271,11 +270,11 @@ const dataForCategories = {
         barData: [0, 0, 1, 0, 0, 0, 0],
         pieData: [4274],
         stats: {
-            totalBusinesses: 28,
+            totalBusinesses: 1,
             population: '4,274',
-            stat3: 'Pulo',
-            stat4: 'Niugan',
-            marketDemands: 0
+            stat3: 'Elsol Subdivision',
+            stat4: 'Blanks, Cemetery Road, JP Rizal St. , Limcaoco Subdivision, Osmena St., Sto. Nino Executive ',
+            marketDemands: '3rd'
         }
     },
     'Professional Services': {
@@ -290,11 +289,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0],
         pieData: [4274],
         stats: {
-            totalBusinesses: 126,
+            totalBusinesses: 0,
             population: '4,274',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '5th'
         }
     },
     'Retail Stores': {
@@ -309,11 +308,11 @@ const dataForCategories = {
         barData: [3, 0, 4, 9, 2, 1, 1],
         pieData: [4274],
         stats: {
-            totalBusinesses: 947,
+            totalBusinesses: 20,
             population: '4,274',
-            stat3: 'Banlic',
-            stat4: 'Diezmo',
-            marketDemands: 0
+            stat3: 'JP Rizal St.',
+            stat4: 'Cemetery Road',
+            marketDemands: '5th'
         }
     },
     'Tourism and Hospitality': {
@@ -326,11 +325,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0],
         pieData: [4274],
         stats: {
-            totalBusinesses: 19,
+            totalBusinesses: 0,
             population: '4,274',
-            stat3: 'Pulo',
-            stat4: 'Niugan',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '7th'
         }
     },
     'Transportation and Logistics': {
@@ -344,11 +343,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 3, 0, 0, 0],
         pieData: [4274],
         stats: {
-            totalBusinesses: 227,
+            totalBusinesses: 3,
             population: '4,274',
-            stat3: 'Pulo',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'JP Rizal St. ',
+            stat4: 'Blanks, Cemetery Road, Elsol Subdivision, Limcaoco Subdivision, Osmena St., Sto. Nino ',
+            marketDemands: '6th'
         }
     },
     'Wholesale and Distribution': {
@@ -362,11 +361,11 @@ const dataForCategories = {
         barData: [12, 11, 29, 9, 13, 1, 12, 3, 5, 1, 2, 0, 0, 5, 1, 5, 2, 2],
         pieData: [4274],
         stats: {
-            totalBusinesses: 113,
+            totalBusinesses: 0,
             population: '4,274',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Tres',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '7th'
         }
     },
 };

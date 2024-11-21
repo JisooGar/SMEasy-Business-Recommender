@@ -39,9 +39,9 @@ const dataForCategories = {
                 totalBusinesses: 364,
                 population: '40936',
                 stat3: 'National Highway',
-                stat4: 'Del Rosario Compound, Corner Road 1, San Carlos Village, Greenleaf Residences',
-                marketDemands: 0,
-                marketGaps: ''
+                stat4: 'Corner Road 1, Del Rosario Compound, Greenleaf Residences, San Carlos Village',
+                marketDemands: 'Retail Stores',
+              
                         
             
         }
@@ -61,8 +61,8 @@ const dataForCategories = {
             totalBusinesses: 12,
             population: '40,936',
             stat3: 'National Highway',
-            stat4: '',
-            marketDemands: 0
+            stat4: 'Bamboo Orchard, Corner Road 1, Del Rosario Compound, Don Onofre Village, Gatchalian Industrial Estate, Grand Acacia Grove, Greenleaf Residences, Hongkong Village, San Carlos Village, Southville 1',
+            marketDemands: '4th'
         }
     },
     'Construction and Real Estate': {
@@ -81,9 +81,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 37,
             population: '40,936',
-            stat3: 'Pulo',
-            stat4: 'Butong',
-            marketDemands: 0
+            stat3: 'National Highway',
+            stat4: 'Bamboo Orchard, Corner Road 1, Del Rosario Compound, Grand Acacia Grove, NIA Road, San Carlos Village',
+            marketDemands: '2nd'
         }
     },
     'Cooperative Business': {
@@ -98,9 +98,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 2,
             population: '40,936',
-            stat3: 'Sala',
-            stat4: 'Butong',
-            marketDemands: 0
+            stat3: 'Katapatan Homes, National Highway',
+            stat4: 'Bamboo Orchard, Blanks, Corner Road 1, Del Rosario Compound, Don Onofre Village, Gatchalian Industrial Estate, Gatchalian Subdivision, Grand Acacia Grove, Greenleaf Residences, Hongkong Village, Lakeside Nest Subdivision, NIA Road, San Carlos Village, Southpoint Subdivision, Southville 1',
+            marketDemands: '10th'
         }
     },
     'Creative and Media Service': {
@@ -115,9 +115,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 6,
             population: '40,936',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'Hongkong Village',
+            stat4: 'Bamboo Orchard, Corner Road 1, Del Rosario Compound, Don Onofre Village, Gatchalian Industrial Estate, Gatchalian Subdivision, Grand Acacia Grove, Greenleaf Residences, Lakeside Nest Subdivision, NIA Road, San Carlos Village, Southville 1',
+            marketDemands: '6th'
         }
     },
     'Education Services': {
@@ -134,9 +134,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 8,
             population: '40,936',
-            stat3: 'Mamatid',
-            stat4: 'Diezmo',
-            marketDemands: 0
+            stat3: 'Hongkong Village, Katapatan Homes, National Highway',
+            stat4: 'Bamboo Orchard, Blanks, Corner Road 1, Don Onofre Village, Gatchalian Industrial Estate, Gatchalian Subdivision, Greenleaf Residences, Lakeside Nest Subdivision, NIA Road, San Carlos Village, Southpoint Subdivision, Southville 1',
+            marketDemands: '11th'
         }
     },
     'Entertainment and Recreation': {
@@ -153,9 +153,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 1,
             population: '40,936',
-            stat3: 'Banlic',
-            stat4: 'Poblacion Uno',
-            marketDemands: 0
+            stat3: 'Southpoint Subdivision',
+            stat4: 'Bamboo Orchard, Blanks, Corner Road 1, Del Rosario Compound, Don Onofre Village, Gatchalian Industrial Estate, Gatchalian Subdivision, Grand Acacia Grove, Greenleaf Residences, Hongkong Village, Katapatan Homes, Lakeside Nest Subdivision, National Highway, NIA Road, San Carlos Village, Southville 1',
+            marketDemands: '7th'
         }
     },
     'Finance and Insurance': {
@@ -172,9 +172,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 7,
             population: '40,936',
-            stat3: 'Banlic',
-            stat4: 'Baclaran',
-            marketDemands: 0
+            stat3: 'National Highway',
+            stat4: 'Bamboo Orchard, Corner Road 1, Del Rosario Compound, Don Onofre Village, Gatchalian Industrial Estate, Gatchalian Subdivision, Greenleaf Residences, Lakeside Nest Subdivision, NIA Road, San Carlos Village, Southville 1',
+            marketDemands: '4th'
         }
     },
     'Food Services': {
@@ -191,9 +191,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 26,
             population: '40,936',
-            stat3: 'Pulo',
-            stat4: 'Bigaa',
-            marketDemands: 0
+            stat3: 'Southpoint Subdivision',
+            stat4: 'Del Rosario Compound, Don Onofre Village, Gatchalian Industrial Estate, Gatchalian Subdivision, Grand Acacia Grove, Greenleaf Residences, Hongkong Village, San Carlos Village, Southville 1',
+            marketDemands: '2nd'
         }
     },
     'Healthcare Services': {
@@ -211,9 +211,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 18,
             population: '40,936',
-            stat3: 'Pulo',
-            stat4: 'Casile',
-            marketDemands: 0
+            stat3: 'Blanks, Katapatan Homes, Lakeside Nest Subdivision, National Highway',
+            stat4: 'Bamboo Orchard, Corner Road 1, Del Rosario Compound, Don Onofre Village, Gatchalian Industrial Estate, Grand Acacia Grove, Greenleaf Residences, Hongkong Village, San Carlos Village, Southpoint Subdivision, Southville 1',
+            marketDemands: '4th'
         }
     },
     'IT and Digital Services': {
@@ -230,9 +230,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 4,
             population: '40,936',
-            stat3: 'Sala',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'Katapatan Homes',
+            stat4: 'Bamboo Orchard, Blanks, Corner Road 1, Del Rosario Compound, Don Onofre Village, Gatchalian Industrial Estate, Gatchalian Subdivision, Grand Acacia Grove, Greenleaf Residences, Lakeside Nest Subdivision, National Highway, NIA Road, San Carlos Village, Southville 1',
+            marketDemands: '9th'
         }
     },
     'Manufacturing and Production': {
@@ -251,9 +251,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 17,
             population: '40,936',
-            stat3: 'Diezmo',
-            stat4: 'Poblacion Uno',
-            marketDemands: 0
+            stat3: 'National Highway',
+            stat4: 'Bamboo Orchard, Corner Road 1, Del Rosario Compound, Grand Acacia Grove, Greenleaf Residences, Hongkong Village, Katapatan Homes, Lakeside Nest Subdivision, San Carlos Village, Southpoint Subdivision, Southville 1',
+            marketDemands: '9th'
         }
     },
     'Personal and Household Services': {
@@ -271,9 +271,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 10,
             population: '40,936',
-            stat3: 'Mamatid',
-            stat4: 'Pittland',
-            marketDemands: 0
+            stat3: 'Blanks, Katapatan Homes, National Highway',
+            stat4: 'Bamboo Orchard, Corner Road 1, Del Rosario Compound, Don Onofre Village, Gatchalian Industrial Estate, Gatchalian Subdivision, Greenleaf Residences, Hongkong Village, Lakeside Nest Subdivision, NIA Road, San Carlos Village, Southpoint Subdivision, Southville 1',
+            marketDemands: '9th'
         }
     },
     'Personal Care Services': {
@@ -290,9 +290,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 2,
             population: '40,936',
-            stat3: 'Pulo',
-            stat4: 'Niugan',
-            marketDemands: 0
+            stat3: 'National Highway, Southpoint Subdivision',
+            stat4: 'Bamboo Orchard, Blanks, Corner Road 1, Del Rosario Compound, Don Onofre Village, Gatchalian Industrial Estate, Gatchalian Subdivision, Grand Acacia Grove, Greenleaf Residences, Hongkong Village, Katapatan Homes, Lakeside Nest Subdivision, NIA Road, San Carlos Village, Southville 1',
+            marketDemands: '6th'
         }
     },
     'Professional Services': {
@@ -310,9 +310,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 28,
             population: '40,936',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'Southpoint Subdivision',
+            stat4: 'Corner Road 1, Del Rosario Compound, Greenleaf Residences, Lakeside Nest Subdivision, NIA Road, Southville 1',
+            marketDemands: '3rd'
         }
     },
     'Retail Stores': {
@@ -330,9 +330,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 128,
             population: '40,936',
-            stat3: 'Banlic',
-            stat4: 'Diezmo',
-            marketDemands: 0
+            stat3: 'Katapatan Homes, National Highway',
+            stat4: 'Corner Road 1, Del Rosario Compound, Greenleaf Residences, San Carlos Village',
+            marketDemands: '1st'
         }
     },
     'Tourism and Hospitality': {
@@ -348,9 +348,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 2,
             population: '40,936',
-            stat3: 'Pulo',
-            stat4: 'Niugan',
-            marketDemands: 0
+            stat3: 'Blanks, Don Onofre Village',
+            stat4: 'Bamboo Orchard, Corner Road 1, Del Rosario Compound, Gatchalian Industrial Estate, Gatchalian Subdivision, Grand Acacia Grove, Greenleaf Residences, Hongkong Village, Katapatan Homes, Lakeside Nest Subdivision, National Highway, NIA Road, San Carlos Village, Southpoint Subdivision, Southville 1',
+            marketDemands: '8th'
         }
     },
     'Transportation and Logistics': {
@@ -367,9 +367,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 27,
             population: '40,936',
-            stat3: 'Pulo',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'Southpoint Subdivision',
+            stat4: 'Bamboo Orchard, Corner Road 1, Del Rosario Compound, Grand Acacia Grove, Greenleaf Residences, NIA Road, San Carlos Village, Southville 1',
+            marketDemands: '8th'
         }
     },
     'Wholesale and Distribution': {
@@ -386,9 +386,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 29,
             population: '40,936',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Tres',
-            marketDemands: 0
+            stat3: 'Southpoint Subdivision',
+            stat4: 'Corner Road 1, Del Rosario Compound, Grand Acacia Grove, Greenleaf Residences, Lakeside Nest Subdivision, San Carlos Village, Southville 1',
+            marketDemands: '5th'
         }
     },
 };

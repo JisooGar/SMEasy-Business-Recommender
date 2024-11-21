@@ -37,11 +37,11 @@ const dataForCategories = {
         pieData: [4307, 6930, 5841, 17594, 13291, 6535, 2308],
         stats: {
             totalBusinesses: 253,
-            population: '56,761',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0,
-            marketGaps: 'Tourism'
+            population: '56761',
+            stat3: 'Phase 2 Mabuhay',
+            stat4: 'Montrina Subdivision',
+            marketDemands: 'Personal and Household Services',
+            
             
         }
     },
@@ -59,10 +59,10 @@ const dataForCategories = {
         pieData: [4307, 6930, 5841, 17594, 13291, 6535, 2308],
         stats: {
             totalBusinesses: 11,
-            population: '56,761',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            population: '56761',
+            stat3: 'Blanks, Purok 1',
+            stat4: 'Brillianz Residences, Buena Rosario, Ciudad Montrina, Extraordinary Homes Executive, Extraordinary Homes Mabuhay, Luxury Mabuhay City, Mabuhay City, Main Road, Mamatid Road, Montrina Subdivision, NIA Road, Phase 1 Mabuhay, Phase 3 Cluster Mabuhay, Phase 3 Executive Mabuhay, Phase 3 Extension Mabuhay, Phase 3 Mabuhay, Phase 4 Mabuhay, Phase 5 Mabuhay, Phase 7 Mabuhay, Purok 3, Purok 4, St. Joseph Village 3, St. Vincent Compound, Value Homes 2, Value Homes 3',
+            marketDemands: '6th'
         }
     },
     'Construction and Real Estate': {
@@ -81,10 +81,10 @@ const dataForCategories = {
         pieData: [4307, 6930, 5841, 17594, 13291, 6535, 2308],
         stats: {
             totalBusinesses: 20,
-            population: '56,761',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            population: '56761',
+            stat3: 'Blanks',
+            stat4: 'Brillianz Residences, Ciudad Montrina, Extraordinary Homes Executive, Extraordinary Homes Mabuhay, Luxury Mabuhay City, Mabuhay City, Mamatid Road, Montrina Subdivision, NIA Road, Phase 3 Executive Mabuhay, Phase 3 Extension Mabuhay, Phase 3 Mabuhay, Phase 4 Mabuhay, Phase 7 Mabuhay, Purok 1, Purok 3, Purok 4, St. Vincent Compound, Value Homes 1, Value Homes 3',
+            marketDemands: '9th'
         }
     },
     'Cooperative Business': {
@@ -98,10 +98,10 @@ const dataForCategories = {
         pieData: [4307, 6930, 5841, 17594, 13291, 6535, 2308],
         stats: {
             totalBusinesses: 2,
-            population: '56,761',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            population: '56761',
+            stat3: 'Phase 6 Mabuhay',
+            stat4: 'Blanks, Brillianz Residences, Buena Rosario, Ciudad Montrina, Extraordinary Homes Executive, Extraordinary Homes Mabuhay, Luxury Mabuhay City, Mabuhay City, Main Road, Mamatid Road, Montrina Subdivision, NIA Road, Phase 1 Mabuhay, Phase 2 Mabuhay, Phase 3 Cluster Mabuhay, Phase 3 Executive Mabuhay, Phase 3 Extension Mabuhay, Phase 3 Mabuhay, Phase 4 Mabuhay, Phase 5 Mabuhay, Phase 7 Mabuhay, Purok 1, Purok 2, Purok 3, Purok 4, St. Joseph Village 3, St. Vincent Compound, Value Homes 1, Value Homes 2, Value Homes 3',
+            marketDemands: '9th'
         }
     },
     'Creative and Media Service': {
@@ -116,10 +116,10 @@ const dataForCategories = {
         pieData: [4307, 6930, 5841, 17594, 13291, 6535, 2308],
         stats: {
             totalBusinesses: 4,
-            population: '56,761',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            population: '56761',
+            stat3: 'Blanks, Phase 3 Extension Mabuhay, Phase 4 Mabuhay, Purok 1',
+            stat4: 'Brillianz Residences, Buena Rosario, Ciudad Montrina, Extraordinary Homes Executive, Extraordinary Homes Mabuhay, Luxury Mabuhay City, Mabuhay City, Main Road, Mamatid Road, Montrina Subdivision, NIA Road, Phase 1 Mabuhay, Phase 2 Mabuhay, Phase 3 Cluster Mabuhay, Phase 3 Executive Mabuhay, Phase 3 Mabuhay, Phase 5 Mabuhay, Phase 6 Mabuhay, Phase 7 Mabuhay, Purok 2, Purok 3, Purok 4, St. Joseph Village 3, St. Vincent Compound, Value Homes 1, Value Homes 2, Value Homes 3',
+            marketDemands: '10th'
         }
     },
     'Education Services': {
@@ -136,10 +136,10 @@ const dataForCategories = {
         pieData: [4307, 6930, 5841, 17594, 13291, 6535, 2308],
         stats: {
             totalBusinesses: 10,
-            population: '56,761',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            population: '56761',
+            stat3: 'Phase 2 Mabuhay',
+            stat4: 'Brillianz Residences, Buena Rosario, Ciudad Montrina, Extraordinary Homes Executive, Extraordinary Homes Mabuhay, Luxury Mabuhay City, Mabuhay City, Main Road, Mamatid Road, Montrina Subdivision, NIA Road, Phase 1 Mabuhay, Phase 3 Cluster Mabuhay, Phase 3 Executive Mabuhay, Phase 3 Extension Mabuhay, Phase 4 Mabuhay, Phase 7 Mabuhay, Purok 1, Purok 2, Purok 3, Purok 4, St. Joseph Village 3, St. Vincent Compound, Value Homes 1, Value Homes 2, Value Homes 3',
+            marketDemands: '2nd'
         }
     },
     'Entertainment and Recreation': {
@@ -156,10 +156,10 @@ const dataForCategories = {
         pieData: [4307, 6930, 5841, 17594, 13291, 6535, 2308],
         stats: {
             totalBusinesses: 1,
-            population: '56,761',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            population: '56761',
+            stat3: 'Purok 2',
+            stat4: 'Blanks, Brillianz Residences, Buena Rosario, Ciudad Montrina, Extraordinary Homes Executive, Extraordinary Homes Mabuhay, Luxury Mabuhay City, Mabuhay City, Main Road, Mamatid Road, Montrina Subdivision, NIA Road, Phase 1 Mabuhay, Phase 2 Mabuhay, Phase 3 Cluster Mabuhay, Phase 3 Executive Mabuhay, Phase 3 Extension Mabuhay, Phase 3 Mabuhay, Phase 4 Mabuhay, Phase 5 Mabuhay, Phase 6 Mabuhay, Phase 7 Mabuhay, Purok 1, Purok 3, Purok 4, St. Joseph Village 3, St. Vincent Compound, Value Homes 1, Value Homes 2, Value Homes 3',
+            marketDemands: '8th'
         }
     },
     'Finance and Insurance': {
@@ -176,10 +176,10 @@ const dataForCategories = {
         pieData: [4307, 6930, 5841, 17594, 13291, 6535, 2308],
         stats: {
             totalBusinesses: 9,
-            population: '56,761',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            population: '56761',
+            stat3: 'Blanks, Phase 2 Mabuhay',
+            stat4: 'Brillianz Residences, Buena Rosario, Ciudad Montrina, Extraordinary Homes Executive, Extraordinary Homes Mabuhay, Luxury Mabuhay City, Mabuhay City, Main Road, Mamatid Road, Montrina Subdivision, NIA Road, Phase 1 Mabuhay, Phase 3 Cluster Mabuhay, Phase 3 Extension Mabuhay, Phase 3 Mabuhay, Phase 4 Mabuhay, Phase 5 Mabuhay, Phase 6 Mabuhay, Phase 7 Mabuhay, Purok 1, Purok 2, Purok 3, Purok 4, St. Joseph Village 3, St. Vincent Compound, Value Homes 2',
+            marketDemands: '2nd'
         }
     },
     'Food Services': {
@@ -196,10 +196,10 @@ const dataForCategories = {
         pieData: [4307, 6930, 5841, 17594, 13291, 6535, 2308],
         stats: {
             totalBusinesses: 9,
-            population: '56,761',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            population: '56761',
+            stat3: 'Phase 2 Mabuhay',
+            stat4: 'Blanks, Brillianz Residences, Buena Rosario, Ciudad Montrina, Extraordinary Homes Executive, Extraordinary Homes Mabuhay, Luxury Mabuhay City, Main Road, Mamatid Road, Montrina Subdivision, NIA Road, Phase 1 Mabuhay, Phase 3 Cluster Mabuhay, Phase 3 Executive Mabuhay, Phase 3 Extension Mabuhay, Phase 3 Mabuhay, Phase 4 Mabuhay, Phase 6 Mabuhay, Phase 7 Mabuhay, Purok 1, Purok 2, Purok 3, Purok 4, St. Joseph Village 3, St. Vincent Compound, Value Homes 1, Value Homes 2, Value Homes 3',
+            marketDemands: '7th'
         }
     },
     'Healthcare Services': {
@@ -217,10 +217,10 @@ const dataForCategories = {
         pieData: [4307, 6930, 5841, 17594, 13291, 6535, 2308],
         stats: {
             totalBusinesses: 19,
-            population: '56,761',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            population: '56761',
+            stat3: 'Phase 2 Mabuhay',
+            stat4: 'Blanks, Brillianz Residences, Buena Rosario, Ciudad Montrina, Extraordinary Homes Executive, Extraordinary Homes Mabuhay, Luxury Mabuhay City, Main Road, Montrina Subdivision, NIA Road, Phase 1 Mabuhay, Phase 3 Cluster Mabuhay, Phase 3 Extension Mabuhay, Phase 3 Mabuhay, Phase 4 Mabuhay, Phase 7 Mabuhay, Purok 1, Purok 4, St. Joseph Village 3, St. Vincent Compound, Value Homes 1, Value Homes 2, Value Homes 3',
+            marketDemands: '6th'
         }
     },
     'IT and Digital Services': {
@@ -237,10 +237,10 @@ const dataForCategories = {
         pieData: [4307, 6930, 5841, 17594, 13291, 6535, 2308],
         stats: {
             totalBusinesses: 3,
-            population: '56,761',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            population: '56761',
+            stat3: 'Phase 2 Mabuhay',
+            stat4: 'Blanks, Brillianz Residences, Buena Rosario, Ciudad Montrina, Extraordinary Homes Executive, Extraordinary Homes Mabuhay, Luxury Mabuhay City, Mabuhay City, Main Road, Mamatid Road, Montrina Subdivision, NIA Road, Phase 1 Mabuhay, Phase 3 Cluster Mabuhay, Phase 3 Executive Mabuhay, Phase 3 Extension Mabuhay, Phase 3 Mabuhay, Phase 4 Mabuhay, Phase 5 Mabuhay, Phase 6 Mabuhay, Phase 7 Mabuhay, Purok 1, Purok 2, Purok 3, Purok 4, St. Joseph Village 3, St. Vincent Compound, Value Homes 1, Value Homes 2, Value Homes 3',
+            marketDemands: '6th'
         }
     },
     'Manufacturing and Production': {
@@ -259,10 +259,10 @@ const dataForCategories = {
         pieData: [4307, 6930, 5841, 17594, 13291, 6535, 2308],
         stats: {
             totalBusinesses: 13,
-            population: '56,761',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            population: '56761',
+            stat3: 'Phase 2 Mabuhay, Purok 1',
+            stat4: 'Blanks, Brillianz Residences, Buena Rosario, Extraordinary Homes Executive, Extraordinary Homes Mabuhay, Luxury Mabuhay City, Mabuhay City, Main Road, Mamatid Road, Montrina Subdivision, NIA Road, Phase 1 Mabuhay, Phase 3 Cluster Mabuhay, Phase 3 Executive Mabuhay, Phase 3 Extension Mabuhay, Phase 3 Mabuhay, Phase 4 Mabuhay, Phase 7 Mabuhay, Purok 2, Purok 4, St. Joseph Village 3, St. Vincent Compound, Value Homes 1, Value Homes 2',
+            marketDemands: '5th'
         }
     },
     'Personal and Household Services': {
@@ -280,10 +280,10 @@ const dataForCategories = {
         pieData: [4307, 6930, 5841, 17594, 13291, 6535, 2308],
         stats: {
             totalBusinesses: 14,
-            population: '56,761',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            population: '56761',
+            stat3: 'Phase 2 Mabuhay, Phase 6 Mabuhay',
+            stat4: 'Blanks, Ciudad Montrina, Extraordinary Homes Executive, Extraordinary Homes Mabuhay, Mabuhay City, Main Road, Mamatid Road, Montrina Subdivision, NIA Road, Phase 1 Mabuhay, Phase 3 Extension Mabuhay, Phase 3 Mabuhay, Phase 5 Mabuhay, Phase 7 Mabuhay, Purok 2, Purok 3, Purok 4, St. Joseph Village 3, St. Vincent Compound, Value Homes 1, Value Homes 2, Value Homes 3',
+            marketDemands: '1st'
         }
     },
     'Personal Care Services': {
@@ -300,10 +300,10 @@ const dataForCategories = {
         pieData: [4307, 6930, 5841, 17594, 13291, 6535, 2308],
         stats: {
             totalBusinesses: 4,
-            population: '56,761',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            population: '56761',
+            stat3: 'Phase 6 Mabuhay',
+            stat4: 'Blanks, Brillianz Residences, Buena Rosario, Ciudad Montrina, Extraordinary Homes Executive, Extraordinary Homes Mabuhay, Luxury Mabuhay City, Mabuhay City, Main Road, Mamatid Road, Montrina Subdivision, NIA Road, Phase 1 Mabuhay, Phase 3 Cluster Mabuhay, Phase 3 Executive Mabuhay, Phase 3 Extension Mabuhay, Phase 3 Mabuhay, Phase 4 Mabuhay, Phase 5 Mabuhay, Phase 7 Mabuhay, Purok 1, Purok 2, Purok 3, Purok 4, St. Joseph Village 3, St. Vincent Compound, Value Homes 1, Value Homes 2',
+            marketDemands: '6th'
         }
     },
     'Professional Services': {
@@ -321,10 +321,10 @@ const dataForCategories = {
         pieData: [4307, 6930, 5841, 17594, 13291, 6535, 2308],
         stats: {
             totalBusinesses: 6,
-            population: '56,761',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            population: '56761',
+            stat3: 'Purok 1',
+            stat4: 'Brillianz Residences, Buena Rosario, Ciudad Montrina, Extraordinary Homes Executive, Extraordinary Homes Mabuhay, Luxury Mabuhay City, Mabuhay City, Main Road, Mamatid Road, Montrina Subdivision, NIA Road, Phase 1 Mabuhay, Phase 3 Cluster Mabuhay, Phase 3 Executive Mabuhay, Phase 3 Extension Mabuhay, Phase 3 Mabuhay, Phase 4 Mabuhay, Phase 5 Mabuhay, Phase 6 Mabuhay, Phase 7 Mabuhay, Purok 2, Purok 3, Purok 4, St. Joseph Village 3, Value Homes 1, Value Homes 2, Value Homes 3',
+            marketDemands: '9th'
         }
     },
     'Retail Stores': {
@@ -342,10 +342,10 @@ const dataForCategories = {
         pieData: [4307, 6930, 5841, 17594, 13291, 6535, 2308],
         stats: {
             totalBusinesses: 104,
-            population: '56,761',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            population: '56761',
+            stat3: 'Phase 2 Mabuhay',
+            stat4: 'Brillianz Residences, Luxury Mabuhay City, Main Road, Montrina Subdivision, Phase 3 Extension Mabuhay, St. Joseph Village 3, Value Homes 2',
+            marketDemands: '3rd'
         }
     },
     'Tourism and Hospitality': {
@@ -361,10 +361,10 @@ const dataForCategories = {
         pieData: [4307, 6930, 5841, 17594, 13291, 6535, 2308],
         stats: {
             totalBusinesses: 3,
-            population: '56,761',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            population: '56761',
+            stat3: 'Phase 1 Mabuhay, Phase 5 Mabuhay, Purok 2',
+            stat4: 'Blanks, Brillianz Residences, Buena Rosario, Ciudad Montrina, Extraordinary Homes Executive, Extraordinary Homes Mabuhay, Luxury Mabuhay City, Mabuhay City, Main Road, Mamatid Road, Montrina Subdivision, NIA Road, Phase 2 Mabuhay, Phase 3 Cluster Mabuhay, Phase 3 Executive Mabuhay, Phase 3 Extension Mabuhay, Phase 3 Mabuhay, Phase 4 Mabuhay, Phase 6 Mabuhay, Phase 7 Mabuhay, Purok 1, Purok 3, Purok 4, St. Joseph Village 3, St. Vincent Compound, Value Homes 1, Value Homes 2, Value Homes 3',
+            marketDemands: '4th'
         }
     },
     'Transportation and Logistics': {
@@ -381,10 +381,10 @@ const dataForCategories = {
         pieData: [4307, 6930, 5841, 17594, 13291, 6535, 2308],
         stats: {
             totalBusinesses: 12,
-            population: '56,761',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            population: '56761',
+            stat3: 'Blanks, Phase 2 Mabuhay, Phase 5 Mabuhay',
+            stat4: 'Brillianz Residences, Buena Rosario, Ciudad Montrina, Extraordinary Homes Mabuhay, Mabuhay City, Main Road, Mamatid Road, Montrina Subdivision, NIA Road, Phase 1 Mabuhay, Phase 3 Cluster Mabuhay, Phase 3 Extension Mabuhay, Phase 3 Mabuhay, Phase 4 Mabuhay, Phase 6 Mabuhay, Phase 7 Mabuhay, Purok 1, Purok 4, St. Joseph Village 3, St. Vincent Compound, Value Homes 1, Value Homes 2',
+            marketDemands: '7th'
         }
     },
     'Wholesale and Distribution': {
@@ -400,11 +400,11 @@ const dataForCategories = {
         barData: [12, 11, 29, 9, 13, 1, 12, 3, 5, 1, 2, 0, 0, 5, 1, 5, 2, 2],
         pieData: [4307, 6930, 5841, 17594, 13291, 6535, 2308],
         stats: {
-            totalBusinesses: 113,
-            population: '56,9',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            totalBusinesses: 9,
+            population: '56761',
+            stat3: 'Blanks',
+            stat4: 'Brillianz Residences, Buena Rosario, Ciudad Montrina, Extraordinary Homes Executive, Extraordinary Homes Mabuhay, Luxury Mabuhay City, Mabuhay City, Main Road, Mamatid Road, Montrina Subdivision, NIA Road, Phase 1 Mabuhay, Phase 3 Cluster Mabuhay, Phase 3 Executive Mabuhay, Phase 3 Extension Mabuhay, Phase 3 Mabuhay, Phase 5 Mabuhay, Purok 2, Purok 4, St. Joseph Village 3, St. Vincent Compound, Value Homes 1, Value Homes 2, Value Homes 3',
+            marketDemands: '11th'
         }
     },
 };

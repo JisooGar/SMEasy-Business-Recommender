@@ -28,18 +28,18 @@ document.querySelectorAll('.barangay-item').forEach(item => {
 const dataForCategories = {
     All: {
         barangays: ['Blanks', 'Purok 1', 'Purok 2', 'Purok 3', 'Purok 4', 'Purok 5', 'Purok 6', 'St. Joseph Village 4', 'St. Joseph Village 6', 'St. Joseph Village 8'],
-        counts: [414, 234, 364, 253, 361, 74, 171, 136, 139, 69, 46, 62, 18, 49, 62, 98, 33, 96 ], 
+        counts: [5, 1, 2, 0, 5, 1, 4, 2, 27, 2], 
         subCategories: ['None'],
         subCategoryCounts: ['None'],  
-        barData: [414, 235, 364, 253, 361, 74, 171, 136, 139, 69, 46, 62, 18, 49, 62, 98, 33, 96],
+        barData: [5, 1, 2, 0, 5, 1, 4, 2, 27, 2],
         pieData: [1320, 4075, 3112, 2806, 3345, 1864, 1117],
         stats: {
-            totalBusinesses: 2679,
-            population: '14,764',
-            stat3: 'Pulo',
-            stat4: 'Casile',
-            marketDemands: 0,
-            marketGaps: 'Tourism'
+            totalBusinesses: 49,
+            population: '14764',
+            stat3: 'St. Joseph Village 6',
+            stat4: 'Purok 3',
+            marketDemands: 'Entertainment and Recreation',
+            
             
         }
     },
@@ -54,10 +54,10 @@ const dataForCategories = {
         pieData: [1320, 4075, 3112, 2806, 3345, 1864, 1117],
         stats: {
             totalBusinesses: 1,
-            population: '14,764',
-            stat3: 'Pulo',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            population: '14764',
+            stat3: 'St. Joseph Village 6',
+            stat4: 'Blanks, Purok 1, Purok 2, Purok 3, Purok 4, Purok 5, Purok 6, St. Joseph Village 4, St. Joseph Village 8',
+            marketDemands: '5th'
         }
     },
     'Construction and Real Estate': {
@@ -73,10 +73,10 @@ const dataForCategories = {
         pieData: [1320, 4075, 3112, 2806, 3345, 1864, 1117],
         stats: {
             totalBusinesses: 0,
-            population: '14,764',
-            stat3: 'Pulo',
-            stat4: 'Butong',
-            marketDemands: 0
+            population: '14764',
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '2nd'
         }
     },
     'Cooperative Business': {
@@ -88,10 +88,10 @@ const dataForCategories = {
         pieData: [1320, 4075, 3112, 2806, 3345, 1864, 1117],
         stats: {
             totalBusinesses: 0,
-            population: '14,764',
-            stat3: 'Sala',
-            stat4: 'Butong',
-            marketDemands: 0
+            population: '14764',
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '4th'
         }
     },
     'Creative and Media Service': {
@@ -103,10 +103,10 @@ const dataForCategories = {
         pieData: [1320, 4075, 3112, 2806, 3345, 1864, 1117],
         stats: {
             totalBusinesses: 0,
-            population: '14,764',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            population: '14764',
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '7th'
         }
     },
     'Education Services': {
@@ -120,10 +120,10 @@ const dataForCategories = {
         pieData: [1320, 4075, 3112, 2806, 3345, 1864, 1117],
         stats: {
             totalBusinesses: 2,
-            population: '14,764',
-            stat3: 'Mamatid',
-            stat4: 'Diezmo',
-            marketDemands: 0
+            population: '14764',
+            stat3: 'St. Joseph Village 6',
+            stat4: 'Blanks, Purok 1, Purok 2, Purok 3, Purok 4, Purok 5, Purok 6, St. Joseph Village 4, St. Joseph Village 8',
+            marketDemands: '5th'
         }
     },
     'Entertainment and Recreation': {
@@ -137,10 +137,10 @@ const dataForCategories = {
         pieData: [1320, 4075, 3112, 2806, 3345, 1864, 1117],
         stats: {
             totalBusinesses: 0,
-            population: '14,764',
-            stat3: 'Banlic',
-            stat4: 'Poblacion Uno',
-            marketDemands: 0
+            population: '14764',
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '1st'
         }
     },
     'Finance and Insurance': {
@@ -154,10 +154,10 @@ const dataForCategories = {
         pieData: [1320, 4075, 3112, 2806, 3345, 1864, 1117],
         stats: {
             totalBusinesses: 0,
-            population: '14,764',
-            stat3: 'Banlic',
-            stat4: 'Baclaran',
-            marketDemands: 0
+            population: '14764',
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '3rd'
         }
     },
     'Food Services': {
@@ -171,10 +171,10 @@ const dataForCategories = {
         pieData: [1320, 4075, 3112, 2806, 3345, 1864, 1117],
         stats: {
             totalBusinesses: 1,
-            population: '14,764',
-            stat3: 'Pulo',
-            stat4: 'Bigaa',
-            marketDemands: 0
+            population: '14764',
+            stat3: 'All',
+            stat4: 'Blanks, Purok 1, Purok 2, Purok 3, Purok 4, Purok 5, Purok 6, St. Joseph Village 4, St. Joseph Village 8',
+            marketDemands: '5th'
         }
     },
     'Healthcare Services': {
@@ -189,10 +189,10 @@ const dataForCategories = {
         pieData: [1320, 4075, 3112, 2806, 3345, 1864, 1117],
         stats: {
             totalBusinesses: 3,
-            population: '14,764',
-            stat3: 'Pulo',
-            stat4: 'Casile',
-            marketDemands: 0
+            population: '14764',
+            stat3: 'St. Joseph Village 6',
+            stat4: 'Blanks, Purok 1, Purok 2, Purok 3, Purok 4, Purok 5, Purok 6, St. Joseph Village 4, St. Joseph Village 8',
+            marketDemands: '5th'
         }
     },
     'IT and Digital Services': {
@@ -206,10 +206,10 @@ const dataForCategories = {
         pieData: [1320, 4075, 3112, 2806, 3345, 1864, 1117],
         stats: {
             totalBusinesses: 0,
-            population: '14,764',
-            stat3: 'Sala',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            population: '14764',
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '3rd'
         }
     },
     'Manufacturing and Production': {
@@ -225,10 +225,10 @@ const dataForCategories = {
         pieData: [1320, 4075, 3112, 2806, 3345, 1864, 1117],
         stats: {
             totalBusinesses: 3,
-            population: '14,764',
-            stat3: 'Diezmo',
-            stat4: 'Poblacion Uno',
-            marketDemands: 0
+            population: '14764',
+            stat3: 'Blanks, Purok 6, St. Joseph Village 6',
+            stat4: 'Purok 1, Purok 2, Purok 3, Purok 4, Purok 5, St. Joseph Village 4, St. Joseph Village 8',
+            marketDemands: '8th'
         }
     },
     'Personal and Household Services': {
@@ -243,10 +243,10 @@ const dataForCategories = {
         pieData: [1320, 4075, 3112, 2806, 3345, 1864, 1117],
         stats: {
             totalBusinesses: 2,
-            population: '14,764',
-            stat3: 'Mamatid',
-            stat4: 'Pittland',
-            marketDemands: 0
+            population: '14764',
+            stat3: 'St. Joseph Village 6',
+            stat4: 'Blanks, Purok 1, Purok 2, Purok 3, Purok 4, Purok 5, Purok 6, St. Joseph Village 4, St. Joseph Village 8',
+            marketDemands: '3rd'
         }
     },
     'Personal Care Services': {
@@ -260,10 +260,10 @@ const dataForCategories = {
         pieData: [1320, 4075, 3112, 2806, 3345, 1864, 1117],
         stats: {
             totalBusinesses: 0,
-            population: '14,764',
-            stat3: 'Pulo',
-            stat4: 'Niugan',
-            marketDemands: 0
+            population: '14764',
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '2nd'
         }
     },
     'Professional Services': {
@@ -277,11 +277,11 @@ const dataForCategories = {
         barData: [0, 1, 0, 0, 1, 1, 0, 0, 1, 0],
         pieData: [1320, 4075, 3112, 2806, 3345, 1864, 1117],
         stats: {
-            totalBusinesses: 3,
-            population: '14,764',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            totalBusinesses: 4,
+            population: '14764',
+            stat3: 'Purok 1, Purok 4, Purok 5, St. Joseph Village 6',
+            stat4: 'Blanks, Purok 2, Purok 3, Purok 6, St. Joseph Village 4, St. Joseph Village 8',
+            marketDemands: '5th'
         }
     },
     'Retail Stores': {
@@ -296,10 +296,10 @@ const dataForCategories = {
         pieData: [1320, 4075, 3112, 2806, 3345, 1864, 1117],
         stats: {
             totalBusinesses: 24,
-            population: '14,764',
-            stat3: 'Banlic',
-            stat4: 'Diezmo',
-            marketDemands: 0
+            population: '14764',
+            stat3: 'St. Joseph Village 6',
+            stat4: 'Purok 1, Purok 2, Purok 3, Purok 5, Purok 6',
+            marketDemands: '3rd'
         }
     },
     'Tourism and Hospitality': {
@@ -312,10 +312,10 @@ const dataForCategories = {
         pieData: [1320, 4075, 3112, 2806, 3345, 1864, 1117],
         stats: {
             totalBusinesses: 0,
-            population: '14,764',
-            stat3: 'Pulo',
-            stat4: 'Niugan',
-            marketDemands: 0
+            population: '14764',
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '9th'
         }
     },
     'Transportation and Logistics': {
@@ -329,10 +329,10 @@ const dataForCategories = {
         pieData: [1320, 4075, 3112, 2806, 3345, 1864, 1117],
         stats: {
             totalBusinesses: 4,
-            population: '14,764',
-            stat3: 'Pulo',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            population: '14764',
+            stat3: 'Purok 6, St. Joseph Village 6',
+            stat4: 'Blanks, Purok 1, Purok 2, Purok 3, Purok 4, Purok 5, St. Joseph Village 4, St. Joseph Village 8',
+            marketDemands: '5th'
         }
     },
     'Wholesale and Distribution': {
@@ -346,10 +346,10 @@ const dataForCategories = {
         pieData: [1320, 4075, 3112, 2806, 3345, 1864, 1117],
         stats: {
             totalBusinesses: 5,
-            population: '14,764',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Tres',
-            marketDemands: 0
+            population: '14764',
+            stat3: 'Purok 2',
+            stat4: 'Purok 1, Purok 3, Purok 4, Purok 5, St. Joseph Village 6, St. Joseph Village 8',
+            marketDemands: '6th'
         }
     },
 };

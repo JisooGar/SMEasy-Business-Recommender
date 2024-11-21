@@ -35,12 +35,12 @@ const dataForCategories = {
         barData: [1, 1, 15, 1, 5, 16, 2, 4, 4, 7, 8, 8, 1, 1],
         pieData: [1554, 2321, 2245, 2866, 2624, 2041, 584],
         stats: {
-            totalBusinesses: 74,
-            population: '14,235',
-            stat3: '',
-            stat4: '',
-            marketDemands: '',
-            marketGaps: ''
+            totalBusinesses:  75,
+            population: '14235',
+            stat3: 'Marinig Road',
+            stat4: 'Bella Solana, Bigaa Road, Egaland, Stoneridge Ville, Tierra Elsol Subdivision',
+            marketDemands: 'Personal Care Services'
+            
             
         }
     },
@@ -55,11 +55,11 @@ const dataForCategories = {
         barData: [0, 0, 1, 0, 0, 3, 0, 0, 0, 0, 2, 0, 0, 0],
         pieData: [1554, 2321, 2245, 2866, 2624, 2041, 584],
         stats: {
-            totalBusinesses: 6,
-            population: '14,235',
-            stat3: 'Pulo',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            totalBusinesses:  6,
+            population: '14235',
+            stat3: 'Marinig Road',
+            stat4: 'Bella Solana, Bigaa Road, Egaland, Major Homes Subdivision, Purok 1, Purok 2, Purok 3, Purok 4, Purok 6, Stoneridge Ville, Tierra Elsol Subdivision',
+            marketDemands: '8th'
         }
     },
     'Construction and Real Estate': {
@@ -75,11 +75,11 @@ const dataForCategories = {
         barData: [0, 0, 2, 0, 1, 5, 0, 1, 1, 2, 2, 2, 1, 0],
         pieData: [1554, 2321, 2245, 2866, 2624, 2041, 584],
         stats: {
-            totalBusinesses: 17,
-            population: '14,235',
-            stat3: 'Pulo',
-            stat4: 'Butong',
-            marketDemands: 0
+            totalBusinesses:  17,
+            population: '14235',
+            stat3: 'Marinig Road',
+            stat4: 'Bella Solana, Bigaa Road, Egaland, Purok 1, Tierra Elsol Subdivision',
+            marketDemands: '5th'
         }
     },
     'Cooperative Business': {
@@ -91,11 +91,11 @@ const dataForCategories = {
         barData: [0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [1554, 2321, 2245, 2866, 2624, 2041, 584],
         stats: {
-            totalBusinesses: 2,
-            population: '14,235',
-            stat3: 'Sala',
-            stat4: 'Butong',
-            marketDemands: 0
+            totalBusinesses:  2,
+            population: '14235',
+            stat3: 'Blanks, Major Homes Subdivision',
+            stat4: 'Bella Solana, Bigaa Road, Egaland, Marinig Road, Purok 1, Purok 2, Purok 3, Purok 4, Purok 5, Purok 6, Stoneridge Ville, Tierra Elsol Subdivision',
+            marketDemands: '11th'
         }
     },
     'Creative and Media Service': {
@@ -108,11 +108,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
         pieData: [1554, 2321, 2245, 2866, 2624, 2041, 584],
         stats: {
-            totalBusinesses: 1,
-            population: '14,235',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            totalBusinesses:  1,
+            population: '14235',
+            stat3: 'Purok 6',
+            stat4: 'Bella Solana, Bigaa Road, Blanks, Egaland, Major Homes Subdivision, Marinig Road, Purok 1, Purok 2, Purok 3, Purok 4, Purok 5, Stoneridge Ville, Tierra Elsol Subdivision',
+            marketDemands: '6th'
         }
     },
     'Education Services': {
@@ -127,11 +127,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
         pieData: [1554, 2321, 2245, 2866, 2624, 2041, 584],
         stats: {
-            totalBusinesses: 1,
-            population: '14,235',
-            stat3: 'Mamatid',
-            stat4: 'Diezmo',
-            marketDemands: 0
+            totalBusinesses:  1,
+            population: '14235',
+            stat3: 'Purok 3',
+            stat4: 'Bella Solana, Bigaa Road, Blanks, Egaland, Major Homes Subdivision, Marinig Road, Purok 1, Purok 2, Purok 4, Purok 5, Purok 6, Stoneridge Ville, Tierra Elsol Subdivision',
+            marketDemands: '3rd'
         }
     },
     'Entertainment and Recreation': {
@@ -146,11 +146,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
         pieData: [1554, 2321, 2245, 2866, 2624, 2041, 584],
         stats: {
-            totalBusinesses: 1,
-            population: '14,235',
-            stat3: 'Banlic',
-            stat4: 'Poblacion Uno',
-            marketDemands: 0
+            totalBusinesses:  1,
+            population: '14235',
+            stat3: 'Blanks',
+            stat4: 'Bella Solana, Bigaa Road, Egaland, Major Homes Subdivision, Marinig Road, Purok 1, Purok 2, Purok 3, Purok 4, Purok 5, Purok 6, Stoneridge Ville, Tierra Elsol Subdivision',
+            marketDemands: '3rd'
         }
     },
     'Finance and Insurance': {
@@ -165,11 +165,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [1554, 2321, 2245, 2866, 2624, 2041, 584],
         stats: {
-            totalBusinesses: 1,
-            population: '14,235',
-            stat3: 'Banlic',
-            stat4: 'Baclaran',
-            marketDemands: 0
+            totalBusinesses:  1,
+            population: '14235',
+            stat3: 'Major Homes Subdivision',
+            stat4: 'Bella Solana, Bigaa Road, Blanks, Egaland, Marinig Road, Purok 1, Purok 2, Purok 3, Purok 4, Purok 5, Purok 6, Stoneridge Ville, Tierra Elsol Subdivision',
+            marketDemands: '6th'
         }
     },
     'Food Services': {
@@ -184,11 +184,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [1554, 2321, 2245, 2866, 2624, 2041, 584],
         stats: {
-            totalBusinesses: 0,
-            population: '14,235',
-            stat3: 'Pulo',
-            stat4: 'Bigaa',
-            marketDemands: 0
+            totalBusinesses:  0,
+            population: '14235',
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '7th'
         }
     },
     'Healthcare Services': {
@@ -204,11 +204,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
         pieData: [1554, 2321, 2245, 2866, 2624, 2041, 584],
         stats: {
-            totalBusinesses: 1,
-            population: '14,235',
-            stat3: 'Pulo',
-            stat4: 'Casile',
-            marketDemands: 0
+            totalBusinesses:  1,
+            population: '14235',
+            stat3: 'Purok 2',
+            stat4: 'Bella Solana, Bigaa Road, Blanks, Egaland, Major Homes Subdivision, Marinig Road, Purok 1, Purok 3, Purok 4, Purok 5, Purok 6, Stoneridge Ville, Tierra Elsol Subdivision',
+            marketDemands: '8th'
         }
     },
     'IT and Digital Services': {
@@ -223,11 +223,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [1554, 2321, 2245, 2866, 2624, 2041, 584],
         stats: {
-            totalBusinesses: 0,
-            population: '14,235',
-            stat3: 'Sala',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            totalBusinesses:  0,
+            population: '14235',
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '4th'
         }
     },
     'Manufacturing and Production': {
@@ -244,11 +244,11 @@ const dataForCategories = {
         barData: [0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
         pieData: [1554, 2321, 2245, 2866, 2624, 2041, 584],
         stats: {
-            totalBusinesses: 3,
-            population: '14,235',
-            stat3: 'Diezmo',
-            stat4: 'Poblacion Uno',
-            marketDemands: 0
+            totalBusinesses:  3,
+            population: '14235',
+            stat3: 'Blanks, Marinig Road, Purok 4',
+            stat4: 'Bella Solana, Bigaa Road, Egaland, Major Homes Subdivision, Purok 1, Purok 2, Purok 3, Purok 5, Purok 6, Stoneridge Ville, Tierra Elsol Subdivision',
+            marketDemands: '5th'
         }
     },
     'Personal and Household Services': {
@@ -264,11 +264,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
         pieData: [1554, 2321, 2245, 2866, 2624, 2041, 584],
         stats: {
-            totalBusinesses: 1,
-            population: '14,235',
-            stat3: 'Mamatid',
-            stat4: 'Pittland',
-            marketDemands: 0
+            totalBusinesses:  1,
+            population: '14235',
+            stat3: 'Purok 1',
+            stat4: 'Bella Solana, Bigaa Road, Blanks, Egaland, Major Homes Subdivision, Marinig Road, Purok 2, Purok 3, Purok 4, Purok 5, Purok 6, Stoneridge Ville, Tierra Elsol Subdivision',
+            marketDemands: '10th'
         }
     },
     'Personal Care Services': {
@@ -283,11 +283,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [1554, 2321, 2245, 2866, 2624, 2041, 584],
         stats: {
-            totalBusinesses: 0,
-            population: '14,235',
-            stat3: 'Pulo',
-            stat4: 'Niugan',
-            marketDemands: 0
+            totalBusinesses:  0,
+            population: '14235',
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '1st'
         }
     },
     'Professional Services': {
@@ -302,11 +302,11 @@ const dataForCategories = {
         barData: [0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
         pieData: [1554, 2321, 2245, 2866, 2624, 2041, 584],
         stats: {
-            totalBusinesses: 3,
-            population: '14,235',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            totalBusinesses:  3,
+            population: '14235',
+            stat3: 'Blanks',
+            stat4: 'Bella Solana, Bigaa Road, Egaland, Major Homes Subdivision, Marinig Road, Purok 1, Purok 3, Purok 4, Purok 5, Purok 6, Stoneridge Ville, Tierra Elsol Subdivision',
+            marketDemands: '12th'
         }
     },
     'Retail Stores': {
@@ -321,11 +321,11 @@ const dataForCategories = {
         barData: [0, 0, 6, 0, 1, 6, 1, 1, 2, 3, 3, 3, 0, 0 ],
         pieData: [1554, 2321, 2245, 2866, 2624, 2041, 584],
         stats: {
-            totalBusinesses: 26,
-            population: '14,235',
-            stat3: 'Banlic',
-            stat4: 'Diezmo',
-            marketDemands: 0
+            totalBusinesses:  27,
+            population: '14235',
+            stat3: 'Blanks, Marinig Road',
+            stat4: 'Bella Solana, Bigaa Road, Egaland, Stoneridge Ville, Tierra Elsol Subdivision',
+            marketDemands: '4th'
         }
     },
     'Tourism and Hospitality': {
@@ -338,11 +338,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
         pieData: [1554, 2321, 2245, 2866, 2624, 2041, 584],
         stats: {
-            totalBusinesses: 1,
-            population: '14,235',
-            stat3: 'Pulo',
-            stat4: 'Niugan',
-            marketDemands: 0
+            totalBusinesses:  1,
+            population: '14235',
+            stat3: 'Purok 6',
+            stat4: 'Bella Solana, Bigaa Road, Blanks, Egaland, Major Homes Subdivision, Marinig Road, Purok 1, Purok 2, Purok 3, Purok 4, Purok 5, Stoneridge Ville, Tierra Elsol Subdivision',
+            marketDemands: '6th'
         }
     },
     'Transportation and Logistics': {
@@ -356,11 +356,11 @@ const dataForCategories = {
         barData: [1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1],
         pieData: [1554, 2321, 2245, 2866, 2624, 2041, 584],
         stats: {
-            totalBusinesses: 9,
-            population: '14,235',
-            stat3: 'Pulo',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            totalBusinesses:  9,
+            population: '14235',
+            stat3: 'Bella Solana, Bigaa Road, Blanks, Egaland, Major Homes Subdivision, Marinig Road, Purok 4, Purok 5, Tierra Elsol Subdivision',
+            stat4: 'Purok 1, Purok 2, Purok 3, Purok 6, Stoneridge Ville',
+            marketDemands: '2nd'
         }
     },
     'Wholesale and Distribution': {
@@ -374,11 +374,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
         pieData: [1554, 2321, 2245, 2866, 2624, 2041, 584],
         stats: {
-            totalBusinesses: 1,
-            population: '14,235',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Tres',
-            marketDemands: 0
+            totalBusinesses:  1,
+            population: '14235',
+            stat3: 'Purok 6',
+            stat4: 'Bella Solana, Bigaa Road, Blanks, Egaland, Major Homes Subdivision, Marinig Road, Purok 1, Purok 2, Purok 3, Purok 4, Purok 5, Stoneridge Ville, Tierra Elsol Subdivision',
+            marketDemands: '9'
         }
     },
 };

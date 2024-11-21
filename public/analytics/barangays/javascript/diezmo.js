@@ -35,11 +35,11 @@ const dataForCategories = {
         pieData: [579, 821, 636, 2225, 1755, 543, 245],
         stats: {
             totalBusinesses: 98,
-            population: '6,622',
-            stat3: 'Pulo',
+            population: '6622',
+            stat3: 'LISP 1',
             stat4: 'Casile',
-            marketDemands: 0,
-            marketGaps: 'Tourism'
+            marketDemands: 'Finance and Insurance'
+          
             
         }
     },
@@ -54,10 +54,10 @@ const dataForCategories = {
         pieData: [579, 821, 636, 2225, 1755, 543, 245],
         stats: {
             totalBusinesses: 0,
-            population: '6,622',
-            stat3: 'Pulo',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            population: '6622',
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '2nd'
         }
     },
     'Construction and Real Estate': {
@@ -73,10 +73,10 @@ const dataForCategories = {
         pieData: [579, 821, 636, 2225, 1755, 543, 245],
         stats: {
             totalBusinesses: 23,
-            population: '6,622',
-            stat3: 'Pulo',
-            stat4: 'Butong',
-            marketDemands: 0
+            population: '6622',
+            stat3: 'LISP 1',
+            stat4: 'East Road, St. Felix Ville',
+            marketDemands: '12th'
         }
     },
     'Cooperative Business': {
@@ -88,10 +88,10 @@ const dataForCategories = {
         pieData: [579, 821, 636, 2225, 1755, 543, 245],
         stats: {
             totalBusinesses: 3,
-            population: '6,622',
-            stat3: 'Sala',
-            stat4: 'Butong',
-            marketDemands: 0
+            population: '6622',
+            stat3: 'LISP 1',
+            stat4: 'Diezmo Road, East Road, St. Felix Ville',
+            marketDemands: '11th'
         }
     },
     'Creative and Media Service': {
@@ -103,10 +103,10 @@ const dataForCategories = {
         pieData: [579, 821, 636, 2225, 1755, 543, 245],
         stats: {
             totalBusinesses: 1,
-            population: '6,622',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            population: '6622',
+            stat3: 'LISP 1',
+            stat4: 'Diezmo Road, East Road, St. Felix Ville',
+            marketDemands: '12th'
         }
     },
     'Education Services': {
@@ -120,10 +120,10 @@ const dataForCategories = {
         pieData: [579, 821, 636, 2225, 1755, 543, 245],
         stats: {
             totalBusinesses: 0,
-            population: '6,622',
-            stat3: 'Mamatid',
-            stat4: 'Diezmo',
-            marketDemands: 0
+            population: '6622',
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '2nd'
         }
     },
     'Entertainment and Recreation': {
@@ -137,10 +137,10 @@ const dataForCategories = {
         pieData: [579, 821, 636, 2225, 1755, 543, 245],
         stats: {
             totalBusinesses: 1,
-            population: '6,622',
-            stat3: 'Banlic',
-            stat4: 'Poblacion Uno',
-            marketDemands: 0
+            population: '6622',
+            stat3: 'LISP 1',
+            stat4: 'Diezmo Road, East Road, St. Felix Ville',
+            marketDemands: '8th'
         }
     },
     'Finance and Insurance': {
@@ -154,10 +154,10 @@ const dataForCategories = {
         pieData: [579, 821, 636, 2225, 1755, 543, 245],
         stats: {
             totalBusinesses: 11,
-            population: '6,622',
-            stat3: 'Banlic',
-            stat4: 'Baclaran',
-            marketDemands: 0
+            population: '6622',
+            stat3: 'LISP 1',
+            stat4: 'Diezmo Road, East Road, St. Felix Ville',
+            marketDemands: '1st'
         }
     },
     'Food Services': {
@@ -171,10 +171,10 @@ const dataForCategories = {
         pieData: [579, 821, 636, 2225, 1755, 543, 245],
         stats: {
             totalBusinesses: 17,
-            population: '6,622',
-            stat3: 'Pulo',
-            stat4: 'Bigaa',
-            marketDemands: 0
+            population: '6622',
+            stat3: 'LISP 1',
+            stat4: 'Diezmo Road, East Road, St. Felix Ville',
+            marketDemands: '11th'
         }
     },
     'Healthcare Services': {
@@ -189,10 +189,10 @@ const dataForCategories = {
         pieData: [579, 821, 636, 2225, 1755, 543, 245],
         stats: {
             totalBusinesses: 2,
-            population: '6,622',
-            stat3: 'Pulo',
-            stat4: 'Casile',
-            marketDemands: 0
+            population: '6622',
+            stat3: 'LISP 1',
+            stat4: 'Diezmo Road, East Road, St. Felix Ville',
+            marketDemands: '6th'
         }
     },
     'IT and Digital Services': {
@@ -206,10 +206,10 @@ const dataForCategories = {
         pieData: [579, 821, 636, 2225, 1755, 543, 245],
         stats: {
             totalBusinesses: 1,
-            population: '6,622',
-            stat3: 'Sala',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            population: '6622',
+            stat3: 'LISP 1',
+            stat4: 'Diezmo Road, East Road, St. Felix Ville',
+            marketDemands: '6th'
         }
     },
     'Manufacturing and Production': {
@@ -225,10 +225,10 @@ const dataForCategories = {
         pieData: [579, 821, 636, 2225, 1755, 543, 245],
         stats: {
             totalBusinesses: 20,
-            population: '6,622',
-            stat3: 'Diezmo',
-            stat4: 'Poblacion Uno',
-            marketDemands: 0
+            population: '6622',
+            stat3: 'LISP 1',
+            stat4: 'Diezmo Road, East Road, St. Felix Ville',
+            marketDemands: '9th'
         }
     },
     'Personal and Household Services': {
@@ -243,10 +243,10 @@ const dataForCategories = {
         pieData: [579, 821, 636, 2225, 1755, 543, 245],
         stats: {
             totalBusinesses: 0,
-            population: '6,622',
-            stat3: 'Mamatid',
-            stat4: 'Pittland',
-            marketDemands: 0
+            population: '6622',
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '11th'
         }
     },
     'Personal Care Services': {
@@ -260,10 +260,10 @@ const dataForCategories = {
         pieData: [579, 821, 636, 2225, 1755, 543, 245],
         stats: {
             totalBusinesses: 0,
-            population: '6,622',
-            stat3: 'Pulo',
-            stat4: 'Niugan',
-            marketDemands: 0
+            population: '6622',
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '3rd'
         }
     },
     'Professional Services': {
@@ -278,10 +278,10 @@ const dataForCategories = {
         pieData: [579, 821, 636, 2225, 1755, 543, 245],
         stats: {
             totalBusinesses: 4,
-            population: '6,622',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            population: '6622',
+            stat3: 'LISP 1',
+            stat4: 'Diezmo Road, East Road, St. Felix Ville',
+            marketDemands: '4th'
         }
     },
     'Retail Stores': {
@@ -296,10 +296,10 @@ const dataForCategories = {
         pieData: [579, 821, 636, 2225, 1755, 543, 245],
         stats: {
             totalBusinesses: 1,
-            population: '6,622',
-            stat3: 'Banlic',
-            stat4: 'Diezmo',
-            marketDemands: 0
+            population: '6622',
+            stat3: 'St. Felix Ville',
+            stat4: 'Diezmo Road, East Road, LISP 1',
+            marketDemands: '6th'
         }
     },
     'Tourism and Hospitality': {
@@ -312,10 +312,10 @@ const dataForCategories = {
         pieData: [579, 821, 636, 2225, 1755, 543, 245],
         stats: {
             totalBusinesses: 0,
-            population: '6,622',
-            stat3: 'Pulo',
-            stat4: 'Niugan',
-            marketDemands: 0
+            population: '6622',
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '5th'
         }
     },
     'Transportation and Logistics': {
@@ -329,10 +329,10 @@ const dataForCategories = {
         pieData: [579, 821, 636, 2225, 1755, 543, 245],
         stats: {
             totalBusinesses: 9,
-            population: '6,622',
-            stat3: 'Pulo',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            population: '6622',
+            stat3: 'LISP 1',
+            stat4: 'Diezmo Road, St. Felix Ville',
+            marketDemands: '7th'
         }
     },
     'Wholesale and Distribution': {
@@ -346,10 +346,10 @@ const dataForCategories = {
         pieData: [579, 821, 636, 2225, 1755, 543, 245],
         stats: {
             totalBusinesses: 5,
-            population: '6,622',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Tres',
-            marketDemands: 0
+            population: '6622',
+            stat3: 'LISP 1',
+            stat4: 'Diezmo Road, St. Felix Ville',
+            marketDemands: '10th'
         }
     },
 };

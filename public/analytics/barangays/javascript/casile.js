@@ -28,18 +28,17 @@ document.querySelectorAll('.barangay-item').forEach(item => {
 const dataForCategories = {
     All: {
         barangays: ['Blanks', 'Purok 1', 'Purok 3', 'Purok 4', 'Purok 5', 'Purok 6', 'Purok Tagaytay Cabuyao'],
-        counts: [414, 234, 364, 253, 361, 74, 171, 136, 139, 69, 46, 62, 18, 49, 62, 98, 33, 96 ], 
+        counts: [3, 2, 5, 5, 1, 1, 1 ], 
         subCategories: ['None'],
         subCategoryCounts: ['None'],  
-        barData: [414, 235, 364, 253, 361, 74, 171, 136, 139, 69, 46, 62, 18, 49, 62, 98, 33, 96],
+        barData: [3, 2, 5, 5, 1, 1, 1],
         pieData: [434, 519, 324, 1282, 699, 391, 145],
         stats: {
             totalBusinesses: 18,
-            population: '3,794',
-            stat3: 'Pulo',
-            stat4: 'Casile',
-            marketDemands: 0,
-            marketGaps: 'Tourism'
+            population: '3794',
+            stat3: 'Purok 3, Purok 4',
+            stat4: 'Purok 5, Purok 6, Purok Tagaytay Cabuyao',
+            marketDemands: 'IT and Digital Services',
             
         }
     },
@@ -54,10 +53,10 @@ const dataForCategories = {
         pieData: [434, 519, 324, 1282, 699, 391, 145],
         stats: {
             totalBusinesses: 1,
-            population: '3,794',
-            stat3: 'Pulo',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            population: '3794',
+            stat3: 'Blanks',
+            stat4: 'Purok 1, Purok 3, Purok 4, Purok 5, Purok 6, Purok Tagaytay Cabuyao',
+            marketDemands: '11th'
         }
     },
     'Construction and Real Estate': {
@@ -73,10 +72,10 @@ const dataForCategories = {
         pieData: [434, 519, 324, 1282, 699, 391, 145],
         stats: {
             totalBusinesses: 2,
-            population: '3,794',
-            stat3: 'Pulo',
-            stat4: 'Butong',
-            marketDemands: 0
+            population: '3794',
+            stat3: 'Purok 4, Purok 6',
+            stat4: 'Blanks, Purok 1, Purok 3, Purok 5, Purok Tagaytay Cabuyao',
+            marketDemands: '4th'
         }
     },
     'Cooperative Business': {
@@ -88,10 +87,10 @@ const dataForCategories = {
         pieData: [434, 519, 324, 1282, 699, 391, 145],
         stats: {
             totalBusinesses: 1,
-            population: '3,794',
-            stat3: 'Sala',
-            stat4: 'Butong',
-            marketDemands: 0
+            population: '3794',
+            stat3: 'Purok 3',
+            stat4: 'Blanks, Purok 1, Purok 4, Purok 5, Purok 6, Purok Tagaytay Cabuyao',
+            marketDemands: '7th'
         }
     },
     'Creative and Media Service': {
@@ -103,10 +102,10 @@ const dataForCategories = {
         pieData: [434, 519, 324, 1282, 699, 391, 145],
         stats: {
             totalBusinesses: 0,
-            population: '3,794',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            population: '3794',
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '10th'
         }
     },
     'Education Services': {
@@ -120,10 +119,10 @@ const dataForCategories = {
         pieData: [434, 519, 324, 1282, 699, 391, 145],
         stats: {
             totalBusinesses: 0,
-            population: '3,794',
-            stat3: 'Mamatid',
-            stat4: 'Diezmo',
-            marketDemands: 0
+            population: '3794',
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '8th'
         }
     },
     'Entertainment and Recreation': {
@@ -137,10 +136,10 @@ const dataForCategories = {
         pieData: [434, 519, 324, 1282, 699, 391, 145],
         stats: {
             totalBusinesses: 1,
-            population: '3,794',
-            stat3: 'Banlic',
-            stat4: 'Poblacion Uno',
-            marketDemands: 0
+            population: '3794',
+            stat3: 'Blanks',
+            stat4: 'Purok 1, Purok 3, Purok 4, Purok 5, Purok 6, Purok Tagaytay Cabuyao',
+            marketDemands: '2nd'
         }
     },
     'Finance and Insurance': {
@@ -154,10 +153,10 @@ const dataForCategories = {
         pieData: [434, 519, 324, 1282, 699, 391, 145],
         stats: {
             totalBusinesses: 0,
-            population: '3,794',
-            stat3: 'Banlic',
-            stat4: 'Baclaran',
-            marketDemands: 0
+            population: '3794',
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '11th'
         }
     },
     'Food Services': {
@@ -170,11 +169,11 @@ const dataForCategories = {
         barData: [1, 0, 1, 1, 0, 0, 0],
         pieData: [434, 519, 324, 1282, 699, 391, 145],
         stats: {
-            totalBusinesses: 3,
-            population: '3,794',
-            stat3: 'Pulo',
-            stat4: 'Bigaa',
-            marketDemands: 0
+            totalBusinesses: 2,
+            population: '3794',
+            stat3: 'Blanks, Purok 3, Purok 4',
+            stat4: 'Purok 1, Purok 5, Purok 6, Purok Tagaytay Cabuyao',
+            marketDemands: '6th'
         }
     },
     'Healthcare Services': {
@@ -189,10 +188,10 @@ const dataForCategories = {
         pieData: [434, 519, 324, 1282, 699, 391, 145],
         stats: {
             totalBusinesses: 0,
-            population: '3,794',
-            stat3: 'Pulo',
-            stat4: 'Casile',
-            marketDemands: 0
+            population: '3794',
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '7th'
         }
     },
     'IT and Digital Services': {
@@ -206,10 +205,10 @@ const dataForCategories = {
         pieData: [434, 519, 324, 1282, 699, 391, 145],
         stats: {
             totalBusinesses: 0,
-            population: '3,794',
-            stat3: 'Sala',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            population: '3794',
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '1st'
         }
     },
     'Manufacturing and Production': {
@@ -225,10 +224,10 @@ const dataForCategories = {
         pieData: [434, 519, 324, 1282, 699, 391, 145],
         stats: {
             totalBusinesses: 0,
-            population: '3,794',
-            stat3: 'Diezmo',
-            stat4: 'Poblacion Uno',
-            marketDemands: 0
+            population: '3794',
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '3rd'
         }
     },
     'Personal and Household Services': {
@@ -243,10 +242,10 @@ const dataForCategories = {
         pieData: [434, 519, 324, 1282, 699, 391, 145],
         stats: {
             totalBusinesses: 2,
-            population: '3,794',
-            stat3: 'Mamatid',
-            stat4: 'Pittland',
-            marketDemands: 0
+            population: '3794',
+            stat3: 'Purok 3, Purok Tagaytay Cabuyao',
+            stat4: 'Blanks, Purok 1, Purok 4, Purok 5, Purok 6',
+            marketDemands: '3rd'
         }
     },
     'Personal Care Services': {
@@ -260,10 +259,10 @@ const dataForCategories = {
         pieData: [434, 519, 324, 1282, 699, 391, 145],
         stats: {
             totalBusinesses: 1,
-            population: '3,794',
-            stat3: 'Pulo',
-            stat4: 'Niugan',
-            marketDemands: 0
+            population: '3794',
+            stat3: 'Purok Tagaytay Cabuyao',
+            stat4: 'Blanks, Purok 1, Purok 3, Purok 4, Purok 5, Purok 6',
+            marketDemands: '7th'
         }
     },
     'Professional Services': {
@@ -278,10 +277,10 @@ const dataForCategories = {
         pieData: [434, 519, 324, 1282, 699, 391, 145],
         stats: {
             totalBusinesses: 0,
-            population: '3,794',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            population: '3794',
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '3rd'
         }
     },
     'Retail Stores': {
@@ -296,10 +295,10 @@ const dataForCategories = {
         pieData: [434, 519, 324, 1282, 699, 391, 145],
         stats: {
             totalBusinesses: 7,
-            population: '3,794',
-            stat3: 'Banlic',
-            stat4: 'Diezmo',
-            marketDemands: 0
+            population: '3794',
+            stat3: 'Purok 1, Purok 3, Purok 4',
+            stat4: 'Blanks, Purok 6, Purok Tagaytay Cabuyao',
+            marketDemands: '5th'
         }
     },
     'Tourism and Hospitality': {
@@ -312,10 +311,10 @@ const dataForCategories = {
         pieData: [434, 519, 324, 1282, 699, 391, 145],
         stats: {
             totalBusinesses: 1,
-            population: '3,794',
-            stat3: 'Pulo',
-            stat4: 'Niugan',
-            marketDemands: 0
+            population: '3794',
+            stat3: 'Purok 4',
+            stat4: 'Blanks, Purok 1, Purok 3, Purok 5, Purok 6, Purok Tagaytay Cabuyao',
+            marketDemands: '7th'
         }
     },
     'Transportation and Logistics': {
@@ -329,10 +328,10 @@ const dataForCategories = {
         pieData: [434, 519, 324, 1282, 699, 391, 145],
         stats: {
             totalBusinesses: 0,
-            population: '3,794',
-            stat3: 'Pulo',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            population: '3794',
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '5th'
         }
     },
     'Wholesale and Distribution': {
@@ -346,11 +345,11 @@ const dataForCategories = {
         pieData: [434, 519, 324, 1282, 699, 391, 145],
         stats: {
             totalBusinesses: 0,
-            population: '3,794',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Tres',
-            marketDemands: 0
-        }
+            population: '3794',
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '9th'
+        } 
     },
 };
 

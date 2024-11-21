@@ -35,12 +35,12 @@ const dataForCategories = {
         barData: [50, 4, 4, 27, 4, 0, 3, 1, 1, 4, 35, 6 ], 
         pieData: [12926, 15003, 8293, 28626, 14936, 6139, 1587],
         stats: {
-            totalBusinesses: 2679,
+            totalBusinesses: 139,
             population: '87,645',
-            stat3: 'Pulo',
-            stat4: 'Casile',
-            marketDemands: 0,
-            marketGaps: 'Tourism'
+            stat3: 'Blanks',
+            stat4: 'Purok 3',
+            marketDemands: 'Creative and Media Services'
+            
             
         }
     },
@@ -56,11 +56,11 @@ const dataForCategories = {
         barData: [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0],
         pieData: [12926, 15003, 8293, 28626, 14936, 6139, 1587],
         stats: {
-            totalBusinesses: 94,
+            totalBusinesses: 3,
             population: '87,645',
-            stat3: 'Pulo',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'Blanks, National Highway, Southville 1',
+            stat4: 'Console Village, Hemedez Compound, NIA Road, Purok 3, Regatta South Executive Homes, Riverside Road, San Antonio, SB Hain Compound, St. Francis Homes 6',
+            marketDemands: '9th'
         }
     },
     'Construction and Real Estate': {
@@ -77,11 +77,11 @@ const dataForCategories = {
         barData: [3, 1, 2, 6, 0, 0, 0, 0, 0, 0, 3, 3],
         pieData: [12926, 15003, 8293, 28626, 14936, 6139, 1587],
         stats: {
-            totalBusinesses: 336,
+            totalBusinesses: 18,
             population: '87,645',
-            stat3: 'Pulo',
-            stat4: 'Butong',
-            marketDemands: 0
+            stat3: 'National Highway',
+            stat4: 'NIA Road, Purok 3, Regatta South Executive Homes, Riverside Road, San Antonio, SB Hain Compound',
+            marketDemands: '4th'
         }
     },
     'Cooperative Business': {
@@ -93,11 +93,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
         pieData: [12926, 15003, 8293, 28626, 14936, 6139, 1587],
         stats: {
-            totalBusinesses: 30,
+            totalBusinesses: 0,
             population: '87,645',
-            stat3: 'Sala',
-            stat4: 'Butong',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '11th'
         }
     },
     'Creative and Media Service': {
@@ -110,11 +110,11 @@ const dataForCategories = {
         barData: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
         pieData: [12926, 15003, 8293, 28626, 14936, 6139, 1587],
         stats: {
-            totalBusinesses: 30,
+            totalBusinesses: 2,
             population: '87,645',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'Blanks, Southville 1',
+            stat4: 'Console Village, Hemedez Compound, National Highway, NIA Road, Purok 3, Regatta South Executive Homes, Riverside Road, San Antonio, SB Hain Compound, St. Francis Homes 6',
+            marketDemands: '1st'
         }
     },
     'Education Services': {
@@ -129,11 +129,11 @@ const dataForCategories = {
         barData: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [12926, 15003, 8293, 28626, 14936, 6139, 1587],
         stats: {
-            totalBusinesses: 61,
+            totalBusinesses: 1,
             population: '87,645',
-            stat3: 'Mamatid',
-            stat4: 'Diezmo',
-            marketDemands: 0
+            stat3: 'Blanks',
+            stat4: 'Console Village, Hemedez Compound, National Highway, NIA Road, Purok 3, Regatta South Executive Homes, Riverside Road, San Antonio, SB Hain Compound, Southville 1, St. Francis Homes 6',
+            marketDemands: '9th'
         }
     },
     'Entertainment and Recreation': {
@@ -148,11 +148,11 @@ const dataForCategories = {
         barData: [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [12926, 15003, 8293, 28626, 14936, 6139, 1587],
         stats: {
-            totalBusinesses: 13,
+            totalBusinesses: 1,
             population: '87,645',
-            stat3: 'Banlic',
-            stat4: 'Poblacion Uno',
-            marketDemands: 0
+            stat3: 'Console Village',
+            stat4: 'Blanks, Hemedez Compound, National Highway, NIA Road, Purok 3, Regatta South Executive Homes, Riverside Road, San Antonio, SB Hain Compound, Southville 1, St. Francis Homes 6',
+            marketDemands: '8th'
         }
     },
     'Finance and Insurance': {
@@ -167,11 +167,11 @@ const dataForCategories = {
         barData: [3, 0, 0, 1, 0, 0, 0, 0, 0, 0, 3, 0],
         pieData: [12926, 15003, 8293, 28626, 14936, 6139, 1587],
         stats: {
-            totalBusinesses: 112,
+            totalBusinesses: 7,
             population: '87,645',
-            stat3: 'Banlic',
-            stat4: 'Baclaran',
-            marketDemands: 0
+            stat3: 'Blanks, Southville 1',
+            stat4: 'Console Village, Hemedez Compound, NIA Road, Purok 3, Regatta South Executive Homes, Riverside Road, San Antonio, SB Hain Compound, St. Francis Homes 6',
+            marketDemands: '6th'
         }
     },
     'Food Services': {
@@ -186,11 +186,11 @@ const dataForCategories = {
         barData: [6, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [12926, 15003, 8293, 28626, 14936, 6139, 1587],
         stats: {
-            totalBusinesses: 169,
+            totalBusinesses: 7,
             population: '87,645',
-            stat3: 'Pulo',
-            stat4: 'Bigaa',
-            marketDemands: 0
+            stat3: 'Blanks',
+            stat4: 'Console Village, Hemedez Compound, NIA Road, Purok 3, Regatta South Executive Homes, Riverside Road, San Antonio, SB Hain Compound, Southville 1, St. Francis Homes 6',
+            marketDemands: '4th'
         }
     },
     'Healthcare Services': {
@@ -206,11 +206,11 @@ const dataForCategories = {
         barData: [2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 3, 0],
         pieData: [12926, 15003, 8293, 28626, 14936, 6139, 1587],
         stats: {
-            totalBusinesses: 149,
+            totalBusinesses: 7,
             population: '87,645',
-            stat3: 'Pulo',
-            stat4: 'Casile',
-            marketDemands: 0
+            stat3: 'Southville 1',
+            stat4: 'Console Village, Hemedez Compound, NIA Road, Purok 3, Regatta South Executive Homes, Riverside Road, San Antonio, SB Hain Compound, St. Francis Homes 6',
+            marketDemands: '8th'
         }
     },
     'IT and Digital Services': {
@@ -225,11 +225,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0],
         pieData: [12926, 15003, 8293, 28626, 14936, 6139, 1587],
         stats: {
-            totalBusinesses: 27,
+            totalBusinesses: 2,
             population: '87,645',
-            stat3: 'Sala',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'National Highway, Southville 1',
+            stat4: 'Blanks, Console Village, Hemedez Compound, NIA Road, Purok 3, Regatta South Executive Homes, Riverside Road, San Antonio, SB Hain Compound, St. Francis Homes 6',
+            marketDemands: '3rd'
         }
     },
     'Manufacturing and Production': {
@@ -246,11 +246,11 @@ const dataForCategories = {
         barData: [5, 0, 1, 1, 1, 0, 0, 0, 0, 2, 0, 1 ],
         pieData: [12926, 15003, 8293, 28626, 14936, 6139, 1587],
         stats: {
-            totalBusinesses: 129,
+            totalBusinesses: 11,
             population: '87,645',
-            stat3: 'Diezmo',
-            stat4: 'Poblacion Uno',
-            marketDemands: 0
+            stat3: 'Blanks',
+            stat4: 'Console Village, Purok 3, Regatta South Executive Homes, Riverside Road, San Antonio, Southville 1',
+            marketDemands: '7th'
         }
     },
     'Personal and Household Services': {
@@ -266,11 +266,11 @@ const dataForCategories = {
         barData: [2, 0, 0, 2, 0, 0, 1, 0, 0, 0, 2, 0],
         pieData: [12926, 15003, 8293, 28626, 14936, 6139, 1587],
         stats: {
-            totalBusinesses: 76,
+            totalBusinesses: 7,
             population: '87,645',
-            stat3: 'Mamatid',
-            stat4: 'Pittland',
-            marketDemands: 0
+            stat3: 'Blanks, National Highway, Southville 1',
+            stat4: 'Console Village, Hemedez Compound, NIA Road, Purok 3, Riverside Road, San Antonio, SB Hain Compound, St. Francis Homes 6',
+            marketDemands: '5th'
         }
     },
     'Personal Care Services': {
@@ -285,11 +285,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [12926, 15003, 8293, 28626, 14936, 6139, 1587],
         stats: {
-            totalBusinesses: 28,
+            totalBusinesses: 0,
             population: '87,645',
-            stat3: 'Pulo',
-            stat4: 'Niugan',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '5th'
         }
     },
     'Professional Services': {
@@ -305,11 +305,11 @@ const dataForCategories = {
         barData: [3, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0],
         pieData: [12926, 15003, 8293, 28626, 14936, 6139, 1587],
         stats: {
-            totalBusinesses: 126,
+            totalBusinesses: 6,
             population: '87,645',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'Blanks',
+            stat4: 'Console Village, NIA Road, Purok 3, Regatta South Executive Homes, Riverside Road, San Antonio, SB Hain Compound, St. Francis Homes 6',
+            marketDemands: '3rd'
         }
     },
     'Retail Stores': {
@@ -325,11 +325,11 @@ const dataForCategories = {
         barData: [18, 1, 0, 10, 0, 0, 0, 1, 0, 1, 20, 0],
         pieData: [12926, 15003, 8293, 28626, 14936, 6139, 1587],
         stats: {
-            totalBusinesses: 947,
+            totalBusinesses: 51,
             population: '87,645',
-            stat3: 'Banlic',
-            stat4: 'Diezmo',
-            marketDemands: 0
+            stat3: 'Southville 1',
+            stat4: 'Hemedez Compound, NIA Road, Purok 3, Regatta South Executive Homes, San Antonio, St. Francis Homes 6',
+            marketDemands: '10th'
         }
     },
     'Tourism and Hospitality': {
@@ -343,11 +343,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [12926, 15003, 8293, 28626, 14936, 6139, 1587],
         stats: {
-            totalBusinesses: 19,
+            totalBusinesses: 0,
             population: '87,645',
-            stat3: 'Pulo',
-            stat4: 'Niugan',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '7th'
         }
     },
     'Transportation and Logistics': {
@@ -362,11 +362,11 @@ const dataForCategories = {
         barData: [3, 1, 0, 0, 1, 0, 2, 0, 1, 1, 0, 2],
         pieData: [12926, 15003, 8293, 28626, 14936, 6139, 1587],
         stats: {
-            totalBusinesses: 227,
+            totalBusinesses: 11,
             population: '87,645',
-            stat3: 'Pulo',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'Blanks',
+            stat4: 'Hemedez Compound, National Highway, Purok 3, Riverside Road, Southville 1',
+            marketDemands: '5th'
         }
     },
     'Wholesale and Distribution': {
@@ -383,9 +383,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 5,
             population: '87,645',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Tres',
-            marketDemands: 0
+            stat3: 'Blanks, NIA Road',
+            stat4: 'Console Village, Hemedez Compound, Purok 3, Regatta South Executive Homes, Riverside Road, San Antonio, SB Hain Compound, Southville 1, St. Francis Homes 6',
+            marketDemands: '2nd'
         }
     },
 };

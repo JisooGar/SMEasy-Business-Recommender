@@ -53,73 +53,123 @@
     margin-left: auto;
   }
   
+ /* Navigation Menu Styles */
+.menu ul {
+  display: flex;
+  list-style: none;
+  justify-content: flex-start; /* Left-align for desktop */
+  padding: 0;
+  margin: 0;
+}
+
+.menu ul li {
+  margin-left: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px; /* Adjust font size for readability */
+  transition: color 0.3s ease;
+}
+
+.menu ul li a:hover {
+  color: #ff7200;
+}
+
+/* Responsive Logo and Navigation */
+@media (max-width: 768px) {
+  .icon {
+      justify-content: center; /* Center logo on smaller screens */
+  }
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
   .menu ul {
-    display: flex;
-    list-style: none;
-    align-items: center;
+    flex-wrap: wrap; /* Allow items to wrap */
+    justify-content: center; /* Center align for smaller screens */
   }
-  
+
   .menu ul li {
-    margin-left: 30px;
-    margin-right: 30px;
-    cursor: pointer;
+    margin: 10px 0; /* Add space between items when wrapping */
   }
-  
+
   .menu ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    transition: color 0.3s;
+    font-size: 14px; /* Reduce font size for mobile */
   }
-  
-  .menu ul li a:hover {
-    color: #ff7200;
+}
+
+/* Smaller Screens */
+@media (max-width: 480px) {
+  .menu ul li a {
+    font-size: 12px; /* Further reduce font size for very small screens */
+    padding: 5px 10px;
   }
+}
+
   
   .content {
     margin-top: 50px;
   }
   
-  .content h1 {
-    font-family: 'Times New Roman';
-    font-size: 50px;
-    letter-spacing: 2px;
-    line-height: 1.2;
-  }
+/* Hero Section Content */
+.content h1 {
+  font-family: 'Times New Roman', serif;
+  font-size: 3rem; /* Default size for desktop */
+  text-align: left; /* Align left for larger screens */
+  line-height: 1.2; /* Adjust line height for better spacing */
+  margin-bottom: 20px; /* Add spacing below the heading */
+}
   
   .orange-text {
     color: #ff7200;
   }
   
+/* Paragraph below the heading */
+.content .par {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: left;
+  font-family: Arial, sans-serif;
+  margin-bottom: 20px;
+}
+
+/* Responsive Adjustments for Smaller Screens */
+@media (max-width: 768px) {
+  .content h1 {
+      font-size: 2.5rem; /* Slightly reduce for tablets */
+      text-align: center; /* Center-align on smaller devices */
+      line-height: 1.3; /* Adjust line height */
+  }
+
   .content .par {
-    margin: 20px 0;
-    font-family: Arial;
-    letter-spacing: 1.2px;
-    line-height: 1.5;
+      font-size: 1.1rem; /* Slightly smaller font size for paragraph */
+      text-align: center; /* Center-align the paragraph */
+      margin: 0 auto; /* Center text on smaller screens */
   }
-  
-  .cn {
-    background: #ff7200;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    color: #000;
-    text-align: center;
-    display: inline-block;
-    transition: background 0.3s ease;
+
+
+}
+
+@media (max-width: 480px) {
+  .content h1 {
+      font-size: 2rem; /* Larger size for very small devices */
+      text-align: center;
+      line-height: 1.4; /* Adjust for better readability */
   }
-  
-  .cn a {
-    text-decoration: none;
-    color: inherit;
+
+  .content .par {
+      font-size: 1rem; /* Slightly smaller font size */
+      text-align: center;
+      padding: 0 10px; /* Add padding for text spacing */
   }
+}
   
-  .cn:hover {
-    background: #ff5500;
-  }
-  
+ 
   .container {
     background: #fafafa;
     width: 100%;
@@ -129,6 +179,25 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
   }
+
+  /* Adjust Container for Smaller Screens */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px; /* Reduce padding for smaller screens */
+    max-width: 90%; /* Increase width flexibility */
+  }
+}
+
+.container .btn {
+  width: 100%; /* Full width button on smaller screens */
+  font-size: 1rem; /* Slightly larger text */
+  padding: 10px; /* Adjust padding */
+}
+
+/* Adjust Input Fields and Labels */
+.container .input-group input {
+  font-size: 14px; /* Adjust font size for smaller screens */
+}
   
   .container .input-group {
     position: relative;
@@ -238,114 +307,67 @@
     margin-top: -10px;
   }
   
-  footer {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: auto;
-    background-color: #2d2e33;
-    padding: 60px 10%;
+  /* CSS for fixed footer with design */
+.footer-text {
+  bottom: 0; /* Aligns it at the very bottom */
+  width: 100%; /* Spans the entire width of the page */
+  text-align: center; /* Centers the text horizontally */
+  font-size: 14px; /* Adjust font size */
+  color: white; /* Text color */
+  font-family: 'Arial', sans-serif; /* Professional font */
+  background-color: #3a3a3a; /* Background color for footer */
+  padding: 10px 0; /* Adds padding for a better look */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+  z-index: 1000; /* Ensures it stays above other content */
+
+}
+
+  
+  /* Responsive Layout for Outer Container */
+@media (max-width: 768px) {
+  .outer-container {
+    flex-direction: column; /* Stack left and right sections */
   }
-  
-  ul {
-    list-style: none;
+
+  .left-section,
+  .right-section {
+    width: 100%; /* Full-width for both sections */
+    padding: 20px;
   }
-  
-  .footer-col {
-    width: 25%;
+
+  .left-section {
+    text-align: center; /* Center-align left section content */
   }
-  
-  .footer-col h4 {
-    position: relative;
-    margin-bottom: 30px;
-    font-weight: 400;
-    font-size: 22px;
-    color: #f1bc0d;
-    text-transform: capitalize;
+}
+
+/* For Very Small Screens */
+@media (max-width: 480px) {
+  .left-section {
+    padding: 10px;
   }
-  
-  .footer-col h4::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    background-color: #27c0ac;
-    height: 2px;
-    width: 40px;
+
+  .content h1 {
+    font-size: 1.5rem; /* Reduce heading size further */
   }
-  
-  ul li:not(:last-child) {
-    margin-bottom: 8px;
+
+  .content .par {
+    font-size: 0.9rem; /* Smaller text for very small devices */
   }
-  
-  ul li a {
-    display: block;
-    font-size: 19px;
-    text-transform: capitalize;
-    color: #bdb6b6;
-    text-decoration: none;
-    transition: 0.4s;
+
+  .container {
+    padding: 15px; /* Minimal padding for small screens */
+    max-width: 95%; /* Max width for tiny screens */
   }
-  
-  ul li a:hover {
-    color: white;
-    padding-left: 2px;
+
+  .btn {
+    font-size: 0.9rem; /* Adjust button font size */
+    padding: 8px;
   }
-  
-  .links a {
-    display: inline-block;
-    height: 44px;
-    width: 44px;
-    color: white;
-    background-color: rgba(40, 130, 214, 0.8);
-    margin: 0 8px 8px 0;
-    text-align: center;
-    line-height: 44px;
-    border-radius: 50%;
-    transition: 0.4s;
-  }
-  
-  .links a:hover {
-    color: #4d4f55;
-    background-color: white;
-  }
-  
-  @media (max-width: 1200px) {
-    .outer-container {
-      flex-direction: column;
-    }
-  
-    .left-section,
-    .right-section {
-      width: 100%;
-      padding: 20px;
-    }
-  
-    .left-section {
-      text-align: center;
-    }
-  
-    .menu ul {
-      justify-content: center;
-    }
-  }
-  
-  @media (max-width: 740px) {
-    .footer-col {
-      width: 50%;
-      margin-bottom: 30px;
-      text-align: center;
-    }
-  
-    .footer-col h4::before {
-      all: unset;
-    }
-  }
-  
-  @media (max-width: 555px) {
-    .footer-col {
-      width: 100%;
-    }
-  }
+}
+
+
+
+
   .google-signin {
     display: flex;
     align-items: center;
@@ -374,50 +396,108 @@
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   }
   
-  .scroll-section {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-  
-  }
-  
+ /* General Styles for Sections */
+.scroll-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ffe29f, #ffa99f);
+  padding: 2px; /* Add padding for spacing on smaller screens */
+}
+
+.section-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: auto; /* Allow sections to adapt to content height */
+  background: linear-gradient(135deg, #ffe29f, #ffa99f);
+}
+
+.section-content:nth-child(even) {
+  flex-direction: row-reverse;
+  background: linear-gradient(135deg, #ffcc80, #ff7043);
+}
+
+/* Images */
+.section-image {
+  flex: 1;
+  max-width: 50%; /* Restrict max width to ensure it doesn't overflow */
+  height: auto;
+  object-fit: contain;
+  margin: 20px; /* Add margin for spacing */
+}
+
+/* Text */
+.text-content {
+  flex: 1;
+  padding: 0 20px; /* Adjust padding for smaller screens */
+  color: #333;
+  font-family: 'Georgia', serif;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+.text-content h2 {
+  font-size: 2rem;
+  color: #222;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.text-content p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
   .section-content {
-    display: flex;
-    flex-direction: row;
-    height: 100vh; /* Full screen height */
-    background: linear-gradient(135deg, #ffe29f, #ffa99f);
-    align-items: center;
-    justify-content: center; /* Center content */
+      flex-direction: column; /* Stack content vertically */
   }
-  .section-content:nth-child(even) {
-    flex-direction: row-reverse;
-    background: linear-gradient(135deg, #ffcc80, #ff7043); /* Same gradient for all sections */
-  }
+
   .section-image {
-    flex: 1;
-    max-width: 50%;
-    height: auto;
+      max-width: 80%; /* Adjust image size for smaller screens */
+      margin: 10px auto; /* Center images */
   }
+
   .text-content {
-    flex: 1;
-    padding: 0 40px;
-    color: #333;
-    font-family: 'Georgia', serif; /* More formal font */
-    line-height: 1.8; /* Increase line height for readability */
+      text-align: center; /* Center-align text on smaller devices */
+      padding: 0 10px; /* Reduce padding */
   }
+
   .text-content h2 {
-    font-size: 2.5rem; /* Slightly increase heading size */
-    color: #222; /* Darker color for more contrast */
-    margin-bottom: 15px; /* Add spacing below heading */
-    font-weight: bold; /* Make the heading bold */
+      font-size: 1.5rem; /* Adjust font size for headings */
   }
+
   .text-content p {
-    font-size: 1.1rem; /* Slightly reduce paragraph size */
-    margin-bottom: 20px; /* Add more space between paragraphs */
-    text-align: justify; /* Justify text for a cleaner look */
+      font-size: 0.9rem; /* Adjust font size for text */
   }
+}
+
+@media (max-width: 480px) {
+  .section-content {
+      flex-direction: column; /* Ensure stacking on very small screens */
+  }
+
+  .section-image {
+      max-width: 90%; /* Further reduce image size */
+  }
+
+  .text-content {
+      padding: 0 5px; /* Minimal padding for very small screens */
+  }
+
+  .text-content h2 {
+      font-size: 1.2rem; /* Smaller heading font size */
+  }
+
+  .text-content p {
+      font-size: 0.8rem; /* Smaller text font size */
+  }
+}
+
   
   /* Modal Styles */
 .modal {

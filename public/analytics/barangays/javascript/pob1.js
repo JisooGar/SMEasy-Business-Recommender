@@ -36,12 +36,11 @@ const dataForCategories = {
         barData: [1, 1, 35, 2, 3, 2, 4, 4, 1, 8, 1], 
         pieData: [826, 1030, 1195, 1204, 1286, 1186, 298],
         stats: {
-            totalBusinesses: 2679,
+            totalBusinesses: 62,
             population: '7,025',
-            stat3: 'Pulo',
-            stat4: 'Casile',
-            marketDemands: 0,
-            marketGaps: 'Tourism'
+            stat3: 'JP Rizal St.',
+            stat4: 'Bermudez Compound, Blanks, Osmena St., Vanessa Compound',
+            marketDemands: 'Healthcare Services'
             
         }
     },
@@ -58,11 +57,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0], 
         pieData: [826, 1030, 1195, 1204, 1286, 1186, 298],
         stats: {
-            totalBusinesses: 94,
+            totalBusinesses: 1,
             population: '7,025',
-            stat3: 'Pulo',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'Juan Luna St.',
+            stat4: 'Bermudez Compound, Blanks, JP Rizal St., Limacaoco St., Mabini St., Malvar St., ML Quezon St, Osmena St., P Burgos St., Vanessa Compound',
+            marketDemands: '6th'
         }
     },
     'Construction and Real Estate': {
@@ -80,11 +79,11 @@ const dataForCategories = {
         barData: [0, 1, 7, 0, 2, 0, 1, 0, 0, 2, 0], 
         pieData: [826, 1030, 1195, 1204, 1286, 1186, 298],
         stats: {
-            totalBusinesses: 336,
+            totalBusinesses: 13,
             population: '7,025',
-            stat3: 'Pulo',
-            stat4: 'Butong',
-            marketDemands: 0
+            stat3: 'JP Rizal St.',
+            stat4: 'Bermudez Compound, Juan Luna St., Mabini St., ML Quezon St, Osmena St., Vanessa Compound',
+            marketDemands: '8th'
         }
     },
     'Cooperative Business': {
@@ -97,11 +96,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [826, 1030, 1195, 1204, 1286, 1186, 298],
         stats: {
-            totalBusinesses: 30,
+            totalBusinesses: 0,
             population: '7,025',
-            stat3: 'Sala',
-            stat4: 'Butong',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '8th'
         }
     },
     'Creative and Media Service': {
@@ -115,11 +114,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
         pieData: [826, 1030, 1195, 1204, 1286, 1186, 298],
         stats: {
-            totalBusinesses: 30,
+            totalBusinesses: 1,
             population: '7,025',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'P Burgos St.',
+            stat4: 'Bermudez Compound, Blanks, JP Rizal St., Juan Luna St., Limacaoco St., Mabini St., Malvar St., ML Quezon St, Osmena St., Vanessa Compound',
+            marketDemands: '4th'
         }
     },
     'Education Services': {
@@ -135,11 +134,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0],
         pieData: [826, 1030, 1195, 1204, 1286, 1186, 298],
         stats: {
-            totalBusinesses: 61,
+            totalBusinesses: 4,
             population: '7,025',
-            stat3: 'Mamatid',
-            stat4: 'Diezmo',
-            marketDemands: 0
+            stat3: 'Limacaoco St., Mabini St., ML Quezon St, P Burgos St.',
+            stat4: 'Bermudez Compound, Blanks, JP Rizal St., Juan Luna St., Malvar St., Osmena St., Vanessa Compound',
+            marketDemands: '7th'
         }
     },
     'Entertainment and Recreation': {
@@ -155,11 +154,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [826, 1030, 1195, 1204, 1286, 1186, 298],
         stats: {
-            totalBusinesses: 13,
+            totalBusinesses: 0,
             population: '7,025',
-            stat3: 'Banlic',
-            stat4: 'Poblacion Uno',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '6th'
         }
     },
     'Finance and Insurance': {
@@ -175,11 +174,11 @@ const dataForCategories = {
         barData: [0, 0, 7, 0, 0, 0, 0, 0, 0, 1, 0],
         pieData: [826, 1030, 1195, 1204, 1286, 1186, 298],
         stats: {
-            totalBusinesses: 112,
+            totalBusinesses: 8,
             population: '7,025',
-            stat3: 'Banlic',
-            stat4: 'Baclaran',
-            marketDemands: 0
+            stat3: 'JP Rizal St.',
+            stat4: 'Bermudez Compound, Blanks, Juan Luna St., Limacaoco St., Mabini St., Malvar St., ML Quezon St, Osmena St., Vanessa Compound',
+            marketDemands: '10th'
         }
     },
     'Food Services': {
@@ -195,11 +194,11 @@ const dataForCategories = {
         barData: [0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0],
         pieData: [826, 1030, 1195, 1204, 1286, 1186, 298],
         stats: {
-            totalBusinesses: 169,
+            totalBusinesses: 4,
             population: '7,025',
-            stat3: 'Pulo',
-            stat4: 'Bigaa',
-            marketDemands: 0
+            stat3: 'JP Rizal St., Mabini St., Malvar St., ML Quezon St',
+            stat4: 'Bermudez Compound, Blanks, Juan Luna St., Limacaoco St., Osmena St., P Burgos St., Vanessa Compound',
+            marketDemands: '7th'
         }
     },
     'Healthcare Services': {
@@ -216,11 +215,11 @@ const dataForCategories = {
         barData: [0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [826, 1030, 1195, 1204, 1286, 1186, 298],
         stats: {
-            totalBusinesses: 149,
+            totalBusinesses: 4,
             population: '7,025',
-            stat3: 'Pulo',
-            stat4: 'Casile',
-            marketDemands: 0
+            stat3: 'JP Rizal St.',
+            stat4: 'Bermudez Compound, Blanks, Juan Luna St., Limacaoco St., Mabini St., Malvar St., ML Quezon St, Osmena St., P Burgos St., Vanessa Compound',
+            marketDemands: '1st'
         }
     },
     'IT and Digital Services': {
@@ -236,11 +235,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
         pieData: [826, 1030, 1195, 1204, 1286, 1186, 298],
         stats: {
-            totalBusinesses: 27,
+            totalBusinesses: 1,
             population: '7,025',
-            stat3: 'Sala',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'Osmena St.',
+            stat4: 'Bermudez Compound, Blanks, JP Rizal St., Juan Luna St., Limacaoco St., Mabini St., Malvar St., ML Quezon St, P Burgos St., Vanessa Compound',
+            marketDemands: '9th'
         }
     },
     'Manufacturing and Production': {
@@ -258,11 +257,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [826, 1030, 1195, 1204, 1286, 1186, 298],
         stats: {
-            totalBusinesses: 129,
+            totalBusinesses: 0,
             population: '7,025',
-            stat3: 'Diezmo',
-            stat4: 'Poblacion Uno',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '11th'
         }
     },
     'Personal and Household Services': {
@@ -279,11 +278,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
         pieData: [826, 1030, 1195, 1204, 1286, 1186, 298],
         stats: {
-            totalBusinesses: 76,
+            totalBusinesses: 1,
             population: '7,025',
-            stat3: 'Mamatid',
-            stat4: 'Pittland',
-            marketDemands: 0
+            stat3: 'Malvar St.',
+            stat4: 'Bermudez Compound, Blanks, JP Rizal St., Juan Luna St., Limacaoco St., Mabini St., ML Quezon St, Osmena St., P Burgos St., Vanessa Compound',
+            marketDemands: '7th'
         }
     },
     'Personal Care Services': {
@@ -299,11 +298,11 @@ const dataForCategories = {
         barData: [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [826, 1030, 1195, 1204, 1286, 1186, 298],
         stats: {
-            totalBusinesses: 28,
+            totalBusinesses: 1,
             population: '7,025',
-            stat3: 'Pulo',
-            stat4: 'Niugan',
-            marketDemands: 0
+            stat3: 'JP Rizal St.',
+            stat4: 'Bermudez Compound, Blanks, Juan Luna St., Limacaoco St., Mabini St., Malvar St., ML Quezon St, Osmena St., P Burgos St., Vanessa Compound',
+            marketDemands: '3rd'
         }
     },
     'Professional Services': {
@@ -320,11 +319,11 @@ const dataForCategories = {
         barData: [0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0],
         pieData: [826, 1030, 1195, 1204, 1286, 1186, 298],
         stats: {
-            totalBusinesses: 126,
+            totalBusinesses: 2,
             population: '7,025',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'JP Rizal St., Juan Luna St.',
+            stat4: 'Bermudez Compound, Blanks, Limacaoco St., Mabini St., Malvar St., ML Quezon St, Osmena St., P Burgos St., Vanessa Compound',
+            marketDemands: '10th'
         }
     },
     'Retail Stores': {
@@ -341,11 +340,11 @@ const dataForCategories = {
         barData: [0, 0, 14, 0, 0, 0, 1, 1, 0, 3, 0],
         pieData: [826, 1030, 1195, 1204, 1286, 1186, 298],
         stats: {
-            totalBusinesses: 947,
+            totalBusinesses: 19,
             population: '7,025',
-            stat3: 'Banlic',
-            stat4: 'Diezmo',
-            marketDemands: 0
+            stat3: 'JP Rizal St.',
+            stat4: 'Bermudez Compound, Blanks, Juan Luna St., Limacaoco St., Mabini St., Osmena St., Vanessa Compound',
+            marketDemands: '5th'
         }
     },
     'Tourism and Hospitality': {
@@ -360,11 +359,11 @@ const dataForCategories = {
         barData:  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [826, 1030, 1195, 1204, 1286, 1186, 298],
         stats: {
-            totalBusinesses: 19,
+            totalBusinesses: 0,
             population: '7,025',
-            stat3: 'Pulo',
-            stat4: 'Niugan',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '7th'
         }
     },
     'Transportation and Logistics': {
@@ -380,11 +379,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1],
         pieData: [826, 1030, 1195, 1204, 1286, 1186, 298],
         stats: {
-            totalBusinesses: 227,
+            totalBusinesses: 2,
             population: '7,025',
-            stat3: 'Pulo',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'ML Quezon St, Vanessa Compound',
+            stat4: 'Bermudez Compound, Blanks, JP Rizal St., Juan Luna St., Limacaoco St., Mabini St., Malvar St., Osmena St., P Burgos St.',
+            marketDemands: '2nd'
         }
     },
     'Wholesale and Distribution': {
@@ -400,11 +399,11 @@ const dataForCategories = {
         barData: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
         pieData: [826, 1030, 1195, 1204, 1286, 1186, 298],
         stats: {
-            totalBusinesses: 113,
+            totalBusinesses: 1,
             population: '7,025',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Tres',
-            marketDemands: 0
+            stat3: 'Bermudez Compound',
+            stat4: 'Blanks, JP Rizal St., Juan Luna St., Limacaoco St., Mabini St., Malvar St., ML Quezon St, Osmena St., P Burgos St., Vanessa Compound',
+            marketDemands: '10th'
         }
     },
 };

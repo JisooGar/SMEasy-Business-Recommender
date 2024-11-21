@@ -37,12 +37,12 @@ const dataForCategories = {
         barData: [2, 15, 11, 56, 1, 2, 1, 22, 3, 6, 2, 1, 64, 1, 0, 2, 1, 1, 1, 2, 27, 3, 10], 
         pieData: [1383, 1966, 1658, 5118, 3170, 2499, 1248],
         stats: {
-            totalBusinesses: 2679,
+            totalBusinesses: 234,
             population: '10,903',
-            stat3: 'Pulo',
-            stat4: 'Casile',
-            marketDemands: 0,
-            marketGaps: 'Tourism'
+            stat3: 'National Highway',
+            stat4: 'NIA Road',
+            marketDemands: 'Personal and Household Services, Tourism and Hospitality',
+            
             
         }
     },
@@ -60,11 +60,11 @@ const dataForCategories = {
         barData: [0, 1, 1, 3, 0, 0, 0, 3, 0, 1, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [1383, 1966, 1658, 5118, 3170, 2499, 1248],
         stats: {
-            totalBusinesses: 94,
+            totalBusinesses: 16,
             population: '10,903',
-            stat3: 'Pulo',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'National Highway',
+            stat4: 'Asia Brewery Compound, Casa Esperanza, Don Onofre Building 2, Florence Homes, La Bella Homes, Mercedez Village, Multiland III, Nevalga Farm Drive, NIA Road, PFB Bailon St., Purok 1, Purok 2, Purok 4, Purok 5, Rosario Village, Rotonda, Shineland',
+            marketDemands: '5th'
         }
     },
     'Construction and Real Estate': {
@@ -83,11 +83,11 @@ const dataForCategories = {
         barData: [0, 2, 0, 8, 0, 0, 1, 1, 1, 1, 1, 0, 11, 0, 0, 0, 0, 0, 0, 0, 4, 0, 1], 
         pieData: [1383, 1966, 1658, 5118, 3170, 2499, 1248],
         stats: {
-            totalBusinesses: 336,
+            totalBusinesses: 31,
             population: '10,903',
-            stat3: 'Pulo',
-            stat4: 'Butong',
-            marketDemands: 0
+            stat3: 'National Highway',
+            stat4: 'Asia Brewery Compound, Bella Subdivision, Casa Esperanza, Don Onofre Building 2, Multiland III, Nevalga Farm Drive, NIA Road, PFB Bailon St., Purok 1, Purok 2, Purok 4, Purok 5, Rotonda',
+            marketDemands: '2nd'
         }
     },
     'Cooperative Business': {
@@ -101,11 +101,11 @@ const dataForCategories = {
         barData: [0, 1, 1, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0],
         pieData: [1383, 1966, 1658, 5118, 3170, 2499, 1248],
         stats: {
-            totalBusinesses: 30,
+            totalBusinesses: 8,
             population: '10,903',
-            stat3: 'Sala',
-            stat4: 'Butong',
-            marketDemands: 0
+            stat3: 'Rosario Village',
+            stat4: 'Asia Brewery Compound, Casa Esperanza, Don Onofre Building 2, Florence Homes, La Bella Homes, Marinig Road, Mercedez Village, Multiland III, National Highway, Nevalga Farm Drive, NIA Road, PFB Bailon St., Purok 1, Purok 2, Purok 4, Purok 5, Rotonda, Shineland',
+            marketDemands: '7th'
         }
     },
     'Creative and Media Service': {
@@ -120,11 +120,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0],
         pieData: [1383, 1966, 1658, 5118, 3170, 2499, 1248],
         stats: {
-            totalBusinesses: 30,
+            totalBusinesses: 3,
             population: '10,903',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'Rosario Village',
+            stat4: 'Asia Brewery Compound, Bagong Silang, Bella Subdivision, Casa Esperanza, Don Onofre Building 2, Florence Homes, JP Rizal St., La Bella Homes, Marinig Road, Mercedez Village, Multiland III, National Highway, Nevalga Farm Drive, NIA Road, PFB Bailon St., Purok 1, Purok 2, Purok 4, Purok 5, Rotonda, Shineland',
+            marketDemands: '6th'
         }
     },
     'Education Services': {
@@ -141,11 +141,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0],
         pieData: [1383, 1966, 1658, 5118, 3170, 2499, 1248],
         stats: {
-            totalBusinesses: 61,
+            totalBusinesses: 5,
             population: '10,903',
-            stat3: 'Mamatid',
-            stat4: 'Diezmo',
-            marketDemands: 0
+            stat3: 'Blanks',
+            stat4: 'Asia Brewery Compound, Bagong Silang, Bella Subdivision, Casa Esperanza, Don Onofre Building 2, Florence Homes, JP Rizal St., La Bella Homes, Marinig Road, Mercedez Village, Multiland III, NIA Road, PFB Bailon St., Purok 1, Purok 2, Purok 4, Purok 5, Rotonda, Shineland',
+            marketDemands: '7th'
         }
     },
     'Entertainment and Recreation': {
@@ -162,11 +162,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
         pieData: [1383, 1966, 1658, 5118, 3170, 2499, 1248],
         stats: {
-            totalBusinesses: 13,
+            totalBusinesses: 0,
             population: '10,903',
-            stat3: 'Banlic',
-            stat4: 'Poblacion Uno',
-            marketDemands: 0
+            stat3: 'Rosario Village',
+            stat4: 'Asia Brewery Compound, Bagong Silang, Bella Subdivision, Blanks, Casa Esperanza, Don Onofre Building 2, Florence Homes, JP Rizal St., La Bella Homes, Marinig Road, Mercedez Village, Multiland III, National Highway, Nevalga Farm Drive, NIA Road, PFB Bailon St., Purok 1, Purok 2, Purok 4, Purok 5, Rotonda, Shineland',
+            marketDemands: '6th'
         }
     },
     'Finance and Insurance': {
@@ -183,11 +183,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 3, 0, 1, 0, 2, 0, 0, 0, 0, 4, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1],
         pieData: [1383, 1966, 1658, 5118, 3170, 2499, 1248],
         stats: {
-            totalBusinesses: 112,
+            totalBusinesses: 13,
             population: '10,903',
-            stat3: 'Banlic',
-            stat4: 'Baclaran',
-            marketDemands: 0
+            stat3: 'National Highway',
+            stat4: 'Asia Brewery Compound, Bagong Silang, Bella Subdivision, Casa Esperanza, Florence Homes, La Bella Homes, Marinig Road, Mercedez Village, Multiland III, Nevalga Farm Drive, NIA Road, Purok 1, Purok 2, Purok 4, Purok 5, Rotonda',
+            marketDemands: '9th'
         }
     },
     'Food Services': {
@@ -204,11 +204,11 @@ const dataForCategories = {
         barData: [2, 1, 2, 4, 0, 0, 0, 5, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 5, 0, 1],
         pieData: [1383, 1966, 1658, 5118, 3170, 2499, 1248],
         stats: {
-            totalBusinesses: 169,
+            totalBusinesses: 22,
             population: '10,903',
-            stat3: 'Pulo',
-            stat4: 'Bigaa',
-            marketDemands: 0
+            stat3: 'JP Rizal St., Rosario Village',
+            stat4: 'Casa Esperanza, Don Onofre Building 2, Florence Homes, La Bella Homes, Marinig Road, Mercedez Village, Multiland III, Nevalga Farm Drive, NIA Road, PFB Bailon St., Purok 1, Purok 2, Purok 4, Purok 5, Rotonda',
+            marketDemands: '4th'
         }
     },
     'Healthcare Services': {
@@ -226,11 +226,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 2, 0, 1, 0, 1, 0, 0, 0, 0, 5, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0],
         pieData: [1383, 1966, 1658, 5118, 3170, 2499, 1248],
         stats: {
-            totalBusinesses: 149,
+            totalBusinesses: 14,
             population: '10,903',
-            stat3: 'Pulo',
-            stat4: 'Casile',
-            marketDemands: 0
+            stat3: 'National Highway',
+            stat4: 'Asia Brewery Compound, Bagong Silang, Bella Subdivision, Casa Esperanza, Florence Homes, La Bella Homes, Marinig Road, Mercedez Village, Multiland III, Nevalga Farm Drive, NIA Road, Purok 1, Purok 2, Purok 4, Rotonda, Shineland',
+            marketDemands: '6th'
         }
     },
     'IT and Digital Services': {
@@ -247,11 +247,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2],
         pieData: [1383, 1966, 1658, 5118, 3170, 2499, 1248],
         stats: {
-            totalBusinesses: 27,
+            totalBusinesses: 5,
             population: '10,903',
-            stat3: 'Sala',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'Shineland',
+            stat4: 'Asia Brewery Compound, Bagong Silang, Bella Subdivision, Casa Esperanza, Don Onofre Building 2, Florence Homes, JP Rizal St., La Bella Homes, Marinig Road, Mercedez Village, Multiland III, Nevalga Farm Drive, NIA Road, PFB Bailon St., Purok 1, Purok 2, Purok 4, Purok 5, Rotonda',
+            marketDemands: '5th'
         }
     },
     'Manufacturing and Production': {
@@ -270,11 +270,11 @@ const dataForCategories = {
         barData: [0, 2, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
         pieData: [1383, 1966, 1658, 5118, 3170, 2499, 1248],
         stats: {
-            totalBusinesses: 129,
+            totalBusinesses: 9,
             population: '10,903',
-            stat3: 'Diezmo',
-            stat4: 'Poblacion Uno',
-            marketDemands: 0
+            stat3: 'Bagong Silang, Blanks, National Highway',
+            stat4: 'Asia Brewery Compound, Casa Esperanza, Don Onofre Building 2, Florence Homes, JP Rizal St., La Bella Homes, Mercedez Village, Multiland III, Nevalga Farm Drive, NIA Road, PFB Bailon St., Purok 1, Purok 2, Purok 4, Purok 5, Rotonda, Shineland',
+            marketDemands: '3rd'
         }
     },
     'Personal and Household Services': {
@@ -292,11 +292,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
         pieData: [1383, 1966, 1658, 5118, 3170, 2499, 1248],
         stats: {
-            totalBusinesses: 76,
+            totalBusinesses: 4,
             population: '10,903',
-            stat3: 'Mamatid',
-            stat4: 'Pittland',
-            marketDemands: 0
+            stat3: 'JP Rizal St.',
+            stat4: 'Asia Brewery Compound, Bagong Silang, Bella Subdivision, Casa Esperanza, Don Onofre Building 2, Florence Homes, La Bella Homes, Marinig Road, Mercedez Village, Multiland III, Nevalga Farm Drive, NIA Road, PFB Bailon St., Purok 1, Purok 2, Purok 4, Purok 5, Rosario Village, Rotonda, Shineland',
+            marketDemands: '1st'
         }
     },
     'Personal Care Services': {
@@ -313,11 +313,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [1383, 1966, 1658, 5118, 3170, 2499, 1248],
         stats: {
-            totalBusinesses: 28,
+            totalBusinesses: 2,
             population: '10,903',
-            stat3: 'Pulo',
-            stat4: 'Niugan',
-            marketDemands: 0
+            stat3: 'JP Rizal St., Marinig Road',
+            stat4: 'Asia Brewery Compound, Bagong Silang, Bella Subdivision, Blanks, Casa Esperanza, Don Onofre Building 2, Florence Homes, La Bella Homes, Mercedez Village, Multiland III, National Highway, Nevalga Farm Drive, NIA Road, PFB Bailon St., Purok 1, Purok 2, Purok 4, Purok 5, Rosario Village, Rotonda, Shineland',
+            marketDemands: '4th'
         }
     },
     'Professional Services': {
@@ -335,11 +335,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 5, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [1383, 1966, 1658, 5118, 3170, 2499, 1248],
         stats: {
-            totalBusinesses: 126,
+            totalBusinesses: 6,
             population: '10,903',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'Blanks',
+            stat4: 'Asia Brewery Compound, Bagong Silang, Bella Subdivision, Don Onofre Building 2, Florence Homes, JP Rizal St., La Bella Homes, Marinig Road, Mercedez Village, Multiland III, National Highway, Nevalga Farm Drive, NIA Road, PFB Bailon St., Purok 1, Purok 2, Purok 4, Purok 5, Rosario Village, Rotonda, Shineland',
+            marketDemands: '3rd'
         }
     },
     'Retail Stores': {
@@ -357,11 +357,11 @@ const dataForCategories = {
         barData: [0, 3, 4, 14, 0, 0, 0, 4, 2, 2, 0, 1, 19, 0, 0, 0, 1, 1, 0, 0, 4, 1, 4],
         pieData: [1383, 1966, 1658, 5118, 3170, 2499, 1248],
         stats: {
-            totalBusinesses: 947,
+            totalBusinesses: 60,
             population: '10,903',
-            stat3: 'Banlic',
-            stat4: 'Diezmo',
-            marketDemands: 0
+            stat3: 'National Highway',
+            stat4: 'Asia Brewery Compound, Casa Esperanza, Don Onofre Building 2, Florence Homes, Mercedez Village, Nevalga Farm Drive, NIA Road, PFB Bailon St., Purok 4, Purok 5',
+            marketDemands: '2nd'
         }
     },
     'Tourism and Hospitality': {
@@ -377,11 +377,11 @@ const dataForCategories = {
         barData: [0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [1383, 1966, 1658, 5118, 3170, 2499, 1248],
         stats: {
-            totalBusinesses: 19,
+            totalBusinesses: 4,
             population: '10,903',
-            stat3: 'Pulo',
-            stat4: 'Niugan',
-            marketDemands: 0
+            stat3: 'National Highway',
+            stat4: 'Asia Brewery Compound, Bagong Silang, Casa Esperanza, Don Onofre Building 2, Florence Homes, JP Rizal St., La Bella Homes, Marinig Road, Mercedez Village, Multiland III, Nevalga Farm Drive, NIA Road, PFB Bailon St., Purok 1, Purok 2, Purok 4, Purok 5, Rosario Village, Rotonda, Shineland',
+            marketDemands: '1st'
         }
     },
     'Transportation and Logistics': {
@@ -398,11 +398,11 @@ const dataForCategories = {
         barData: [0, 3, 1, 4, 0, 0, 0, 1, 0, 0, 1, 0, 5, 0, 0, 0, 0, 0, 1, 0, 1, 2, 1],
         pieData: [1383, 1966, 1658, 5118, 3170, 2499, 1248],
         stats: {
-            totalBusinesses: 227,
+            totalBusinesses: 20,
             population: '10,903',
-            stat3: 'Pulo',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'National Highway',
+            stat4: 'Asia Brewery Compound, Casa Esperanza, Don Onofre Building 2, Florence Homes, La Bella Homes, Marinig Road, Multiland III, Nevalga Farm Drive, NIA Road, PFB Bailon St., Purok 1, Purok 2, Purok 5',
+            marketDemands: '8th'
         }
     },
     'Wholesale and Distribution': {
@@ -419,11 +419,11 @@ const dataForCategories = {
         barData: [0, 2, 0, 3, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
         pieData: [1383, 1966, 1658, 5118, 3170, 2499, 1248],
         stats: {
-            totalBusinesses: 113,
+            totalBusinesses: 11,
             population: '10,903',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Tres',
-            marketDemands: 0
+            stat3: 'National Highway',
+            stat4: 'Asia Brewery Compound, Bella Subdivision, Casa Esperanza, Don Onofre Building 2, Florence Homes, La Bella Homes, Marinig Road, Mercedez Village, Multiland III, Nevalga Farm Drive, NIA Road, PFB Bailon St., Purok 1, Purok 2, Purok 4, Rosario Village, Rotonda, Shineland',
+            marketDemands: '7th'
         }
     },
 };

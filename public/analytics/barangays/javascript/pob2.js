@@ -35,12 +35,12 @@ const dataForCategories = {
         barData: [15, 38, 9, 24, 6, 2, 1, 1], 
         pieData: [13, 62, 127, 205, 702, 704, 285],
         stats: {
-            totalBusinesses: 2679,
+            totalBusinesses: 96,
             population: '2,108',
-            stat3: 'Pulo',
-            stat4: 'Casile',
-            marketDemands: 0,
-            marketGaps: 'Tourism'
+            stat3: 'Cabuyao Retail Plaza',
+            stat4: 'National Highway, Osmena St.',
+            marketDemands: 'Transportation and Logistics'
+           
             
         }
     },
@@ -56,11 +56,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [13, 62, 127, 205, 702, 704, 285],
         stats: {
-            totalBusinesses: 94,
+            totalBusinesses: 0,
             population: '2,108',
-            stat3: 'Pulo',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '2nd'
         }
     },
     'Construction and Real Estate': {
@@ -77,11 +77,11 @@ const dataForCategories = {
         barData: [1, 0, 1, 3, 1, 0, 0, 0], 
         pieData: [13, 62, 127, 205, 702, 704, 285],
         stats: {
-            totalBusinesses: 336,
+            totalBusinesses: 6,
             population: '2,108',
-            stat3: 'Pulo',
-            stat4: 'Butong',
-            marketDemands: 0
+            stat3: 'JP Rizal St.',
+            stat4: 'Cabuyao Retail Plaza, ML Quezon St., National Highway, Osmena St.',
+            marketDemands: '9th'
         }
     },
     'Cooperative Business': {
@@ -93,11 +93,11 @@ const dataForCategories = {
         barData: [0, 1, 1, 0, 0, 0, 0, 1],
         pieData: [13, 62, 127, 205, 702, 704, 285],
         stats: {
-            totalBusinesses: 30,
+            totalBusinesses: 3,
             population: '2,108',
-            stat3: 'Sala',
-            stat4: 'Butong',
-            marketDemands: 0
+            stat3: 'Cabuyao Retail Plaza, El Sol Plaza, Osmena St.',
+            stat4: 'A. Bonifacion St., JP Rizal St., MH Del Pilar St. , ML Quezon St., National Highway',
+            marketDemands: '8th'
         }
     },
     'Creative and Media Service': {
@@ -110,11 +110,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [13, 62, 127, 205, 702, 704, 285],
         stats: {
-            totalBusinesses: 30,
+            totalBusinesses: 0,
             population: '2,108',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '8th'
         }
     },
     'Education Services': {
@@ -129,11 +129,11 @@ const dataForCategories = {
         barData: [0, 0, 1, 0, 0, 0, 0, 0],
         pieData: [13, 62, 127, 205, 702, 704, 285],
         stats: {
-            totalBusinesses: 61,
+            totalBusinesses: 1,
             population: '2,108',
-            stat3: 'Mamatid',
-            stat4: 'Diezmo',
-            marketDemands: 0
+            stat3: 'El Sol Plaza',
+            stat4: 'A. Bonifacion St., Cabuyao Retail Plaza, JP Rizal St., MH Del Pilar St. , ML Quezon St., National ',
+            marketDemands: '7th'
         }
     },
     'Entertainment and Recreation': {
@@ -148,11 +148,11 @@ const dataForCategories = {
         barData: [0, 0, 1, 0, 0, 0, 0, 0],
         pieData: [13, 62, 127, 205, 702, 704, 285],
         stats: {
-            totalBusinesses: 13,
+            totalBusinesses: 1,
             population: '2,108',
-            stat3: 'Banlic',
-            stat4: 'Poblacion Uno',
-            marketDemands: 0
+            stat3: 'El Sol Plaza',
+            stat4: 'A. Bonifacion St., Cabuyao Retail Plaza, JP Rizal St., MH Del Pilar St. , ML Quezon St., National ',
+            marketDemands: '5th'
         }
     },
     'Finance and Insurance': {
@@ -167,11 +167,11 @@ const dataForCategories = {
         barData: [4, 0, 0, 4, 0, 0, 0, 0],
         pieData: [13, 62, 127, 205, 702, 704, 285],
         stats: {
-            totalBusinesses: 112,
+            totalBusinesses: 8,
             population: '2,108',
-            stat3: 'Banlic',
-            stat4: 'Baclaran',
-            marketDemands: 0
+            stat3: 'A. Bonifacion St., JP Rizal St.',
+            stat4: 'Cabuyao Retail Plaza, El Sol Plaza, MH Del Pilar St. , ML Quezon St., National Highway, Osmena ',
+            marketDemands: '5th'
         }
     },
     'Food Services': {
@@ -186,11 +186,11 @@ const dataForCategories = {
         barData: [0, 1, 2, 2, 1, 0, 1, 0],
         pieData: [13, 62, 127, 205, 702, 704, 285],
         stats: {
-            totalBusinesses: 169,
+            totalBusinesses: 7,
             population: '2,108',
-            stat3: 'Pulo',
-            stat4: 'Bigaa',
-            marketDemands: 0
+            stat3: 'El Sol Plaza, JP Rizal St.',
+            stat4: 'A. Bonifacion St., ML Quezon St., Osmena St.',
+            marketDemands: '6th'
         }
     },
     'Healthcare Services': {
@@ -206,11 +206,11 @@ const dataForCategories = {
         barData: [2, 0, 1, 5, 0, 1, 0, 0 ],
         pieData: [13, 62, 127, 205, 702, 704, 285],
         stats: {
-            totalBusinesses: 149,
+            totalBusinesses: 9,
             population: '2,108',
-            stat3: 'Pulo',
-            stat4: 'Casile',
-            marketDemands: 0
+            stat3: 'JP Rizal St.',
+            stat4: 'Cabuyao Retail Plaza, MH Del Pilar St. , National Highway, Osmena St.',
+            marketDemands: '4th'
         }
     },
     'IT and Digital Services': {
@@ -225,11 +225,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [13, 62, 127, 205, 702, 704, 285],
         stats: {
-            totalBusinesses: 27,
+            totalBusinesses: 0,
             population: '2,108',
-            stat3: 'Sala',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '7th'
         }
     },
     'Manufacturing and Production': {
@@ -246,11 +246,11 @@ const dataForCategories = {
         barData: [0, 1, 0, 0, 0, 0, 0, 0],
         pieData: [13, 62, 127, 205, 702, 704, 285],
         stats: {
-            totalBusinesses: 129,
+            totalBusinesses: 1,
             population: '2,108',
-            stat3: 'Diezmo',
-            stat4: 'Poblacion Uno',
-            marketDemands: 0
+            stat3: 'Cabuyao Retail Plaza',
+            stat4: 'A. Bonifacion St., El Sol Plaza, JP Rizal St., MH Del Pilar St. , ML Quezon St., National Highway, Osmena St.',
+            marketDemands: '6th'
         }
     },
     'Personal and Household Services': {
@@ -266,11 +266,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 1, 0, 0, 0, 0],
         pieData: [13, 62, 127, 205, 702, 704, 285],
         stats: {
-            totalBusinesses: 76,
+            totalBusinesses: 1,
             population: '2,108',
-            stat3: 'Mamatid',
-            stat4: 'Pittland',
-            marketDemands: 0
+            stat3: 'JP Rizal St.',
+            stat4: 'A. Bonifacion St., Cabuyao Retail Plaza, El Sol Plaza, MH Del Pilar St. , ML Quezon St., National Highway, Osmena St.',
+            marketDemands: '9th'
         }
     },
     'Personal Care Services': {
@@ -285,11 +285,11 @@ const dataForCategories = {
         barData: [1, 1, 1, 0, 0, 0, 0, 0],
         pieData: [13, 62, 127, 205, 702, 704, 285],
         stats: {
-            totalBusinesses: 28,
+            totalBusinesses: 3,
             population: '2,108',
-            stat3: 'Pulo',
-            stat4: 'Niugan',
-            marketDemands: 0
+            stat3: 'A. Bonifacion St., Cabuyao Retail Plaza, El Sol Plaza',
+            stat4: 'JP Rizal St., MH Del Pilar St. , ML Quezon St., National Highway, Osmena St.',
+            marketDemands: '5th'
         }
     },
     'Professional Services': {
@@ -305,11 +305,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [13, 62, 127, 205, 702, 704, 285],
         stats: {
-            totalBusinesses: 126,
+            totalBusinesses: 0,
             population: '2,108',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '10th'
         }
     },
     'Retail Stores': {
@@ -325,11 +325,11 @@ const dataForCategories = {
         barData: [7, 32, 1, 8, 4, 1, 0, 0],
         pieData: [13, 62, 127, 205, 702, 704, 285],
         stats: {
-            totalBusinesses: 947,
+            totalBusinesses: 53,
             population: '2,108',
-            stat3: 'Banlic',
-            stat4: 'Diezmo',
-            marketDemands: 0
+            stat3: 'Cabuyao Retail Plaza',
+            stat4: 'National Highway, Osmena St.',
+            marketDemands: '3rd'
         }
     },
     'Tourism and Hospitality': {
@@ -343,11 +343,11 @@ const dataForCategories = {
         barData: [0, 1, 0, 0, 0, 0, 0, 0],
         pieData: [13, 62, 127, 205, 702, 704, 285],
         stats: {
-            totalBusinesses: 19,
+            totalBusinesses: 1,
             population: '2,108',
-            stat3: 'Pulo',
-            stat4: 'Niugan',
-            marketDemands: 0
+            stat3: 'Cabuyao Retail Plaza',
+            stat4: 'A. Bonifacion St., El Sol Plaza, JP Rizal St., MH Del Pilar St. , ML Quezon St., National Highway, Osmena St.',
+            marketDemands: '5th'
         }
     },
     'Transportation and Logistics': {
@@ -362,11 +362,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [13, 62, 127, 205, 702, 704, 285],
         stats: {
-            totalBusinesses: 227,
+            totalBusinesses: 0,
             population: '2,108',
-            stat3: 'Pulo',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '1st'
         }
     },
     'Wholesale and Distribution': {
@@ -381,11 +381,11 @@ const dataForCategories = {
         barData:  [0, 1, 0, 1, 0, 0, 0, 0 ],
         pieData: [13, 62, 127, 205, 702, 704, 285],
         stats: {
-            totalBusinesses: 113,
+            totalBusinesses: 2,
             population: '2,108',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Tres',
-            marketDemands: 0
+            stat3: 'Cabuyao Retail Plaza, JP Rizal St.',
+            stat4: 'A. Bonifacion St., El Sol Plaza, MH Del Pilar St. , ML Quezon St., National Highway, Osmena St.',
+            marketDemands: '11th'
         }
     },
 };

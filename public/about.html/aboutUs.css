@@ -1,7 +1,6 @@
 *
 body
 {
-    padding-bottom: 450px;
     font-family: Nunito, sans-serif;
 }
   
@@ -343,3 +342,19 @@ body
       width: 100%;
     }
   }
+
+/* CSS for fixed footer with design */
+.footer-text {
+  bottom: 0; /* Aligns it at the very bottom */
+  width: 100%; /* Spans the entire width of the page */
+  text-align: center; /* Centers the text horizontally */
+  font-size: 14px; /* Adjust font size */
+  color: white; /* Text color */
+  font-family: 'Arial', sans-serif; /* Professional font */
+  background-color: #3a3a3a; /* Background color for footer */
+  padding: 10px 0; /* Adds padding for a better look */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+  z-index: 1000; /* Ensures it stays above other content */
+  border-top: 2px solid #f3a712; /* Optional top border for design */
+}
+

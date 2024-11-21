@@ -35,12 +35,12 @@ const dataForCategories = {
         barData: [414, 235, 364, 253, 361, 74, 171, 136, 139, 69, 46, 62, 18, 49, 62, 98, 33, 96],
         pieData: [7804, 4991, 12884, 12083, 13584, 3900, 1417],
         stats: {
-            totalBusinesses: 2679,
+            totalBusinesses: 136,
             population: '56,154',
-            stat3: 'Pulo',
-            stat4: 'Casile',
-            marketDemands: 0,
-            marketGaps: 'Tourism'
+            stat3: 'St. Joseph Village 7',
+            stat4: 'Purok 4',
+            marketDemands: 'Finance and Insurance',
+            
             
         }
     },
@@ -58,9 +58,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 3,
             population: '56,154',
-            stat3: 'Pulo',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'Purok 3, Purok 6, St. Joseph Village 7',
+            stat4: 'Blanks, Celestine Homes, Lakeside Nest Subdivision, Lynville Residences, Maripaz Ville, Purok 1, Purok 2, Purok 4, Purok 5, Southville 1, Subrise Subdivision',
+            marketDemands: '9th'
         }
     },
     'Construction and Real Estate': {
@@ -79,9 +79,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 15,
             population: '56,154',
-            stat3: 'Pulo',
-            stat4: 'Butong',
-            marketDemands: 0
+            stat3: 'St. Joseph Village 7',
+            stat4: 'Lakeside Nest Subdivision, Purok 2, Purok 4, Purok 5, Purok 6, Subrise Subdivision',
+            marketDemands: '8th'
         }
     },
     'Cooperative Business': {
@@ -93,11 +93,11 @@ const dataForCategories = {
         barData: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [7804, 4991, 12884, 12083, 13584, 3900, 1417],
         stats: {
-            totalBusinesses: 30,
+            totalBusinesses: 1,
             population: '56,154',
-            stat3: 'Sala',
-            stat4: 'Butong',
-            marketDemands: 0
+            stat3: 'Blanks',
+            stat4: 'Celestine Homes, Lakeside Nest Subdivision, Lynville Residences, Maripaz Ville, Purok 1, Purok 2, Purok 3, Purok 4, Purok 5, Purok 6, Southville 1, St. Joseph Village 7, Subrise Subdivision',
+            marketDemands: '10th'
         }
     },
     'Creative and Media Service': {
@@ -110,11 +110,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0],
         pieData: [7804, 4991, 12884, 12083, 13584, 3900, 1417],
         stats: {
-            totalBusinesses: 30,
+            totalBusinesses: 2,
             population: '56,154',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'Southville 1, St. Joseph Village 7',
+            stat4: 'Blanks, Celestine Homes, Lakeside Nest Subdivision, Lynville Residences, Maripaz Ville, Purok 1, Purok 2, Purok 3, Purok 4, Purok 5, Purok 6, Subrise Subdivision',
+            marketDemands: '8th'
         }
     },
     'Education Services': {
@@ -131,9 +131,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 4,
             population: '56,154',
-            stat3: 'Mamatid',
-            stat4: 'Diezmo',
-            marketDemands: 0
+            stat3: 'St. Joseph Village 7',
+            stat4: 'Celestine Homes, Lakeside Nest Subdivision, Lynville Residences, Maripaz Ville, Purok 2, Purok 3, Purok 4, Purok 5, Purok 6, Southville 1, Subrise Subdivision',
+            marketDemands: '7th'
         }
     },
     'Entertainment and Recreation': {
@@ -150,9 +150,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 0,
             population: '56,154',
-            stat3: 'Banlic',
-            stat4: 'Poblacion Uno',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '2nd'
         }
     },
     'Finance and Insurance': {
@@ -169,9 +169,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 0,
             population: '56,154',
-            stat3: 'Banlic',
-            stat4: 'Baclaran',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '1st'
         }
     },
     'Food Services': {
@@ -188,9 +188,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 0,
             population: '56,154',
-            stat3: 'Pulo',
-            stat4: 'Bigaa',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '2nd'
         }
     },
     'Healthcare Services': {
@@ -208,9 +208,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 11,
             population: '56,154',
-            stat3: 'Pulo',
-            stat4: 'Casile',
-            marketDemands: 0
+            stat3: 'Southville 1',
+            stat4: 'Blanks, Lakeside Nest Subdivision, Lynville Residences, Maripaz Ville, Purok 1, Purok 3, Purok 4, Purok 6',
+            marketDemands: '2nd'
         }
     },
     'IT and Digital Services': {
@@ -227,9 +227,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 1,
             population: '56,154',
-            stat3: 'Sala',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'St. Joseph Village 7',
+            stat4: 'Blanks, Celestine Homes, Lakeside Nest Subdivision, Lynville Residences, Maripaz Ville, Purok 1, Purok 2, Purok 3, Purok 4, Purok 5, Purok 6, Southville 1, Subrise Subdivision',
+            marketDemands: '10th'
         }
     },
     'Manufacturing and Production': {
@@ -248,9 +248,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 1,
             population: '56,154',
-            stat3: 'Diezmo',
-            stat4: 'Poblacion Uno',
-            marketDemands: 0
+            stat3: 'St. Joseph Village 7',
+            stat4: 'Blanks, Celestine Homes, Lakeside Nest Subdivision, Lynville Residences, Maripaz Ville, Purok 1, Purok 2, Purok 3, Purok 4, Purok 5, Purok 6, Southville 1, Subrise Subdivision',
+            marketDemands: '7th'
         }
     },
     'Personal and Household Services': {
@@ -268,9 +268,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 4,
             population: '56,154',
-            stat3: 'Mamatid',
-            stat4: 'Pittland',
-            marketDemands: 0
+            stat3: 'St. Joseph Village 7',
+            stat4: 'Blanks, Celestine Homes, Lakeside Nest Subdivision, Maripaz Ville, Purok 1, Purok 2, Purok 3, Purok 4, Purok 5, Purok 6, Subrise Subdivision',
+            marketDemands: '4th'
         }
     },
     'Personal Care Services': {
@@ -287,9 +287,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 0,
             population: '56,154',
-            stat3: 'Pulo',
-            stat4: 'Niugan',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '7th'
         }
     },
     'Professional Services': {
@@ -307,9 +307,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 2,
             population: '56,154',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'Celestine Homes',
+            stat4: 'Blanks, Lakeside Nest Subdivision, Lynville Residences, Maripaz Ville, Purok 1, Purok 2, Purok 3, Purok 4, Purok 5, Purok 6, Southville 1, St. Joseph Village 7, Subrise Subdivision',
+            marketDemands: '4th'
         }
     },
     'Retail Stores': {
@@ -326,27 +326,27 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 77,
             population: '56,154',
-            stat3: 'Banlic',
-            stat4: 'Diezmo',
-            marketDemands: 0
+            stat3: 'Southville 1, St. Joseph Village 7',
+            stat4: 'Lakeside Nest Subdivision',
+            marketDemands: '6th'
         }
     },
     'Tourism and Hospitality': {
         barangays: ['Blanks', 'Celestine Homes', 'Lakeside Nest Subdivision', 'Lynville Residences', 'Maripaz Ville', 
             'Purok 1', 'Purok 2', 'Purok 3', 'Purok 4', 'Purok 5', 'Purok 6', 'Southville 1', 'St. Joesph Village 7', 'Sunrise Subdivision'],
-        counts: [6, 4, 3, 2, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+        counts: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         subCategories: ['Hotel', 'Resort', 'Travel Agency'
         ], 
         subCategoryCounts: [0, 0, 0
         ],  
-        barData: [6, 4, 2, 3, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1 ],
+        barData: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         pieData: [7804, 4991, 12884, 12083, 13584, 3900, 1417],
         stats: {
-            totalBusinesses: 19,
+            totalBusinesses: 0,
             population: '56,154',
-            stat3: 'Pulo',
-            stat4: 'Niugan',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '5th'
         }
     },
     'Transportation and Logistics': {
@@ -363,9 +363,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 12,
             population: '56,154',
-            stat3: 'Pulo',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'Celestine Homes, St. Joseph Village 7',
+            stat4: 'Blanks, Lakeside Nest Subdivision, Lynville Residences, Maripaz Ville, Purok 2, Purok 3, Purok 4, Purok 6, Subrise Subdivision',
+            marketDemands: '3rd'
         }
     },
     'Wholesale and Distribution': {
@@ -382,9 +382,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 3,
             population: '56,154',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Tres',
-            marketDemands: 0
+            stat3: 'Purok 1',
+            stat4: 'Blanks, Celestine Homes, Lakeside Nest Subdivision, Lynville Residences, Maripaz Ville, Purok 2, Purok 3, Purok 4, Purok 5, Purok 6, Southville 1, Subrise Subdivision',
+            marketDemands: '3rd'
         }
     },
 };

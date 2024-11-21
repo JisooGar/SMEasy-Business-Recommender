@@ -34,12 +34,12 @@ const dataForCategories = {
         barData: [20, 7, 1, 2, 3],
         pieData: [429, 387, 215, 2161, 1012, 360, 169],
         stats: {
-            totalBusinesses: 2679,
+            totalBusinesses: 33,
             population: '4,733',
-            stat3: 'Pulo',
-            stat4: 'Casile',
-            marketDemands: 0,
-            marketGaps: 'Tourism'
+            stat3: 'Blanks',
+            stat4: 'Hana Garden Villas',
+            marketDemands: 'Educational Services'
+            
             
         }
     },
@@ -54,11 +54,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0],
         pieData: [429, 387, 215, 2161, 1012, 360, 169],
         stats: {
-            totalBusinesses: 94,
+            totalBusinesses: 0,
             population: '4,733',
-            stat3: 'Pulo',
+            stat3: 'None',
             stat4: 'Poblacion Dos',
-            marketDemands: 0
+            marketDemands: '7th'
         }
     },
     'Construction and Real Estate': {
@@ -74,11 +74,11 @@ const dataForCategories = {
         barData: [5, 0, 0, 0, 0],
         pieData: [429, 387, 215, 2161, 1012, 360, 169],
         stats: {
-            totalBusinesses: 336,
+            totalBusinesses: 5,
             population: '4,733',
-            stat3: 'Pulo',
-            stat4: 'Butong',
-            marketDemands: 0
+            stat3: 'Blanks',
+            stat4: 'Camella La Vecina Dos Rios, Hana Garden Villas, Inc Compound, Tereley Industrial Park',
+            marketDemands: '5th'
         }
     },
     'Cooperative Business': {
@@ -89,11 +89,11 @@ const dataForCategories = {
         barData: [1, 0, 0, 0, 0],
         pieData: [429, 387, 215, 2161, 1012, 360, 169],
         stats: {
-            totalBusinesses: 30,
+            totalBusinesses:1,
             population: '4,733',
-            stat3: 'Sala',
-            stat4: 'Butong',
-            marketDemands: 0
+            stat3: 'Blanks',
+            stat4: 'Camella La Vecina Dos Rios, Hana Garden Villas, Inc Compound, Tereley Industrial Park',
+            marketDemands: '4th'
         }
     },
     'Creative and Media Service': {
@@ -105,11 +105,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0],
         pieData: [429, 387, 215, 2161, 1012, 360, 169],
         stats: {
-            totalBusinesses: 30,
+            totalBusinesses: 0,
             population: '4,733',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '6th'
         }
     },
     'Education Services': {
@@ -123,11 +123,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0],
         pieData: [429, 387, 215, 2161, 1012, 360, 169],
         stats: {
-            totalBusinesses: 61,
+            totalBusinesses: 0,
             population: '4,733',
-            stat3: 'Mamatid',
-            stat4: 'Diezmo',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '1st'
         }
     },
     'Entertainment and Recreation': {
@@ -141,11 +141,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0],
         pieData: [429, 387, 215, 2161, 1012, 360, 169],
         stats: {
-            totalBusinesses: 13,
+            totalBusinesses: 0,
             population: '4,733',
-            stat3: 'Banlic',
-            stat4: 'Poblacion Uno',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '9th'
         }
     },
     'Finance and Insurance': {
@@ -159,11 +159,11 @@ const dataForCategories = {
         barData: [1, 0, 0, 1, 0],
         pieData: [429, 387, 215, 2161, 1012, 360, 169],
         stats: {
-            totalBusinesses: 112,
+            totalBusinesses: 2,
             population: '4,733',
-            stat3: 'Banlic',
-            stat4: 'Baclaran',
-            marketDemands: 0
+            stat3: 'Blanks, Inc Compound',
+            stat4: 'Camella La Vecina Dos Rios, Hana Garden Villas, Tereley Industrial Park',
+            marketDemands: '4th'
         }
     },
     'Food Services': {
@@ -177,11 +177,11 @@ const dataForCategories = {
         barData: [2, 0, 1, 1, 0],
         pieData: [429, 387, 215, 2161, 1012, 360, 169],
         stats: {
-            totalBusinesses: 169,
+            totalBusinesses: 4,
             population: '4,733',
-            stat3: 'Pulo',
-            stat4: 'Bigaa',
-            marketDemands: 0
+            stat3: 'Blanks',
+            stat4: 'Camella La Vecina Dos Rios, Tereley Industrial Park',
+            marketDemands: '6th'
         }
     },
     'Healthcare Services': {
@@ -196,11 +196,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0],
         pieData: [429, 387, 215, 2161, 1012, 360, 169],
         stats: {
-            totalBusinesses: 149,
+            totalBusinesses: 0,
             population: '4,733',
-            stat3: 'Pulo',
-            stat4: 'Casile',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '4th'
         }
     },
     'IT and Digital Services': {
@@ -214,11 +214,11 @@ const dataForCategories = {
         barData: [0, 1, 0, 0, 0 ],
         pieData: [429, 387, 215, 2161, 1012, 360, 169],
         stats: {
-            totalBusinesses: 27,
+            totalBusinesses: 1,
             population: '4,733',
-            stat3: 'Sala',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'Camella La Vecina Dos Rios',
+            stat4: 'Blanks, Hana Garden Villas, Inc Compound, Tereley Industrial Park',
+            marketDemands: '4th'
         }
     },
     'Manufacturing and Production': {
@@ -234,11 +234,11 @@ const dataForCategories = {
         barData: [4, 0, 0, 0, 0],
         pieData: [429, 387, 215, 2161, 1012, 360, 169],
         stats: {
-            totalBusinesses: 129,
+            totalBusinesses: 4,
             population: '4,733',
-            stat3: 'Diezmo',
-            stat4: 'Poblacion Uno',
-            marketDemands: 0
+            stat3: 'Blanks',
+            stat4: 'Camella La Vecina Dos Rios, Hana Garden Villas, Inc Compound, Tereley Industrial Park',
+            marketDemands: '8th'
         }
     },
     'Personal and Household Services': {
@@ -253,11 +253,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0 ],
         pieData: [429, 387, 215, 2161, 1012, 360, 169],
         stats: {
-            totalBusinesses: 76,
+            totalBusinesses: 0,
             population: '4,733',
-            stat3: 'Mamatid',
-            stat4: 'Pittland',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '5th'
         }
     },
     'Personal Care Services': {
@@ -271,11 +271,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0],
         pieData: [429, 387, 215, 2161, 1012, 360, 169],
         stats: {
-            totalBusinesses: 28,
+            totalBusinesses: 0,
             population: '4,733',
-            stat3: 'Pulo',
-            stat4: 'Niugan',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '3rd'
         }
     },
     'Professional Services': {
@@ -290,11 +290,11 @@ const dataForCategories = {
         barData: [3, 1, 0, 0, 1],
         pieData: [429, 387, 215, 2161, 1012, 360, 169],
         stats: {
-            totalBusinesses: 126,
+            totalBusinesses: 5,
             population: '4,733',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'Blanks',
+            stat4: 'Hana Garden Villas, Inc Compound',
+            marketDemands: '6th'
         }
     },
     'Retail Stores': {
@@ -309,11 +309,11 @@ const dataForCategories = {
         barData: [1, 4, 0, 0, 1],
         pieData: [429, 387, 215, 2161, 1012, 360, 169],
         stats: {
-            totalBusinesses: 947,
+            totalBusinesses: 6,
             population: '4,733',
-            stat3: 'Banlic',
-            stat4: 'Diezmo',
-            marketDemands: 0
+            stat3: 'Camella La Vecina Dos Rios',
+            stat4: 'Hana Garden Villas, Inc Compound',
+            marketDemands: '2nd'
         }
     },
     'Tourism and Hospitality': {
@@ -326,11 +326,11 @@ const dataForCategories = {
         barData: [0, 0, 0, 0, 0],
         pieData: [429, 387, 215, 2161, 1012, 360, 169],
         stats: {
-            totalBusinesses: 19,
+            totalBusinesses: 0,
             population: '4,733',
-            stat3: 'Pulo',
-            stat4: 'Niugan',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '5th'
         }
     },
     'Transportation and Logistics': {
@@ -344,11 +344,11 @@ const dataForCategories = {
         barData: [2, 1, 0, 0, 0],
         pieData: [429, 387, 215, 2161, 1012, 360, 169],
         stats: {
-            totalBusinesses: 227,
+            totalBusinesses: 3,
             population: '4,733',
-            stat3: 'Pulo',
-            stat4: 'Poblacion Dos',
-            marketDemands: 0
+            stat3: 'Blanks',
+            stat4: 'Hana Garden Villas, Inc Compound, Tereley Industrial Park',
+            marketDemands: '6th'
         }
     },
     'Wholesale and Distribution': {
@@ -362,11 +362,11 @@ const dataForCategories = {
         barData: [1, 0, 0, 0, 1],
         pieData: [429, 387, 215, 2161, 1012, 360, 169],
         stats: {
-            totalBusinesses: 113,
+            totalBusinesses: 2,
             population: '4,733',
-            stat3: 'Banaybanay',
-            stat4: 'Poblacion Tres',
-            marketDemands: 0
+            stat3: 'Blanks, Tereley Industrial Park',
+            stat4: 'Camella La Vecina Dos Rios, Hana Garden Villas, Inc Compounds',
+            marketDemands: '4th'
         }
     },
 };

@@ -38,10 +38,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 69,
             population: '17,873',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0,
-            marketGaps: 'Tourism'
+            stat3: 'St. Joseph Village 7',
+            stat4: 'Centerra, New Mahogany Village 3, Purok 4, Purok 5, Purok 7, St. Joseph Homes 2, St. Joseph Village 2',
+            marketDemands: 'Personal Care Services',
             
         }
     },
@@ -59,9 +58,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 2,
             population: '17,873',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            stat3: 'Cavitehan Road, Purok 7',
+            stat4: 'Blanks, Celestine Ville, Centerra, New Mahogany Village 3, NIA Road, Purok 1, Purok 2, Purok 3, Purok 4, Purok 5, Purok 6, St. Joseph Homes 1, St. Joseph Homes 2, St. Joseph Village 2, St. Joseph Village 7, St. Joseph Windfield 2',
+            marketDemands: '10th'
         }
     },
     'Construction and Real Estate': {
@@ -80,9 +79,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 9,
             population: '17,873',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            stat3: 'Purok 3, St. Joseph Homes 1, St. Joseph Village 7',
+            stat4: 'Blanks, Cavitehan Road, New Mahogany Village 3, NIA Road, Purok 1, Purok 2, Purok 4, Purok 5, Purok 6, Purok 7, St. Joseph Homes 2, St. Joseph Village 2',
+            marketDemands: '6th'
         }
     },
     'Cooperative Business': {
@@ -97,9 +96,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 0,
             population: '17,873',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '10th'
         }
     },
     'Creative and Media Service': {
@@ -114,9 +113,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 1,
             population: '17,873',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            stat3: 'St. Joseph Homes 1',
+            stat4: 'Blanks, Cavitehan Road, Celestine Ville, Centerra, New Mahogany Village 3, NIA Road, Purok 1, Purok 2, Purok 3, Purok 4, Purok 5, Purok 6, Purok 7, St. Joseph Homes 2, St. Joseph Village 2, St. Joseph Village 7, St. Joseph Windfield 2',
+            marketDemands: '11th'
         }
     },
     'Education Services': {
@@ -133,9 +132,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 2,
             population: '17,873',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            stat3: 'Blanks, St. Joseph Homes 1',
+            stat4: 'Cavitehan Road, Celestine Ville, Centerra, New Mahogany Village 3, NIA Road, Purok 1, Purok 2, Purok 3, Purok 4, Purok 5, Purok 6, Purok 7, St. Joseph Homes 2, St. Joseph Village 2, St. Joseph Village 7, St. Joseph Windfield 2',
+            marketDemands: '9th'
         }
     },
     'Entertainment and Recreation': {
@@ -152,9 +151,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 0,
             population: '17,873',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '8th'
         }
     },
     'Finance and Insurance': {
@@ -171,9 +170,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 2,
             population: '17,873',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            stat3: 'St. Joseph Village 7',
+            stat4: 'Blanks, Cavitehan Road, Celestine Ville, Centerra, New Mahogany Village 3, NIA Road, Purok 1, Purok 2, Purok 3, Purok 4, Purok 5, Purok 6, Purok 7, St. Joseph Homes 1, St. Joseph Homes 2, St. Joseph Village 2, St. Joseph Windfield 2',
+            marketDemands: '5th'
         }
     },
     'Food Services': {
@@ -190,9 +189,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 1,
             population: '17,873',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            stat3: 'St. Joseph Village 7',
+            stat4: 'Blanks, Cavitehan Road, Celestine Ville, Centerra, New Mahogany Village 3, NIA Road, Purok 1, Purok 2, Purok 3, Purok 4, Purok 5, Purok 6, Purok 7, St. Joseph Homes 1, St. Joseph Homes 2, St. Joseph Village 2, St. Joseph Windfield 2',
+            marketDemands: '9th'
         }
     },
     'Healthcare Services': {
@@ -210,9 +209,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 3,
             population: '17,873',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            stat3: 'Purok 1, Purok 6, St. Joseph Village 7',
+            stat4: 'Blanks, Cavitehan Road, Celestine Ville, Centerra, New Mahogany Village 3, NIA Road, Purok 2, Purok 3, Purok 4, Purok 5, Purok 7, St. Joseph Homes 1, St. Joseph Homes 2, St. Joseph Village 2, St. Joseph Windfield 2',
+            marketDemands: '10th'
         }
     },
     'IT and Digital Services': {
@@ -229,9 +228,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 0,
             population: '17,873',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '9th'
         }
     },
     'Manufacturing and Production': {
@@ -250,9 +249,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 2,
             population: '17,873',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            stat3: 'St. Joseph Homes 1, St. Joseph Village 7',
+            stat4: 'Blanks, Cavitehan Road, Celestine Ville, Centerra, New Mahogany Village 3, NIA Road, Purok 1, Purok 2, Purok 3, Purok 4, Purok 5, Purok 6, Purok 7, St. Joseph Homes 2, St. Joseph Village 2, St. Joseph Windfield 2',
+            marketDemands: '2nd'
         }
     },
     'Personal and Household Services': {
@@ -270,9 +269,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 4,
             population: '17,873',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            stat3: 'Purok 1, St. Joseph Homes 1, St. Joseph Village 7, St. Joseph Windfield 2',
+            stat4: 'Blanks, Cavitehan Road, Celestine Ville, Centerra, New Mahogany Village 3, NIA Road, Purok 2, Purok 3, Purok 4, Purok 5, Purok 6, Purok 7, St. Joseph Homes 2, St. Joseph Village 2',
+            marketDemands: '8th'
         }
     },
     'Personal Care Services': {
@@ -289,9 +288,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 0,
             population: '17,873',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            stat3: 'None',
+            stat4: 'All',
+            marketDemands: '1st'
         }
     },
     'Professional Services': {
@@ -309,9 +308,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 2,
             population: '17,873',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            stat3: 'St. Joseph Homes 1, St. Joseph Village 7',
+            stat4: 'Blanks, Cavitehan Road, Celestine Ville, Centerra, New Mahogany Village 3, NIA Road, Purok 1, Purok 2, Purok 3, Purok 4, Purok 5, Purok 6, Purok 7, St. Joseph Homes 2, St. Joseph Village 2, St. Joseph Windfield 2',
+            marketDemands: '3rd'
         }
     },
     'Retail Stores': {
@@ -329,9 +328,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 30,
             population: '17,873',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            stat3: 'St. Joseph Village 7',
+            stat4: 'Centerra, Purok 2, Purok 5, Purok 7, St. Joseph Homes 2, St. Joseph Village 2',
+            marketDemands: '9th'
         }
     },
     'Tourism and Hospitality': {
@@ -347,9 +346,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 1,
             population: '17,873',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            stat3: 'St. Joseph Village 2',
+            stat4: 'Blanks, Cavitehan Road, Celestine Ville, Centerra, New Mahogany Village 3, NIA Road, Purok 1, Purok 2, Purok 3, Purok 4, Purok 5, Purok 6, Purok 7, St. Joseph Homes 1, St. Joseph Homes 2, St. Joseph Village 7, St. Joseph Windfield 2',
+            marketDemands: '4th'
         }
     },
     'Transportation and Logistics': {
@@ -366,9 +365,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 9,
             population: '17,873',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            stat3: 'St. Joseph Windfield 2',
+            stat4: 'Cavitehan Road, Celestine Ville, Centerra, New Mahogany Village 3, NIA Road, Purok 1, Purok 2, Purok 3, Purok 4, Purok 7, St. Joseph Homes 1, St. Joseph Village 2',
+            marketDemands: '7th'
         }
     },
     'Wholesale and Distribution': {
@@ -385,9 +384,9 @@ const dataForCategories = {
         stats: {
             totalBusinesses: 1,
             population: '17,873',
-            stat3: ' ',
-            stat4: ' ',
-            marketDemands: 0
+            stat3: 'Cavitehan Road',
+            stat4: 'Blanks, Celestine Ville, Centerra, New Mahogany Village 3, NIA Road, Purok 1, Purok 2, Purok 3, Purok 4, Purok 5, Purok 6, Purok 7, St. Joseph Homes 1, St. Joseph Homes 2, St. Joseph Village 2, St. Joseph Village 7, St. Joseph Windfield 2',
+            marketDemands: '12th'
         }
     },
 };
