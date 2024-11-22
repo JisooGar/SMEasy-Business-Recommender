@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function() {
       item.addEventListener('click', function(event) {
         event.preventDefault(); // Prevent link click
         const barangay = this.innerText.trim(); // Get the text content of the clicked item
-        centerMapOnBarangay(barangay); // Call a function to center the map on the selected barangay
+
       });
     });
   

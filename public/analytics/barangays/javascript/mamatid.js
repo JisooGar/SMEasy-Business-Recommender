@@ -29,7 +29,8 @@ const dataForCategories = {
     All: {
         barangays: ['Blanks', 'Brillianz Residences', 'Buena Rosario', 'Ciudad Montrina', 'Extraordinary Homes Executive', 'Extraordinary Homes Mabuhay', 
             'Luxury Mabuhay City', 'Mabuhay City', 'Main Road', 'Mamatid Road', 'Montrina Subdivision', 'NIA Road', 'Phase 1 Mabuhay', 'Phase 2 Mabuhay', 
-            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay'],
+            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay', 'Phase 3 Mabuhay', 'Phase 4 Mabuhay', 'Phase 5 Mabuhay', 
+            'Phase 6 Mabuhay', 'Phase 7 Mabuhay', 'Purok 1', 'Purok 2', 'Purok 3',' Purok 4', 'St. Joseph Village 3', 'St. Vincent Compound', 'Value Homes 1', 'Value Homes 2', 'Value Homes 3'],
         counts: [38, 1, 3, 3, 3, 2, 2, 4, 1, 2, 0, 1, 3, 67, 6, 5, 1, 3, 4, 17, 28, 3, 20, 13, 8, 1, 3, 2, 3, 1, 5], 
         subCategories: ['None'],
         subCategoryCounts: ['None'],  
@@ -48,7 +49,8 @@ const dataForCategories = {
     'Automotive Services': {
         barangays: ['Blanks', 'Brillianz Residences', 'Buena Rosario', 'Ciudad Montrina', 'Extraordinary Homes Executive', 'Extraordinary Homes Mabuhay', 
             'Luxury Mabuhay City', 'Mabuhay City', 'Main Road', 'Mamatid Road', 'Montrina Subdivision', 'NIA Road', 'Phase 1 Mabuhay', 'Phase 2 Mabuhay', 
-            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay'],
+            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay', 'Phase 3 Mabuhay', 'Phase 4 Mabuhay', 'Phase 5 Mabuhay', 
+            'Phase 6 Mabuhay', 'Phase 7 Mabuhay', 'Purok 1', 'Purok 2', 'Purok 3',' Purok 4', 'St. Joseph Village 3', 'St. Vincent Compound', 'Value Homes 1', 'Value Homes 2', 'Value Homes 3'],
         counts: [3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 1, 0, 3, 1, 0, 0, 0, 0, 1, 0, 0], 
         subCategories: ['Auto Repair Services', 'Body and Welding Shops', 'Car wash and Detailing', 'Fuel Services',
             'Motorcycle Dealer', 'Specialized Automotive Services', 'Vulcanizing Services'
@@ -68,7 +70,8 @@ const dataForCategories = {
     'Construction and Real Estate': {
         barangays: ['Blanks', 'Brillianz Residences', 'Buena Rosario', 'Ciudad Montrina', 'Extraordinary Homes Executive', 'Extraordinary Homes Mabuhay', 
             'Luxury Mabuhay City', 'Mabuhay City', 'Main Road', 'Mamatid Road', 'Montrina Subdivision', 'NIA Road', 'Phase 1 Mabuhay', 'Phase 2 Mabuhay', 
-            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay'],
+            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay', 'Phase 3 Mabuhay', 'Phase 4 Mabuhay', 'Phase 5 Mabuhay', 
+            'Phase 6 Mabuhay', 'Phase 7 Mabuhay', 'Purok 1', 'Purok 2', 'Purok 3',' Purok 4', 'St. Joseph Village 3', 'St. Vincent Compound', 'Value Homes 1', 'Value Homes 2', 'Value Homes 3'],
         counts: [6, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0, 0, 0, 0, 1, 1, 0, 0, 2, 0, 0, 3, 0, 0, 1, 0], 
         subCategories: ['Apartment/Apartelle', 'Building Contractor', 'Construction Services', 'Contractor', 'Electrical/Mechanical Contractor', 'Facilities and Infrastracture',
             'General Contruction', 'General Contractor', 'General Engineering Contractor', 'Heavy Equipment Rental', 'Lessor (Commercial Space', 'Lessor (Excluding Subd. Operators/Lessor',
@@ -90,7 +93,8 @@ const dataForCategories = {
     'Cooperative Business': {
         barangays: ['Blanks', 'Brillianz Residences', 'Buena Rosario', 'Ciudad Montrina', 'Extraordinary Homes Executive', 'Extraordinary Homes Mabuhay', 
             'Luxury Mabuhay City', 'Mabuhay City', 'Main Road', 'Mamatid Road', 'Montrina Subdivision', 'NIA Road', 'Phase 1 Mabuhay', 'Phase 2 Mabuhay', 
-            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay'],
+            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay', 'Phase 3 Mabuhay', 'Phase 4 Mabuhay', 'Phase 5 Mabuhay', 
+            'Phase 6 Mabuhay', 'Phase 7 Mabuhay', 'Purok 1', 'Purok 2', 'Purok 3',' Purok 4', 'St. Joseph Village 3', 'St. Vincent Compound', 'Value Homes 1', 'Value Homes 2', 'Value Homes 3'],
         counts: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         subCategories: ['Cooperative'], 
         subCategoryCounts: [2],  
@@ -107,7 +111,8 @@ const dataForCategories = {
     'Creative and Media Service': {
         barangays: ['Blanks', 'Brillianz Residences', 'Buena Rosario', 'Ciudad Montrina', 'Extraordinary Homes Executive', 'Extraordinary Homes Mabuhay', 
             'Luxury Mabuhay City', 'Mabuhay City', 'Main Road', 'Mamatid Road', 'Montrina Subdivision', 'NIA Road', 'Phase 1 Mabuhay', 'Phase 2 Mabuhay', 
-            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay'],
+            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay', 'Phase 3 Mabuhay', 'Phase 4 Mabuhay', 'Phase 5 Mabuhay', 
+            'Phase 6 Mabuhay', 'Phase 7 Mabuhay', 'Purok 1', 'Purok 2', 'Purok 3',' Purok 4', 'St. Joseph Village 3', 'St. Vincent Compound', 'Value Homes 1', 'Value Homes 2', 'Value Homes 3'],
         counts: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
         subCategories: ['Advertising and Marketing', 'Event Design Service', 'Photography and Videography', 'Printing Services'], 
         subCategoryCounts: [1, 0, 0, 3
@@ -125,7 +130,8 @@ const dataForCategories = {
     'Education Services': {
         barangays: ['Blanks', 'Brillianz Residences', 'Buena Rosario', 'Ciudad Montrina', 'Extraordinary Homes Executive', 'Extraordinary Homes Mabuhay', 
             'Luxury Mabuhay City', 'Mabuhay City', 'Main Road', 'Mamatid Road', 'Montrina Subdivision', 'NIA Road', 'Phase 1 Mabuhay', 'Phase 2 Mabuhay', 
-            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay'],
+            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay', 'Phase 3 Mabuhay', 'Phase 4 Mabuhay', 'Phase 5 Mabuhay', 
+            'Phase 6 Mabuhay', 'Phase 7 Mabuhay', 'Purok 1', 'Purok 2', 'Purok 3',' Purok 4', 'St. Joseph Village 3', 'St. Vincent Compound', 'Value Homes 1', 'Value Homes 2', 'Value Homes 3'],
         counts: [3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         subCategories: ['Driving School', 'Learning Center', 'Private School', 'School Service', 'Training Center', 'Tutorial Services',
             'Vocational and Special Schools' 
@@ -145,7 +151,8 @@ const dataForCategories = {
     'Entertainment and Recreation': {
         barangays: ['Blanks', 'Brillianz Residences', 'Buena Rosario', 'Ciudad Montrina', 'Extraordinary Homes Executive', 'Extraordinary Homes Mabuhay', 
             'Luxury Mabuhay City', 'Mabuhay City', 'Main Road', 'Mamatid Road', 'Montrina Subdivision', 'NIA Road', 'Phase 1 Mabuhay', 'Phase 2 Mabuhay', 
-            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay'],
+            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay', 'Phase 3 Mabuhay', 'Phase 4 Mabuhay', 'Phase 5 Mabuhay', 
+            'Phase 6 Mabuhay', 'Phase 7 Mabuhay', 'Purok 1', 'Purok 2', 'Purok 3',' Purok 4', 'St. Joseph Village 3', 'St. Vincent Compound', 'Value Homes 1', 'Value Homes 2', 'Value Homes 3'],
         counts: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
         subCategories: ['Dining and Leisure', 'Egames/Ebingo', 'Fireworks and Pyrotechnics', 'Golf Cart Rental', 'Party Rentals', 'Play Center',
             'Sound & Light Rental', 'Sports and Fitness' 
@@ -165,7 +172,8 @@ const dataForCategories = {
     'Finance and Insurance': {
         barangays: ['Blanks', 'Brillianz Residences', 'Buena Rosario', 'Ciudad Montrina', 'Extraordinary Homes Executive', 'Extraordinary Homes Mabuhay', 
             'Luxury Mabuhay City', 'Mabuhay City', 'Main Road', 'Mamatid Road', 'Montrina Subdivision', 'NIA Road', 'Phase 1 Mabuhay', 'Phase 2 Mabuhay', 
-            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay'],
+            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay', 'Phase 3 Mabuhay', 'Phase 4 Mabuhay', 'Phase 5 Mabuhay', 
+            'Phase 6 Mabuhay', 'Phase 7 Mabuhay', 'Purok 1', 'Purok 2', 'Purok 3',' Purok 4', 'St. Joseph Village 3', 'St. Vincent Compound', 'Value Homes 1', 'Value Homes 2', 'Value Homes 3'],
         counts: [3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1],
         subCategories: ['ATM Off Site Stations', 'Banks', 'Financing Institutions', 'General Financial Services', 'Holding Company', 'Insurance Agents/Companies',
             'Lending Investor', 'Money Remittance/ Bill Payment', 'Pawnshop & Financial Services', 'Payment Center' 
@@ -185,7 +193,8 @@ const dataForCategories = {
     'Food Services': {
         barangays: ['Blanks', 'Brillianz Residences', 'Buena Rosario', 'Ciudad Montrina', 'Extraordinary Homes Executive', 'Extraordinary Homes Mabuhay', 
             'Luxury Mabuhay City', 'Mabuhay City', 'Main Road', 'Mamatid Road', 'Montrina Subdivision', 'NIA Road', 'Phase 1 Mabuhay', 'Phase 2 Mabuhay', 
-            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay'],
+            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay', 'Phase 3 Mabuhay', 'Phase 4 Mabuhay', 'Phase 5 Mabuhay', 
+            'Phase 6 Mabuhay', 'Phase 7 Mabuhay', 'Purok 1', 'Purok 2', 'Purok 3',' Purok 4', 'St. Joseph Village 3', 'St. Vincent Compound', 'Value Homes 1', 'Value Homes 2', 'Value Homes 3'],
         counts: [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         subCategories: ['Burger Stand', 'Canteen' , 'Catering Service', 'Coffee Shop', 'Eatery', 'Fast Food', 'Food Concessionaire', 'Food Stand',
             'Milk Tea Shop', 'Panciteria', 'Refreshment Parlor', 'Restaurant', 'Restobar'
@@ -205,7 +214,8 @@ const dataForCategories = {
     'Healthcare Services': {
         barangays: ['Blanks', 'Brillianz Residences', 'Buena Rosario', 'Ciudad Montrina', 'Extraordinary Homes Executive', 'Extraordinary Homes Mabuhay', 
             'Luxury Mabuhay City', 'Mabuhay City', 'Main Road', 'Mamatid Road', 'Montrina Subdivision', 'NIA Road', 'Phase 1 Mabuhay', 'Phase 2 Mabuhay', 
-            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay'],
+            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay', 'Phase 3 Mabuhay', 'Phase 4 Mabuhay', 'Phase 5 Mabuhay', 
+            'Phase 6 Mabuhay', 'Phase 7 Mabuhay', 'Purok 1', 'Purok 2', 'Purok 3',' Purok 4', 'St. Joseph Village 3', 'St. Vincent Compound', 'Value Homes 1', 'Value Homes 2', 'Value Homes 3'],
         counts: [0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 10, 0, 1, 0, 0, 0, 2, 1, 0, 0, 2, 1, 0, 0, 0, 0, 0, 0],
         subCategories: ['Animal Bite Clinics', 'Dental Clinics', 'Diagnostic and Medical Clinics', 'Dialysis Center', 'Gerontology Services', 'Hospital', 
             'Laboratory Equipment Repair Service',  'Maternity Clinics & Family Planning', 'Medical and Healthcare Services', 'Optical Clinics', 'Pharmacies', 
@@ -226,7 +236,8 @@ const dataForCategories = {
     'IT and Digital Services': {
         barangays: ['Blanks', 'Brillianz Residences', 'Buena Rosario', 'Ciudad Montrina', 'Extraordinary Homes Executive', 'Extraordinary Homes Mabuhay', 
             'Luxury Mabuhay City', 'Mabuhay City', 'Main Road', 'Mamatid Road', 'Montrina Subdivision', 'NIA Road', 'Phase 1 Mabuhay', 'Phase 2 Mabuhay', 
-            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay'],
+            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay', 'Phase 3 Mabuhay', 'Phase 4 Mabuhay', 'Phase 5 Mabuhay', 
+            'Phase 6 Mabuhay', 'Phase 7 Mabuhay', 'Purok 1', 'Purok 2', 'Purok 3',' Purok 4', 'St. Joseph Village 3', 'St. Vincent Compound', 'Value Homes 1', 'Value Homes 2', 'Value Homes 3'],
         counts: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         subCategories: ['Administrative Support Services', 'Audio & Video System Services', 'Computer Services / IT Services', 'Computer Shop', 'Customer Support & BPO Service',
             'Internet Service Provider', 'Repair Service', 'Service Contractor', 'Telecom Services', 'Virtual Assistance' 
@@ -246,7 +257,8 @@ const dataForCategories = {
     'Manufacturing and Production': {
         barangays: ['Blanks', 'Brillianz Residences', 'Buena Rosario', 'Ciudad Montrina', 'Extraordinary Homes Executive', 'Extraordinary Homes Mabuhay', 
             'Luxury Mabuhay City', 'Mabuhay City', 'Main Road', 'Mamatid Road', 'Montrina Subdivision', 'NIA Road', 'Phase 1 Mabuhay', 'Phase 2 Mabuhay', 
-            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay'],
+            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay', 'Phase 3 Mabuhay', 'Phase 4 Mabuhay', 'Phase 5 Mabuhay', 
+            'Phase 6 Mabuhay', 'Phase 7 Mabuhay', 'Purok 1', 'Purok 2', 'Purok 3',' Purok 4', 'St. Joseph Village 3', 'St. Vincent Compound', 'Value Homes 1', 'Value Homes 2', 'Value Homes 3'],
         counts: [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 1, 2, 0, 3, 0, 1, 0, 0, 0, 0, 0, 1],
         subCategories: ['Agricultural Products', 'Contractor and Service Manufacturing', 'Essential Manufacturer', 'Fabrication Services',
             'Food Products Manufacturer', 'Garment Manufacturer', 'General Manufacturing', 'Glass & Aluminum Fabrication Services', 'Hollowblock Making',
@@ -268,7 +280,8 @@ const dataForCategories = {
     'Personal and Household Services': {
         barangays: ['Blanks', 'Brillianz Residences', 'Buena Rosario', 'Ciudad Montrina', 'Extraordinary Homes Executive', 'Extraordinary Homes Mabuhay', 
             'Luxury Mabuhay City', 'Mabuhay City', 'Main Road', 'Mamatid Road', 'Montrina Subdivision', 'NIA Road', 'Phase 1 Mabuhay', 'Phase 2 Mabuhay', 
-            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay'],
+            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay', 'Phase 3 Mabuhay', 'Phase 4 Mabuhay', 'Phase 5 Mabuhay', 
+            'Phase 6 Mabuhay', 'Phase 7 Mabuhay', 'Purok 1', 'Purok 2', 'Purok 3',' Purok 4', 'St. Joseph Village 3', 'St. Vincent Compound', 'Value Homes 1', 'Value Homes 2', 'Value Homes 3'],
         counts: [0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 3, 1, 1, 0, 0, 1, 0, 3, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0],
         subCategories: ['Air Conditioner Services', 'Bottle Cleaning', 'Funeral Services', 'Furniture & Carpentry', 'Gown/Barong/Dress/Toga Rental',
             'Janitorial Services', 'Kitchen Equipment Repair Services', 'Laundy Shops', 'Pest Control', 'Plumbing Services', 'Refrigerator & Air Con Repair Services',
@@ -289,7 +302,8 @@ const dataForCategories = {
     'Personal Care Services': {
         barangays: ['Blanks', 'Brillianz Residences', 'Buena Rosario', 'Ciudad Montrina', 'Extraordinary Homes Executive', 'Extraordinary Homes Mabuhay', 
             'Luxury Mabuhay City', 'Mabuhay City', 'Main Road', 'Mamatid Road', 'Montrina Subdivision', 'NIA Road', 'Phase 1 Mabuhay', 'Phase 2 Mabuhay', 
-            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay'],
+            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay', 'Phase 3 Mabuhay', 'Phase 4 Mabuhay', 'Phase 5 Mabuhay', 
+            'Phase 6 Mabuhay', 'Phase 7 Mabuhay', 'Purok 1', 'Purok 2', 'Purok 3',' Purok 4', 'St. Joseph Village 3', 'St. Vincent Compound', 'Value Homes 1', 'Value Homes 2', 'Value Homes 3'],
         counts: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
         subCategories: ['Aesthetic Services', 'Barbershop', 'Beauty Taylor', 'Fitness Gym', 'Home Massage Services',
             'Nail Spa', 'Skin care Center' 
@@ -309,7 +323,8 @@ const dataForCategories = {
     'Professional Services': {
         barangays: ['Blanks', 'Brillianz Residences', 'Buena Rosario', 'Ciudad Montrina', 'Extraordinary Homes Executive', 'Extraordinary Homes Mabuhay', 
             'Luxury Mabuhay City', 'Mabuhay City', 'Main Road', 'Mamatid Road', 'Montrina Subdivision', 'NIA Road', 'Phase 1 Mabuhay', 'Phase 2 Mabuhay', 
-            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay'],
+            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay', 'Phase 3 Mabuhay', 'Phase 4 Mabuhay', 'Phase 5 Mabuhay', 
+            'Phase 6 Mabuhay', 'Phase 7 Mabuhay', 'Purok 1', 'Purok 2', 'Purok 3',' Purok 4', 'St. Joseph Village 3', 'St. Vincent Compound', 'Value Homes 1', 'Value Homes 2', 'Value Homes 3'],
         counts: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 1, 0, 0, 0],
         subCategories: ['Accounting Agencies', 'Administrative Office Services', 'Administrative Support Services', 'Business Agent', 'Calibration Services',
             'Consultancy and Management Services', 'Contracting and Manpower Services', 'Design Services', 'Emission and Testing Center', 'Engineering and Technical Services',
@@ -330,7 +345,8 @@ const dataForCategories = {
     'Retail Stores': {
         barangays: ['Blanks', 'Brillianz Residences', 'Buena Rosario', 'Ciudad Montrina', 'Extraordinary Homes Executive', 'Extraordinary Homes Mabuhay', 
             'Luxury Mabuhay City', 'Mabuhay City', 'Main Road', 'Mamatid Road', 'Montrina Subdivision', 'NIA Road', 'Phase 1 Mabuhay', 'Phase 2 Mabuhay', 
-            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay'],
+            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay', 'Phase 3 Mabuhay', 'Phase 4 Mabuhay', 'Phase 5 Mabuhay', 
+            'Phase 6 Mabuhay', 'Phase 7 Mabuhay', 'Purok 1', 'Purok 2', 'Purok 3',' Purok 4', 'St. Joseph Village 3', 'St. Vincent Compound', 'Value Homes 1', 'Value Homes 2', 'Value Homes 3'],
         counts: [16, 0, 1, 1, 2, 2, 0, 2, 0, 1, 0, 1, 1, 25, 4, 1, 0, 2, 1, 8, 14, 2, 7, 5, 4, 1, 0, 1, 1, 0, 1],
         subCategories: ['Clothing and Apparel', 'Convenience Store', 'Electronics and Gadgets', 'Food and Beverage', 'Fuel and Energy Supplies', 'Furniture and Home Decor',
             'General Merchandise', 'Grocery and Supermarkets', 'Hardware and Constructiom Supplies', 'Health and Personal Care', 'Household Supplies', 'Online Shops', 'Sari-sari Store',
@@ -351,7 +367,8 @@ const dataForCategories = {
     'Tourism and Hospitality': {
         barangays: ['Blanks', 'Brillianz Residences', 'Buena Rosario', 'Ciudad Montrina', 'Extraordinary Homes Executive', 'Extraordinary Homes Mabuhay', 
             'Luxury Mabuhay City', 'Mabuhay City', 'Main Road', 'Mamatid Road', 'Montrina Subdivision', 'NIA Road', 'Phase 1 Mabuhay', 'Phase 2 Mabuhay', 
-            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay'],
+            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay', 'Phase 3 Mabuhay', 'Phase 4 Mabuhay', 'Phase 5 Mabuhay', 
+            'Phase 6 Mabuhay', 'Phase 7 Mabuhay', 'Purok 1', 'Purok 2', 'Purok 3',' Purok 4', 'St. Joseph Village 3', 'St. Vincent Compound', 'Value Homes 1', 'Value Homes 2', 'Value Homes 3'],
         counts: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
         subCategories: ['Hotel', 'Resort', 'Travel Agency'
         ], 
@@ -370,7 +387,8 @@ const dataForCategories = {
     'Transportation and Logistics': {
         barangays: ['Blanks', 'Brillianz Residences', 'Buena Rosario', 'Ciudad Montrina', 'Extraordinary Homes Executive', 'Extraordinary Homes Mabuhay', 
             'Luxury Mabuhay City', 'Mabuhay City', 'Main Road', 'Mamatid Road', 'Montrina Subdivision', 'NIA Road', 'Phase 1 Mabuhay', 'Phase 2 Mabuhay', 
-            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay'],
+            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay', 'Phase 3 Mabuhay', 'Phase 4 Mabuhay', 'Phase 5 Mabuhay', 
+            'Phase 6 Mabuhay', 'Phase 7 Mabuhay', 'Purok 1', 'Purok 2', 'Purok 3',' Purok 4', 'St. Joseph Village 3', 'St. Vincent Compound', 'Value Homes 1', 'Value Homes 2', 'Value Homes 3'],
         counts: [2, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 2, 0, 1, 0, 0, 0, 2, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1],
         subCategories: ['Car Rental', 'Common Courier', 'Delivery Services', 'Forwarder', 'Hauling Services', 'Logistic Services', 'Operator & Drivers Association',
             'Service Contractor', 'Shuttle Service/Transport', 'Transport Services', 'Trucking Services/Transport', 'Vehicle Storage', 'Warehous and Storage Services'
@@ -390,7 +408,8 @@ const dataForCategories = {
     'Wholesale and Distribution': {
         barangays: ['Blanks', 'Brillianz Residences', 'Buena Rosario', 'Ciudad Montrina', 'Extraordinary Homes Executive', 'Extraordinary Homes Mabuhay', 
             'Luxury Mabuhay City', 'Mabuhay City', 'Main Road', 'Mamatid Road', 'Montrina Subdivision', 'NIA Road', 'Phase 1 Mabuhay', 'Phase 2 Mabuhay', 
-            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay'],
+            'Phase 3 Cluster Mabuhay', 'Phase 3 Executive Mabuhay', 'Phase 3 Extension Mabuhay', 'Phase 3 Mabuhay', 'Phase 4 Mabuhay', 'Phase 5 Mabuhay', 
+            'Phase 6 Mabuhay', 'Phase 7 Mabuhay', 'Purok 1', 'Purok 2', 'Purok 3',' Purok 4', 'St. Joseph Village 3', 'St. Vincent Compound', 'Value Homes 1', 'Value Homes 2', 'Value Homes 3'],
         counts: [3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0],
         subCategories: ['Agricultural Products', 'Auction', 'Automotive', 'Cleaning Supplies', 'Electronics Products', 'Essential/ Non Essential', 'Food Products', 'Fuel and Energy Supplies', 
             'Industrial and Construction Supplies', 'Junk Shops', 'Medical and Health Supplies', 'Non Essential', 'Office & Packaging Supplies', 'Recycle Materials', 'Service Contractor', 'Trading'

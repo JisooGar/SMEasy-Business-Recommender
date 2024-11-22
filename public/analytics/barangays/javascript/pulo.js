@@ -29,7 +29,7 @@ const dataForCategories = {
     All: {
         barangays: ['Arabelle Homes', 'Birmingham Village', 'Blanks', 'Cabuyao Centrale', 'Centennial Homes 2', 'Diezmo Road', 
             'Divimall', 'Don Vicente Village', 'Eastland 2', 'Evergreen Subdivision', 'Fortezza Subdivision', 'Mahogany Promenade',
-            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao'
+            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao',  'Pulo-Diezmo Road', 'Pulo-San Isidro Road', 'Realica', 'Villa Adelinia 2', 'Willow Park Homes',  'Pulo-Diezmo Road', 'Pulo-San Isidro Road', 'Realica', 'Villa Adelinia 2', 'Willow Park Homes'
         ],
         counts: [34, 31, 61, 17, 7, 1, 2, 3, 4, 2, 3, 6, 8, 11, 110, 6, 2, 79, 3, 7, 15, 2], 
         subCategories: ['None'],
@@ -49,7 +49,7 @@ const dataForCategories = {
     'Automotive Services': {
         barangays: ['Arabelle Homes', 'Birmingham Village', 'Blanks', 'Cabuyao Centrale', 'Centennial Homes 2', 'Diezmo Road', 
             'Divimall', 'Don Vicente Village', 'Eastland 2', 'Evergreen Subdivision', 'Fortezza Subdivision', 'Mahogany Promenade',
-            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao'
+            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao',  'Pulo-Diezmo Road', 'Pulo-San Isidro Road', 'Realica', 'Villa Adelinia 2', 'Willow Park Homes'
         ],
         counts: [1, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 2, 0, 6, 0, 0, 7, 0, 0, 0, 0], 
         subCategories: ['Auto Repair Services', 'Body and Welding Shops', 'Car wash and Detailing', 'Fuel Services',
@@ -70,7 +70,7 @@ const dataForCategories = {
     'Construction and Real Estate': {
         barangays: ['Arabelle Homes', 'Birmingham Village', 'Blanks', 'Cabuyao Centrale', 'Centennial Homes 2', 'Diezmo Road', 
             'Divimall', 'Don Vicente Village', 'Eastland 2', 'Evergreen Subdivision', 'Fortezza Subdivision', 'Mahogany Promenade',
-            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao'
+            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao',  'Pulo-Diezmo Road', 'Pulo-San Isidro Road', 'Realica', 'Villa Adelinia 2', 'Willow Park Homes'
         ],
         counts: [7, 0, 5, 5, 2, 0, 0, 1, 0, 0, 1, 0, 1, 2, 10, 0, 0, 12, 1, 1, 5, 0], 
         subCategories: ['Apartment/Apartelle', 'Building Contractor', 'Construction Services', 'Contractor', 'Electrical/Mechanical Contractor', 'Facilities and Infrastracture',
@@ -93,7 +93,7 @@ const dataForCategories = {
     'Cooperative Business': {
         barangays: ['Arabelle Homes', 'Birmingham Village', 'Blanks', 'Cabuyao Centrale', 'Centennial Homes 2', 'Diezmo Road', 
             'Divimall', 'Don Vicente Village', 'Eastland 2', 'Evergreen Subdivision', 'Fortezza Subdivision', 'Mahogany Promenade',
-            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao'
+            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao',  'Pulo-Diezmo Road', 'Pulo-San Isidro Road', 'Realica', 'Villa Adelinia 2', 'Willow Park Homes'
         ],
         counts: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1],
         subCategories: ['Cooperative'], 
@@ -111,7 +111,7 @@ const dataForCategories = {
     'Creative and Media Service': {
         barangays: ['Arabelle Homes', 'Birmingham Village', 'Blanks', 'Cabuyao Centrale', 'Centennial Homes 2', 'Diezmo Road', 
             'Divimall', 'Don Vicente Village', 'Eastland 2', 'Evergreen Subdivision', 'Fortezza Subdivision', 'Mahogany Promenade',
-            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao'
+            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao',  'Pulo-Diezmo Road', 'Pulo-San Isidro Road', 'Realica', 'Villa Adelinia 2', 'Willow Park Homes'
         ],
         counts: [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
         subCategories: ['Advertising and Marketing', 'Event Design Service', 'Photography and Videography', 'Printing Services'], 
@@ -130,7 +130,7 @@ const dataForCategories = {
     'Education Services': {
         barangays: ['Arabelle Homes', 'Birmingham Village', 'Blanks', 'Cabuyao Centrale', 'Centennial Homes 2', 'Diezmo Road', 
             'Divimall', 'Don Vicente Village', 'Eastland 2', 'Evergreen Subdivision', 'Fortezza Subdivision', 'Mahogany Promenade',
-            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao'
+            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao',  'Pulo-Diezmo Road', 'Pulo-San Isidro Road', 'Realica', 'Villa Adelinia 2', 'Willow Park Homes'
         ],
         counts: [0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
         subCategories: ['Driving School', 'Learning Center', 'Private School', 'School Service', 'Training Center', 'Tutorial Services',
@@ -151,7 +151,7 @@ const dataForCategories = {
     'Entertainment and Recreation': {
         barangays: ['Arabelle Homes', 'Birmingham Village', 'Blanks', 'Cabuyao Centrale', 'Centennial Homes 2', 'Diezmo Road', 
             'Divimall', 'Don Vicente Village', 'Eastland 2', 'Evergreen Subdivision', 'Fortezza Subdivision', 'Mahogany Promenade',
-            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao'
+            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao',  'Pulo-Diezmo Road', 'Pulo-San Isidro Road', 'Realica', 'Villa Adelinia 2', 'Willow Park Homes'
         ],
         counts: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0],
         subCategories: ['Dining and Leisure', 'Egames/Ebingo', 'Fireworks and Pyrotechnics', 'Golf Cart Rental', 'Party Rentals', 'Play Center',
@@ -172,7 +172,7 @@ const dataForCategories = {
     'Finance and Insurance': {
         barangays: ['Arabelle Homes', 'Birmingham Village', 'Blanks', 'Cabuyao Centrale', 'Centennial Homes 2', 'Diezmo Road', 
             'Divimall', 'Don Vicente Village', 'Eastland 2', 'Evergreen Subdivision', 'Fortezza Subdivision', 'Mahogany Promenade',
-            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao'
+            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao',  'Pulo-Diezmo Road', 'Pulo-San Isidro Road', 'Realica', 'Villa Adelinia 2', 'Willow Park Homes'
         ],
         counts: [0, 1, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 8, 0, 0, 0, 0, 0, 0, 0],
         subCategories: ['ATM Off Site Stations', 'Banks', 'Financing Institutions', 'General Financial Services', 'Holding Company', 'Insurance Agents/Companies',
@@ -193,7 +193,7 @@ const dataForCategories = {
     'Food Services': {
         barangays: ['Arabelle Homes', 'Birmingham Village', 'Blanks', 'Cabuyao Centrale', 'Centennial Homes 2', 'Diezmo Road', 
             'Divimall', 'Don Vicente Village', 'Eastland 2', 'Evergreen Subdivision', 'Fortezza Subdivision', 'Mahogany Promenade',
-            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao'
+            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao',  'Pulo-Diezmo Road', 'Pulo-San Isidro Road', 'Realica', 'Villa Adelinia 2', 'Willow Park Homes'
         ],
         counts: [0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 22, 0, 0, 3, 0, 0, 1, 0],
         subCategories: ['Burger Stand', 'Canteen' , 'Catering Service', 'Coffee Shop', 'Eatery', 'Fast Food', 'Food Concessionaire', 'Food Stand',
@@ -214,7 +214,7 @@ const dataForCategories = {
     'Healthcare Services': {
         barangays: ['Arabelle Homes', 'Birmingham Village', 'Blanks', 'Cabuyao Centrale', 'Centennial Homes 2', 'Diezmo Road', 
             'Divimall', 'Don Vicente Village', 'Eastland 2', 'Evergreen Subdivision', 'Fortezza Subdivision', 'Mahogany Promenade',
-            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao'
+            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao',  'Pulo-Diezmo Road', 'Pulo-San Isidro Road', 'Realica', 'Villa Adelinia 2', 'Willow Park Homes'
         ],
         counts: [0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1, 8, 0, 0, 4, 0, 0, 1, 0],
         subCategories: ['Animal Bite Clinics', 'Dental Clinics', 'Diagnostic and Medical Clinics', 'Dialysis Center', 'Gerontology Services', 'Hospital', 
@@ -236,7 +236,7 @@ const dataForCategories = {
     'IT and Digital Services': {
         barangays: ['Arabelle Homes', 'Birmingham Village', 'Blanks', 'Cabuyao Centrale', 'Centennial Homes 2', 'Diezmo Road', 
             'Divimall', 'Don Vicente Village', 'Eastland 2', 'Evergreen Subdivision', 'Fortezza Subdivision', 'Mahogany Promenade',
-            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao'
+            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao',  'Pulo-Diezmo Road', 'Pulo-San Isidro Road', 'Realica', 'Villa Adelinia 2', 'Willow Park Homes'
         ],
         counts: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0],
         subCategories: ['Administrative Support Services', 'Audio & Video System Services', 'Computer Services / IT Services', 'Computer Shop', 'Customer Support & BPO Service',
@@ -257,7 +257,7 @@ const dataForCategories = {
     'Manufacturing and Production': {
         barangays: ['Arabelle Homes', 'Birmingham Village', 'Blanks', 'Cabuyao Centrale', 'Centennial Homes 2', 'Diezmo Road', 
             'Divimall', 'Don Vicente Village', 'Eastland 2', 'Evergreen Subdivision', 'Fortezza Subdivision', 'Mahogany Promenade',
-            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao'
+            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao',  'Pulo-Diezmo Road', 'Pulo-San Isidro Road', 'Realica', 'Villa Adelinia 2', 'Willow Park Homes'
         ],
         counts: [3, 0, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 6, 0, 0, 0, 0 ],
         subCategories: ['Agricultural Products', 'Contractor and Service Manufacturing', 'Essential Manufacturer', 'Fabrication Services',
@@ -280,7 +280,7 @@ const dataForCategories = {
     'Personal and Household Services': {
         barangays: ['Arabelle Homes', 'Birmingham Village', 'Blanks', 'Cabuyao Centrale', 'Centennial Homes 2', 'Diezmo Road', 
             'Divimall', 'Don Vicente Village', 'Eastland 2', 'Evergreen Subdivision', 'Fortezza Subdivision', 'Mahogany Promenade',
-            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao'
+            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao',  'Pulo-Diezmo Road', 'Pulo-San Isidro Road', 'Realica', 'Villa Adelinia 2', 'Willow Park Homes'
         ],
         counts: [0, 2, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0],
         subCategories: ['Air Conditioner Services', 'Bottle Cleaning', 'Funeral Services', 'Furniture & Carpentry', 'Gown/Barong/Dress/Toga Rental',
@@ -302,7 +302,7 @@ const dataForCategories = {
     'Personal Care Services': {
         barangays: ['Arabelle Homes', 'Birmingham Village', 'Blanks', 'Cabuyao Centrale', 'Centennial Homes 2', 'Diezmo Road', 
             'Divimall', 'Don Vicente Village', 'Eastland 2', 'Evergreen Subdivision', 'Fortezza Subdivision', 'Mahogany Promenade',
-            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao'
+            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao',  'Pulo-Diezmo Road', 'Pulo-San Isidro Road', 'Realica', 'Villa Adelinia 2', 'Willow Park Homes'
         ],
         counts: [1, 0, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0],
         subCategories: ['Aesthetic Services', 'Barbershop', 'Beauty Taylor', 'Fitness Gym', 'Home Massage Services',
@@ -323,7 +323,7 @@ const dataForCategories = {
     'Professional Services': {
         barangays: ['Arabelle Homes', 'Birmingham Village', 'Blanks', 'Cabuyao Centrale', 'Centennial Homes 2', 'Diezmo Road', 
             'Divimall', 'Don Vicente Village', 'Eastland 2', 'Evergreen Subdivision', 'Fortezza Subdivision', 'Mahogany Promenade',
-            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao'
+            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao',  'Pulo-Diezmo Road', 'Pulo-San Isidro Road', 'Realica', 'Villa Adelinia 2', 'Willow Park Homes'
         ],
         counts: [2, 2, 4, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 3, 1, 0, 0, 4, 0, 2, 1, 1 ],
         subCategories: ['Accounting Agencies', 'Administrative Office Services', 'Administrative Support Services', 'Business Agent', 'Calibration Services',
@@ -345,7 +345,7 @@ const dataForCategories = {
     'Retail Stores': {
         barangays: ['Arabelle Homes', 'Birmingham Village', 'Blanks', 'Cabuyao Centrale', 'Centennial Homes 2', 'Diezmo Road', 
             'Divimall', 'Don Vicente Village', 'Eastland 2', 'Evergreen Subdivision', 'Fortezza Subdivision', 'Mahogany Promenade',
-            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao'
+            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao',  'Pulo-Diezmo Road', 'Pulo-San Isidro Road', 'Realica', 'Villa Adelinia 2', 'Willow Park Homes'
         ],
         counts: [13, 16, 19, 1, 3, 0, 0, 2, 0, 0, 0, 3, 2, 1, 41, 3, 0, 11, 0, 1, 4, 0],
         subCategories: ['Clothing and Apparel', 'Convenience Store', 'Electronics and Gadgets', 'Food and Beverage', 'Fuel and Energy Supplies', 'Furniture and Home Decor',
@@ -367,7 +367,7 @@ const dataForCategories = {
     'Tourism and Hospitality': {
         barangays: ['Arabelle Homes', 'Birmingham Village', 'Blanks', 'Cabuyao Centrale', 'Centennial Homes 2', 'Diezmo Road', 
             'Divimall', 'Don Vicente Village', 'Eastland 2', 'Evergreen Subdivision', 'Fortezza Subdivision', 'Mahogany Promenade',
-            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao'
+            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao',  'Pulo-Diezmo Road', 'Pulo-San Isidro Road', 'Realica', 'Villa Adelinia 2', 'Willow Park Homes'
         ],
         counts: [0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
         subCategories: ['Hotel', 'Resort', 'Travel Agency'
@@ -387,7 +387,7 @@ const dataForCategories = {
     'Transportation and Logistics': {
         barangays: ['Arabelle Homes', 'Birmingham Village', 'Blanks', 'Cabuyao Centrale', 'Centennial Homes 2', 'Diezmo Road', 
             'Divimall', 'Don Vicente Village', 'Eastland 2', 'Evergreen Subdivision', 'Fortezza Subdivision', 'Mahogany Promenade',
-            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao'
+            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao',  'Pulo-Diezmo Road', 'Pulo-San Isidro Road', 'Realica', 'Villa Adelinia 2', 'Willow Park Homes'
         ],
         counts: [7, 6, 5, 3, 1, 0, 0, 0, 0, 2, 2, 0, 1, 1, 3, 1, 2, 26, 2, 0, 1, 0 ],
         subCategories: ['Car Rental', 'Common Courier', 'Delivery Services', 'Forwarder', 'Hauling Services', 'Logistic Services', 'Operator & Drivers Association',
@@ -408,7 +408,7 @@ const dataForCategories = {
     'Wholesale and Distribution': {
         barangays: ['Arabelle Homes', 'Birmingham Village', 'Blanks', 'Cabuyao Centrale', 'Centennial Homes 2', 'Diezmo Road', 
             'Divimall', 'Don Vicente Village', 'Eastland 2', 'Evergreen Subdivision', 'Fortezza Subdivision', 'Mahogany Promenade',
-            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao'
+            'Mahogany Village Ph1', 'Millwood Ville', 'National Highway', 'NIA road', 'Paseo de Cabuyao',  'Pulo-Diezmo Road', 'Pulo-San Isidro Road', 'Realica', 'Villa Adelinia 2', 'Willow Park Homes'
         ],
         counts: [0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 2, 2, 0, 2, 0, 2, 0, 0],
         subCategories: ['Agricultural Products', 'Auction', 'Automotive', 'Cleaning Supplies', 'Electronics Products', 'Essential/ Non Essential', 'Food Products', 'Fuel and Energy Supplies', 

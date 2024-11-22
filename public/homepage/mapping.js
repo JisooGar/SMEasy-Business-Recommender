@@ -204,7 +204,7 @@ function centerMap(lat, lng, zoomLevel = 17) {
 
 function fetchBusinessesForClustering(barangayId = null) {
     let url = '/api/businesses';
-    
+
     if (barangayId && barangayId !== null) {
         url += `?barangayId=${barangayId}`;
     }
@@ -212,7 +212,7 @@ function fetchBusinessesForClustering(barangayId = null) {
     fetch(url)
         .then(response => response.json())
         .then(businesses => {
-            console.log("Businesses data:", businesses);
+            console.log("Businesses data fetched:", businesses);
 
             if (!Array.isArray(businesses)) {
                 console.error("Unexpected data format: businesses is not an array", businesses);
@@ -223,10 +223,10 @@ function fetchBusinessesForClustering(barangayId = null) {
                 lat: parseFloat(business.latitude),
                 lng: parseFloat(business.longitude),
                 business_name: business.business_name,
-                address: business.address,
-                subarea_name: business.subarea_name,
-                subcategory_name: business.subcategory_name,
-                smetype_name: business.smetype_name
+                address: business.address || 'Address not available', // Include address for info windows
+                subarea: business.subarea_name || 'N/A',
+                subcategory: business.subcategory_name || 'N/A',
+                smetype: business.smetype_name || 'N/A'
             }));
 
             if (businessLocations.length === 0) {
@@ -234,7 +234,7 @@ function fetchBusinessesForClustering(barangayId = null) {
                 return;
             }
 
-            // Determine number of clusters
+            // Determine the number of clusters
             let numClusters;
             if (businessLocations.length <= 5) {
                 numClusters = 1;
@@ -244,14 +244,17 @@ function fetchBusinessesForClustering(barangayId = null) {
                 numClusters = Math.min(10, Math.ceil(businessLocations.length / 5));
             }
 
+            // Perform K-Means Clustering
             const { clusters } = kMeansClustering(businessLocations, numClusters, 10);
 
             hideCurrentMarkers();
 
-            clusters.forEach((cluster, index) => {
-                console.log(`Cluster ${index + 1}: ${cluster.length} businesses`);
+            // Display markers for each cluster
+            clusters.forEach((cluster, clusterIndex) => {
+                console.log(`Cluster ${clusterIndex + 1}:`);
+                cluster.forEach(business => {
+                    console.log(`- ${business.business_name}`);
 
-                cluster.forEach((business) => {
                     const marker = new google.maps.Marker({
                         position: { lat: business.lat, lng: business.lng },
                         map: map,
@@ -262,14 +265,14 @@ function fetchBusinessesForClustering(barangayId = null) {
                         }
                     });
 
-                    // Define the detailed info window content
+                    // Create an info window for the marker
                     const infoWindowContent = `
                         <div style="max-width: 200px;">
                             <h5>${business.business_name}</h5>
-                            <p><strong>Address:</strong> ${business.address || 'Address not available'}</p>
-                            <p><strong>Subarea:</strong> ${business.subarea_name || 'N/A'}</p>
-                            <p><strong>Subcategory:</strong> ${business.subcategory_name || 'N/A'}</p>
-                            <p><strong>Business Type:</strong> ${business.smetype_name || 'N/A'}</p>
+                            <p><strong>Address:</strong> ${business.address}</p>
+                            <p><strong>Subarea:</strong> ${business.subarea}</p>
+                            <p><strong>Subcategory:</strong> ${business.subcategory}</p>
+                            <p><strong>Business Type:</strong> ${business.smetype}</p>
                         </div>
                     `;
 
@@ -277,11 +280,15 @@ function fetchBusinessesForClustering(barangayId = null) {
                         content: infoWindowContent
                     });
 
+                    // Attach click listener for the marker to open its info window
                     marker.addListener('click', () => {
+                        infoWindows.forEach(info => info.close()); // Close other info windows
                         infoWindow.open(map, marker);
                     });
 
+                    // Store marker and info window for cleanup
                     currentBusinessMarkers.push(marker);
+                    infoWindows.push(infoWindow);
                 });
             });
         })
@@ -436,45 +443,7 @@ function addBusinessMarkers(barangayId) {
     // Clear any previous selections or markers related to Industry and Business Categories
     hideCurrentMarkers(); // Clears any existing markers
 
-    // Proceed to add markers for the newly selected barangay
-    fetch(`/api/businesses?barangayId=${barangayId}`)
-        .then((response) => response.json())
-        .then((businesses) => {
-            businesses.forEach((business) => {
-                const marker = new google.maps.Marker({
-                    position: { lat: parseFloat(business.latitude), lng: parseFloat(business.longitude) },
-                    map: map,
-                    title: business.business_name,
-                    icon: {
-                        url: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
-                        scaledSize: new google.maps.Size(20, 20), // Business marker size
-                    },
-                });
-
-                const infoWindowContent = `
-                    <div style="max-width: 200px;">
-                        <h5>${business.business_name}</h5>
-                        <p><strong>Address:</strong> ${business.address}</p>
-                        <p><strong>Subarea:</strong> ${business.subarea_name}</p>
-                        <p><strong>Subcategory:</strong> ${business.subcategory_name}</p>
-                        <p><strong>Business Type:</strong> ${business.smetype_name}</p>
-                    </div>
-                `;
-
-                const infoWindow = new google.maps.InfoWindow({
-                    content: infoWindowContent,
-                });
-
-                marker.addListener('click', () => {
-                    infoWindows.forEach((info) => info.close()); // Close other info windows
-                    infoWindow.open(map, marker);
-                });
-
-                currentBusinessMarkers.push(marker);
-                infoWindows.push(infoWindow);
-            });
-        })
-        .catch((error) => console.error('Error fetching business data:', error));
+   //HERES THE DELETED CODE
 }
 
 

@@ -770,19 +770,6 @@ for (const category of allCategories) {
 
 console.log("Area Type Scores:", areaTypeScores);
 
-/*// Step 7: Calculate total scores for each category
-const totalScores = {};
-for (let category in categoryCounts) {
-    totalScores[category] = (
-        (Number(inverseNormalizedCounts[category] || 0) * 0.25) +
-        (Number(normalizedDemands[category] || 0) * 0.20) +
-        (Number(normalizedMarketGaps[category] || 0) * 0.25) +
-        (Number(inverseNormalizedCompetition[category] || 0) * 0.15) +
-        (Number(areaTypeScores[category] || 0) * 0.15)
-    ).toFixed(2);
-}
-
-console.log("Total Scores by Category:", totalScores);*/
 
   //WEIGHTING
     // Multiply factors by their weights
@@ -1010,24 +997,6 @@ console.log("Total Scores by Category:", totalScores);*/
     return topCategories;
 }
 
-
-/*// Step 8: Sort categories by score and select the top 3
-const totalScoresArray = Object.entries(totalScores).map(([category, score]) => ({
-    category,
-    score: Number(score)
-}));
-
-totalScoresArray.sort((a, b) => b.score - a.score);
-
-const topCategories = totalScoresArray.slice(0, 3);
-
-console.log("\nTop 3 Recommended Categories:");
-topCategories.forEach(({ category, score }, index) => {
-    console.log(`${index + 1}. ${category} - Total Score: ${score}`);
-});
-
-return topCategories;  // Return the top categories for display
-}*/
 
 // Function to run analysis for the selected barangay
 async function runAnalysisModel(selectedCategory, selectedBarangay) {

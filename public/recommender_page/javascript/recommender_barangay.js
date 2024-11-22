@@ -458,11 +458,15 @@ async function handleAnalyze() {
     if (selectedCategory && selectedBarangay) {
         console.log(`Analyzing data for Category: ${selectedCategory}, Barangay: ${selectedBarangay}`);
 
+           // Show loading spinner
+           document.getElementById("loading-spinner").style.display = "inline-block";
+
         // Step 1: Fetch and process the data for the selected category and barangay from CSV files
         const recommendationData = await runAnalysisModel(selectedCategory, selectedBarangay);
 
         if (!recommendationData) {
             alert('No data available for the selected barangay.');
+            document.getElementById("loading-spinner").style.display = "none"; // Hide spinner if no data
             return;
         }
 
@@ -473,7 +477,7 @@ async function handleAnalyze() {
         // Simulate a delay for analysis (e.g., fetching data) for 2 seconds
         setTimeout(() => {
             // Hide the loading spinner after the analysis is complete
-            loadingSpinner.style.display = 'none';
+            document.getElementById("loading-spinner").style.display = "none";
 
             // Step 2: Display the recommendation section
             const recommendationSection = document.querySelector('.recommendation-section');
@@ -737,30 +741,12 @@ marketDemandData.forEach(row => {
       }
     
 
-  /*  // Step 8: Calculate total scores for each barangay
-    const totalScores = {};
-    for (let barangay in barangayCounts) {
-        totalScores[barangay] = (
-            (Number(inverseNormalizedCounts[barangay] || 0) * 0.25) +
-            (Number(normalizedDemands[barangay] || 0) * 0.20) +
-            (Number(normalizedMarketGaps[barangay] || 0) * 0.25) +
-            (Number(inverseNormalizedCompetition[barangay] || 0) * 0.10) +
-            (Number(normalizedPopulation[barangay] || 0) * 0.05) +
-            (Number(normalizedTranspo[barangay] || 0) * 0.05) +
-            (Number(areaTypeScores[barangay] || 0) * 0.10)
-      
-        ).toFixed(2);
-    }
-
-    // Log Total Scores
-    console.log('Total Scores by Barangay:', totalScores);*/
-
     //WEIGHTING
     // Multiply factors by their weights
     const factorWeights = {
-        normalizedDemands: 0.34,
-        normalizedMarketGaps: 0.28,
-        inverseNormalizedCompetition: 0.26,
+        normalizedDemands: 0.24,
+        normalizedMarketGaps: 0.26,
+        inverseNormalizedCompetition: 0.21,
         normalizedPopulation: 0.10,
         normalizedTranspo: 0.07,
         areaTypeScores: 0.12
@@ -1011,57 +997,6 @@ marketDemandData.forEach(row => {
     return topBarangays;
 }
     
-  /*// Step 9: Create clusters
-    const totalScoresArray = Object.entries(totalScores).map(([barangay, score]) => ({
-        barangay,
-        score: Number(score)
-    }));
-
-    totalScoresArray.sort((a, b) => a.score - b.score);
-
-    const clusterCount = 3;
-    const clusterSize = Math.ceil(totalScoresArray.length / clusterCount);
-    const clusters = {};
-
-    for (let i = 0; i < clusterCount; i++) {
-        clusters[`Cluster ${i + 1}`] = totalScoresArray.slice(i * clusterSize, (i + 1) * clusterSize);
-    }
-
-    const clusterAverages = {};
-    for (const [clusterName, barangays] of Object.entries(clusters)) {
-        const totalScore = barangays.reduce((acc, item) => acc + item.score, 0);
-        const averageScore = (totalScore / barangays.length).toFixed(2);
-        clusterAverages[clusterName] = averageScore;
-    }
-
-    const highestCluster = Object.keys(clusterAverages).reduce((a, b) =>
-        clusterAverages[a] > clusterAverages[b] ? a : b
-    );
-
-    // Log Clusters
-    console.log('Clusters with Barangays and Total Scores:');
-    for (const [clusterName, barangays] of Object.entries(clusters)) {
-        const average = clusterAverages[clusterName];
-        console.log(`${clusterName} (Average Score: ${average}):`);
-        barangays.forEach(({ barangay, score }) => {
-            console.log(`  ${barangay}: ${score}`);
-        });
-    }
-
-    // Step 10: Return Top 3 Barangays from the Highest Cluster
-    const topBarangays = clusters[highestCluster]
-        .sort((a, b) => b.score - a.score)
-        .slice(0, 3);
-
-    console.log(`\nTop 3 Barangays from the Highest Cluster:`);
-    topBarangays.forEach(({ barangay, score }) => {
-        console.log(`  ${barangay} - Score: ${score} (Cluster: ${highestCluster})`);
-    });
-
-    return topBarangays;
-}*/
-
-
 
 
 // Function to run analysis for the selected barangay

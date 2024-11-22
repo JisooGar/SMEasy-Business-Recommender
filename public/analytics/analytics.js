@@ -39,7 +39,7 @@ const dataForCategories = {
             population: '421,440',
             stat3: 'Pulo',
             stat4: 'Casile',
-            marketDemands: 0
+            marketDemands: ''
         }
     },
     'Automotive Services': {

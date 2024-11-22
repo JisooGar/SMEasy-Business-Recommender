@@ -222,24 +222,26 @@ h2 {
   background-color: #218838;
 }
 
+/* Spinner styling */
 #loading-spinner {
-  position: fixed; /* Fixed position to overlay on the screen */
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1000;
   display: none; /* Hidden by default */
+  z-index: 1000; /* Ensure it appears above other elements */
 }
 
 .spinner {
-  border: 8px solid rgba(0, 0, 0, 0.1);
-  border-left: 8px solid #28a745;
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #28a745;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   animation: spin 1s linear infinite;
 }
 
+/* Animation for the spinner */
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }

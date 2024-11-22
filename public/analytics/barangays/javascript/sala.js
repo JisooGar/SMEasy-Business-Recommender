@@ -27,10 +27,8 @@ document.querySelectorAll('.barangay-item').forEach(item => {
 // Data for each category including dynamic barangays
 const dataForCategories = {
     All: {
-        barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 
-            'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway',
-        'Nevalga Farm Drive', 'NIA road', 'PFB Bailon St.', 'Purok Uno'
-     ],
+        barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 
+            'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway', 'Nevalga Farm Drive', 'NIA Road', 'PFB Bailon St.', 'Purok 1', 'Purok 2', 'Purok 4', 'Purok 5', 'Rosario Village', 'Rotonda', 'Shineland'],
         counts: [2, 15, 11, 56, 1, 2, 1, 22, 3, 6, 2, 1, 64, 1, 0, 2, 1, 1, 1, 2, 27, 3, 10], 
         subCategories: ['None'],
         subCategoryCounts: ['None'],  
@@ -47,10 +45,8 @@ const dataForCategories = {
         }
     },
     'Automotive Services': {
-        barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 
-            'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway',
-        'Nevalga Farm Drive', 'NIA road', 'PFB Bailon St.', 'Purok Uno'
-     ],
+    barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 
+            'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway', 'Nevalga Farm Drive', 'NIA Road', 'PFB Bailon St.', 'Purok 1', 'Purok 2', 'Purok 4', 'Purok 5', 'Rosario Village', 'Rotonda', 'Shineland'],
         counts: [0, 1, 1, 3, 0, 0, 0, 3, 0, 1, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
         subCategories: ['Auto Repair Services', 'Body and Welding Shops', 'Car wash and Detailing', 'Fuel Services',
             'Motorcycle Dealer', 'Specialized Automotive Services', 'Vulcanizing Services'
@@ -68,10 +64,8 @@ const dataForCategories = {
         }
     },
     'Construction and Real Estate': {
-        barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 
-            'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway',
-        'Nevalga Farm Drive', 'NIA road', 'PFB Bailon St.', 'Purok Uno'
-     ],
+    barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 
+            'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway', 'Nevalga Farm Drive', 'NIA Road', 'PFB Bailon St.', 'Purok 1', 'Purok 2', 'Purok 4', 'Purok 5', 'Rosario Village', 'Rotonda', 'Shineland'],
         counts: [0, 2, 0, 8, 0, 0, 1, 1, 1, 1, 1, 0, 11, 0, 0, 0, 0, 0, 0, 0, 4, 0, 1], 
         subCategories: ['Apartment/Apartelle', 'Building Contractor', 'Construction Services', 'Contractor', 'Electrical/Mechanical Contractor', 'Facilities and Infrastracture',
             'General Contruction', 'General Contractor', 'General Engineering Contractor', 'Heavy Equipment Rental', 'Lessor (Commercial Space', 'Lessor (Excluding Subd. Operators/Lessor',
@@ -91,10 +85,8 @@ const dataForCategories = {
         }
     },
     'Cooperative Business': {
-        barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 
-            'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway',
-        'Nevalga Farm Drive', 'NIA road', 'PFB Bailon St.', 'Purok Uno'
-     ],
+    barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 
+            'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway', 'Nevalga Farm Drive', 'NIA Road', 'PFB Bailon St.', 'Purok 1', 'Purok 2', 'Purok 4', 'Purok 5', 'Rosario Village', 'Rotonda', 'Shineland'],
         counts: [0, 1, 1, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0],
         subCategories: ['Cooperative'], 
         subCategoryCounts: [8],  
@@ -109,10 +101,8 @@ const dataForCategories = {
         }
     },
     'Creative and Media Service': {
-        barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 
-            'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway',
-        'Nevalga Farm Drive', 'NIA road', 'PFB Bailon St.', 'Purok Uno'
-     ],
+    barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 
+            'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway', 'Nevalga Farm Drive', 'NIA Road', 'PFB Bailon St.', 'Purok 1', 'Purok 2', 'Purok 4', 'Purok 5', 'Rosario Village', 'Rotonda', 'Shineland'],
         counts: [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0],
         subCategories: ['Advertising and Marketing', 'Event Design Service', 'Photography and Videography', 'Printing Services'], 
         subCategoryCounts: [0, 0, 1, 2
@@ -128,10 +118,8 @@ const dataForCategories = {
         }
     },
     'Education Services': {
-        barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 
-            'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway',
-        'Nevalga Farm Drive', 'NIA road', 'PFB Bailon St.', 'Purok Uno'
-     ],
+    barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 
+            'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway', 'Nevalga Farm Drive', 'NIA Road', 'PFB Bailon St.', 'Purok 1', 'Purok 2', 'Purok 4', 'Purok 5', 'Rosario Village', 'Rotonda', 'Shineland'],
         counts: [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0],
         subCategories: ['Driving School', 'Learning Center', 'Private School', 'School Service', 'Training Center', 'Tutorial Services',
             'Vocational and Special Schools' 
@@ -149,10 +137,8 @@ const dataForCategories = {
         }
     },
     'Entertainment and Recreation': {
-        barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 
-            'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway',
-        'Nevalga Farm Drive', 'NIA road', 'PFB Bailon St.', 'Purok Uno'
-     ],
+    barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 
+            'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway', 'Nevalga Farm Drive', 'NIA Road', 'PFB Bailon St.', 'Purok 1', 'Purok 2', 'Purok 4', 'Purok 5', 'Rosario Village', 'Rotonda', 'Shineland'],
         counts: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
         subCategories: ['Dining and Leisure', 'Egames/Ebingo', 'Fireworks and Pyrotechnics', 'Golf Cart Rental', 'Party Rentals', 'Play Center',
             'Sound & Light Rental', 'Sports and Fitness' 
@@ -170,10 +156,8 @@ const dataForCategories = {
         }
     },
     'Finance and Insurance': {
-        barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 
-            'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway',
-        'Nevalga Farm Drive', 'NIA road', 'PFB Bailon St.', 'Purok Uno'
-     ],
+   barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 
+            'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway', 'Nevalga Farm Drive', 'NIA Road', 'PFB Bailon St.', 'Purok 1', 'Purok 2', 'Purok 4', 'Purok 5', 'Rosario Village', 'Rotonda', 'Shineland'],
         counts: [0, 0, 0, 3, 0, 1, 0, 2, 0, 0, 0, 0, 4, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1],
         subCategories: ['ATM Off Site Stations', 'Banks', 'Financing Institutions', 'General Financial Services', 'Holding Company', 'Insurance Agents/Companies',
             'Lending Investor', 'Money Remittance/ Bill Payment', 'Pawnshop & Financial Services', 'Payment Center' 
@@ -191,10 +175,8 @@ const dataForCategories = {
         }
     },
     'Food Services': {
-        barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 
-            'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway',
-        'Nevalga Farm Drive', 'NIA road', 'PFB Bailon St.', 'Purok Uno'
-     ],
+   barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 
+            'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway', 'Nevalga Farm Drive', 'NIA Road', 'PFB Bailon St.', 'Purok 1', 'Purok 2', 'Purok 4', 'Purok 5', 'Rosario Village', 'Rotonda', 'Shineland'],
         counts: [2, 1, 2, 4, 0, 0, 0, 5, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 5, 0, 1],
         subCategories: ['Burger Stand', 'Canteen' , 'Catering Service', 'Coffee Shop', 'Eatery', 'Fast Food', 'Food Concessionaire', 'Food Stand',
             'Milk Tea Shop', 'Panciteria', 'Refreshment Parlor', 'Restaurant', 'Restobar'
@@ -212,10 +194,8 @@ const dataForCategories = {
         }
     },
     'Healthcare Services': {
-        barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 
-            'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway',
-        'Nevalga Farm Drive', 'NIA road', 'PFB Bailon St.', 'Purok Uno'
-     ],
+   barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 
+            'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway', 'Nevalga Farm Drive', 'NIA Road', 'PFB Bailon St.', 'Purok 1', 'Purok 2', 'Purok 4', 'Purok 5', 'Rosario Village', 'Rotonda', 'Shineland'],
         counts: [0, 0, 0, 2, 0, 1, 0, 1, 0, 0, 0, 0, 5, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0],
         subCategories: ['Animal Bite Clinics', 'Dental Clinics', 'Diagnostic and Medical Clinics', 'Dialysis Center', 'Gerontology Services', 'Hospital', 
             'Laboratory Equipment Repair Service',  'Maternity Clinics & Family Planning', 'Medical and Healthcare Services', 'Optical Clinics', 'Pharmacies', 
@@ -234,10 +214,8 @@ const dataForCategories = {
         }
     },
     'IT and Digital Services': {
-        barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 
-            'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway',
-        'Nevalga Farm Drive', 'NIA road', 'PFB Bailon St.', 'Purok Uno'
-     ],
+   barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 
+            'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway', 'Nevalga Farm Drive', 'NIA Road', 'PFB Bailon St.', 'Purok 1', 'Purok 2', 'Purok 4', 'Purok 5', 'Rosario Village', 'Rotonda', 'Shineland'],
         counts: [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2],
         subCategories: ['Administrative Support Services', 'Audio & Video System Services', 'Computer Services / IT Services', 'Computer Shop', 'Customer Support & BPO Service',
             'Internet Service Provider', 'Repair Service', 'Service Contractor', 'Telecom Services', 'Virtual Assistance' 
@@ -255,10 +233,8 @@ const dataForCategories = {
         }
     },
     'Manufacturing and Production': {
-        barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 
-            'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway',
-        'Nevalga Farm Drive', 'NIA road', 'PFB Bailon St.', 'Purok Uno'
-     ],
+    barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 
+            'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway', 'Nevalga Farm Drive', 'NIA Road', 'PFB Bailon St.', 'Purok 1', 'Purok 2', 'Purok 4', 'Purok 5', 'Rosario Village', 'Rotonda', 'Shineland'],
         counts: [0, 2, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
         subCategories: ['Agricultural Products', 'Contractor and Service Manufacturing', 'Essential Manufacturer', 'Fabrication Services',
             'Food Products Manufacturer', 'Garment Manufacturer', 'General Manufacturing', 'Glass & Aluminum Fabrication Services', 'Hollowblock Making',
@@ -278,10 +254,8 @@ const dataForCategories = {
         }
     },
     'Personal and Household Services': {
-        barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 
-            'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway',
-        'Nevalga Farm Drive', 'NIA road', 'PFB Bailon St.', 'Purok Uno'
-     ],
+    barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 
+            'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway', 'Nevalga Farm Drive', 'NIA Road', 'PFB Bailon St.', 'Purok 1', 'Purok 2', 'Purok 4', 'Purok 5', 'Rosario Village', 'Rotonda', 'Shineland'],
         counts: [0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
         subCategories: ['Air Conditioner Services', 'Bottle Cleaning', 'Funeral Services', 'Furniture & Carpentry', 'Gown/Barong/Dress/Toga Rental',
             'Janitorial Services', 'Kitchen Equipment Repair Services', 'Laundy Shops', 'Pest Control', 'Plumbing Services', 'Refrigerator & Air Con Repair Services',
@@ -300,10 +274,8 @@ const dataForCategories = {
         }
     },
     'Personal Care Services': {
-        barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 
-            'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway',
-        'Nevalga Farm Drive', 'NIA road', 'PFB Bailon St.', 'Purok Uno'
-     ],
+    barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 
+            'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway', 'Nevalga Farm Drive', 'NIA Road', 'PFB Bailon St.', 'Purok 1', 'Purok 2', 'Purok 4', 'Purok 5', 'Rosario Village', 'Rotonda', 'Shineland'],
         counts: [0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         subCategories: ['Aesthetic Services', 'Barbershop', 'Beauty Taylor', 'Fitness Gym', 'Home Massage Services',
             'Nail Spa', 'Skin care Center' 
@@ -321,10 +293,8 @@ const dataForCategories = {
         }
     },
     'Professional Services': {
-        barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 
-            'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway',
-        'Nevalga Farm Drive', 'NIA road', 'PFB Bailon St.', 'Purok Uno'
-     ],
+    barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 
+            'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway', 'Nevalga Farm Drive', 'NIA Road', 'PFB Bailon St.', 'Purok 1', 'Purok 2', 'Purok 4', 'Purok 5', 'Rosario Village', 'Rotonda', 'Shineland'],
         counts: [0, 0, 0, 5, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         subCategories: ['Accounting Agencies', 'Administrative Office Services', 'Administrative Support Services', 'Business Agent', 'Calibration Services',
             'Consultancy and Management Services', 'Contracting and Manpower Services', 'Design Services', 'Emission and Testing Center', 'Engineering and Technical Services',
@@ -343,10 +313,8 @@ const dataForCategories = {
         }
     },
     'Retail Stores': {
-        barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 
-            'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway',
-        'Nevalga Farm Drive', 'NIA road', 'PFB Bailon St.', 'Purok Uno'
-     ],
+    barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 
+            'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway', 'Nevalga Farm Drive', 'NIA Road', 'PFB Bailon St.', 'Purok 1', 'Purok 2', 'Purok 4', 'Purok 5', 'Rosario Village', 'Rotonda', 'Shineland'],
         counts: [0, 3, 4, 14, 0, 0, 0, 4, 2, 2, 0, 1, 19, 0, 0, 0, 1, 1, 0, 0, 4, 1, 4],
         subCategories: ['Clothing and Apparel', 'Convenience Store', 'Electronics and Gadgets', 'Food and Beverage', 'Fuel and Energy Supplies', 'Furniture and Home Decor',
             'General Merchandise', 'Grocery and Supermarkets', 'Hardware and Constructiom Supplies', 'Health and Personal Care', 'Household Supplies', 'Online Shops', 'Sari-sari Store',
@@ -365,10 +333,8 @@ const dataForCategories = {
         }
     },
     'Tourism and Hospitality': {
-        barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 
-            'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway',
-        'Nevalga Farm Drive', 'NIA road', 'PFB Bailon St.', 'Purok Uno'
-     ],
+    barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 
+            'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway', 'Nevalga Farm Drive', 'NIA Road', 'PFB Bailon St.', 'Purok 1', 'Purok 2', 'Purok 4', 'Purok 5', 'Rosario Village', 'Rotonda', 'Shineland'],
         counts: [0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         subCategories: ['Hotel', 'Resort', 'Travel Agency'
         ], 
@@ -385,10 +351,8 @@ const dataForCategories = {
         }
     },
     'Transportation and Logistics': {
-        barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 
-            'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway',
-        'Nevalga Farm Drive', 'NIA road', 'PFB Bailon St.', 'Purok Uno'
-     ],
+    barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 
+            'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway', 'Nevalga Farm Drive', 'NIA Road', 'PFB Bailon St.', 'Purok 1', 'Purok 2', 'Purok 4', 'Purok 5', 'Rosario Village', 'Rotonda', 'Shineland'],
         counts: [0, 3, 1, 4, 0, 0, 0, 1, 0, 0, 1, 0, 5, 0, 0, 0, 0, 0, 1, 0, 1, 2, 1],
         subCategories: ['Car Rental', 'Common Courier', 'Delivery Services', 'Forwarder', 'Hauling Services', 'Logistic Services', 'Operator & Drivers Association',
             'Service Contractor', 'Shuttle Service/Transport', 'Transport Services', 'Trucking Services/Transport', 'Vehicle Storage', 'Warehous and Storage Services'
@@ -406,10 +370,8 @@ const dataForCategories = {
         }
     },
     'Wholesale and Distribution': {
-        barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 
-            'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway',
-        'Nevalga Farm Drive', 'NIA road', 'PFB Bailon St.', 'Purok Uno'
-     ],
+    barangays: ['Asia Brewery Compound', 'Bagong Silang', 'Bella Subdivision', 'Blanks', 'Casa Esperanza', 'Don Onofre Building 2', 'Florence Homes', 'JP Rizal St.', 'La Bella Homes', 
+            'Marinig Road', 'Mercedez Village', 'Multiland III', 'National Highway', 'Nevalga Farm Drive', 'NIA Road', 'PFB Bailon St.', 'Purok 1', 'Purok 2', 'Purok 4', 'Purok 5', 'Rosario Village', 'Rotonda', 'Shineland'],
         counts: [0, 2, 0, 3, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
         subCategories: ['Agricultural Products', 'Auction', 'Automotive', 'Cleaning Supplies', 'Electronics Products', 'Essential/ Non Essential', 'Food Products', 'Fuel and Energy Supplies', 
             'Industrial and Construction Supplies', 'Junk Shops', 'Medical and Health Supplies', 'Non Essential', 'Office & Packaging Supplies', 'Recycle Materials', 'Service Contractor', 'Trading'
