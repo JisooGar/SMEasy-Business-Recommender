@@ -1,0 +1,661 @@
+/* Google Font Import - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');  
+
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif; /* Changed to Poppins for a more professional look */
+}
+
+/* Variables */
+:root {
+  /* Colors */
+  --body-color: #ececec;
+  --sidebar-color: #ffffff;
+  --primary-color: green;
+  --primary-color-light: #F6F5FF;
+  --toggle-color: #DDD;
+  --text-color: #707070;
+
+  /* Transition */
+  --tran-03: all 0.2s ease;
+  --tran-04: all 0.3s ease;
+  --tran-05: all 0.3s ease;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--body-color);
+  transition: var(--tran-05);
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+body.no-scroll {
+  overflow: hidden; /* Prevents scrolling */
+}
+
+/* Selection */
+::selection {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+/* DARK MODE */
+body.dark {
+  --body-color: #18191a;
+  --sidebar-color: #242526;
+  --primary-color: #3a3b3c;
+  --primary-color-light: #3a3b3c;
+  --toggle-color: #fff;
+  --text-color: #ccc;
+}
+
+/* HEADER */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--sidebar-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Keep the logo, nav-links, and profile in their respective positions */
+  padding: 10px 20px;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Logo Section */
+.logo-section {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 40px;
+  border-radius: 6px;
+  margin-right: 10px;
+}
+
+.logo-text .name {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.logo-text .profession {
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+/* Center Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 40px; /* Adjust spacing between links */
+  list-style: none;
+  position: absolute; /* Position nav-links independently */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for perfect centering */
+}
+
+.nav-links li {
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: 500; /* Slightly bolder text for better visibility */
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+
+
+
+/* Map container */
+#google-map {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+
+}
+
+/* Navbar Default */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--sidebar-color);
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+/* Search Bar and Buttons - Web */
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  gap: 10px; /* Space between elements */
+  margin-top: 55px;
+}
+
+.search-form {
+  flex: 1; /* Ensure the search bar takes up available space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 1 auto; /* Allow the search bar to resize */
+}
+
+.form-control {
+  border-radius: 50px; /* Rounded design */
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  width: 300px; /* Default width for larger screens */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+}
+
+.form-control:focus {
+  border-color: black; /* Black border color on focus */
+}
+
+/* Buttons Styling */
+.btn-group {
+  display: flex;
+  align-items: center;
+
+}
+
+.btn-group .dropbtn {
+  border-radius: 25px; /* Rounded corners */
+  padding: 10px 15px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-group .dropdown {
+  margin-left: 10px; /* Space between buttons */
+}
+
+.btn-group .dropdown .dropbtn {
+  background-color: white;
+  border: 1px solid #ccc;
+  color: black;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 50px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-group .dropdown .dropbtn:hover {
+  background-color: #f1f1f1;
+}
+
+/* Dropdown Content - Adjustments for Images */
+.dropdown-content a {
+  display: flex;
+  align-items: center; /* Center items vertically */
+  padding: 10px;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: var(--tran-03);
+}
+
+.dropdown-content a img {
+  width: 20px; /* Adjust size if needed */
+  height: 20px; /* Adjust size if needed */
+  margin-right: 8px; /* Space between the image and the text */
+  vertical-align: middle;
+  display: inline-block; /* Ensure the image is inline with the text */
+}
+
+.dropdown-content a:hover img {
+  filter: brightness(0.8); /* Optional: Darken the image on hover */
+}
+
+.btn-group .dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1001; /* Ensure dropdown is above other content */
+  max-height: 250px; /* Set maximum height for the dropdown */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.btn-group .dropdown .dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Make scrollbars hidden until needed */
+.btn-group .dropdown .dropdown-content::-webkit-scrollbar {
+  width: 8px; /* Adjust scrollbar width */
+}
+
+.btn-group .dropdown .dropdown-content::-webkit-scrollbar-thumb {
+  background-color: #ccc; /* Scrollbar thumb color */
+  border-radius: 4px; /* Rounded scrollbar thumb */
+}
+
+.btn-group .dropdown .dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.btn-group .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.btn-outline-success {
+  margin-left: 5px;
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-outline-success:hover {
+  background-color: #f1f1f1;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.autocomplete-item {
+  padding: 10px;
+  cursor: pointer;
+  background-color: white;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.autocomplete-item:hover {
+  background-color: #e9e9e9;
+}
+
+/* Category dropdown styling */
+#category-dropdown {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#category-dropdown .dropdown-item {
+  padding: 10px;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+#category-dropdown .dropdown-item:hover {
+  background-color: #e9ecef;
+}
+
+/* Subcategory dropdown - hidden by default */
+.subcategory-dropdown-content {
+  display: none; /* Subcategories hidden by default */
+  margin-top: 5px;
+  padding-left: 15px;
+}
+
+.subcategory-dropdown-content a {
+  display: block;
+  padding: 8px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  text-decoration: none;
+  color: #000;
+}
+
+.subcategory-dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Visible class to show subcategories */
+.subcategory-dropdown-content.visible {
+  display: block;
+}
+
+/* Styling for Industry dropdown with images next to names */
+#industry-dropdown a {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: var(--tran-03);
+}
+
+#industry-dropdown a img {
+  width: 15px;
+  height: 15px;
+  margin-right: 8px; /* Space between icon and text */
+}
+
+#industry-dropdown a:hover img {
+  filter: brightness(0.8); /* Optional: Darken the image on hover */
+}
+
+#industry-dropdown a:hover {
+  background-color: #f1f1f1; /* Light gray background on hover */
+}
+
+/* Barangay Button Styling */
+.dropdown .dropbtn img {
+  width: 15px;
+  height: 15px;
+  margin-right: 8px;
+}
+
+/* Category Button Styling */
+.dropdown-content a img {
+  width: 15px;
+  height: 15px;
+  margin-right: 8px;
+}
+
+/* Adjust hover effect for consistency */
+.dropdown-content a:hover img {
+  filter: brightness(0.8); /* Darken the image on hover */
+}
+
+/* Toast Notification */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #b91c1c; /* Dark background */
+  color: white; /* White text */
+  padding: 15px; /* Padding inside */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(173, 4, 4, 0.2); /* Subtle shadow */
+  z-index: 1000; /* Appear on top of other content */
+  opacity: 0; /* Start hidden */
+  transition: opacity 0.5s ease-in-out; /* Smooth fade-in */
+}
+
+.toast.show {
+  display: block;
+  opacity: 1; /* Fade in the toast */
+}
+
+.toast.hide {
+  opacity: 0; /* Fade out the toast */
+  transition: opacity 0.5s ease-in-out;
+}
+
+.dropdown-item img {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  vertical-align: middle; /* Aligns the image vertically with the text */
+}
+
+.login-button-container {
+  position: absolute;
+  right: 20px; /* Adjust spacing from the right */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.login-button {
+  padding: 10px 50px;
+  background-color: #eb8d01; /* Blue color for button */
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #09db02; /* Darker blue on hover */
+}
+
+
+
+/* RESPONSIVE DESIGNS CODE */
+
+/* Responsive Design for Tablets and Smaller Screens */
+@media screen and (max-width: 768px) {
+  /* Header Adjustments */
+  .header {
+    flex-direction: row;
+    padding: 10px;
+  }
+
+  .header-content {
+    flex-direction: row;
+    width: 100%;
+    gap: 15px; /* Add spacing between stacked items */
+  }
+
+  .logo-section {
+    justify-content: flex-start;
+    gap: 5px;
+  }
+
+  .logo-text .name {
+    font-size: 18px;
+  }
+
+  .logo-text .profession {
+    font-size: 14px;
+  }
+
+  /* Center Navigation Links */
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center; /* Center navigation buttons */
+    gap: 20px; /* Adjust spacing between links */
+    font-size: 14px; /* Smaller font size for tablets */
+    width: 100%; /* Ensure full width */
+    position: static; /* Reset positioning for smaller screens */
+    transform: none; /* Remove transform for centering */
+  }
+
+  .nav-links li {
+    text-align: center; /* Center text within links */
+  }
+
+  .header-controls {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  /* Navbar Content Adjustments */
+  .navbar-content {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    z-index: 1000;
+    gap: 10px; /* Reduced spacing for tighter layout */
+    padding: 10px;
+    background: transparent; /* Ensure background is clean */
+  }
+
+  .search-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .form-control {
+    width: 100%; /* Full width for search bar */
+    border-radius: 25px; /* Rounded design */
+    padding: 8px 15px; /* Adjust padding */
+    font-size: 14px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Space buttons evenly */
+    gap: 8px; /* Reduced gap for compact layout */
+  }
+
+  .btn-group .dropdown .dropbtn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8px 12px; /* Adjust padding for compact design */
+    font-size: 14px;
+    border-radius: 25px;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    min-width: 30%; /* Ensure buttons are evenly sized */
+  }
+
+  .btn-group .dropdown .dropbtn:hover {
+    background-color: #f1f1f1; /* Hover effect */
+  }
+
+  /* User Profile Dropdown */
+  .profile-dropdown {
+    width: 90%;
+    right: 5%;
+    left: 5%;
+    top: 50px;
+  }
+
+  .login-button {
+    font-size: 12px;
+    padding: 6px 15px;
+  }
+}
+
+/* Responsive Design for Mobile Screens */
+@media screen and (max-width: 480px) {
+  /* Header Adjustments */
+  .header {
+    padding: 5px;
+  }
+
+  .logo-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo-text .name {
+    font-size: 16px;
+  }
+
+  .logo-text .profession {
+    font-size: 12px;
+  }
+
+  /* Center Navigation Links */
+  .nav-links {
+    gap: 15px; /* Adjust gap for smaller screens */
+    font-size: 12px; /* Smaller font size for mobile */
+    justify-content: center; /* Center navigation links */
+    width: 100%; /* Ensure full width */
+    position: static; /* Reset position for responsive design */
+    transform: none; /* Remove transform */
+  }
+
+  .nav-links li {
+    text-align: center; /* Center text within links */
+  }
+
+  .user-profile {
+    position: static; /* Remove absolute positioning */
+    margin: 10px auto 0; /* Center the user profile below the navigation links */
+    display: flex;
+    justify-content: center; /* Center the button */
+    align-items: center; /* Align items vertically */
+  }
+
+  .navbar-content {
+    top: 1px; /* Push navbar content below the header */
+    gap: 8px; /* Reduced spacing between elements */
+  }
+
+  .search-form {
+    margin-bottom: 10px; /* Add spacing below the search bar */
+  }
+
+  .form-control {
+    font-size: 12px; /* Smaller font size for mobile */
+    padding: 6px 12px; /* Compact padding */
+    border-radius: 20px; /* Smaller border radius */
+  }
+
+  .btn-group {
+    flex-direction: row;
+    flex-wrap: wrap; /* Wrap buttons into multiple rows if needed */
+    justify-content: space-between;
+    gap: 8px; /* Reduced gap for tighter layout */
+  }
+
+  .btn-group .dropdown .dropbtn {
+    flex: 1;
+    font-size: 12px; /* Smaller font size for buttons */
+    padding: 6px 10px; /* Compact padding for mobile */
+    text-align: center;
+    min-width: 30%; /* Ensure buttons resize correctly */
+    border-radius: 20px; /* Adjusted for a compact look */
+  }
+
+  /* User Profile Dropdown */
+  .profile-dropdown {
+    width: 100%;
+    right: unset;
+    left: 0;
+  }
+}

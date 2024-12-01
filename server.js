@@ -2,9 +2,75 @@ const express = require('express');
 const path = require('path');
 const { Pool } = require('pg');
 const fs = require('fs');
+const session = require('express-session');
 const csvParser = require('csv-parser'); // For parsing CSV
+require('dotenv').config();
 
 const app = express();
+
+// Middleware to parse request body
+app.use(express.urlencoded({ extended: true })); // For HTML form submissions
+app.use(express.json()); // For JSON payloads
+
+// Configure session middleware
+app.use(session({
+    secret: 'your-secret-key', // Replace with a strong key
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false } // Set to true if using HTTPS
+}));
+
+// Route to serve the admin login page
+app.get('/admin/login', (req, res) => {
+    res.sendFile(path.join(__dirname, 'admin', 'admin.html'));
+});
+
+// Serve static files for the admin directory
+app.use('/admin', express.static(path.join(__dirname, 'admin')));
+
+// Admin login POST route
+app.post('/admin/login', (req, res) => {
+    const { username, password } = req.body;
+
+    // Replace with your actual admin credentials
+    const adminUsername = process.env.ADMIN_USERNAME || 'admin';
+    const adminPassword = process.env.ADMIN_PASSWORD || 'password';
+
+    if (username === adminUsername && password === adminPassword) {
+        req.session.isAdmin = true; // Set session for admin
+        res.redirect('/admin/dashboard');
+    } else {
+        res.status(401).send('Invalid credentials');
+    }
+});
+
+// Protect admin dashboard
+app.get('/admin/dashboard', (req, res) => {
+  if (req.session && req.session.isAdmin) {
+      res.sendFile(path.join(__dirname, 'admin', 'dashboard', 'dashboard.html')); // Updated path
+  } else {
+      res.redirect('/admin/login'); // Redirect to login if not authenticated
+  }
+});
+
+
+// Admin logout route
+app.get('/admin/logout', (req, res) => {
+    req.session.destroy(err => {
+        if (err) {
+            return res.status(500).send('Could not log out.');
+        }
+        res.redirect('/admin/login');
+    });
+});
+
+// Route for the homepage (front.html inside the frontpage folder)
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'frontpage', 'front.html'));
+});
+
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
 
 console.log('Connecting to PostgreSQL with the following settings:');
 console.log('DB_USER:', process.env.DB_USER || 'postgres');
@@ -20,9 +86,7 @@ const pool = new Pool({
   database: process.env.DB_DATABASE || 'SME',
   password: process.env.DB_PASSWORD || 'LittleStar',
   port: process.env.DB_PORT || 5432,
-  ssl: {
-    rejectUnauthorized: false,  // Allows self-signed certificates
-  },
+
 });
 
 // Check if the connection is working right after setup
@@ -35,8 +99,6 @@ pool.connect()
     console.error("Failed to connect to the PostgreSQL database:", err.message);
   });
 
-// Serve static files from the 'public' directory
-app.use(express.static(path.join(__dirname, 'public')));
 
 // Utility function to read CSV files
 const readCSVFile = (filePath) => {
@@ -393,11 +455,13 @@ app.get('/api/subcategories-no-businesses', async (req, res) => {
   }
 });
 
-// Route for the homepage (index.html)
+// Route for the homepage (front.html inside the frontpage folder)
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'public', 'frontpage', 'front.html'));
 });
 
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

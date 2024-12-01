@@ -1,0 +1,9 @@
+/* Profile Dropdown Menu */
+#profileDropdownMenu {
+    min-width: 200px;
+}
+
+/* Modal Styles */
+#changePasswordModal {
+    backdrop-filter: blur(5px); /* Adds a blur effect to the background */
+}

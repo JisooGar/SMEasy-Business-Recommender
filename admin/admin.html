@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> SMEasy | Admin Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom dimmed background with gradient overlay */
+        .dimmed-background {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.5) 50%), 
+                url('/images/1.jpeg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body class="dimmed-background flex items-center justify-center">
+    <!-- Login Container -->
+    <div class="bg-white rounded-lg shadow-lg p-8 sm:p-12 w-full max-w-md">
+        <!-- Logo Section -->
+        <div class="text-center mb-6">
+            <img src="/admin/images/smeasylogo.png" alt="Logo" 
+                class="mx-auto w-50 h-auto object-contain mb-4">
+            <h1 class="text-2xl font-bold text-gray-800">Admin Login</h1>
+            <p class="text-gray-600">Sign in to manage your dashboard</p>
+        </div>
+        <form action="/admin/login" method="POST" class="space-y-6">
+            <div>
+                <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+                <input type="text" id="username" name="username" required
+                    class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" id="password" name="password" required
+                    class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <button type="submit"
+                class="w-full bg-orange-500 text-white py-2 px-4 rounded-lg shadow hover:bg-green-600 focus:ring-4 focus:ring-blue-300 transition duration-300">
+                Login
+            </button>
+        </form>
+        <div class="text-center mt-4">
+            <a href="/index.html" class="text-sm text-blue-500 hover:underline">Continue to User Login</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -16,108 +16,88 @@
     <!--header navigation bar-->
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand"></a>
-            <div class="navbar-content">
-
-    <form class="search-form" role="search">
-        <input id="search-input" class="form-control" type="search" placeholder="Search Business" aria-label="Search">
-        <div id="autocomplete-list" class="autocomplete-items"></div>
-    </form>
-
-    <div class="btn-group">
-        <div class="dropdown">
-            <button class="dropbtn">Barangay</button> <!-- Marker will be added dynamically -->
-            <div id="barangay-dropdown" class="dropdown-content">
-                <!-- Barangay options will be populated here -->
-            </div>
-        </div>
+            <div class="navbar-brand">
     
-        <div class="dropdown">
-            <button class="dropbtn">Industry</button>
-            <div id="industry-dropdown" class="dropdown-content">
-                <!-- Industry options will be populated here -->
+            <div class="navbar-content">
+                <form class="search-form" role="search">
+                    <input id="search-input" class="form-control" type="search" placeholder="Search Business" aria-label="Search">
+                    <div id="autocomplete-list" class="autocomplete-items"></div>
+                </form>
+            
+                <div class="btn-group">
+                    <div class="dropdown">
+                        <button class="dropbtn">Barangay</button>
+                        <div id="barangay-dropdown" class="dropdown-content">
+                            <!-- Barangay options -->
+                        </div>
+                    </div>
+            
+                    <div class="dropdown">
+                        <button class="dropbtn">Industry</button>
+                        <div id="industry-dropdown" class="dropdown-content">
+                            <!-- Industry options -->
+                        </div>
+                    </div>
+            
+                    <div class="dropdown">
+                        <button class="dropbtn"> Categories</button>
+                        <div id="category-dropdown" class="dropdown-content">
+                            <!-- Categories -->
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-        <div class="dropdown">
-            <button class="dropbtn">Business Categories</button>
-            <div id="category-dropdown" class="dropdown-content">
-                <!-- Categories and subcategories will be dynamically populated here by JavaScript -->
-            </div>
-        </div>
-    </div>
-</div>
+            
         </div>
     </nav>
     <!--END OF HEADER NAVIGATION BAR-->
 
-    <!--SIDEBAR-->
-    <nav class="sidebar close">
-        <header>
-            <div class="image-text">
-                <span class="image">
-                    <img src="smeasylogo.png" alt="LOGO">
-                </span>
-                <div class="text logo-text">
-                    <span class="name">SMEasy</span>
-                    <span class="profession">Business Homepage</span>
-                </div>
-            </div>
-            <i class='bx bx-chevron-right toggle'></i>
-        </header>
-        <div class="menu-bar">
-            <div class="menu">
-                <li class="search-box">
-                </li>
-                <ul class="menu-links">
-                    <li class="nav-link">
-                        <a href="homepage.html">
-                            <i class='bx bx-home-alt icon' ></i>
-                            <span class="text nav-text">Homepage</span>
-                        </a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="/analytics/analytics.html">
-                            <i class='bx bx-bar-chart-alt-2 icon' ></i>
-                            <span class="text nav-text">Visualization</span>
-                        </a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="/recommender_page/recommender.html">
-                            <i class='bx bx-pie-chart-alt icon' ></i>
-                            <span class="text nav-text">Analysis</span>
-                        </a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="/about.html/aboutUs.html">
-                            <i class='bx bx-heart icon' ></i>
-                            <span class="text nav-text">About</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="bottom-content">
-                <li class="">
-                    <a href=""  id="signOutButton">
-                        <i class='bx bx-log-out icon' ></i>
-                        <span class="text nav-text" id="signOutButton">Logout</span>
-                    </a>
-                </li>
-
-                <li class="mode">
-                    <div class="sun-moon">
-                        <i class='bx bx-moon icon moon'></i>
-                        <i class='bx bx-sun icon sun'></i>
-                    </div>
-                    <span class="mode-text text">Dark mode</span>
-                    <div class="toggle-switch">
-                        <span class="switch"></span>
-                    </div>
-                </li>
+ <!-- HEADER -->
+<nav class="header">
+    <div class="header-content">
+        <!-- Logo and Title -->
+        <div class="logo-section">
+            <img src="smeasylogo.png" alt="LOGO" class="logo">
+            <div class="logo-text">
+                <span class="name">SMEasy</span>
+                <span class="profession">Business Homepage</span>
             </div>
         </div>
-    </nav>
+
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+            <li><a href="/frontpage/front.html"><i class='bx bx-home-alt icon'></i> Homepage</a></li>
+            <li><a href="/analytics/analytics.html"><i class='bx bx-bar-chart-alt-2 icon'></i> Visualization</a></li>
+            <li><a href="/recommender_page/recommender.html"><i class='bx bx-pie-chart-alt icon'></i> Analysis</a></li>
+            <li><a href="/about.html/aboutUs.html"><i class='bx bx-heart icon'></i> About</a></li>
+        </ul>
+
+        <!-- User Profile Dropdown -->
+        <div class="user-profile">
+            <button id="profileDropdownButton" class="profile-btn">
+                <span class="user-initial">G</span>
+            </button>
+            <div id="profileDropdown" class="profile-dropdown hidden">
+                <div class="profile-info">
+                    <span id="userName">Geron</span>
+                    <span id="userEmail">geron@example.com</span>
+                </div>
+                <hr>
+                <div class="header-controls">
+                    <a href="" id="signOutButton" class="logout"><i class='bx bx-log-out icon'></i> Logout</a>
+                    <div class="dark-mode-toggle">
+                        <span class="mode-text">Dark mode</span>
+                        <div class="toggle-switch">
+                            <span class="switch"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
 
  <!-- Toast Notification -->
 <div id="toast" class="toast" style="display: none;">NO [subcategory] CREDITED HERE</div>
