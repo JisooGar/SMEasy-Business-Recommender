@@ -87,10 +87,21 @@
             </button>
         </div>
 
-        <!-- Data Table -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-gray-50">
+        <!-- Preferences and Market Demands Buttons (initially hidden) -->
+        <div id="surveySubButtons" class="hidden flex space-x-4 mb-4">
+            <button id="preferencesTabButton" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg shadow hover:bg-gray-300 focus:ring-4 focus:ring-gray-300 transition">
+                Preferences
+            </button>
+            <button id="marketDemandsTabButton" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg shadow hover:bg-gray-300 focus:ring-4 focus:ring-gray-300 transition">
+                Market Demands
+            </button>
+        </div>
+
+
+        <!-- SME Data Table Container -->
+        <div class="scrollable-table bg-white rounded-lg shadow-lg max-w-full">
+            <table class="min-w-[2000px] divide-y divide-gray-200">
+                <thead id="tableHead" class="bg-gray-50">
                     <tr>
                         <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">ID</th>
                         <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Name</th>
@@ -166,6 +177,87 @@
         </form>
     </div>
 </div>
+
+    <!-- Survey Data Section -->
+<div id="surveyDataSection" class="hidden">
+    <!-- Preferences and Market Demands Buttons -->
+    <div class="flex space-x-4 mb-4">
+        <button id="preferencesTabButton" class="px-4 py-2 bg-orange-500 text-white rounded-lg shadow hidden">
+            Preferences
+        </button>
+        <button id="marketDemandsTabButton" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg shadow hidden">
+            Market Demands
+        </button>
+    </div>
+
+<!-- Preferences Table Container -->
+<div class="scrollable-table bg-white rounded-lg shadow-lg">
+    <table class="min-w-[5000px] divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+            <tr>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">ID</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Month</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Barangay</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Age Range</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Gender</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Education</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Employment</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Business Visits</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Frequent Visits</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Browsing Behavior</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Satisfaction</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Lacking</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Shopping Preference</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Motivation for Choosing</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Shopping Traits</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Factors for New Businesses</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Shopping Style</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Values</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Transportation Links</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Accessibility</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Outside Barangay Travel</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Transportation Challenges</th>
+            </tr>
+        </thead>
+        <tbody id="preferencesTableBody" class="divide-y divide-gray-200">
+            <!-- Populate table rows dynamically -->
+        </tbody>
+    </table>
+</div>
+
+<!-- Market Demands Table Container -->
+<div class="scrollable-table bg-white rounded-lg shadow-lg">
+    <table class="min-w-[5000px] divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+            <tr>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">ID</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Barangay</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Automotive Services</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Construction</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Cooperative Business</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Creative Media</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Education Services</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Entertainment</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Finance and Insurance</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Food Services</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Healthcare Services</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">IT Services</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Manufacturing</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Personal Services</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Professional Services</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Retail Stores</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Tourism and Hospitality</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Transportation</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Wholesale</th>
+            </tr>
+        </thead>
+        <tbody id="marketDemandsTableBody" class="divide-y divide-gray-200">
+            <!-- Populate table rows dynamically -->
+        </tbody>
+    </table>
+</div>
+
+
 
 
     <!-- Link to External JavaScript -->

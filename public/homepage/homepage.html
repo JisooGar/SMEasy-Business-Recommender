@@ -6,6 +6,7 @@
     <title>SMEasy | Homepage</title>
     <link rel="stylesheet" href="homepage.css">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script type="text/javascript">
         function preventBack(){window.history.forward()};
         setTimeout("preventBack()",0);
@@ -66,7 +67,7 @@
 
         <!-- Navigation Links -->
         <ul class="nav-links">
-            <li><a href="/frontpage/front.html"><i class='bx bx-home-alt icon'></i> Homepage</a></li>
+            <li><a href="/homepage/homepage.html"><i class='bx bx-home-alt icon'></i> Homepage</a></li>
             <li><a href="/analytics/analytics.html"><i class='bx bx-bar-chart-alt-2 icon'></i> Visualization</a></li>
             <li><a href="/recommender_page/recommender.html"><i class='bx bx-pie-chart-alt icon'></i> Analysis</a></li>
             <li><a href="/about.html/aboutUs.html"><i class='bx bx-heart icon'></i> About</a></li>
@@ -97,8 +98,6 @@
     </div>
 </nav>
 
-
-
  <!-- Toast Notification -->
 <div id="toast" class="toast" style="display: none;">NO [subcategory] CREDITED HERE</div>
 
@@ -115,6 +114,121 @@
     </div>
   </div>
   
+<!-- First Modal (Survey Intro) -->
+<div id="popupModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+    <!-- Survey Intro Content -->
+    <div id="surveyIntro" class="bg-white rounded-lg shadow-lg p-6 w-10/12 max-w-md max-h-[80vh] overflow-y-auto mt-8 relative">
+        <h2 class="text-lg font-bold mb-4 text-center">Survey Invitation</h2>
+        <p class="text-gray-600 mb-6 text-sm">
+            We are conducting a survey to understand the business needs and preferences 
+            of residents in different barangays of Cabuyao, Laguna. <br><br>
+            Your feedback will help us identify the types of businesses that are most needed in your area. 
+            The survey should take about 10 minutes to complete, and your responses will be kept confidential.
+        </p>
+        <div class="flex justify-center">
+            <button id="proceedToSurvey" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-md">
+                Proceed to the Survey
+            </button>
+        </div>
+    </div>
+
+    <!-- Survey Form Content -->
+    <div id="surveyForm" class="hidden bg-white rounded-lg shadow-lg p-6 w-10/12 max-w-lg max-h-[80vh] overflow-y-auto mt-8 relative">
+        <h2 class="text-lg font-bold mb-4 text-center">SMEasy Survey</h2>
+        <ul class="flex justify-center border-b mb-4 text-sm">
+            <li class="mr-4">
+                <a class="text-orange-500 font-bold" href="#">User Information</a>
+            </li>
+            <li class="mr-4">
+                <a class="text-gray-400" href="#">Preference</a>
+            </li>
+            <li>
+                <a class="text-gray-400" href="#">Market Demands</a>
+            </li>
+        </ul>
+        <form id="survey" class="space-y-4 text-sm">
+            <!-- Age Range -->
+            <div>
+                <label class="block font-semibold mb-1">Age Range:</label>
+                <div class="grid grid-cols-2 gap-2">
+                    <label><input type="radio" name="age" value="18-29" /> 18-29</label>
+                    <label><input type="radio" name="age" value="30-39" /> 30-39</label>
+                    <label><input type="radio" name="age" value="40-59" /> 40-59</label>
+                    <label><input type="radio" name="age" value="60+" /> 60+</label>
+                </div>
+            </div>
+
+            <!-- Gender -->
+            <div>
+                <label class="block font-semibold mb-1">Gender:</label>
+                <div class="grid grid-cols-3 gap-2">
+                    <label><input type="radio" name="gender" value="Female" /> Female</label>
+                    <label><input type="radio" name="gender" value="Male" /> Male</label>
+                    <label><input type="radio" name="gender" value="Others" /> Others</label>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div>
+                <label class="block font-semibold mb-1">Education:</label>
+                <div class="grid grid-cols-2 gap-2">
+                    <label><input type="radio" name="education" value="No formal education" /> No formal education</label>
+                    <label><input type="radio" name="education" value="Elementary school" /> Elementary school</label>
+                    <label><input type="radio" name="education" value="Junior High school" /> Junior High school</label>
+                    <label><input type="radio" name="education" value="Senior Highschool" /> Senior Highschool</label>
+                    <label><input type="radio" name="education" value="Bachelor's degree" /> Bachelor's degree</label>
+                    <label><input type="radio" name="education" value="Master's degree or higher" /> Master's degree or higher</label>
+                </div>
+            </div>
+
+            <!-- Employment -->
+            <div>
+                <label class="block font-semibold mb-1">Employment:</label>
+                <div class="grid grid-cols-3 gap-2">
+                    <label><input type="radio" name="employment" value="Employed" /> Employed</label>
+                    <label><input type="radio" name="employment" value="Unemployed" /> Unemployed</label>
+                    <label><input type="radio" name="employment" value="Self-employed" /> Self-employed</label>
+                </div>
+            </div>
+
+             <!-- Barangay -->
+             <div>
+                <label class="block font-semibold mb-1">Barangay:</label>
+                <div class="grid grid-cols-3 gap-2">
+                    <label><input type="radio" name="barangay" value="Baclaran" /> Baclaran</label>
+                    <label><input type="radio" name="barangay" value="Banaybanay" /> Banaybanay</label>
+                    <label><input type="radio" name="barangay" value="Banlic" /> Banlic</label>
+                    <label><input type="radio" name="barangay" value="Bigaa" /> Bigaa</label>
+                    <label><input type="radio" name="barangay" value="Butong" /> Butong</label>
+                    <label><input type="radio" name="barangay" value="Casile" /> Casile</label>
+                    <label><input type="radio" name="barangay" value="Casile" />Diezmo</label>
+                    <label><input type="radio" name="barangay" value="Casile" />Gulod</label>
+                    <label><input type="radio" name="barangay" value="Casile" />Mamatid</label>
+                    <label><input type="radio" name="barangay" value="Casile" />Marinig</label>
+                    <label><input type="radio" name="barangay" value="Casile" />Niugan</label>
+                    <label><input type="radio" name="barangay" value="Casile" />Pittland</label>
+                    <label><input type="radio" name="barangay" value="Casile" /> Pulo</label>
+                    <label><input type="radio" name="barangay" value="Casile" />Sala</label>
+                    <label><input type="radio" name="barangay" value="Casile" />San Isidro</label>
+                    <label><input type="radio" name="barangay" value="Casile" /> Poblacion Uno</label>
+                    <label><input type="radio" name="barangay" value="Casile" />Poblacion Dos</label>
+                    <label><input type="radio" name="barangay" value="Casile" />Poblacion Tres</label>
+                    <!-- Add more barangays as needed -->
+                </div>
+            </div>
+
+            <div class="flex justify-end">
+                <button type="submit" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md">
+                    Next
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
 
 
     <!-- Main content -->

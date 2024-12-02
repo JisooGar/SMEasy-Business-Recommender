@@ -11,66 +11,63 @@
 </head>
 <body>
 
-<!--SIDEBAR-->
-<nav class="sidebar close">
-    <header>
-        <div class="image-text">
-            <span class="image">
-                <img src="/homepage/smeasylogo.png" alt="LOGO">
-            </span>
-            <div class="text logo-text">
+<!-- HEADER -->
+<nav class="header">
+    <div class="header-content">
+        <!-- Logo and Title -->
+        <div class="logo-section">
+            <img src="smeasylogo.png" alt="LOGO" class="logo">
+            <div class="logo-text">
                 <span class="name">SMEasy</span>
-                <span class="profession">Analysis</span>
+                <span class="profession">Business Homepage</span>
             </div>
         </div>
-        <i class='bx bx-chevron-right toggle'></i>
-    </header>
-    <div class="menu-bar">
-        <div class="menu">
-            <li class="search-box">
-            </li>
-            <ul class="menu-links">
-                <li class="nav-link">
-                    <a href="/homepage/homepage.html">
-                        <i class='bx bx-home-alt icon'></i>
-                        <span class="text nav-text">Homepage</span>
-                    </a>
-                </li>
-                <li class="nav-link">
-                    <a href="/analytics/analytics.html">
-                        <i class='bx bx-bar-chart-alt-2 icon'></i>
-                        <span class="text nav-text">Visualization</span>
-                    </a>
-                </li>
-                <li class="nav-link">
-                    <a href="/recommender_page/recommender.html">
-                        <i class='bx bx-pie-chart-alt icon'></i>
-                        <span class="text nav-text">Analysis</span>
-                    </a>
-                </li>
-                <li class="nav-link">
-                    <a href="/about.html/aboutUs.html">
-                        <i class='bx bx-heart icon'></i>
-                        <span class="text nav-text">About</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
 
-        <div class="bottom-content">
-            <li class="mode">
-                <div class="sun-moon">
-                    <i class='bx bx-moon icon moon'></i>
-                    <i class='bx bx-sun icon sun'></i>
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+            <li><a href="/homepage/homepage.html"><i class='bx bx-home-alt icon'></i> Homepage</a></li>
+            <li><a href="/analytics/analytics.html"><i class='bx bx-bar-chart-alt-2 icon'></i> Visualization</a></li>
+            <li><a href="/recommender_page/recommender.html"><i class='bx bx-pie-chart-alt icon'></i> Analysis</a></li>
+            <li><a href="/about.html/aboutUs.html"><i class='bx bx-heart icon'></i> About</a></li>
+        </ul>
+
+        <!-- User Profile Dropdown -->
+        <div class="user-profile">
+            <button id="profileDropdownButton" class="profile-btn">
+                <span class="user-initial">G</span>
+            </button>
+            <div id="profileDropdown" class="profile-dropdown hidden">
+                <div class="profile-info">
+                    <span id="userName">Geron</span>
+                    <span id="userEmail">geron@example.com</span>
                 </div>
-                <span class="mode-text text">Dark mode</span>
-                <div class="toggle-switch">
-                    <span class="switch"></span>
+                <hr>
+                <div class="header-controls">
+                    <a href="" id="signOutButton" class="logout"><i class='bx bx-log-out icon'></i> Logout</a>
+                    <div class="dark-mode-toggle">
+                        <span class="mode-text">Dark mode</span>
+                        <div class="toggle-switch">
+                            <span class="switch"></span>
+                        </div>
+                    </div>
                 </div>
-            </li>
+            </div>
         </div>
     </div>
 </nav>
+
+<!-- Logout Modal -->
+<div id="logoutModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Log Out</h2>
+      <p>Are you sure you want to log out?</p>
+      <div class="button-container">
+        <button id="confirmLogout" class="modal-btn yes-btn">Yes, Log Out</button>
+        <button id="cancelLogout" class="modal-btn no-btn">No, Stay</button>
+      </div>
+    </div>
+  </div>
 
 <section class="home">
     <div class="container">

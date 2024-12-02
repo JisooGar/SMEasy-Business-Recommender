@@ -7,3 +7,48 @@
 #changePasswordModal {
     backdrop-filter: blur(5px); /* Adds a blur effect to the background */
 }
+
+.scrollable-table {
+    overflow-x: auto; /* Enable horizontal scrolling */
+    scrollbar-color: green; /* Style the scrollbar (gray-300 on gray-100) */
+    scrollbar-width: thin; /* Modern browsers */
+}
+
+.scrollable-table::-webkit-scrollbar {
+    height: 6px; /* Set scrollbar height */
+}
+
+.scrollable-table::-webkit-scrollbar-thumb {
+    background-color: #D1D5DB; /* Gray color for the thumb */
+    border-radius: 3px; /* Rounded corners */
+}
+
+/* General styles for modals */
+#popupModal {
+    z-index: 1050; /* Ensure it appears above other elements */
+}
+
+#surveyIntro, #surveyForm {
+    max-height: 80vh; /* Set max height */
+    overflow-y: auto; /* Enable scrolling if content exceeds height */
+}
+
+/* Ensure modal is not obstructed by navigation */
+nav.header {
+    z-index: 1000; /* Lower than modal */
+}
+
+/* Modal shadow and positioning */
+.bg-opacity-50 {
+    z-index: 1040; /* Ensure background overlay is below the modal */
+}
+
+/* Margin adjustment for top visibility */
+#surveyIntro, #surveyForm {
+    margin-top: 2rem; /* Prevent overlap with header/navigation */
+}
+
+/* Pointer events for modal interaction */
+body.modal-open {
+    overflow: hidden; /* Prevent body scrolling when modal is open */
+}
