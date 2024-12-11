@@ -111,26 +111,53 @@ document.getElementById('submitSignUp').addEventListener('click', (event) => {
     });
 });
 
+// Pass user data to the homepage
+function redirectToHomepage(user) {
+  const userRef = doc(db, "users", user.uid);
+
+  getDoc(userRef)
+      .then((docSnap) => {
+          if (docSnap.exists()) {
+              const userData = docSnap.data();
+              // Store user details in sessionStorage for homepage
+              sessionStorage.setItem("userFirstName", userData.firstName);
+              sessionStorage.setItem("userLastName", userData.lastName);
+              sessionStorage.setItem("userEmail", userData.email);
+
+              // Redirect to homepage
+              window.location.href = "/homepage/homepage.html";
+          } else {
+              console.error("User document does not exist in Firestore.");
+          }
+      })
+      .catch((error) => {
+          console.error("Error fetching user data:", error);
+      });
+}
+
 // Sign-In with Email and Password
 document.getElementById('submitSignIn').addEventListener('click', (event) => {
   event.preventDefault();
 
-  // Correct IDs: emailSignIn and passwordSignIn
-  const email = document.getElementById('emailSignIn').value;
-  const password = document.getElementById('passwordSignIn').value;
+  const email = document.getElementById('emailSignIn').value.trim();
+  const password = document.getElementById('passwordSignIn').value.trim();
+
+  // Check if email or password is empty
+  if (!email || !password) {
+    showModal('Please fill in both email and password fields.');
+    return;
+  }
 
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
       if (user.emailVerified) {
-        // Redirect to homepage if email is verified
-        window.location.href = '/homepage/homepage.html';
+        redirectToHomepage(user);
       } else {
         sendEmailVerification(user)
           .then(() => {
             showModal('Please verify your email to proceed. A verification link has been sent to your email.');
-            checkVerification(user); // Start checking for verification
-            auth.signOut(); // Log out the user until they verify
+            auth.signOut();
           })
           .catch((error) => {
             console.error("Error sending verification email:", error);
@@ -139,55 +166,35 @@ document.getElementById('submitSignIn').addEventListener('click', (event) => {
     })
     .catch((error) => {
       const errorCode = error.code;
+      const errorMessage = error.message;
       if (errorCode === 'auth/user-not-found') {
-        showModal('No account found with this email.');
+        showModal('No user found with this email. Please sign up first.');
       } else if (errorCode === 'auth/wrong-password') {
-        showModal('Incorrect password.');
+        showModal('Incorrect password. Please try again.');
       } else {
-        showModal('An error occurred during sign-in.');
-        console.error("Sign-in error:", error.message);  // Log the error message to help with debugging
+        showModal('Error signing in. Please try again later.');
       }
+      console.error(`Sign-in error (${errorCode}): ${errorMessage}`);
     });
 });
+
 
 
 
 // Google Sign-In
 document.querySelectorAll('#signInGoogleButton').forEach(button => {
   button.addEventListener('click', () => {
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        const user = result.user;
-        const userRef = doc(db, "users", user.uid);
-
-        getDoc(userRef).then((docSnap) => {
-          if (!docSnap.exists()) {
-            const userData = {
-              email: user.email,
-              firstName: user.displayName.split(' ')[0],
-              lastName: user.displayName.split(' ')[1] || ''
-            };
-            setDoc(userRef, userData)
-              .then(() => {
-                window.location.href = '/homepage/homepage.html';
-              })
-              .catch((error) => {
-                console.error("Error writing document", error);
-              });
-          } else {
-            window.location.href = '/homepage/homepage.html';
-          }
-        }).catch((error) => {
-          console.error("Error fetching user data:", error);
-        });
-      })
-      .catch((error) => {
-        console.error('Error during Google sign-in:', error.code, error.message);
-        showModal('An error occurred during Google sign-in. Please try again.');
-      });
+      signInWithPopup(auth, provider)
+          .then((result) => {
+              const user = result.user;
+              redirectToHomepage(user);
+          })
+          .catch((error) => {
+              console.error('Error during Google sign-in:', error.code, error.message);
+              showModal('An error occurred during Google sign-in. Please try again.');
+          });
   });
 });
-
 // For Sign Up
 const passwordFieldSignUp = document.getElementById('rPassword');
 const showPasswordIconSignUp = document.getElementById('showPasswordIconSignUp');

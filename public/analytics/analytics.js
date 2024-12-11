@@ -10,7 +10,7 @@ function hideLoading() {
 
 // Attach the showLoading function to all barangay items
 document.querySelectorAll('.barangay-item').forEach(item => {
-    item.addEventListener('click', function(e) {
+    item.addEventListener('click', function (e) {
         e.preventDefault(); // Prevent default action
 
         // Show the loading overlay
@@ -24,18 +24,79 @@ document.querySelectorAll('.barangay-item').forEach(item => {
     });
 });
 
+// Get the select element by its ID
+const selectElement = document.getElementById('dateRange');
+
+// Initialize the chosenCategory variable with the default value
+let chosenCategory = selectElement.value;
+
+// Log the default value when the page loads
+console.log("Default Category:", chosenCategory);
+
+// Add an event listener to detect when the selection changes
+selectElement.addEventListener('change', function() {
+    // Update the chosenCategory variable with the new value
+    chosenCategory = selectElement.value;
+
+    // Log the updated value
+    console.log("Updated Category:", chosenCategory);
+
+    // Fetch the barangay counts for the updated category
+    fetchBarangayCounts(chosenCategory);
+});
+
+//BARANGAY COUNTS
+// Function to fetch barangay counts based on the selected category
+async function fetchBarangayCounts(chosenCategory) {
+    try {
+        // Make the request to the server, passing chosenCategory as a query parameter
+        const response = await fetch(`/api/barangay-counts?chosenCategory=${chosenCategory}`);
+
+        // Check if the request was successful
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        // Parse the JSON response
+        const data = await response.json();
+
+        // Initialize empty arrays to hold the barangay names and counts
+        const barangays = [];
+        const counts = [];
+
+        // Loop through the response data and populate the arrays
+        data.forEach(item => {
+            barangays.push(item.barangay_name);  // Get barangay name
+            counts.push(item.business_count);    // Get business count
+        });
+
+        // Log or return the arrays
+        console.log('Barangays:', barangays);
+        console.log('Counts:', counts);
+
+        // Update the dataForCategories object with the new data
+        dataForCategories[chosenCategory].barangays = barangays;
+        dataForCategories[chosenCategory].counts = counts;
+
+        // Optionally, you can log the updated dataForCategories to see the result
+        console.log('Updated Data for Categories:', dataForCategories);
+
+    } catch (err) {
+        console.error('Error fetching barangay counts:', err);
+    }
+}
+
+
 // Data for each category including dynamic barangays
 const dataForCategories = {
     All: {
-        barangays: ['Pulo', 'Sala', 'Banaybanay', 'Mamatid', 'Banlic', 'Bigaa', 'San Isidro', 'Marinig', 'Niugan', 'Gulod', 
-                    'Baclaran', 'Poblacion Tres', 'Casile', 'Butong', 'Poblacion Uno', 'Diezmo', 'Pittland', 'Poblacion Dos'],
-        counts: [414, 234, 364, 253, 361, 74, 171, 136, 139, 69, 46, 62, 18, 49, 62, 98, 33, 96 ], 
+        barangays: [],
+        counts: [], 
         subCategories: ['None'],
         subCategoryCounts: ['None'],  
         barData: [414, 235, 364, 253, 361, 74, 171, 136, 139, 69, 46, 62, 18, 49, 62, 98, 33, 96],
         pieData: [36444, 10903, 40936, 56761, 11496, 14235, 30509, 56154, 87645, 17873, 15164, 4274, 3794, 14764, 7025, 6622, 4733, 2108],
         stats: {
-            totalBusinesses: 2679,
             population: '421,440',
             stat3: 'Pulo',
             stat4: 'Casile',
@@ -97,7 +158,7 @@ const dataForCategories = {
             marketDemands: 'Poblacion Tres, Pittland'
         }
     },
-    'Creative and Media Service': {
+    'Creative and Media Services': {
         barangays: ['Banaybanay', 'Banlic', 'Mamatid', 'Sala', 'Baclaran', 'Poblacion Tres', 'Pulo', 'Marinig', 'Niugan', 'Gulod', 
             'Poblacion Uno', 'Bigaa', 'Diezmo', 'Butong', 'Casile', 'San Isidro', 'Pittland', 'Poblacion Dos'
          ],
@@ -114,7 +175,7 @@ const dataForCategories = {
             marketDemands: 'Niugan'
         }
     },
-    'Education Services': {
+    'Educational Services': {
         barangays: ['Mamatid', 'San Isidro', 'Banaybanay', 'Banlic', 'Pulo', 'Sala', 'Poblacion Uno', 'Marinig', 'Butong', 'Gulod',
             'Bigaa', 'Poblacion Tres', 'Baclaran', 'Niugan', 'Poblacion Dos', 'Casile', 'Pittland', 'Diezmo'
          ],
@@ -388,125 +449,109 @@ const dataForCategories = {
     },
 };
 
-// Function to update the business categories table (barangays) based on the selected category
+// Function to update the business categories table
 function updateBusinessCategoriesTable(category) {
-    const tableBody = document.getElementById('businessCategoriesTable').querySelector('tbody');
-    const categoryHeader = document.getElementById('categoryHeader'); // Select the header
+    const tableBody = document.getElementById('businessCategoriesTable');
+    tableBody.innerHTML = ''; // Clear the table body
 
-    tableBody.innerHTML = ''; // Clear the table body before adding new rows
-
-    // Update the category name in the table header
-    categoryHeader.textContent = category;
-
-    const selectedCategoryData = dataForCategories[category];
-
-    // Use the dynamically selected barangays
-    const selectedBarangays = selectedCategoryData.barangays;
-
-    // Loop through the selected barangays and populate the table
-    selectedBarangays.forEach((barangay, index) => {
-        const row = document.createElement('tr');
-
-        // Create the cell for barangay name
-        const nameCell = document.createElement('td');
-        nameCell.textContent = barangay;
-        row.appendChild(nameCell);
-
-        // Create the cell for count
-        const countCell = document.createElement('td');
-        countCell.textContent = selectedCategoryData.counts[index];
-        row.appendChild(countCell);
-
-        // Append the row to the table body
-        tableBody.appendChild(row);
-    });
-}
-
-// Function to update the subcategories table based on the selected category
-function updateSubCategoriesTable(category) {
-    const tableBody = document.getElementById('subCategoriesTable').querySelector('tbody');
-    const subCategoryHeader = document.getElementById('subCategoryHeader'); // Select the header for subcategories
-
-    tableBody.innerHTML = ''; // Clear the table body before adding new rows
-
-    // Update the subcategory header with the selected category
-    subCategoryHeader.textContent = `Sub Categories for ${category}`;
-
-    const selectedCategoryData = dataForCategories[category];
-
-    // Loop through the subcategories and populate the table
-    selectedCategoryData.subCategories.forEach((subCategory, index) => {
-        const row = document.createElement('tr');
-
-        // Create the cell for subcategory name
-        const nameCell = document.createElement('td');
-        nameCell.textContent = subCategory;
-        row.appendChild(nameCell);
-
-        // Create the cell for count
-        const countCell = document.createElement('td');
-        countCell.textContent = selectedCategoryData.subCategoryCounts[index];
-        row.appendChild(countCell);
-
-        // Append the row to the table body
-        tableBody.appendChild(row);
-    });
-}
-
-// Initial table population for the default category ("All")
-updateBusinessCategoriesTable('All');
-updateSubCategoriesTable('All');
-
-// Attach event listener to the dropdown to update the tables and charts when a category is selected
-document.getElementById('dateRange').addEventListener('change', function () {
-    const selectedCategory = this.value;
-    updateBusinessCategoriesTable(selectedCategory);  // Updates barangay counts
-    updateSubCategoriesTable(selectedCategory);       // Updates subcategory counts
-    updateChartsAndStats(selectedCategory);  // Updates charts and stats
-});
-
-// Function to update stats and charts (already in my code)
-function updateStats(stats) {
-    document.getElementById('totalBusinesses').textContent = stats.totalBusinesses;
-    document.getElementById('population').textContent = stats.population;
-    document.getElementById('stat3').textContent = stats.stat3;
-    document.getElementById('stat4').textContent = stats.stat4;
-    document.getElementById('marketDemands').textContent = stats.marketDemands;
-}
-
-function updateChartsAndStats(category) {
     const selectedData = dataForCategories[category];
 
+    // Populate table rows
+    selectedData.barangays.forEach((barangay, index) => {
+        const row = document.createElement('tr');
+
+        const barangayCell = document.createElement('td');
+        barangayCell.textContent = barangay;
+
+        const countCell = document.createElement('td');
+        countCell.textContent = selectedData.counts[index];
+
+        row.appendChild(barangayCell);
+        row.appendChild(countCell);
+        tableBody.appendChild(row);
+    });
+}
+
+// Function to update the subcategories table
+function updateSubCategoriesTable(category) {
+    const tableBody = document.querySelector('#subCategoriesTable tbody');
+    tableBody.innerHTML = ''; // Clear previous rows
+
+    const selectedData = dataForCategories[category];
+
+    selectedData.subCategories.forEach((subCategory, index) => {
+        const row = document.createElement('tr');
+        row.classList.add('divide-y', 'divide-gray-200'); // Add design consistency
+
+        row.innerHTML = `
+            <td class="py-2 px-4 border-b">${subCategory}</td>
+            <td class="py-2 px-4 border-b text-right">${selectedData.subCategoryCounts[index]}</td>
+        `;
+
+        tableBody.appendChild(row);
+    });
+}
+
+//Function to update stats and charts
+function updateStatsAndCharts(category) {
+    const selectedData = dataForCategories[category];
+
+    // Update Stats
+    document.getElementById('totalBusinesses').textContent = selectedData.stats.totalBusinesses;
+    document.getElementById('population').textContent = selectedData.stats.population;
+    document.getElementById('stat3').textContent = selectedData.stats.stat3;
+    document.getElementById('stat4').textContent = selectedData.stats.stat4;
+    document.getElementById('marketDemands').textContent = selectedData.stats.marketDemands;
+
+    // Update Charts
+    updateCharts(selectedData);
+}
+
+// Function to update charts
+function updateCharts(data) {
     // Update Line Chart
-    pageViewsChart.data.datasets[0].data = selectedData.barData;
+    pageViewsChart.data.datasets[0].data = data.barData;
     pageViewsChart.update();
 
     // Update Pie Chart
-    webTrafficConcentrationChart.data.datasets[0].data = selectedData.pieData;
+    webTrafficConcentrationChart.data.datasets[0].data = data.pieData;
     webTrafficConcentrationChart.update();
-
-    // Update Stats
-    updateStats(selectedData.stats);
 }
 
-// Initial chart creation (line chart and pie chart)
+// Initialize Line Chart with updated design
 const ctxPageViews = document.getElementById('pageViews').getContext('2d');
 const pageViewsChart = new Chart(ctxPageViews, {
-    type: 'line',
+    type: 'bar',
     data: {
-        labels: dataForCategories.All.barangays, // Dynamically use barangays from default category
+        labels: dataForCategories.All.barangays,
         datasets: [{
-            label: 'Businesses',
+            label: 'Businesses Count',
             data: dataForCategories.All.barData,
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 2,
-            fill: true
+            backgroundColor: [
+                'rgba(75, 192, 192, 0.6)',
+                'rgba(255, 99, 132, 0.6)',
+                'rgba(54, 162, 235, 0.6)',
+                'rgba(255, 206, 86, 0.6)',
+                'rgba(153, 102, 255, 0.6)'
+            ],
+            borderColor: [
+                'rgba(75, 192, 192, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(153, 102, 255, 1)'
+            ],
+            borderWidth: 1
         }]
     },
     options: {
         responsive: true,
         scales: {
+            x: {
+                grid: {
+                    display: false
+                }
+            },
             y: {
                 beginAtZero: true
             }
@@ -514,59 +559,91 @@ const pageViewsChart = new Chart(ctxPageViews, {
     }
 });
 
-//PIE GRAPH
+// Initialize Pie Chart with updated design
 const ctxWebTrafficConcentration = document.getElementById('webTrafficConcentration').getContext('2d');
 const webTrafficConcentrationChart = new Chart(ctxWebTrafficConcentration, {
-    type: 'pie',
+    type: 'doughnut',
     data: {
-        labels: dataForCategories.All.barangays, // Dynamically use barangays from default category
+        labels: dataForCategories.All.barangays,
         datasets: [{
             label: 'Traffic Source',
             data: dataForCategories.All.pieData,
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',   // Soft Red
-                'rgba(54, 162, 235, 0.2)',   // Light Blue
-                'rgba(255, 206, 86, 0.2)',   // Light Yellow
-                'rgba(75, 192, 192, 0.2)',   // Soft Teal
-                'rgba(153, 102, 255, 0.2)',  // Light Purple
-                'rgba(255, 159, 64, 0.2)',   // Orange
-                'rgba(201, 203, 207, 0.2)',  // Light Grey
-                'rgba(0, 128, 128, 0.2)',    // Teal
-                'rgba(70, 130, 180, 0.2)',   // Steel Blue
-                'rgba(46, 204, 113, 0.2)',   // Light Green
-                'rgba(231, 76, 60, 0.2)',    // Tomato Red
-                'rgba(241, 196, 15, 0.2)',   // Gold
-                'rgba(142, 68, 173, 0.2)',   // Dark Purple
-                'rgba(39, 174, 96, 0.2)',    // Emerald Green
-                'rgba(44, 62, 80, 0.2)',     // Dark Slate
-                'rgba(192, 57, 43, 0.2)',    // Brick Red
-                'rgba(41, 128, 185, 0.2)',   // Ocean Blue
-                'rgba(127, 255, 212, 0.2)'   // Aquamarine
+                'rgba(255, 99, 132, 0.6)',
+                'rgba(54, 162, 235, 0.6)',
+                'rgba(255, 206, 86, 0.6)',
+                'rgba(75, 192, 192, 0.6)',
+                'rgba(153, 102, 255, 0.6)'
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',   // Red
-                'rgba(54, 162, 235, 1)',   // Blue
-                'rgba(255, 206, 86, 1)',   // Yellow
-                'rgba(75, 192, 192, 1)',   // Teal
-                'rgba(153, 102, 255, 1)',  // Purple
-                'rgba(255, 159, 64, 1)',   // Orange
-                'rgba(201, 203, 207, 1)',  // Grey
-                'rgba(0, 128, 128, 1)',    // Dark Teal
-                'rgba(70, 130, 180, 1)',   // Steel Blue
-                'rgba(46, 204, 113, 1)',   // Green
-                'rgba(231, 76, 60, 1)',    // Red
-                'rgba(241, 196, 15, 1)',   // Gold
-                'rgba(142, 68, 173, 1)',   // Dark Purple
-                'rgba(39, 174, 96, 1)',    // Green
-                'rgba(44, 62, 80, 1)',     // Slate Grey
-                'rgba(192, 57, 43, 1)',    // Brick Red
-                'rgba(41, 128, 185, 1)',   // Ocean Blue
-                'rgba(127, 255, 212, 1)'   // Aquamarine
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)'
             ],
             borderWidth: 1
         }]
     },
     options: {
-        responsive: true
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'bottom'
+            }
+        }
     }
 });
+
+// Fetch and display total businesses
+async function fetchTotalBusinesses() {
+    try {
+        const response = await fetch('http://localhost:3000/api/totalBusinesses'); // API endpoint
+        if (!response.ok) {
+            throw new Error('Failed to fetch total businesses');
+        }
+        const data = await response.json();
+
+        document.getElementById('totalBusinesses').textContent = data.total_businesses; // Display the data
+    } catch (error) {
+        console.error('Error fetching total businesses:', error);
+    }
+}
+
+// Call the function to fetch and display the data on page load
+fetchTotalBusinesses();
+
+
+// Initialize with default category
+updateBusinessCategoriesTable('All');
+updateSubCategoriesTable('All');
+updateStatsAndCharts('All');
+
+// Event listener for dropdown change
+document.getElementById('dateRange').addEventListener('change', function () {
+    const selectedCategory = this.value;
+
+    // Update tables and stats
+    updateBusinessCategoriesTable(selectedCategory);
+    updateSubCategoriesTable(selectedCategory);
+    updateStatsAndCharts(selectedCategory);
+
+    // Toggle the Cabuyao Population graph
+    toggleCabuyaoPopulationGraph(selectedCategory);
+});
+
+// Initialize the graph's visibility based on the default category
+toggleCabuyaoPopulationGraph('All');
+
+// Function to show or hide the Cabuyao Population graph
+function toggleCabuyaoPopulationGraph(category) {
+    const graphContainer = document.getElementById('cabuyaoPopulationGraph');
+    if (category === 'All') {
+        graphContainer.classList.remove('hidden');
+    } else {
+        graphContainer.classList.add('hidden');
+    }
+}
+
+// Fetch initial data for the default category on page load
+fetchBarangayCounts(chosenCategory);

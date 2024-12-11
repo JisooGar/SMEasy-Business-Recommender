@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMEasy | Business</title>
+    <link rel="stylesheet" href="../css/business_analysis.css">
+    <link rel="stylesheet" href="/homepage/homepage.css">
+    <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#FFF6EC]">
+  
+   <!-- HEADER -->
+<nav class="header">
+  <div class="header-content">
+      <!-- Logo and Title -->
+      <div class="logo-section">
+          <img src="/homepage/smeasylogo.png" alt="LOGO" class="logo">
+          <div class="logo-text">
+              <span class="name">SMEasy</span>
+              <span class="profession">Business Homepage</span>
+          </div>
+      </div>
+
+      <!-- Navigation Links -->
+      <ul class="nav-links">
+          <li><a href="/homepage/homepage.html"><i class='bx bx-home-alt icon'></i> Homepage</a></li>
+          <li><a href="/analytics/analytics.html"><i class='bx bx-bar-chart-alt-2 icon'></i> Visualization</a></li>
+          <li><a href="/recommender_page/recommender.html"><i class='bx bx-pie-chart-alt icon'></i> Analysis</a></li>
+          <li><a href="/about.html/aboutUs.html"><i class='bx bx-heart icon'></i> About</a></li>
+      </ul>
+
+      <!-- User Profile Dropdown -->
+      <div class="user-profile">
+        <button id="profileDropdownButton" class="profile-btn">
+            <i class='bx bx-user-circle'></i>
+        </button>  
+          <div id="profileDropdown" class="profile-dropdown hidden">
+              <div class="profile-info">
+                  <span id="userName">Geron</span>
+                  <span id="userEmail">geron@example.com</span>
+              </div>
+              <hr>
+              <div class="header-controls">
+                  <a href="" id="signOutButton" class="logout"><i class='bx bx-log-out icon'></i> Logout</a>
+                  <div class="dark-mode-toggle">
+                      <span class="mode-text">Dark mode</span>
+                      <div class="toggle-switch">
+                          <span class="switch"></span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</nav>
+
+    <!-------------------------------------------- FIRST PAGE ------------------------------------------>
+
+    <!-- HEADER SECTION -->
+    <header class="mt-16 bg-gradient-to-b from-green-100 to-orange-300 py-6">
+      <div class="container mx-auto text-center">
+          <h1 class="text-3xl font-bold text-orange-500 border-2 border-black p-2 inline-block bg-orange-100 rounded-xl">
+              Business Recommender
+          </h1>
+      </div>
+  </header>
+  
+
+    <!-- MAIN CONTENT -->
+    <main class="mt-8 container mx-auto">
+      <section class="grid grid-cols-12 gap-6">
+
+          <!-- LEFT SECTION | GRAPHS -->
+          <div class="col-span-4 bg-white rounded-xl shadow-lg p-6">
+
+              <!-- HEADER OF LEFT SECTION -->
+              <div class="bg-green-100 p-4 rounded-xl mb-6">
+                  <div class="flex items-center">
+                      <div class="bg-green-500 text-white w-12 h-12 flex items-center justify-center rounded">
+                          <i class="bx bx-category-alt text-3xl"></i>
+                      </div>
+                      <div class="ml-4">
+                          <h3 class="text-xl font-bold text-green-800" id="mainBarangay"></h3>
+                          <p class="text-sm text-gray-600" id="mainDescription"></p>
+                      </div>
+                  </div>
+                  <h4 class="mt-2 text-lg font-bold text-green-800" id="mainCategory"></h4>
+              </div>
+
+
+                <!-- POPULATION GRAPH-->
+                <div class="mt-6 flex items-center space-x-4">
+                  <i class='bx bx-user-circle text-3xl text-green-800'></i>
+                  <div>
+                      <h3 class="font-bold text-green-800">Population</h3>
+                      <div class="text-green-800 text-lg font-bold" id="totalPopulation"></div>
+                  </div>
+                  <div class="relative" style="width: 200px; height: 200px;">
+                      <canvas id="populationChart"></canvas>
+                  </div>
+              </div>
+
+               <!-- SMES GRAPH -->
+               <div class="mt-6 flex items-center space-x-4">
+                <i class='bx bx-briefcase text-3xl text-green-800'></i>
+                <div>
+                    <h3 class="font-bold text-green-800">Businesses</h3>
+                    <div class="text-green-800 text-lg font-bold" id="businessCounts"></div>
+                </div>
+                <div class="relative" style="width: 200px; height: 200px;">
+                    <canvas id="smesChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+           <!-- SURVEY RESULTS -->
+           <div class="col-span-8 bg-white rounded-xl shadow-lg p-6">
+            <h2 class="text-xl font-bold text-green-800 mb-4 text-center">Survey Results</h2>
+            <div class="grid grid-cols-3 gap-4">
+
+                <!-- CUSTOMER CHARACTERISTIC -->
+                <div class="bg-orange-100 rounded-lg p-4">
+                    <h3 class="font-bold text-green-800 mb-2">Customer Characteristics</h3>
+                    <ul class="text-sm text-gray-600 space-y-4">
+                        <li class="flex items-start">
+                            <i class='bx bx-cart-alt text-green-800 text-xl mr-3'></i>
+                            <div>
+                                <span class="font-bold">Shopping Traits</span>
+                                <p id="topShoppingTraits"></p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                          <i class='bx bx-cart-alt text-green-800 text-xl mr-3'></i>
+                            <div>
+                                <span class="font-bold">Shopping Style</span>
+                                <p id="topShoppingStyle"></p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class='bx bx-target-lock text-green-800 text-xl mr-3'></i>
+                            <div>
+                                <span class="font-bold">Motivation for choosing businesses</span>
+                                <p id="topMotivation"></p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class='bx bx-bulb text-green-800 text-xl mr-3'></i>
+                            <div>
+                                <span class="font-bold">Factors for visiting new businesses</span>
+                                <p id="topShoppingFactors"></p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class='bx bx-heart text-green-800 text-xl mr-3'></i>
+                            <div>
+                                <span class="font-bold">Values</span>
+                                <p id="topValues"></p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- CUSTOMER BEHAVIOR -->
+                <div class="bg-orange-100 rounded-lg p-4">
+                    <h3 class="font-bold text-green-800 mb-2">Customer Behaviors</h3>
+                    <ul class="text-sm text-gray-600 space-y-4">
+                        <li class="flex items-start">
+                            <i class='bx bx-store-alt text-green-800 text-xl mr-3'></i>
+                            <div>
+                                <span class="font-bold">Most Visited Businesses</span>
+                                <p id="topBusinessVisits"></p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class='bx bx-time text-green-800 text-xl mr-3'></i>
+                            <div>
+                                <span class="font-bold">Visit Frequency</span>
+                                <p id="topFrequencyVisits"></p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class='bx bx-search text-green-800 text-xl mr-3'></i>
+                            <div>
+                                <span class="font-bold">Browsing Behavior</span>
+                                <p id="topBrowsingBehavior"></p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class='bx bx-cart text-green-800 text-xl mr-3'></i>
+                            <div>
+                                <span class="font-bold">Shopping Preference</span>
+                                <p id="topShoppingPreferences"></p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+               <!-- DEMOGRAPHICS -->
+                <div class="bg-orange-100 rounded-lg p-4">
+                    <h3 class="font-bold text-green-800 mb-2">Demographics</h3>
+                    <ul class="text-sm text-gray-600 space-y-4">
+                        <li class="flex items-start">
+                            <i class='bx bx-calendar text-green-800 text-xl mr-3'></i>
+                            <div>
+                                <span class="font-bold">Age Range</span>
+                                <p id="topAgeRange"></p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class='bx bx-male-female text-green-800 text-xl mr-3'></i>
+                            <div>
+                                <span class="font-bold">Gender</span>
+                                <p>Customer Service, Convenience</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                          <i class='bx bx-book text-green-800 text-xl mr-3'></i>
+                          <div>
+                              <span class="font-bold">Education</span>
+                              <p>Customer Service, Convenience</p>
+                          </div>
+                      </li>
+                        <li class="flex items-start">
+                            <i class='bx bx-briefcase text-green-800 text-xl mr-3'></i>
+                            <div>
+                                <span class="font-bold">Employment</span>
+                                <p>Customer Service, Convenience</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        
+
+                <!-- COMPETITION SECTION -->
+                <div class="mt-6 grid grid-cols-12 gap-4 items-start">
+
+                    <!-- COMPETITION CHART -->
+                    <div class="col-span-6">
+                        <h3 class="text-lg font-bold text-green-800 text-center">Competition</h3>
+                        <canvas id="competitionChart" class="w-full h-40"></canvas>
+                    </div>
+
+                    <!-- COMPETITION TABLE -->
+                    <div class="col-span-6">
+                        <h3 class="text-lg font-bold text-green-800 text-center">Competition Table</h3>
+                        <table class="w-full border border-green-800 text-sm text-gray-600">
+                            <thead>
+                                <tr class="bg-green-100 text-green-800">
+                                    <th class="py-2 px-4 border border-green-800">Type</th>
+                                    <th class="py-2 px-4 border border-green-800">Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="py-2 px-4 border border-green-800">Direct</td>
+                                    <td id="topDirectName" class="py-2 px-4 border border-green-800"></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-4 border border-green-800">Indirect</td>
+                                    <td id="topIndirectName" class="py-2 px-4 border border-green-800"></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-4 border border-green-800">Replacement</td>
+                                    <td id="topReplacementName" class="py-2 px-4 border border-green-800"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+        <!-------------------------------------------- SECOND PAGE ------------------------------------------>
+
+        <section id="second-page" class="min-h-screen pt-8 bg-white"> <!-- Reduced pt-16 to pt-8 -->
+          <main class="container mx-auto">
+              <section class="mt-4 grid grid-cols-2 gap-6"> <!-- Reduced mt-8 to mt-4 -->
+
+         <!-- MARKET DEMANDS AND GAPS -->
+        <div class="bg-orange-100 p-4 rounded-lg flex flex-col justify-between">
+          <h2 class="font-bold text-green-800 text-lg mb-4 text-center">Market Demands and Gaps</h2> <!-- Centered Title -->
+          <div class="flex items-center">
+              <div class="w-1/3">
+                  <canvas id="marketDemandChart" class="h-40"></canvas>
+              </div>
+              <div class="w-2/3 pl-4">
+                  <p class="text-sm text-gray-600 mb-2">
+                      The current business presence in the area falls under the category of 
+                      <span id="topCountDescription" class="font-bold text-green-800"></span>,
+                      reflecting <span id="topCountText"></span>.
+                  </p>
+                  <p class="text-sm text-gray-600 mb-2">
+                      The demand for <span id="mainCategory"></span> is <span id="topDemandDescription" class="font-bold text-green-800"></span>, 
+                      <span id="topDemandText"></span>. There is a <span id="topBusinessGapDescription" class="font-bold text-green-800"></span> in 
+                      services, suggesting <span id="topBusinessGapText"></span>.
+                  </p>
+                  <div class="mt-4">
+                      <div class="flex items-center mb-2">
+                        <div id="demandDiv" class="w-4 h-4 rounded-full mr-2"></div>
+                          <span class="text-sm text-gray-600">Market Demand: <span id="marketDemand" class="font-bold"></span>
+                        </span>
+                      </div>
+                      <div class="flex items-center">
+                        <div id="gapDiv" class="w-4 h-4 rounded-full mr-2"></div>
+                          <span class="text-sm text-gray-600">Market Gap: <span id="marketGaps" class="font-bold"></span>
+                        </span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+          <!-- TRANSPORTATION AND ACCESIBILITY -->
+          <div class="bg-orange-100 p-6 rounded-lg">
+            <h2 class="font-bold text-green-800 text-lg mb-4 text-center">Transportation and Accessibility</h2>
+            <div class="grid grid-cols-12 gap-4 items-start">
+                <!-- Left Column: Icons and Titles -->
+                <div class="col-span-4 space-y-4">
+                    <div class="flex items-center">
+                        <i class="bx bx-map-pin text-2xl text-green-800 mr-2"></i>
+                        <span class="font-bold">Area Type:</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="bx bx-bus text-2xl text-green-800 mr-2"></i>
+                        <span class="font-bold">Public Transport Access:</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="bx bx-traffic-cone text-2xl text-green-800 mr-2"></i>
+                        <span class="font-bold">Transportation Challenges:</span>
+                    </div>
+                </div>
+
+                <!-- Right Column: Descriptions -->
+                <div class="col-span-8 space-y-4">
+                    <div class="flex items-center h-full">
+                        <p class="text-sm text-gray-600" id="topAreaType"></p>
+                    </div>
+                    <div class="flex items-center h-full">
+                        <p class="text-sm text-gray-600" id="topTranspoText"></p>
+                    </div>
+                    <div class="flex items-center h-full">
+                        <p class="text-sm text-gray-600" id="topTranspoChallenges"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summary Section -->
+            <p class="text-sm text-gray-600 mt-6">
+                Transportation has <span id="topTranspoText1" class="font-bold text-green-800"></span>. Although there are some <span id="topTranspoChallenges1" class="font-bold text-red-500"></span> issues that could pose challenges.
+            </p>
+            <p class="text-sm text-gray-600 mt-2">
+                The area type is specifically categorized as <span id="topAreaType1" class="font-bold text-green-800"></span>, which is <span id="topAreaTypeDescription" class="font-bold text-green-800"></span> and indicates <span id="topAreaTypeText"></span>. This makes it a <span class="font-bold text-green-800">suitable location</span> for businesses.
+            </p>
+          </div>
+      </section>
+
+      <section class="grid grid-cols-2 gap-6 mt-6">
+        <!-- SUGGESTED SUBAREA -->
+        <div class="bg-orange-100 p-6 rounded-lg">
+          <!-- Header Title -->
+          <h2 class="font-bold text-green-800 text-lg text-center mb-6">Suggested Subcategory</h2>
+          
+          <!-- Content Section Centered -->
+          <div class="flex flex-col items-center justify-center">
+              <!-- Icon Section -->
+              <div class="bg-green-500 text-white w-12 h-12 flex items-center justify-center rounded mb-4">
+                  <i class="bx bx-map text-3xl"></i>
+              </div>
+              <!-- Description -->
+              <div class="text-center">
+                  <p class="text-sm text-gray-600">
+                      The subcategory <span id="topSuggestedSubcategories" class="font-bold text-green-800"></span> is recommended.
+                  </p>
+                  <p class="text-sm text-gray-600 mt-2">
+                      The market demand in <span id="mainCategory1" class="font-bold text-green-800"></span> is expected to be high due to its compatibility with other businesses
+                      in the subarea.
+                  </p>
+              </div>
+          </div>
+        </div>
+
+        
+           <!-- COMPUTATION -->
+           <div class="bg-orange-100 p-6 rounded-lg flex flex-col">
+            <h2 class="font-bold text-green-800 text-lg text-center mb-4">Computation</h2>
+            <table class="w-full text-sm text-gray-600">
+                <tbody>
+                    <tr class="border-b">
+                        <td class="py-1 pl-2">Market Demand</td>
+                        <td id="computeDemand" class="text-right pr-2 font-bold">72.23</td>
+                    </tr>
+                    <tr class="border-b">
+                        <td class="py-1 pl-2">Market Gaps</td>
+                        <td id="computeGap" class="text-right pr-2 font-bold">72.23</td>
+                    </tr>
+                    <tr class="border-b">
+                        <td class="py-1 pl-2">Competition Density</td>
+                        <td id="computeCompetition" class="text-right pr-2 font-bold">72.23</td>
+                    </tr>
+                    <tr class="border-b">
+                        <td class="py-1 pl-2">Area Type</td>
+                        <td id="computeArea" class="text-right pr-2 font-bold">72.23</td>
+                    </tr>
+                    <tr>
+                        <td class="py-1 pl-2 font-bold text-green-800">Total</td>
+                        <td id="computeTotalScore" class="text-right pr-2 font-bold text-green-800">72.23</td>
+                    </tr>
+                 </tbody>
+              </table>
+            </div>
+         </section>
+       </main>
+    </section>
+
+<!-- Logout Modal -->
+<div id="logoutModal" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Log Out</h2>
+    <p>Are you sure you want to log out?</p>
+    <div class="button-container">
+      <button id="confirmLogout" class="modal-btn yes-btn">Yes, Log Out</button>
+      <button id="cancelLogout" class="modal-btn no-btn">No, Stay</button>
+    </div>
+  </div>
+</div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../javascript/business_analysis.js"></script>
+    <script src="/homepage/homepage.js" defer></script>
+
+</body>
+</html>

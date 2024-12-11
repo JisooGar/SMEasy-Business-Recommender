@@ -8,72 +8,67 @@
     <link rel="stylesheet" href="/homepage/homepage.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    <!--SIDEBAR-->
-    <nav class="sidebar close">
-        <header>
-            <div class="image-text">
-                <span class="image">
-                    <img src="/images/smeasylogo.png" alt="SMEasy Logo">
-                </span>
-                <div class="text logo-text">
-                    <span class="name">SMEasy</span>
-                    <span class="profession">Business Visualization</span>
-                </div>
-            </div>
-            <i class='bx bx-chevron-right toggle'></i>
-        </header>
-        <div class="menu-bar"> 
-            <div class="menu">
-                <li class="search-box">
-                </li>
-                <ul class="menu-links">
-                    <li class="nav-link">
-                        <a href="/homepage/homepage.html">
-                            <i class='bx bx-home-alt icon'></i>
-                            <span class="text nav-text">Homepage</span>
-                        </a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="/analytics/analytics.html">
-                            <i class='bx bx-bar-chart-alt-2 icon'></i>
-                            <span class="text nav-text">Visualization</span>
-                        </a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="/recommender_page/recommender.html">
-                            <i class='bx bx-pie-chart-alt icon'></i>
-                            <span class="text nav-text">Analysis</span>
-                        </a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="/about.html/aboutUs.html">
-                            <i class='bx bx-heart icon'></i>
-                            <span class="text nav-text">About</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="bottom-content">
-                <li class="">
-                    <a href=""  id="signOutButton">
-                        <i class='bx bx-log-out icon' ></i>
-                        <span class="text nav-text" id="signOutButton">Logout</span>
-                    </a>
-                </li>
-                <li class="mode">
-                    <div class="sun-moon">
-                        <i class='bx bx-moon icon moon'></i>
-                        <i class='bx bx-sun icon sun'></i>
-                    </div>
-                    <span class="mode-text text">Dark mode</span>
-                    <div class="toggle-switch">
-                        <span class="switch"></span>
-                    </div>
-                </li>
+      <!-- HEADER -->
+<nav class="header">
+    <div class="header-content">
+        <!-- Logo and Title -->
+        <div class="logo-section">
+            <img src="/homepage/smeasylogo.png" alt="LOGO" class="logo">
+            <div class="logo-text">
+                <span class="name">SMEasy</span>
+                <span class="profession">Business Homepage</span>
             </div>
         </div>
-    </nav>
+
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+            <li><a href="/homepage/homepage.html"><i class='bx bx-home-alt'></i> Homepage</a></li>
+            <li><a href="/analytics/analytics.html"><i class='bx bx-bar-chart-alt-2'></i> Visualization</a></li>
+            <li><a href="/recommender_page/recommender.html"><i class='bx bx-pie-chart-alt'></i> Analysis</a></li>
+            <li><a href="/about.html/aboutUs.html"><i class='bx bx-heart'></i> About</a></li>
+        </ul>
+        
+
+        <!-- User Profile Dropdown -->
+        <div class="user-profile">
+            <button id="profileDropdownButton" class="profile-btn">
+                <i class='bx bx-user-circle'></i>
+            </button>  
+            <div id="profileDropdown" class="profile-dropdown hidden">
+                <div class="profile-info">
+                    <span id="userName">Geron</span>
+                    <span id="userEmail">geron@example.com</span>
+                </div>
+                <hr>
+                <div class="header-controls">
+                    <a href="" id="signOutButton" class="logout">Logout</a>
+                    <div class="dark-mode-toggle">
+                        <span class="mode-text">Dark mode</span>
+                        <div class="toggle-switch">
+                            <span class="switch"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Logout Modal -->
+<div id="logoutModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Log Out</h2>
+      <p>Are you sure you want to log out?</p>
+      <div class="button-container">
+        <button id="confirmLogout" class="modal-btn yes-btn">Yes, Log Out</button>
+        <button id="cancelLogout" class="modal-btn no-btn">No, Stay</button>
+      </div>
+    </div>
+  </div>
+
 
     <!--HEADER-->
  <section>
@@ -88,147 +83,155 @@
  </section>
 
  
- <div class="container">
-    <!--date filtering-->
-    <div class="content-section">
-      <div class="layout-grid">
-          <div class="left-section">
-              <div class="filters">
-                  <label for="dateRange">Overall Business Categories:</label>
-                  <select id="dateRange">
-                      <option>All</option>
-                      <option>Automotive Services</option>
-                      <option>Construction and Real Estate</option>
-                      <option>Cooperative Business</option>
-                      <option>Creative and Media Service</option>
-                      <option>Education Services</option>
-                      <option>Entertainment and Recreation</option>
-                      <option>Finance and Insurance</option>
-                      <option>Food Services</option>
-                      <option>Healthcare Services</option>
-                      <option>IT and Digital Services</option>
-                      <option>Manufacturing and Production</option>
-                      <option>Personal and Household Services</option>
-                      <option>Personal Care Services</option>
-                      <option>Professional Services</option>
-                      <option>Retail Stores</option>
-                      <option>Tourism and Hospitality</option>
-                      <option>Transportation and Logistics</option>
-                      <option>Wholesale and Distribution</option>
-                  </select>
-              </div>
-  
-              <!--left section-->
-              <div class="stat-card">
-                  <h3>Total Number of Businesses</h3>
-                  <p id="totalBusinesses">364</p>
-                  <span>As of May 2024</span>
-              </div>
-              
-              <div class="stat-card">
-                  <h3>Sala Population</h3>
-                  <p id="population">10,903</p>
-                  <span>As of 2023</span>
-              </div>
-              
-              <div class="stat-card">
-                  <h3>Area with the most</h3>
-                  <p id="stat3">National Highway</p>
-              </div>
-              
-              <div class="stat-card"> 
-                  <h3>Area with the least</h3>
-                  <p id="stat4">'Del Rosario Compound, Corner Road 1, San Carlos Village, Greenleaf Residences'</p>
-              </div>
-              
-              <div class="stat-card">
-                  <h3>Top-Ranked Category by Market Demand</h3>
-                  <p id="marketDemands">Personal and Household Services, Tourism and Hospitality</p>
-                  <span>As of October 2024</span>
-              </div>
-          </div>
-  
-  
-          <div class="graph-grid">
-              <!-- TOTAL BUSINESSES container stays on top -->
-              <div class="top-section">
-                  <div class="graph-card page-views-graph extended">
-                      <h3>TOTAL BUSINESSES</h3>
-                      <canvas id="pageViews"></canvas>
-                  </div>
-              </div>
-          
-              <!-- TOTAL POPULATION and NEW METRIC side by side -->
-              <div class="bottom-section">
-                  <div class="graph-card web-traffic-graph">
-                      <h3>SALA POPULATION</h3>
-                      <canvas id="webTrafficConcentration"></canvas>
-                  </div>
-  
-                  <div class="new-metric-container">
-                      <h3>BARANGAY BUSINESSES COUNTS</h3>
-                      <div class="scrollable-table">
-                          <table id="businessCategoriesTable">
-                              <thead>
-                                  <tr>
-                                      <th id="categoryHeader">Business Category Name</th> <!-- Add an ID to the header for easy access -->
-                                      <th>Counts</th>
-                                  </tr>
-                              </thead>
-                              <tbody>
-                                  <!-- Rows will be dynamically generated by JavaScript -->
-                              </tbody>
-                          </table>
-                      </div>
-                  </div>
-  
-              </div>
-          </div>
-  
-  
-      <!--barangays-->
-      <div class="barangays-container">
-          <h3>BARANGAYS OF CABUYAO</h3>
-          <div class="barangays-scroll">
-              <a href="/analytics/barangays/html/baclaran.html" class="barangay-item">Baclaran</a>
-              <a href="/analytics/barangays/html/banay-banay.html" class="barangay-item">Banay-Banay</a>
-              <a href="/analytics/barangays/html/banlic.html" class="barangay-item">Banlic</a>
-              <a href="/analytics/barangays/html/bigaa.html" class="barangay-item">Bigaa</a>
-              <a href="/analytics/barangays/html/butong.html" class="barangay-item">Butong</a>
-              <a href="/analytics/barangays/html/casile.html" class="barangay-item">Casile</a>
-              <a href="/analytics/barangays/html/diezmo.html" class="barangay-item">Diezmo</a>
-              <a href="/analytics/barangays/html/gulod.html" class="barangay-item">Gulod</a>
-              <a href="/analytics/barangays/html/mamatid.html" class="barangay-item">Mamatid</a>
-              <a href="/analytics/barangays/html/marinig.html" class="barangay-item">Marinig</a>
-              <a href="/analytics/barangays/html/niugan.html" class="barangay-item">Niugan</a>
-              <a href="/analytics/barangays/html/pittland.html" class="barangay-item">Pittland</a>
-              <a href="/analytics/barangays/html/pulo.html" class="barangay-item">Pulo</a>
-              <a href="/analytics/barangays/html/sala.html" class="barangay-item">Sala</a>
-              <a href="/analytics/barangays/html/san isidro.html" class="barangay-item">San Isidro</a>
-              <a href="/analytics/barangays/html/pob1.html" class="barangay-item">Barangay I Poblacion</a>
-              <a href="/analytics/barangays/html/pob2.html" class="barangay-item">Barangay II Poblacion</a>
-              <a href="/analytics/barangays/html/pob3.html" class="barangay-item">Barangay III Poblacion</a>
-          </div>
-      </div>
-  
-  
-          <div class="new-right-container">
-              <h3>BUSINESS SUB-CATEGORIES</h3>
-              <div class="scrollable-table">
-                  <table id="subCategoriesTable">
-                      <thead>
-                          <tr>
-                              <th id="subCategoryHeader">Sub Categories</th> <!-- This will display the selected category -->
-                              <th>Counts</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          <!-- Rows will be dynamically generated by JavaScript -->
-                      </tbody>
-                  </table>
-              </div>
-          </div>
-      </div>
+ <!-- MAIN CONTENT -->
+<div class="main-content">
+    <!-- Example content to show the adjustment -->
+    <div class="max-w-7xl mx-auto px-4 py-6">
+        <h1 class="text-xl font-bold">Welcome to SMEasy</h1>
+        <p>See the Insights of Our barangays of Cabuyao Visualization.</p>
+        <!-- Your other content goes here -->
+    </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="max-w-7xl mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <!-- LEFT SECTION -->
+    <div class="space-y-4">
+        <div class="bg-white rounded-lg shadow p-4">
+            <label for="dateRange" class="block text-gray-700 font-bold mb-2">Select Business Category:</label>
+            <select id="dateRange" class="w-full border border-gray-300 rounded-md p-2 mb-4">
+                <option value="All">All</option>
+                <option value="Automotive Services">Automotive Services</option>
+                <option value="Construction and Real Estate">Construction and Real Estate</option>
+                <option value="Cooperative Business">Cooperative Business</option>
+                <option value="Creative and Media Service">Creative and Media Service</option>
+                <option value="Education Services">Education Services</option>
+                <option value="Entertainment and Recreation">Entertainment and Recreation</option>
+                <option value="Finance and Insurance">Finance and Insurance</option>
+                <option value="Food Services">Food Services</option>
+                <option value="Healthcare Services">Healthcare Services</option>
+                <option value="IT and Digital Services">IT and Digital Services</option>
+                <option value="Manufacturing and Production">Manufacturing and Production</option>
+                <option value="Personal and Household Services">Personal and Household Services</option>
+                <option value="Personal Care Services">Personal Care Services</option>
+                <option value="Professional Services">Professional Services</option>
+                <option value="Retail Stores">Retail Stores</option>
+                <option value="Tourism and Hospitality">Tourism and Hospitality</option>
+                <option value="Transportation and Logistics">Transportation and Logistics</option>
+                <option value="Wholesale and Distribution">Wholesale and Distribution</option>
+            </select>
+
+            <h3 class="font-bold text-lg">Total Number of Businesses</h3>
+            <p id="totalBusinesses" class="text-2xl font-extrabold">2679</p>
+            <span class="text-sm text-green-500">As of May 2024</span>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-4">
+            <h3 class="font-bold text-lg">Cabuyao Population</h3>
+            <p id="population" class="text-2xl font-extrabold">421,440</p>
+            <span class="text-sm text-green-500">As of 2023</span>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-4">
+            <h3 class="font-bold text-lg">Barangay with the Most</h3>
+            <p id="stat3" class="text-2xl font-extrabold">Pulo</p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-4">
+            <h3 class="font-bold text-lg">Barangay with the Least</h3>
+            <p id="stat4" class="text-2xl font-extrabold">Casile</p>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow p-4">
+            <h3 class="font-bold text-lg">Barangay with Highest Market Demands</h3>
+            <p id="marketDemands" class="text-2xl font-extrabold">Pulo</p>
+            <span class="text-sm text-green-500">As of October 2024</span>
+        </div>
+    </div>
+
+    <!-- CENTER SECTION -->
+    <div class="lg:col-span-2 space-y-6">
+        <div class="bg-white rounded-lg shadow p-4">
+            <h3 class="font-bold text-lg">Total Businesses</h3>
+            <canvas id="pageViews" class="w-full h-64"></canvas>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+            <!-- Cabuyao Population -->
+            <div class="bg-white rounded-lg shadow p-5 h-74">
+                <h3 class="font-bold text-lg">Cabuyao Population</h3>
+                <canvas id="webTrafficConcentration" class="w-full h-full"></canvas>
+            </div>
+        
+            <!-- Barangay Businesses Counts -->
+            <div class="bg-white rounded-lg shadow p-5 overflow-y-auto h-74">
+                <h3 id="categoryHeader" class="font-bold text-lg">Barangay Businesses Counts</h3>
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="border-b-2 border-gray-300 py-2 px-4">Barangay</th>
+                            <th class="border-b-2 border-gray-300 py-2 px-4">Count</th>
+                        </tr>
+                    </thead>
+                    <tbody id="businessCategoriesTable" class="divide-y divide-gray-200">
+                        <!-- Data dynamically populated -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        
+        <div class="flex flex-col lg:flex-row gap-4">
+            <!-- Barangays of Cabuyao -->
+            <div class="bg-white rounded-lg shadow p-4 flex-1">
+                <h3 class="font-bold text-lg">BARANGAYS OF CABUYAO</h3>
+                <div class="grid grid-cols-2 gap-4 max-h-64 overflow-y-auto">
+                    <a href="/analytics/barangays/html/baclaran.html" class="block bg-gray-100 hover:bg-gray-200 rounded-md px-4 py-2">Baclaran</a>
+                    <a href="/analytics/barangays/html/banay-banay.html" class="block bg-gray-100 hover:bg-gray-200 rounded-md px-4 py-2">Banay-Banay</a>
+                    <a href="/analytics/barangays/html/banlic.html" class="block bg-gray-100 hover:bg-gray-200 rounded-md px-4 py-2">Banlic</a>
+                    <a href="/analytics/barangays/html/bigaa.html" class="block bg-gray-100 hover:bg-gray-200 rounded-md px-4 py-2">Bigaa</a>
+                    <a href="/analytics/barangays/html/butong.html" class="block bg-gray-100 hover:bg-gray-200 rounded-md px-4 py-2">Butong</a>
+                    <a href="/analytics/barangays/html/casile.html" class="block bg-gray-100 hover:bg-gray-200 rounded-md px-4 py-2">Casile</a>
+                    <a href="/analytics/barangays/html/diezmo.html" class="block bg-gray-100 hover:bg-gray-200 rounded-md px-4 py-2">Diezmo</a>
+                    <a href="/analytics/barangays/html/gulod.html" class="block bg-gray-100 hover:bg-gray-200 rounded-md px-4 py-2">Gulod</a>
+                    <a href="/analytics/barangays/html/mamatid.html" class="block bg-gray-100 hover:bg-gray-200 rounded-md px-4 py-2">Mamatid</a>
+                    <a href="/analytics/barangays/html/marinig.html" class="block bg-gray-100 hover:bg-gray-200 rounded-md px-4 py-2">Marinig</a>
+                    <a href="/analytics/barangays/html/niugan.html" class="block bg-gray-100 hover:bg-gray-200 rounded-md px-4 py-2">Niugan</a>
+                    <a href="/analytics/barangays/html/pittland.html" class="block bg-gray-100 hover:bg-gray-200 rounded-md px-4 py-2">Pittland</a>
+                    <a href="/analytics/barangays/html/pulo.html" class="block bg-gray-100 hover:bg-gray-200 rounded-md px-4 py-2">Pulo</a>
+                    <a href="/analytics/barangays/html/sala.html" class="block bg-gray-100 hover:bg-gray-200 rounded-md px-4 py-2">Sala</a>
+                    <a href="/analytics/barangays/html/san isidro.html" class="block bg-gray-100 hover:bg-gray-200 rounded-md px-4 py-2">San Isidro</a>
+                    <a href="/analytics/barangays/html/pob1.html" class="block bg-gray-100 hover:bg-gray-200 rounded-md px-4 py-2">Barangay I Poblacion</a>
+                    <a href="/analytics/barangays/html/pob2.html" class="block bg-gray-100 hover:bg-gray-200 rounded-md px-4 py-2">Barangay II Poblacion</a>
+                    <a href="/analytics/barangays/html/pob3.html" class="block bg-gray-100 hover:bg-gray-200 rounded-md px-4 py-2">Barangay III Poblacion</a>
+                </div>
+            </div>
+
+            <!--BUSINESS SUB CATEGORIES-->
+            <div class="bg-white rounded-lg shadow p-4 flex-1">
+                <h3 id="subCategoryHeader" class="font-bold text-lg">Business Sub-Categories</h3>
+                <div class="overflow-y-auto max-h-64">
+                    <table id="subCategoriesTable" class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-gray-100">
+                                <th class="border-b-2 border-gray-300 py-2 px-4">Sub Categories</th>
+                                <th class="border-b-2 border-gray-300 py-2 px-4 text-right">Counts</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <!-- Rows dynamically populated -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            
+            
+            
+
+        </div>
+    </div>
+</div>
   
       <!-- Loading overlay -->
   <div id="loading-overlay" class="loading-overlay">

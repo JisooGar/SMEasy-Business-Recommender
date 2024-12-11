@@ -5,6 +5,7 @@ let selectedBusinessIndex = null;
 const adminData = {
     name: 'Admin 1', // Example name
     id: 'A1',        // Example admin ID
+    
 };
 
 // Set the initials in the profile display
@@ -28,7 +29,7 @@ window.addEventListener('click', (e) => {
     if (!button.contains(e.target) && !dropdown.contains(e.target)) {
         dropdown.classList.add('hidden');
     }
-});
+}); 
 
 // Show the Change Password modal
 document.getElementById('editProfileButton').addEventListener('click', (e) => {
@@ -88,15 +89,47 @@ document.getElementById('changePasswordForm').addEventListener('submit', async (
     }
 });
 
-// Example Data
-const smeData = [
-    { id: 1, name: 'Business 1', address: 'Address 1', subarea: 'Subarea 1', barangay: 'Barangay 1', latitude: '14.56', longitude: '120.98', industry: 'Retail', category: 'Clothing', subcategory: 'Men' },
-    { id: 2, name: 'Business 2', address: 'Address 2', subarea: 'Subarea 2', barangay: 'Barangay 2', latitude: '14.57', longitude: '120.99', industry: 'Food', category: 'Restaurant', subcategory: 'Fast Food' },
-];
+// //Fetch SME Data from Backend
+// async function fetchSMEData() {
+//     try {
+//         const response = await fetch('/api/smes');
+//         if (!response.ok) throw new Error('Failed to fetch SME data');
+        
+//         const data = await response.json();
+//         console.log('Fetched SME Data:', data); // Debug the response
+//         renderSMETable(data); // Render the table
+//     } catch (err) {
+//         console.error('Error fetching SME data:', err);
+//     }
+// }
 
-const surveyData = [
-   
-];
+// Fetch SME Data from the API
+const fetchSMEData = async () => {
+    try {
+        const response = await fetch('/api/smes');
+        if (!response.ok) throw new Error('Failed to fetch SME data');
+        const data = await response.json();
+        renderSMETable(data);
+    } catch (error) {
+        console.error('Error fetching SME data:', error);
+        alert("Failed to fetch SME data. Please try again later.");
+    }
+};
+
+function editSME(id) {
+    alert(`Edit SME with ID: ${id}`);
+    // Add your edit logic here
+}
+
+function deleteSME(id) {
+    alert(`Delete SME with ID: ${id}`);
+    // Add your delete logic here
+}
+
+// Call fetchSMEData on page load
+fetchSMEData();
+
+
 
 // DOM Elements
 const smeDataButton = document.getElementById('smeDataButton');
@@ -108,46 +141,227 @@ const surveySubButtons = document.getElementById('surveySubButtons');
 const preferencesTabButton = document.getElementById('preferencesTabButton');
 const marketDemandsTabButton = document.getElementById('marketDemandsTabButton');
 const tableHead = document.querySelector("#tableHead"); // Table Head
+const addEditBusinessModal = document.getElementById('addEditBusinessModal');
+const closeAddEditBusinessModal = document.getElementById('closeAddEditBusinessModal');
+const cancelAddEditBusiness = document.getElementById('cancelAddEditBusiness');
+const addEditBusinessForm = document.getElementById('addEditBusinessForm');
+
+
+// Show Add/Edit Business Modal
+addBusinessButton.addEventListener("click", () => {
+    addEditBusinessForm.reset(); // Reset the form
+    selectedBusinessIndex = null; // Clear selected index for new business
+    addEditBusinessModal.classList.remove("hidden"); // Show modal
+});
+
+// Show the Add/Edit Business modal (for adding new business)
+addBusinessButton.addEventListener('click', () => {
+    // Clear the form for new entries
+    addEditBusinessForm.reset();
+    selectedBusinessIndex = null; // Set to null for new business
+    addEditBusinessModal.classList.remove('hidden'); // Show modal
+});
+
+// Close Modal
+const closeModal = () => addEditBusinessModal.classList.add("hidden");
+closeAddEditBusinessModal.addEventListener("click", closeModal);
+cancelAddEditBusiness.addEventListener("click", closeModal);
+
+
+addEditBusinessForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const newBusiness = {
+        name: document.getElementById("businessName").value.trim(),
+        address: document.getElementById("address").value.trim(),
+        subarea: document.getElementById("subarea").value.trim(),
+        barangay: document.getElementById("barangay").value.trim(),
+        latitude: document.getElementById("latitude").value.trim(),
+        longitude: document.getElementById("longitude").value.trim(),
+        industry: document.getElementById("industry").value.trim(),
+        category: document.getElementById("category").value.trim(),
+        subcategory: document.getElementById("subcategory").value.trim(),
+    };
+
+    try {
+        const response = await fetch("/api/business", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(newBusiness),
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            alert(data.message || "Business added successfully!");
+            await fetchSMEData(); // Refresh the table to include the new business
+            addEditBusinessForm.reset();
+            addEditBusinessModal.classList.add("hidden");
+        } else {
+            const error = await response.json();
+            throw new Error(error.message || "Failed to add business.");
+        }
+    } catch (error) {
+        console.error("Error adding business:", error);
+        alert("An error occurred while adding the business. Please try again.");
+    }
+});
+
+// Fetch updated SME data
+// const fetchSMEData = async () => {
+//     try {
+//         const response = await fetch("/api/smes");
+//         const data = await response.json();
+
+//         if (response.ok) {
+//             renderSMETable(data); // Render the updated SME data in the table
+//             // const row = document.querySelector(`tr:nth-child(${newBusiness.id})`);
+//             //     if (row) {
+//             //         row.classList.add('bg-green-100'); // Highlight the row
+//             //         setTimeout(() => row.classList.remove('bg-green-100'), 2000); // Remove highlight after 2 seconds
+//             //     }
+//         } else {
+//             throw new Error("Failed to fetch SME data.");
+//         }
+//     } catch (error) {
+//         console.error("Error fetching SME data:", error);
+//         alert("An error occurred while fetching SME data. Please refresh the page.");
+//     }
+// };
+
+// Initialize by fetching SME data on page load
+fetchSMEData();
+
+
 
 const renderSMETable = (data) => {
-    // Update Table Headers for SME Data
     tableHead.innerHTML = `
         <tr>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">ID</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Name</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Address</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Subarea</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Barangay</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Latitude</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Longitude</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Industry</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Category</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Subcategory</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+            <th class="px-4 py-2">ID</th>
+            <th class="px-4 py-2">Name</th>
+            <th class="px-4 py-2">Address</th>
+            <th class="px-4 py-2">Barangay</th>
+            <th class="px-4 py-2">Subarea</th>
+            <th class="px-4 py-2">Latitude</th>
+            <th class="px-4 py-2">Longitude</th>
+            <th class="px-4 py-2">SME Type</th>
+            <th class="px-4 py-2">Category</th>
+            <th class="px-4 py-2">Subcategory</th>
+            <th class="px-4 py-2">Actions</th>
         </tr>
     `;
 
-    // Update Table Body
     tableBody.innerHTML = ''; // Clear existing rows
+
     data.forEach((item) => {
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td class="px-4 py-2">${item.id}</td>
-            <td class="px-4 py-2">${item.name}</td>
-            <td class="px-4 py-2">${item.address}</td>
-            <td class="px-4 py-2">${item.subarea}</td>
-            <td class="px-4 py-2">${item.barangay}</td>
-            <td class="px-4 py-2">${item.latitude}</td>
-            <td class="px-4 py-2">${item.longitude}</td>
-            <td class="px-4 py-2">${item.industry || 'N/A'}</td>
-            <td class="px-4 py-2">${item.category || 'N/A'}</td>
-            <td class="px-4 py-2">${item.subcategory || 'N/A'}</td>
+            <td class="px-4 py-2">${item.business_id}</td>
+            <td class="px-4 py-2">${item.business_name}</td>
+            <td class="px-4 py-2">${item.address || 'N/A'}</td>
+            <td class="px-4 py-2">${item.barangay_name || 'N/A'}</td>
+            <td class="px-4 py-2">${item.subarea_name || 'N/A'}</td>
+            <td class="px-4 py-2">${item.latitude || 'N/A'}</td>
+            <td class="px-4 py-2">${item.longitude || 'N/A'}</td>
+            <td class="px-4 py-2">${item.sme_type || 'N/A'}</td>
+            <td class="px-4 py-2">${item.category_name || 'N/A'}</td>
+            <td class="px-4 py-2">${item.subcategory_name || 'N/A'}</td>
             <td class="px-4 py-2">
                 <button class="text-blue-500 hover:underline">Edit</button>
                 <button class="text-red-500 hover:underline">Delete</button>
             </td>
         `;
         tableBody.appendChild(row);
+    });
+};
+
+
+// Handle Edit and Delete Button Actions
+const attachActionHandlers = (data) => {
+    document.querySelectorAll('.edit-button').forEach((button) => {
+        button.addEventListener('click', () => {
+            const id = button.dataset.id;
+            const business = data.find((item) => item.business_id === parseInt(id, 10));
+            if (business) {
+                // Populate the form with business data
+                document.getElementById('businessName').value = business.business_name;
+                document.getElementById('address').value = business.address;
+                document.getElementById('barangay').value = business.barangay_name;
+                document.getElementById('subarea').value = business.subarea_name;
+                document.getElementById('latitude').value = business.latitude;
+                document.getElementById('longitude').value = business.longitude;
+                document.getElementById('industry').value = business.sme_type;
+                document.getElementById('category').value = business.category_name;
+                document.getElementById('subcategory').value = business.subcategory_name;
+
+                selectedBusinessIndex = id; // Store the selected ID
+                addEditBusinessModal.classList.remove('hidden'); // Show modal
+            }
+        });
+    });
+
+    document.querySelectorAll('.delete-button').forEach((button) => {
+        button.addEventListener('click', async () => {
+            const id = button.dataset.id;
+            if (confirm(`Are you sure you want to delete the business with ID ${id}?`)) {
+                try {
+                    const response = await fetch(`/api/business/${id}`, { method: 'DELETE' });
+                    if (response.ok) {
+                        alert('Business deleted successfully');
+                        fetchSMEData(); // Refresh table
+                    } else {
+                        alert('Failed to delete business');
+                    }
+                } catch (error) {
+                    console.error('Error deleting business:', error);
+                }
+            }
+        });
+    });
+};
+
+
+function renderGridTable(data) {
+    const tableBody = document.getElementById('tableBody');
+    tableBody.innerHTML = ''; // Clear existing rows
+
+    data.forEach((sme) => {
+        const rowHTML = `
+            <div>${sme.business_id}</div>
+            <div>${sme.business_name}</div>
+            <div>${sme.address}</div>
+            <div>${sme.subarea_name || 'N/A'}</div>
+            <div>${sme.barangay_name || 'N/A'}</div>
+            <div>${sme.latitude || 'N/A'}</div>
+            <div>${sme.longitude || 'N/A'}</div>
+            <div>${sme.sme_type || 'N/A'}</div>
+            <div>${sme.category_name || 'N/A'}</div>
+            <div>${sme.subcategory_name || 'N/A'}</div>
+            <div>
+                <button class="text-blue-500 hover:underline">Edit</button>
+                <button class="text-red-500 hover:underline">Delete</button>
+            </div>
+        `;
+        tableBody.innerHTML += rowHTML;
+    });
+}
+
+
+const attachDeleteHandlers = (data, renderFunction) => {
+    const deleteButtons = document.querySelectorAll('.delete-button');
+
+    deleteButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const id = parseInt(button.dataset.id, 10);
+            const indexToDelete = data.findIndex(item => item.id === id);
+
+            if (indexToDelete !== -1) {
+                if (confirm(`Are you sure you want to delete item with ID ${id}?`)) {
+                    data.splice(indexToDelete, 1);
+                    data.forEach((item, index) => (item.id = index + 1)); // Reassign IDs
+                    renderFunction(data); // Re-render the table
+                }
+            }
+        });
     });
 };
 
@@ -174,265 +388,323 @@ const renderSurveyTable = (data) => {
     });
 };
 
-// Preferences Table Rendering Function
+
+
+// Render Preferences Table
 const renderPreferencesTable = (data) => {
+
     // Update Table Headers
     tableHead.innerHTML = `
         <tr>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">ID</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Month</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Barangay</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Age Range</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Gender</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Education</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Employment</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Business Visits</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Frequent Visits</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Browsing Behavior</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Satisfaction</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Lacking</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Shopping Preference</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Motivation for Choosing</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Shopping Traits</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Factors for New Businesses</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Shopping Style</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Values</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Transportation Links</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Accessibility</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Outside Barangay Travel</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Transportation Challenges</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+            <th>ID</th>
+            <th>Month</th>
+            <th>Barangay</th>
+            <th>Age Range</th>
+            <th>Gender</th>
+            <th>Education</th>
+            <th>Employment</th>
+            <th>Business Visits</th>
+            <th>Frequent Visits</th>
+            <th>Browsing Behavior</th>
+            <th>Satisfaction</th>
+            <th>Lacking</th>
+            <th>Shopping Preference</th>
+            <th>Motivation for Choosing</th>
+            <th>Shopping Traits</th>
+            <th>Factors for New Businesses</th>
+            <th>Shopping Style</th>
+            <th>Values</th>
+            <th>Transportation Links</th>
+            <th>Accessibility</th>
+            <th>Outside Barangay Travel</th>
+            <th>Transportation Challenges</th>
         </tr>
     `;
 
     // Update Table Body
-    tableBody.innerHTML = ''; // Clear existing rows
+    tableBody.innerHTML = "";
     data.forEach((item) => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td class="px-4 py-2">${item.id}</td>
-            <td class="px-4 py-2">${item.month}</td>
-            <td class="px-4 py-2">${item.barangay}</td>
-            <td class="px-4 py-2">${item.ageRange}</td>
-            <td class="px-4 py-2">${item.gender}</td>
-            <td class="px-4 py-2">${item.education}</td>
-            <td class="px-4 py-2">${item.employment}</td>
-            <td class="px-4 py-2">${item.businessVisits}</td>
-            <td class="px-4 py-2">${item.frequentVisits}</td>
-            <td class="px-4 py-2">${item.browsingBehavior}</td>
-            <td class="px-4 py-2">${item.satisfaction}</td>
-            <td class="px-4 py-2">${item.lacking}</td>
-            <td class="px-4 py-2">${item.shoppingPreference}</td>
-            <td class="px-4 py-2">${item.motivationForChoosing}</td>
-            <td class="px-4 py-2">${item.shoppingTraits}</td>
-            <td class="px-4 py-2">${item.factorsForNewBusinesses}</td>
-            <td class="px-4 py-2">${item.shoppingStyle}</td>
-            <td class="px-4 py-2">${item.values}</td>
-            <td class="px-4 py-2">${item.transportationLinks}</td>
-            <td class="px-4 py-2">${item.accessibility}</td>
-            <td class="px-4 py-2">${item.outsideBarangayTravel}</td>
-            <td class="px-4 py-2">${item.transportationChallenges}</td>
-            <td class="px-4 py-2">
-                <button class="text-red-500 hover:underline delete-button" data-id="${item.id}">Delete</button>
-            </td>
+        const row = `
+            <tr>
+                <td>${item.id}</td>
+                <td>${item.month}</td>
+                <td>${item.barangay}</td>
+                <td>${item.ageRange}</td>
+                <td>${item.gender}</td>
+                <td>${item.education}</td>
+                <td>${item.employment}</td>
+                <td>${item.businessVisits}</td>
+                <td>${item.frequentVisits}</td>
+                <td>${item.browsingBehavior}</td>
+                <td>${item.satisfaction}</td>
+                <td>${item.lacking}</td>
+                <td>${item.shoppingPreference}</td>
+                <td>${item.motivationForChoosing}</td>
+                <td>${item.shoppingTraits}</td>
+                <td>${item.factorsForNewBusinesses}</td>
+                <td>${item.shoppingStyle}</td>
+                <td>${item.values}</td>
+                <td>${item.transportationLinks}</td>
+                <td>${item.accessibility}</td>
+                <td>${item.outsideBarangayTravel}</td>
+                <td>${item.transportationChallenges}</td>
+            </tr>
         `;
-        tableBody.appendChild(row);
+        tableBody.innerHTML += row;
     });
-
-    // Attach Delete Button Functionality
-    attachDeleteHandlers(data, renderPreferencesTable);
 };
 
-
-// Market Demands Table Rendering Function
+// Render Market Demands Table
 const renderMarketDemandsTable = (data) => {
+
     // Update Table Headers
     tableHead.innerHTML = `
         <tr>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">ID</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Barangay</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Automotive Services</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Construction</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Cooperative Business</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Creative Media</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Education Services</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Entertainment</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Finance and Insurance</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Food Services</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Healthcare Services</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">IT Services</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Manufacturing</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Personal Services</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Professional Services</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Retail Stores</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Tourism and Hospitality</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Transportation</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Wholesale</th>
-            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+            <th>ID</th>
+            <th>Barangay</th>
+            <th>Automotive Services</th>
+            <th>Construction</th>
+            <th>Cooperative Business</th>
+            <th>Creative Media</th>
+            <th>Education Services</th>
+            <th>Entertainment</th>
+            <th>Finance and Insurance</th>
+            <th>Food Services</th>
+            <th>Healthcare Services</th>
+            <th>IT Services</th>
+            <th>Manufacturing</th>
+            <th>Personal Services</th>
+            <th>Professional Services</th>
+            <th>Retail Stores</th>
+            <th>Tourism and Hospitality</th>
+            <th>Transportation</th>
+            <th>Wholesale</th>
         </tr>
     `;
 
     // Update Table Body
-    tableBody.innerHTML = ''; // Clear existing rows
+    tableBody.innerHTML = "";
     data.forEach((item) => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td class="px-4 py-2">${item.id}</td>
-            <td class="px-4 py-2">${item.barangay}</td>
-            <td class="px-4 py-2">${item.automotive}</td>
-            <td class="px-4 py-2">${item.construction}</td>
-            <td class="px-4 py-2">${item.cooperativeBusiness}</td>
-            <td class="px-4 py-2">${item.creativeMedia}</td>
-            <td class="px-4 py-2">${item.educationServices}</td>
-            <td class="px-4 py-2">${item.entertainment}</td>
-            <td class="px-4 py-2">${item.financeInsurance}</td>
-            <td class="px-4 py-2">${item.foodServices}</td>
-            <td class="px-4 py-2">${item.healthcare}</td>
-            <td class="px-4 py-2">${item.itDigital}</td>
-            <td class="px-4 py-2">${item.manufacturing}</td>
-            <td class="px-4 py-2">${item.personalHousehold}</td>
-            <td class="px-4 py-2">${item.professionalServices}</td>
-            <td class="px-4 py-2">${item.retail}</td>
-            <td class="px-4 py-2">${item.tourismHospitality}</td>
-            <td class="px-4 py-2">${item.transportation}</td>
-            <td class="px-4 py-2">${item.wholesale}</td>
-            <td class="px-4 py-2">
-                <button class="text-red-500 hover:underline delete-button" data-id="${item.id}">Delete</button>
-            </td>
+        const row = `
+            <tr>
+                <td>${item.id}</td>
+                <td>${item.barangay}</td>
+                <td>${item.automotive}</td>
+                <td>${item.construction}</td>
+                <td>${item.cooperativeBusiness}</td>
+                <td>${item.creativeMedia}</td>
+                <td>${item.educationServices}</td>
+                <td>${item.entertainment}</td>
+                <td>${item.financeInsurance}</td>
+                <td>${item.foodServices}</td>
+                <td>${item.healthcare}</td>
+                <td>${item.itDigital}</td>
+                <td>${item.manufacturing}</td>
+                <td>${item.personalHousehold}</td>
+                <td>${item.professionalServices}</td>
+                <td>${item.retail}</td>
+                <td>${item.tourismHospitality}</td>
+                <td>${item.transportation}</td>
+                <td>${item.wholesale}</td>
+            </tr>
         `;
-        tableBody.appendChild(row);
-    });
-
-    // Attach Delete Button Functionality
-    attachDeleteHandlers(data, renderMarketDemandsTable);
-};
-
-const attachDeleteHandlers = (data, renderFunction) => {
-    const deleteButtons = document.querySelectorAll('.delete-button');
-
-    deleteButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-            const id = parseInt(button.dataset.id, 10);
-            const indexToDelete = data.findIndex(item => item.id === id);
-
-            if (indexToDelete !== -1) {
-                if (confirm(`Are you sure you want to delete item with ID ${id}?`)) {
-                    data.splice(indexToDelete, 1);
-                    data.forEach((item, index) => (item.id = index + 1)); // Reassign IDs
-                    renderFunction(data); // Re-render the table
-                }
-            }
-        });
+        tableBody.innerHTML += row;
     });
 };
 
+// Fetch Preferences Data
+const fetchPreferencesData = async () => {
+    try {
+        const response = await fetch("/api/preferences");
+        if (!response.ok) throw new Error("Failed to fetch Preferences data");
+        const data = await response.json();
+        renderPreferencesTable(data); // Render the Preferences table
+    } catch (err) {
+        console.error("Error fetching Preferences data:", err);
+    }
+};
 
+// Fetch Market Demands Data
+const fetchMarketDemandsData = async () => {
+    try {
+        const response = await fetch("/api/market-demands");
+        if (!response.ok) throw new Error("Failed to fetch Market Demands data");
+        const data = await response.json();
+        renderMarketDemandsTable(data); // Render the Market Demands table
+    } catch (err) {
+        console.error("Error fetching Market Demands data:", err);
+    }
+};
 
 // SME Data Button Event Listener
 smeDataButton.addEventListener("click", () => {
-    renderSMETable(smeData); // Call SME table rendering function
-    smeDataButton.classList.add("bg-orange-500", "text-white");
-    surveyDataButton.classList.remove("bg-orange-500", "text-white");
+    // Reset button states
+    smeDataButton.classList.add("bg-orange-500", "text-white"); // Active button style
+    surveyDataButton.classList.remove("bg-orange-500", "text-white"); // Inactive button style
     surveyDataButton.classList.add("bg-gray-200", "text-gray-800");
+
+    // Render the SME table
+    fetchSMEData(); // Fetch and render SME data
 
     // Show the "Add Business" button
     addBusinessButton.classList.remove("hidden");
 
-    // Hide sub-buttons for Survey Data
+    // Hide survey sub-buttons
     surveySubButtons.classList.add("hidden");
+
 });
+
 
 // Survey Data Button Event Listener
 surveyDataButton.addEventListener("click", () => {
-    // Clear any existing table content (Survey Data no longer displays a table)
+    // Reset button states
+    surveyDataButton.classList.add("bg-orange-500", "text-white"); // Active button style
+    smeDataButton.classList.remove("bg-orange-500", "text-white"); // Inactive button style
+    smeDataButton.classList.add("bg-gray-200", "text-gray-800");
+
+    // Clear the table content
     tableHead.innerHTML = ''; // Clear table headers
     tableBody.innerHTML = ''; // Clear table body
 
-    // Automatically render the Preferences table
-    renderPreferencesTable(preferencesData);
+    // Automatically render survey preferences table
+    renderPreferencesTable(preferencesData); // Render Preferences by default
 
-    // Activate the "Preferences" tab button by default
-    preferencesTabButton.classList.add("bg-green-500", "text-white");
-    marketDemandsTabButton.classList.remove("bg-green-500", "text-white");
-
-    // Highlight the Survey Data button
-    surveyDataButton.classList.add("bg-orange-500", "text-white");
-    smeDataButton.classList.remove("bg-orange-500", "text-white");
-    smeDataButton.classList.add("bg-gray-200", "text-gray-800");
-
-    // Hide the "Add Business" button (specific to SME Data)
+    // Hide the "Add Business" button
     addBusinessButton.classList.add("hidden");
 
-    // Show the sub-buttons for Preferences and Market Demands
+    // Show the survey sub-buttons
     surveySubButtons.classList.remove("hidden");
-});
 
-
-// Preferences and Market Demands Data
-const preferencesData = [
-    {
-        id: 1,
-        month: "January",
-        barangay: "Barangay 1",
-        ageRange: "18-25",
-        gender: "Male",
-        education: "College",
-        employment: "Employed",
-        businessVisits: 5,
-        frequentVisits: "Grocery",
-        browsingBehavior: "Price Comparison",
-        satisfaction: "Very Satisfied",
-        lacking: "Parking Space",
-        shoppingPreference: "Online",
-        motivationForChoosing: "Proximity",
-        shoppingTraits: "Price Sensitive",
-        factorsForNewBusinesses: "Accessibility",
-        shoppingStyle: "Planned",
-        values: "Affordability",
-        transportationLinks: "Available",
-        accessibility: "Good",
-        outsideBarangayTravel: "Occasionally",
-        transportationChallenges: "Traffic",
-    },
-];
-
-const marketDemandsData = [
-    {
-        id: 1,
-        barangay: "Barangay 1",
-        automotive: "High",
-        construction: "Moderate",
-        cooperativeBusiness: "Low",
-        creativeMedia: "High",
-        educationServices: "Low",
-        entertainment: "Moderate",
-        financeInsurance: "High",
-        foodServices: "High",
-        healthcare: "Moderate",
-        itDigital: "High",
-        manufacturing: "Low",
-        personalHousehold: "Moderate",
-        personalCare: "Moderate",
-        professionalServices: "High",
-        retail: "Very High",
-        tourismHospitality: "High",
-        transportation: "Moderate",
-        wholesale: "High",
-    },
-];
-
-// Preferences Button Event Listener
-preferencesTabButton.addEventListener("click", () => {
-    renderPreferencesTable(preferencesData);
+    // Highlight Preferences as the default tab
     preferencesTabButton.classList.add("bg-green-500", "text-white");
     marketDemandsTabButton.classList.remove("bg-green-500", "text-white");
+
+    // Event Listeners
+    preferencesTabButton.addEventListener('click', () => {
+        fetchPreferencesData();
+        preferencesTabButton.classList.add('bg-green-500', 'text-white');
+        marketDemandsTabButton.classList.remove('bg-green-500', 'text-white');
+    });
+    
+    marketDemandsTabButton.addEventListener('click', () => {
+        fetchMarketDemandsData();
+        marketDemandsTabButton.classList.add('bg-green-500', 'text-white');
+        preferencesTabButton.classList.remove('bg-green-500', 'text-white');
+    });
+    
+    // Survey Data Button Event Listener
+    surveyDataButton.addEventListener('click', () => {
+        surveySubButtons.classList.remove('hidden');
+        preferencesTabButton.click(); // Default to Preferences
+    });
+
 });
 
+
+smeDataButton.addEventListener("click", () => {
+    console.log("SME Data Button Clicked");
+    fetchSMEData();
+});
+
+surveyDataButton.addEventListener("click", () => {
+        // Highlight Survey Data button
+        surveyDataButton.classList.add("bg-orange-500", "text-white");
+        smeDataButton.classList.remove("bg-orange-500", "text-white");
+        smeDataButton.classList.add("bg-gray-200", "text-gray-800");
+    
+        // Show sub-buttons for Preferences and Market Demands
+        surveySubButtons.classList.remove("hidden");
+    
+        // Clear the table and show loading placeholder
+        tableHead.innerHTML = '<tr><td colspan="22" class="text-center text-gray-500">Loading...</td></tr>';
+        tableBody.innerHTML = '';
+    
+        // Default to Preferences tab
+        preferencesTabButton.click();
+});
+
+
+
+// //Preferences and Market Demands Data
+// const preferencesData = [
+//     {
+//         id: "",
+//         month: "",
+//         barangay: "",
+//         ageRange: "",
+//         gender: "",
+//         education: "",
+//         employment: "",
+//         businessVisits: "",
+//         frequentVisits: "",
+//         browsingBehavior: "",
+//         satisfaction: "",
+//         lacking: "",
+//         shoppingPreference: "",
+//         motivationForChoosing: "",
+//         shoppingTraits:"",
+//         factorsForNewBusinesses: "",
+//         shoppingStyle: "",
+//         values: "",
+//         transportationLinks: "",
+//         accessibility: "",
+//         outsideBarangayTravel: "",
+//         transportationChallenges:"",
+//     },
+// ];
+
+// const marketDemandsData = [
+//     {
+//         id:"",
+//         barangay: "",
+//         automotive: "",
+//         construction: "",
+//         cooperativeBusiness: "",
+//         creativeMedia: "",
+//         educationServices: "",
+//         entertainment: "",
+//         financeInsurance: "",
+//         foodServices: "",
+//         healthcare: "",
+//         itDigital: "",
+//         manufacturing: "",
+//         personalHousehold: "",
+//         personalCare: "",
+//         professionalServices: "",
+//         retail: "",
+//         tourismHospitality:"",
+//         transportation: "",
+//         wholesale: "",
+//     },
+// ];
+
+// Preferences Button Event Listener
+preferencesTabButton.addEventListener("click", async () => { // Add 'async' here
+    // Update button states
+    preferencesTabButton.classList.add("bg-green-500", "text-white");
+    marketDemandsTabButton.classList.remove("bg-green-500", "text-white");
+
+    // Clear the table and show loading placeholder
+    tableHead.innerHTML = '<tr><td colspan="22" class="text-center text-gray-500">Loading Preferences...</td></tr>';
+    tableBody.innerHTML = '';
+
+    // Fetch and render Preferences data
+    await fetchPreferencesData(); // Ensure this is awaited
+});
+
+
 // Market Demands Button Event Listener
-marketDemandsTabButton.addEventListener("click", () => {
-    renderMarketDemandsTable(marketDemandsData);
+marketDemandsTabButton.addEventListener("click", async () => { // Add 'async' here
+    // Update button states
     marketDemandsTabButton.classList.add("bg-green-500", "text-white");
     preferencesTabButton.classList.remove("bg-green-500", "text-white");
+
+    // Clear the table and show loading placeholder
+    tableHead.innerHTML = '<tr><td colspan="19" class="text-center text-gray-500">Loading Market Demands...</td></tr>';
+    tableBody.innerHTML = '';
+
+    // Fetch and render Market Demands data
+    await fetchMarketDemandsData(); // Ensure this is awaited
 });
 
 
@@ -526,66 +798,3 @@ tableBody.addEventListener('click', (e) => {
         }
     }
 });
-
-
-// Add/Edit Business Modal Elements
-const addEditBusinessModal = document.getElementById('addEditBusinessModal');
-const closeAddEditBusinessModal = document.getElementById('closeAddEditBusinessModal');
-const cancelAddEditBusiness = document.getElementById('cancelAddEditBusiness');
-const addEditBusinessForm = document.getElementById('addEditBusinessForm');
-
-// Show the Add/Edit Business modal
-addBusinessButton.addEventListener('click', () => {
-    addEditBusinessModal.classList.remove('hidden');
-});
-
-// Close the modal
-const closeModal = () => addEditBusinessModal.classList.add('hidden');
-closeAddEditBusinessModal.addEventListener('click', closeModal);
-cancelAddEditBusiness.addEventListener('click', closeModal);
-
-// Handle Form Submission for Add/Edit
-addEditBusinessForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    // Get form values
-    const newBusiness = {
-        id: selectedBusinessIndex !== null ? smeData[selectedBusinessIndex].id : smeData.length + 1,
-        name: document.getElementById("businessName").value,
-        address: document.getElementById("address").value,
-        subarea: document.getElementById("subarea").value,
-        barangay: document.getElementById("barangay").value,
-        latitude: document.getElementById("latitude").value,
-        longitude: document.getElementById("longitude").value,
-        industry: document.getElementById("industry").value,
-        category: document.getElementById("category").value,
-        subcategory: document.getElementById("subcategory").value,
-    };
-
-    if (selectedBusinessIndex !== null) {
-        // Update existing business
-        if (smeDataButton.classList.contains("bg-orange-500")) {
-            smeData[selectedBusinessIndex] = newBusiness;
-        }
-        alert(`Business with ID: ${newBusiness.id} has been updated.`);
-    } else {
-        // Add new business
-        if (smeDataButton.classList.contains("bg-orange-500")) {
-            smeData.push(newBusiness);
-        }
-        alert(`New business with ID: ${newBusiness.id} has been added.`);
-    }
-
-    // Immediately update the table
-    if (smeDataButton.classList.contains("bg-orange-500")) {
-        renderSMETable(smeData); // Update the SME Data table in real-time
-    }
-
-    // Reset form and close modal
-    addEditBusinessForm.reset();
-    closeModal();
-
-    // Reset selected index
-    selectedBusinessIndex = null;
-});
-

@@ -6,6 +6,76 @@
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="/admin/dashboard/dashboard.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Maximize container space */
+        .container {
+            max-width: 100%;
+            padding: 0 30px; /* Slight padding for neat spacing */
+        }
+
+        /* Table adjustments for better readability and size */
+        .scrollable-table {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: auto;
+            overflow-y: auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            min-height: 600px; /* Increase height */
+            padding: 10px; /* Add inner padding for space around the table */
+        }
+
+        .scrollable-table table {
+            border-collapse: collapse;
+            width: 100%;
+            table-layout: auto; /* Allow cells to expand naturally */
+        }
+
+        .scrollable-table th,
+        .scrollable-table td {
+            text-align: center;
+            white-space: normal; /* Allow text to wrap */
+            padding: 12px;
+            word-wrap: break-word; /* Ensure long words break properly */
+        }
+
+        /* Header styling */
+        .scrollable-table th {
+            background-color: #f3f4f6;
+            color: #4b5563;
+            font-weight: 700;
+            font-size: 14px;
+            border: 1px solid #e5e7eb;
+        }
+
+        /* Body row styling */
+        .scrollable-table td {
+            font-size: 14px;
+            color: #374151;
+            border: 1px solid #e5e7eb;
+            text-overflow: ellipsis; /* Add ellipsis for long text */
+        }
+
+        /* Consistent spacing for buttons and navbar */
+        .navbar,
+        .top-bar {
+            margin-bottom: 20px;
+        }
+
+        /* Custom scrollbar */
+        .scrollable-table::-webkit-scrollbar {
+            height: 10px;
+        }
+
+        .scrollable-table::-webkit-scrollbar-thumb {
+            background-color: #d1d5db;
+            border-radius: 5px;
+        }
+    </style>
+
+
+
 </head>
 <body class="bg-gray-100 font-sans">
     <!-- Navbar -->
@@ -98,31 +168,31 @@
         </div>
 
 
-        <!-- SME Data Table Container -->
-        <div class="scrollable-table bg-white rounded-lg shadow-lg max-w-full">
-            <table class="min-w-[2000px] divide-y divide-gray-200">
-                <thead id="tableHead" class="bg-gray-50">
-                    <tr>
-                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">ID</th>
-                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Name</th>
-                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Address</th>
-                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Subarea</th>
-                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Barangay</th>
-                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Latitude</th>
-                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Longitude</th>
-                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Industry</th>
-                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Category</th>
-                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Subcategory</th>
-                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
-                    </tr>
-                </thead>
-                
-                <tbody id="tableBody" class="divide-y divide-gray-200">
-                    <!-- Data Rows will be dynamically added here -->
-                </tbody>
-            </table>
-        </div>
+<!-- SME Data Table Container -->
+<div class="flex justify-center items-center min-h-screen bg-gray-100">
+    <div class="scrollable-table bg-white rounded-lg shadow-lg max-w-full overflow-auto">
+        <table class="table-auto min-w-[1000px] divide-y divide-gray-200 border border-gray-200">
+            <thead id="tableHead" class="bg-gray-50">
+                <tr>
+                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">ID</th>
+                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Name</th>
+                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Address</th>
+                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Subarea</th>
+                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Barangay</th>
+                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Latitude</th>
+                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Longitude</th>
+                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Industry</th>
+                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Category</th>
+                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Subcategory</th>
+                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Actions</th>
+            <tbody id="tableBody" class="divide-y divide-gray-200 text-sm text-center">
+                <!-- Data Rows will be dynamically added here -->
+            </tbody>
+        </table>
     </div>
+</div>
+</div>
+
 
     <!-- Add/Edit Business Modal -->
 <div id="addEditBusinessModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
@@ -191,64 +261,65 @@
     </div>
 
 <!-- Preferences Table Container -->
-<div class="scrollable-table bg-white rounded-lg shadow-lg">
-    <table class="min-w-[5000px] divide-y divide-gray-200">
-        <thead class="bg-gray-50">
-            <tr>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">ID</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Month</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Barangay</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Age Range</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Gender</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Education</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Employment</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Business Visits</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Frequent Visits</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Browsing Behavior</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Satisfaction</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Lacking</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Shopping Preference</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Motivation for Choosing</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Shopping Traits</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Factors for New Businesses</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Shopping Style</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Values</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Transportation Links</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Accessibility</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Outside Barangay Travel</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Transportation Challenges</th>
-            </tr>
-        </thead>
-        <tbody id="preferencesTableBody" class="divide-y divide-gray-200">
-            <!-- Populate table rows dynamically -->
-        </tbody>
-    </table>
+<div class="flex justify-center items-center min-h-screen bg-gray-100 px-4">
+    <div class="scrollable-table bg-white rounded-lg shadow-lg w-full max-w-full ">
+        <table class="table-auto w-full min-w-[1000px] divide-y divide-gray-200">
+            <thead id="tableHead" class="bg-gray-50">
+                <tr>
+                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">ID</th>
+                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Month</th>
+                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Barangay</th>
+                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Age Range</th>
+                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Gender</th>
+                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Education</th>
+                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Employment</th>
+                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Business Visits</th>
+                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Frequent Visits</th>
+                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Browsing Behavior</th>
+                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Satisfaction</th>
+                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Lacking</th>
+                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Shopping Preference</th>
+                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Motivation for Choosing</th>
+                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Shopping Traits</th>
+                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Factors for New Businesses</th>
+                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Shopping Style</th>
+                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Values</th>
+                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Transportation Links</th>
+                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Accessibility</th>
+                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Outside Barangay Travel</th>
+                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Transportation Challenges</th>
+                </tr>
+            </thead>
+            <tbody id="preferencesTableBody" class="divide-y divide-gray-200 text-center">
+                <!-- Populate table rows dynamically -->
+            </tbody>
+        </table>
+    </div>
 </div>
-
 <!-- Market Demands Table Container -->
 <div class="scrollable-table bg-white rounded-lg shadow-lg">
     <table class="min-w-[5000px] divide-y divide-gray-200">
         <thead class="bg-gray-50">
             <tr>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">ID</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Barangay</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Automotive Services</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Construction</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Cooperative Business</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Creative Media</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Education Services</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Entertainment</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Finance and Insurance</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Food Services</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Healthcare Services</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">IT Services</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Manufacturing</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Personal Services</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Professional Services</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Retail Stores</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Tourism and Hospitality</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Transportation</th>
-                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Wholesale</th>
+                <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">ID</th>
+                <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Barangay</th>
+                <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Automotive Services</th>
+                <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Construction</th>
+                <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Cooperative Business</th>
+                <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Creative Media</th>
+                <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Education Services</th>
+                <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Entertainment</th>
+                <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Finance and Insurance</th>
+                <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Food Services</th>
+                <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Healthcare Services</th>
+                <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">IT Services</th>
+                <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Manufacturing</th>
+                <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Personal Services</th>
+                <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Professional Services</th>
+                <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Retail Stores</th>
+                <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Tourism and Hospitality</th>
+                <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Transportation</th>
+                <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase border border-gray-200">Wholesale</th>
             </tr>
         </thead>
         <tbody id="marketDemandsTableBody" class="divide-y divide-gray-200">

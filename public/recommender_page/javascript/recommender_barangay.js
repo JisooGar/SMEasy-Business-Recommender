@@ -3,1198 +3,797 @@ let selectedCategory = null;
 let selectedBarangay = null;
 
 // Min-Max normalization functions
-const minMaxNormalize = (value, min, max) => ((value - min) / (max - min) * 100).toFixed(2);
-const inverseMinMaxNormalize = (value, min, max) => (100 - ((value - min) / (max - min) * 100)).toFixed(2);
+const minMaxNormalize = (value, min, max) =>
+  (((value - min) / (max - min)) * 100).toFixed(2);
+const inverseMinMaxNormalize = (value, min, max) =>
+  (100 - ((value - min) / (max - min)) * 100).toFixed(2);
 
-// List of all barangays
-const allBarangays = [
-    "Baclaran", "Banaybanay", "Banlic", "Bigaa", "Butong", "Casile", "Diezmo", "Gulod", "Mamatid",
-    "Marinig", "Niugan", "Pittland", "Poblacion Dos", "Poblacion Tres", "Poblacion Uno", "Pulo", "Sala", "San Isidro"
-];
+/*// Function to handle the selection of a category
+function selectBusiness(button) {
+  const barangayButtons = document.querySelectorAll(".barangay-btn");
 
-// Psychographic and Behavioral Analysis Variables
-let psychographicsData = {};
-let behavioralData = {};
+  // Remove 'selected' class from all buttons
+  barangayButtons.forEach((btn) => {
+    btn.classList.remove("selected");
+  });
 
-// Find mode for psychographic/behavioral data
-const findMode = (arr) => {
-    const frequency = {};
-    arr.forEach(item => frequency[item] = (frequency[item] || 0) + 1);
+  // Add 'selected' class to the clicked button
+  button.classList.add("selected");
 
-    let maxCount = 0;
-    const modes = [];
+  // Set the selected category to the button's text content
+  selectedCategory = button.textContent.trim();
+  console.log("Selected Category:", selectedCategory);
 
-    for (const key in frequency) {
-        if (frequency[key] > maxCount) maxCount = frequency[key];
-    }
-
-    for (const key in frequency) {
-        if (frequency[key] === maxCount) modes.push(key);
-    }
-
-    return modes.join(', ');
-};
-
-// Calculate mean for behavioral data
-const calculateMean = (arr) => {
-    const total = arr.reduce((sum, value) => sum + value, 0);
-    return (total / arr.length).toFixed(2);
-};
-
-// Fetch psychographic and behavioral data, compute modes and means
-async function processPsychographicBehavioralData() {
-    psychographicsData = await fetch('/api/psychographics-data').then(res => res.json());
-    behavioralData = await fetch('/api/behavioral-data').then(res => res.json());
-
-    // Initialize data structures for psychographic features
-    const Motivation = {};
-    const ShoppingTraits = {};
-    const Factors = {};
-    const ShoppingStyle = {};
-    const Values = {};
-
-    psychographicsData.forEach(row => {
-        const barangay = row.Barangay;
-        if (!Motivation[barangay]) {
-            Motivation[barangay] = [];
-            ShoppingTraits[barangay] = [];
-            Factors[barangay] = [];
-            ShoppingStyle[barangay] = [];
-            Values[barangay] = [];
-        }
-
-        Motivation[barangay].push(row["Motivation for choosing businesses"]);
-        ShoppingTraits[barangay].push(row["Shopping traits"]);
-        Factors[barangay].push(row["Factors for new business"]);
-        ShoppingStyle[barangay].push(row["Shopping style"]);
-        Values[barangay].push(row["Values"]);
-    });
-
-    for (const barangay in Motivation) {
-        Motivation[barangay] = findMode(Motivation[barangay]);
-        ShoppingTraits[barangay] = findMode(ShoppingTraits[barangay]);
-        Factors[barangay] = findMode(Factors[barangay]);
-        ShoppingStyle[barangay] = findMode(ShoppingStyle[barangay]);
-        Values[barangay] = findMode(Values[barangay]);
-    }
-
-    // Initialize data structures for behavioral features
-    const businessVisits = {};
-    const frequencyVisits = {};
-    const browsingBehavior = {};
-    const shoppingPreferences = {};
-    const satisfaction = {};
-    const businessesLacking = {};
-
-    behavioralData.forEach(row => {
-        const barangay = row.Barangay;
-
-        if (!businessVisits[barangay]) businessVisits[barangay] = [];
-        businessVisits[barangay].push(...row["Business Visits"].split(',').map(item => item.trim()));
-
-        if (!frequencyVisits[barangay]) frequencyVisits[barangay] = [];
-        frequencyVisits[barangay].push(row["Frequency visits"]);
-
-        if (!browsingBehavior[barangay]) browsingBehavior[barangay] = [];
-        browsingBehavior[barangay].push(row["Browsing behavior"]);
-
-        if (!shoppingPreferences[barangay]) shoppingPreferences[barangay] = [];
-        shoppingPreferences[barangay].push(row["Shopping preferences"]);
-
-        if (!satisfaction[barangay]) satisfaction[barangay] = [];
-        satisfaction[barangay].push(Number(row["Satisfaction with businesses"]));
-
-        if (!businessesLacking[barangay]) businessesLacking[barangay] = [];
-        businessesLacking[barangay].push(Number(row["Businesses lacking"]));
-    });
-
-    for (const barangay in businessVisits) businessVisits[barangay] = findMode(businessVisits[barangay]);
-    for (const barangay in frequencyVisits) frequencyVisits[barangay] = findMode(frequencyVisits[barangay]);
-    for (const barangay in browsingBehavior) browsingBehavior[barangay] = findMode(browsingBehavior[barangay]);
-    for (const barangay in shoppingPreferences) shoppingPreferences[barangay] = findMode(shoppingPreferences[barangay]);
-
-    const satisfactionMean = {};
-    const businessesLackingMean = {};
-
-    for (const barangay in satisfaction) satisfactionMean[barangay] = calculateMean(satisfaction[barangay]);
-    for (const barangay in businessesLacking) businessesLackingMean[barangay] = calculateMean(businessesLacking[barangay]);
-
-    return {
-        Motivation,
-        ShoppingTraits,
-        Factors,
-        ShoppingStyle,
-        Values,
-        businessVisits,
-        frequencyVisits,
-        browsingBehavior,
-        shoppingPreferences,
-        satisfactionMean,
-        businessesLackingMean
-    };
-}
-
-// Process market demand, competition density, population density, and transportation data
-async function processMarketCompetitionData(selectedCategory) {
-    const SMEData = await fetch('/api/sme-data').then(res => res.json());
-    const marketDemandData = await fetch('/api/market-demand-data').then(res => res.json());
-    const competitionData = await fetch('/api/competition-data').then(res => res.json());
-    const barangayData = await fetch('/api/barangay-data').then(res => res.json());
-    const transpoData = await fetch('/api/transportation-data').then(res => res.json());
-
-    // Step 1: Calculate counts per barangay for the selected category
-    const barangayCounts = {};
-    SMEData.forEach(row => {
-        if (row.Category === selectedCategory) {
-            barangayCounts[row.Barangay] = (barangayCounts[row.Barangay] || 0) + 1;
-        }
-    });
-
-    // Include barangays with zero counts
-    allBarangays.forEach(barangay => {
-        if (!(barangay in barangayCounts)) {
-            barangayCounts[barangay] = 0;
-        }
-    });
-
-    // Min-Max normalization of counts
-    const counts = Object.values(barangayCounts);
-    const minCount = Math.min(...counts);
-    const maxCount = Math.max(...counts);
-    const normalizedCounts = {};
-    for (let barangay in barangayCounts) {
-        normalizedCounts[barangay] = minMaxNormalize(barangayCounts[barangay], minCount, maxCount);
-    }
-
-    // Step 2: Calculate average market demand for each barangay
-    const barangayDemand = {};
-    marketDemandData.forEach(row => {
-        if (!barangayDemand[row.Barangay]) barangayDemand[row.Barangay] = [];
-        barangayDemand[row.Barangay].push(Number(row[selectedCategory]));
-    });
-
-    const avgMarketDemands = {};
-    for (let barangay in barangayDemand) {
-        const totalDemand = barangayDemand[barangay].reduce((acc, val) => acc + val, 0);
-        avgMarketDemands[barangay] = (totalDemand / barangayDemand[barangay].length).toFixed(2);
-    }
-
-    // Normalize the market demands
-    const demandValues = Object.values(avgMarketDemands);
-    const minDemand = Math.min(...demandValues);
-    const maxDemand = Math.max(...demandValues);
-    const normalizedDemands = {};
-    for (let barangay in avgMarketDemands) {
-        normalizedDemands[barangay] = minMaxNormalize(avgMarketDemands[barangay], minDemand, maxDemand);
-    }
-
-    // Step 3: Calculate market gaps
-    const barangayGaps = {};
-    for (let barangay in normalizedDemands) {
-        if (normalizedCounts[barangay] !== undefined) {
-            barangayGaps[barangay] = (normalizedDemands[barangay] - normalizedCounts[barangay]).toFixed(2);
-        }
-    }
-
-    // Normalize the market gaps
-    const gapValues = Object.values(barangayGaps);
-    const minGap = Math.min(...gapValues);
-    const maxGap = Math.max(...gapValues);
-    const normalizedMarketGaps = {};
-    for (let barangay in barangayGaps) {
-        normalizedMarketGaps[barangay] = minMaxNormalize(barangayGaps[barangay], minGap, maxGap);
-    }
-
-    // Step 4: Process competition density and normalize
-    const barangayCompetitionDensity = {};
-    competitionData.forEach(row => {
-        if (row.Category === selectedCategory) {
-            barangayCompetitionDensity[row.Barangay] = Number(row['Competition Density']);
-        }
-    });
-
-    const competitionValues = Object.values(barangayCompetitionDensity);
-    const minCompetition = Math.min(...competitionValues);
-    const maxCompetition = Math.max(...competitionValues);
-    const normalizedCompetition = {};
-    const inverseNormalizedCompetition = {};
-    for (let barangay in barangayCompetitionDensity) {
-        normalizedCompetition[barangay] = minMaxNormalize(barangayCompetitionDensity[barangay], minCompetition, maxCompetition);
-        inverseNormalizedCompetition[barangay] = inverseMinMaxNormalize(barangayCompetitionDensity[barangay], minCompetition, maxCompetition);
-    }
-
-     // Initialize objects for storing competition counts
-     const directCompetition = {};
-     const indirectCompetition = {};
-     const replacementCompetition = {};
-
-    // Filter competition data for the selected category
-    const filteredCompetitionData = competitionData.filter(row => row.Category === selectedCategory);
- 
-     // Populate the separate competition counts
-     filteredCompetitionData.forEach(row => {
-         const barangay = row.Barangay;
-         directCompetition[barangay] = Number(row.Direct);
-         indirectCompetition[barangay] = Number(row.Indirect);
-         replacementCompetition[barangay] = Number(row.Replacement);
-     });
- 
-
-    // Step 5: Population density and normalization
-    const populationDensity = {};
-    barangayData.forEach(row => {
-        populationDensity[row.Barangay] = Number(row['Population Density']);
-    });
-
-    const populationValues = Object.values(populationDensity);
-    const minPopulation = Math.min(...populationValues);
-    const maxPopulation = Math.max(...populationValues);
-    const normalizedPopulation = {};
-    for (let barangay in populationDensity) {
-        normalizedPopulation[barangay] = minMaxNormalize(populationDensity[barangay], minPopulation, maxPopulation);
-    }
-
-    // Step 6: Transportation and accessibility scores
-    const transportationScores = {};
-    const weights = { links: 0.40, accessibility: 0.40, travel: 0.20 };
-    transpoData.forEach(row => {
-        if (!transportationScores[row.Barangay]) transportationScores[row.Barangay] = [];
-        const totalScore = (row['Transportation links'] * weights.links) +
-            (row['Commercial accessibility'] * weights.accessibility) +
-            (row['Travel outside barangay'] * weights.travel);
-        transportationScores[row.Barangay].push(totalScore);
-    });
-
-    // Normalize transportation scores
-    const transpoValues = Object.values(transportationScores).map(arr => arr.reduce((acc, val) => acc + val) / arr.length);
-    const minTranspo = Math.min(...transpoValues);
-    const maxTranspo = Math.max(...transpoValues);
-    const normalizedTranspo = {};
-    for (let barangay in transportationScores) {
-        normalizedTranspo[barangay] = minMaxNormalize(
-            transportationScores[barangay].reduce((acc, val) => acc + val, 0) / transportationScores[barangay].length,
-            minTranspo,
-            maxTranspo
-        );
-    }
-
-    // Step 7: Transportation challenges mode for each barangay
-    const challenges = [
-        'Lack of public transport',
-        'Safety concerns',
-        'Traffic congestion',
-        'Poor road conditions',
-        'Long travel distances',
-        'Inadequate pedestrian pathways'
-    ];
-
-    const barangayChallengeCounts = {};
-    transpoData.forEach(row => {
-        const barangay = row['Barangay'];
-        const challengeAnswers = row['Transportation challenges'].split(',').map(item => item.trim());
-
-        if (!barangayChallengeCounts[barangay]) {
-            barangayChallengeCounts[barangay] = {};
-            challenges.forEach(challenge => {
-                barangayChallengeCounts[barangay][challenge] = 0;
-            });
-        }
-
-        challengeAnswers.forEach(answer => {
-            if (challenges.includes(answer)) {
-                barangayChallengeCounts[barangay][answer]++;
-            }
-        });
-    });
-
-    const transportChallenges = {};
-    for (const barangay in barangayChallengeCounts) {
-        let maxCount = 0;
-        let mostTransportChallenges = [];
-
-        for (const challenge in barangayChallengeCounts[barangay]) {
-            const count = barangayChallengeCounts[barangay][challenge];
-
-            if (count > maxCount) {
-                maxCount = count;
-                mostTransportChallenges = [challenge];
-            } else if (count === maxCount) {
-                mostTransportChallenges.push(challenge);
-            }
-        }
-
-        transportChallenges[barangay] = mostTransportChallenges.join(', ');
-    }
-
-     // Calculate area type scores
-     const areaTypeWeights = {
-        "Automotive Services": { Commercial: 50, Industrial: 15, Residential: 35 },
-        "Construction and Real Estate": { Commercial: 40, Industrial: 25, Residential: 35 },
-        "Cooperative Business": { Commercial: 45, Industrial: 20, Residential: 35 },
-        "Creative and Media Services": { Commercial: 60, Industrial: 0, Residential: 40 },
-        "Educational Services": { Commercial: 60, Industrial: 0, Residential: 40 },
-        "Entertainment and Recreation": { Commercial: 60, Industrial: 0, Residential: 40 },
-        "Finance and Insurance": { Commercial: 70, Industrial: 0, Residential: 30 },
-        "Food Services": { Commercial: 50, Industrial: 0, Residential: 50 },
-        "Healthcare Services": { Commercial: 60, Industrial: 0, Residential: 40 },
-        "IT and Digital Services": { Commercial: 70, Industrial: 0, Residential: 30 },
-        "Manufacturing and Production": { Commercial: 20, Industrial: 70, Residential: 10 },
-        "Personal and Household Services": { Commercial: 40, Industrial: 0, Residential: 60 },
-        "Personal Care Services": { Commercial: 60, Industrial: 0, Residential: 40 },
-        "Professional Services": { Commercial: 60, Industrial: 20, Residential: 20 },
-        "Retail Stores": { Commercial: 50, Industrial: 0, Residential: 50 },
-        "Tourism and Hospitality": { Commercial: 60, Industrial: 10, Residential: 30 },
-        "Transportation and Logistics": { Commercial: 30, Industrial: 60, Residential: 10 },
-        "Wholesale and Distribution": { Commercial: 40, Industrial: 50, Residential: 10 },
-    };
-
-    // Calculate area type scores directly using barangayData
-    const areaTypeScores = {};
-    barangayData.forEach(row => {
-        const barangay = row.Barangay;
-
-        // Calculate scores based on area types
-        const commercialScore = row.Commercial > 0 ? areaTypeWeights[selectedCategory].Commercial : 0;
-        const industrialScore = row.Industrial > 0 ? areaTypeWeights[selectedCategory].Industrial : 0;
-        const residentialScore = row.Residential > 0 ? areaTypeWeights[selectedCategory].Residential : 0;
-
-        // Store the total area type score for each barangay
-        areaTypeScores[barangay] = commercialScore + industrialScore + residentialScore;
-    });
-
-    const areaTypes = {};
-    barangayData.forEach(row => {
-        areaTypes[row.Barangay] = row["Area Type"];
-    });
-
-    // Return all processed data as an object
-    return {
-        barangayCounts,
-        normalizedCounts,
-        avgMarketDemands,
-        normalizedDemands,
-        normalizedMarketGaps,
-        normalizedCompetition,
-        inverseNormalizedCompetition,
-        directCompetition,
-        indirectCompetition,
-        replacementCompetition,
-        populationDensity,
-        normalizedPopulation,
-        normalizedTranspo,
-        transportChallenges,
-        areaTypes,
-        areaTypeScores
-    };
-}
-
-
-
+  // Reset selected barangay when a new category is chosen
+  selectedBarangay = null;
+}*/
 
 // Function to handle the selection of a category
 function selectBusiness(button) {
-    const barangayButtons = document.querySelectorAll('.barangay-btn');
-    
-    // Remove 'selected' class from all buttons
-    barangayButtons.forEach((btn) => {
-        btn.classList.remove('selected');
-    });
+  const barangayButtons = document.querySelectorAll(".barangay-btn");
 
-    // Add 'selected' class to the clicked button
-    button.classList.add('selected');
-    
-    // Set the selected category to the button's text content
-    selectedCategory = button.textContent.trim();
-    console.log('Selected Category:', selectedCategory);
-    
-    // Reset selected barangay when a new category is chosen
-    selectedBarangay = null;
+  // Remove 'selected' class from all buttons
+  barangayButtons.forEach((btn) => {
+    btn.classList.remove("selected");
+  });
+
+  // Add 'selected' class to the clicked button
+  button.classList.add("selected");
+
+  // Set the selected category to the button's text content
+  selectedCategory = button.textContent.trim();
+  console.log("Selected Category:", selectedCategory);
+
+  // Store the selected category in sessionStorage
+  sessionStorage.setItem("selectedCategory", selectedCategory);
+
+  // Reset selected barangay when a new category is chosen
+  selectedBarangay = null;
+}
+
+// Function to show and hide the spinner
+function toggleSpinner(show) {
+  const spinner = document.getElementById("loading-spinner");
+  spinner.style.display = show ? "flex" : "none"; // Flex to center it, none to hide
 }
 
 // Function to handle the proceed button (Step 2)
 async function handleProceed() {
-    if (selectedCategory) {  // Ensure selectedCategory is checked properly here
-        console.log('Proceeding with Category:', selectedCategory);
+  if (selectedCategory) {
+    try {
+      toggleSpinner(true); // Show spinner
 
-        // Step 2: Fetch and process data
-        const topBarangays = await runClusteringModel(selectedCategory);
+      // Simulate delay or actual fetch
+      const topBarangays = await runClusteringModel(selectedCategory);
 
-        // Step 3: Display the right section (table) after fetching barangay data
-        const resultSection = document.getElementById('result-section');
-        resultSection.style.display = 'block';
+      // Show the table after fetching barangay data
+      const resultSection = document.getElementById("result-section");
+      resultSection.style.display = "block";
 
-        // Step 4: Get the table body and clear it
-        const tableBody = document.querySelector('.styled-table tbody');
-        tableBody.innerHTML = '';
+      const tableBody = document.querySelector(".styled-table tbody");
+      tableBody.innerHTML = "";
 
-        // Step 5: Insert rows for each barangay and score
-        topBarangays.forEach((barangay, index) => {
-            const row = document.createElement('tr');
-            row.classList.add('barangay-row'); // Added class for selection purposes
+      topBarangays.forEach((barangay, index) => {
+        const row = document.createElement("tr");
+        row.classList.add("barangay-row");
 
-            // Barangay name
-            const barangayCell = document.createElement('td');
-            barangayCell.textContent = `${index + 1}. ${barangay.name}`;
-            row.appendChild(barangayCell);
+        const barangayCell = document.createElement("td");
+        barangayCell.textContent = `${index + 1}. ${barangay.name}`;
+        row.appendChild(barangayCell);
 
-            // Score
-            const scoreCell = document.createElement('td');
-            scoreCell.textContent = barangay.totalScore.toFixed(2);
-            row.appendChild(scoreCell);
+        const scoreCell = document.createElement("td");
+        scoreCell.textContent = barangay.totalScore.toFixed(2);
+        row.appendChild(scoreCell);
 
-            // Add event listener for selecting a row
-            row.addEventListener('click', () => selectBarangayRow(row, barangay.name));
+        row.addEventListener("click", () =>
+          selectBarangayRow(row, barangay.name)
+        );
 
-            // Append row to table body
-            tableBody.appendChild(row);
-        });
-    } else {
-        alert('Please select a category before proceeding.');
+        tableBody.appendChild(row);
+      });
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      toggleSpinner(false); // Hide spinner after completion
     }
+  } else {
+    alert("Please select a category before proceeding.");
+  }
 }
 
-// Function to handle the analyze button, showing details for selected barangay
-async function handleAnalyze() {
-    if (selectedCategory && selectedBarangay) {
-        console.log(`Analyzing data for Category: ${selectedCategory}, Barangay: ${selectedBarangay}`);
 
-           // Show loading spinner
-           document.getElementById("loading-spinner").style.display = "inline-block";
-
-        // Step 1: Fetch and process the data for the selected category and barangay from CSV files
-        const recommendationData = await runAnalysisModel(selectedCategory, selectedBarangay);
-
-        if (!recommendationData) {
-            alert('No data available for the selected barangay.');
-            document.getElementById("loading-spinner").style.display = "none"; // Hide spinner if no data
-            return;
-        }
-
-        // Show the loading spinner while processing the data
-        const loadingSpinner = document.getElementById('loading-spinner');
-        loadingSpinner.style.display = 'block';
-
-        // Simulate a delay for analysis (e.g., fetching data) for 2 seconds
-        setTimeout(() => {
-            // Hide the loading spinner after the analysis is complete
-            document.getElementById("loading-spinner").style.display = "none";
-
-            // Step 2: Display the recommendation section
-            const recommendationSection = document.querySelector('.recommendation-section');
-            recommendationSection.style.display = 'block';  // Make the section visible
-
-            // Scroll to the recommendation section smoothly
-            recommendationSection.scrollIntoView({ behavior: 'smooth' });
-
-            // === Step 3: Update the BRGY NAME based on the selected barangay and category ===
-            const barangayNameElement = document.querySelector('.recommendation-section h2');
-            barangayNameElement.textContent = `BRGY NAME: ${selectedBarangay} (${selectedCategory})`;
-
-            // === Step 4: Update the Business Overview ===
-            document.getElementById('mainCategory').textContent = recommendationData.businessOverview.mainCategory;
-            document.getElementById('totalBusinesses').textContent = recommendationData.businessOverview.totalBusinessesInCity;
-            document.getElementById('topCounts').textContent = recommendationData.businessOverview.topCounts;
-
-            // === Step 5: Update Market Demand and Gaps ===
-            document.getElementById('highDemand').textContent = recommendationData.marketDemandAndGaps.criticalGap;
-            document.getElementById('mediumDemand').textContent = recommendationData.marketDemandAndGaps.moderateGap;
-            document.getElementById('lowDemand').textContent = recommendationData.marketDemandAndGaps.minorGap;
-            document.getElementById('noDemand').textContent = recommendationData.marketDemandAndGaps.noGap;
-            document.getElementById('marketDemand').textContent = recommendationData.marketDemandAndGaps.marketDemand;
-            document.getElementById('businessGaps').textContent = recommendationData.marketDemandAndGaps.businessGaps;
-            
-            // === Step 6: Update Population and Segmentation Analysis ===
-            document.getElementById('populationOverview').textContent = recommendationData.populationAndSegmentation.populationOverview || 'N/A';
-            document.getElementById('businessMotivation').textContent = recommendationData.populationAndSegmentation.businessMotivation || 'N/A';
-            document.getElementById('shopingTraits').textContent = recommendationData.populationAndSegmentation.shopingTraits || 'N/A';
-            document.getElementById('businessFactors').textContent = recommendationData.populationAndSegmentation.businessFactors || 'N/A';
-            document.getElementById('shopingStyle').textContent = recommendationData.populationAndSegmentation.shopingStyle || 'N/A';
-            document.getElementById('businessVisits').textContent = recommendationData.populationAndSegmentation.businessVisits || 'N/A';
-            document.getElementById('frequencyVisits').textContent = recommendationData.populationAndSegmentation.frequencyVisits || 'N/A';
-            document.getElementById('browsingBehavior').textContent = recommendationData.populationAndSegmentation.browsingBehavior || 'N/A';
-            document.getElementById('shoppingPreference').textContent = recommendationData.populationAndSegmentation.shoppingPreference || 'N/A';
-            document.getElementById('businessSatisfaction').textContent = recommendationData.populationAndSegmentation.businessSatisfaction || 'N/A';
-            document.getElementById('businessLacking').textContent = recommendationData.populationAndSegmentation.businessLacking || 'N/A';
-
-            // === Step 7: Update Competition Analysis ===
-            document.getElementById('competitionDensity').textContent = recommendationData.competitionAnalysis.competitionDensity;
-            document.getElementById('directCompetitor').textContent = recommendationData.competitionAnalysis.directCompetitor;
-            document.getElementById('indirectCompetitor').textContent = recommendationData.competitionAnalysis.indirectCompetitor;
-            document.getElementById('replacementCompetitor').textContent = recommendationData.competitionAnalysis.replacementCompetitor;
-
-            // === Step 8: Update Accessibility and Infrastructure ===
-            document.getElementById('areaType').textContent = recommendationData.accessibilityAndInfrastructure.areaType || 'N/A';
-            document.getElementById('TranspoAccess').textContent = recommendationData.accessibilityAndInfrastructure.TranspoAccess || 'N/A';
-            document.getElementById('TranspoChallenge').textContent = recommendationData.accessibilityAndInfrastructure.TranspoChallenge || 'N/A';
-
-            // === Step 9: Update the Recommendation Summary ===
-            document.getElementById('recommendationSummary').textContent = recommendationData.recommendationSummary.summaryText || 'N/A';
-        }, 2000); // Simulate 2 seconds of loading time
-    } else {
-        if (!selectedCategory) {
-            alert('Please select a category before proceeding.');
-        } else if (!selectedBarangay) {
-            alert('Please select a barangay from the table before analyzing.');
-        }
-    }
+// Modified handleAnalyze function with loading spinner
+function handleAnalyze() {
+  toggleSpinner(true); // Show spinner
+  setTimeout(() => {
+    toggleSpinner(false); // Hide spinner after a delay
+    window.location.href = "barangay_analysis.html";
+  }, 2000); // Simulate a delay of 2 seconds
 }
 
 // Function to read CSV data and run the clustering model
 async function runClusteringModel(selectedCategory) {
-    // Fetch the CSV data from the server-side routes
-    const SMEData = await fetch('/api/sme-data').then(res => res.json());
-    const marketDemandData = await fetch('/api/market-demand-data').then(res => res.json());
-    console.log('Raw Market Demand Data for Food Services:', marketDemandData.filter(row => row[selectedCategory]));
-    console.log('Market Demand Data:', marketDemandData.filter(row => row[selectedCategory]));
-    const barangayData = await fetch('/api/barangay-data').then(res => res.json());
-    const competitionData = await fetch('/api/competition-data').then(res => res.json());
-    const transportationData = await fetch('/api/transportation-data').then(res => res.json());
-    const psychographicsData = await fetch('/api/psychographics-data').then(res => res.json());
-    const behavioralData = await fetch('/api/behavioral-data').then(res => res.json());
+  // Fetch the business counts per barangay based on the selected category
+  const response = await fetch(
+    `/api/barangay-business-counts?selectedCategory=${selectedCategory}`
+  );
+  if (!response.ok) throw new Error("Failed to fetch barangay business counts");
+  const businessData = await response.json();
 
+  // Initialize a map to store the counts by barangay
+  const barangayCounts = {};
+  businessData.forEach((row) => {
+    barangayCounts[row.barangay_name] = row.business_count;
+  });
 
-    // Step 2: Filter the category selected in the SME.csv
-    const filteredData = SMEData.filter(row => row.Category === selectedCategory);
+  // List of all barangays
+  const allBarangays = [
+    "Baclaran",
+    "Banaybanay",
+    "Banlic",
+    "Bigaa",
+    "Butong",
+    "Casile",
+    "Diezmo",
+    "Gulod",
+    "Mamatid",
+    "Marinig",
+    "Niugan",
+    "Pittland",
+    "Poblacion Dos",
+    "Poblacion Tres",
+    "Poblacion Uno",
+    "Pulo",
+    "Sala",
+    "San Isidro",
+  ];
 
-    // Count names per barangay for the selected category
-    const barangayCounts = {};
-    filteredData.forEach(row => {
-        barangayCounts[row.Barangay] = (barangayCounts[row.Barangay] || 0) + 1;
-    });
-
-    // Include barangays with 0 counts
-    allBarangays.forEach(barangay => {
-        if (!(barangay in barangayCounts)) {
-            barangayCounts[barangay] = 0;
-        }
-    });
-
-    // Min-Max normalization of the counts
-    const counts = Object.values(barangayCounts);
-    const minCount = Math.min(...counts);
-    const maxCount = Math.max(...counts);
-    const normalizedCounts = {};
-    const inverseNormalizedCounts = {};
-
-    for (let barangay in barangayCounts) {
-        normalizedCounts[barangay] = minMaxNormalize(barangayCounts[barangay], minCount, maxCount);
-        inverseNormalizedCounts[barangay] = inverseMinMaxNormalize(barangayCounts[barangay], minCount, maxCount);
+  // Include barangays with 0 counts
+  allBarangays.forEach((barangay) => {
+    if (!(barangay in barangayCounts)) {
+      barangayCounts[barangay] = 0;
     }
+  });
 
-    // Log Barangay Counts and Normalized Counts
-    console.log(`Results for Category: ${selectedCategory}`);
-    console.log('Barangay Counts:', barangayCounts);
-    console.log('Normalized Counts:', normalizedCounts);
-    console.log('Inverse Normalized Counts:', inverseNormalizedCounts);
+  // Normalize the barangay counts using Min-Max normalization
+  const countValues = Object.values(barangayCounts);
+  const minCount = Math.min(...countValues);
+  const maxCount = Math.max(...countValues);
 
-    // Step 3: Calculate market demands using MarketDemandData.csv
-    const barangayDemand = {};
-marketDemandData.forEach(row => {
-    if (!barangayDemand[row.Barangay]) barangayDemand[row.Barangay] = [];
-    
-    const demandValue = Number(row[selectedCategory]);
-    if (isNaN(demandValue)) {
-        console.warn(`Invalid market demand for ${row.Barangay} in category ${selectedCategory}`);
-    } else {
-        barangayDemand[row.Barangay].push(demandValue);
+  const normalizedCounts = {};
+  for (let barangay in barangayCounts) {
+    normalizedCounts[barangay] = minMaxNormalize(
+      barangayCounts[barangay],
+      minCount,
+      maxCount
+    );
+  }
+
+  // Print the counts per barangay
+  console.log("Barangay Counts:", barangayCounts);
+  console.log("Normalized Counts:", normalizedCounts); // Check normalized counts
+
+  const responseDirect = await fetch(
+    `/api/direct-competitors?selectedCategory=${selectedCategory}`
+  );
+  if (!responseDirect.ok) throw new Error("Failed to fetch direct competitors");
+  const directData = await responseDirect.json();
+
+  // Initialize a map to store the counts for direct competitors by barangay
+  const directCompetition = {};
+  directData.forEach((row) => {
+    directCompetition[row.barangay_name] = row.business_count;
+  });
+
+  const responseIndirect = await fetch(
+    `/api/indirect-competitors?selectedCategory=${selectedCategory}`
+  );
+  if (!responseIndirect.ok)
+    throw new Error("Failed to fetch indirect competitors");
+  const indirectData = await responseIndirect.json();
+
+  // Initialize a map to store the counts for indirect competitors by barangay
+  const indirectCompetition = {};
+  indirectData.forEach((row) => {
+    indirectCompetition[row.barangay_name] = row.business_count;
+  });
+
+  const responseReplacement = await fetch(
+    `/api/replacement-competitors?selectedCategory=${selectedCategory}`
+  );
+  if (!responseReplacement.ok)
+    throw new Error("Failed to fetch replacement competitors");
+  const replacementData = await responseReplacement.json();
+
+  // Initialize a map to store the counts for replacement competitors by barangay
+  const replacementCompetition = {};
+  replacementData.forEach((row) => {
+    replacementCompetition[row.barangay_name] = row.business_count;
+  });
+
+  // Include barangays with 0 counts
+  allBarangays.forEach((barangay) => {
+    if (!(barangay in directCompetition)) {
+      directCompetition[barangay] = 0;
     }
-});
-
-
-    // Calculate the average market demand for each barangay
-    const avgMarketDemands = {};
-    for (let barangay in barangayDemand) {
-        const totalDemand = barangayDemand[barangay].reduce((acc, val) => acc + val, 0);
-        avgMarketDemands[barangay] = (totalDemand / barangayDemand[barangay].length).toFixed(2);
+    if (!(barangay in indirectCompetition)) {
+      indirectCompetition[barangay] = 0;
     }
-
-    // Normalize the market demands
-    const demandValues = Object.values(avgMarketDemands);
-    const minDemand = Math.min(...demandValues);
-    const maxDemand = Math.max(...demandValues);
-    const normalizedDemands = {};
-    for (let barangay in avgMarketDemands) {
-        normalizedDemands[barangay] = minMaxNormalize(avgMarketDemands[barangay], minDemand, maxDemand);
+    if (!(barangay in replacementCompetition)) {
+      replacementCompetition[barangay] = 0;
     }
+  });
 
-    // Log Market Demands
-    console.log('Average Market Demands:', avgMarketDemands);
-    console.log('Normalized Demands:', normalizedDemands);
+  // Print the competition counts per barangay
+  console.log("Direct Competition:", directCompetition);
+  console.log("Indirect Competition:", indirectCompetition);
+  console.log("Replacement Competition:", replacementCompetition);
 
-    // Step 4: Calculate market gaps (Market Demand - Counts)
-    const marketGaps = {};
-    for (let barangay in normalizedDemands) {
-        if (normalizedCounts[barangay] !== undefined) {
-            marketGaps[barangay] = (normalizedDemands[barangay] - normalizedCounts[barangay]).toFixed(2);
-        }
-    }
+  // Calculate Competitor Density for each barangay
+  const competitorDensity = {};
+  allBarangays.forEach((barangay) => {
+    const direct = directCompetition[barangay] || 0;
+    const indirect = indirectCompetition[barangay] || 0;
+    const replacement = replacementCompetition[barangay] || 0;
 
-    // Normalize the market gaps
-    const gapValues = Object.values(marketGaps);
-    const minGap = Math.min(...gapValues);
-    const maxGap = Math.max(...gapValues);
-    const normalizedMarketGaps = {};
-    for (let barangay in marketGaps) {
-        normalizedMarketGaps[barangay] = minMaxNormalize(marketGaps[barangay], minGap, maxGap);
-    }
+    competitorDensity[barangay] =
+      direct * 0.6 + indirect * 0.3 + replacement * 0.1;
+  });
 
-    // Log Market Gaps
-    console.log('Market Gaps:', marketGaps);
-    console.log('Normalized Market Gaps:', normalizedMarketGaps);
+  // Min-Max normalization of competitor density
+  const competitionValues = Object.values(competitorDensity);
+  const minCompetition = Math.min(...competitionValues);
+  const maxCompetition = Math.max(...competitionValues);
 
-    // Step 5: Get competition density from CompetitionData.csv and normalize it
-    const competitionDensity = {};
-    competitionData.forEach(row => {
-        if (row.Category === selectedCategory) {
-            competitionDensity[row.Barangay] = Number(row['Competition Density']);
-        }
-    });
+  const normalizedCompetition = {};
+  const inverseNormalizedCompetition = {};
 
-    const competitionValues = Object.values(competitionDensity);
-    const minCompetition = Math.min(...competitionValues);
-    const maxCompetition = Math.max(...competitionValues);
-    const normalizedCompetition = {};
-    const inverseNormalizedCompetition = {};
-    for (let barangay in competitionDensity) {
-        normalizedCompetition[barangay] = minMaxNormalize(competitionDensity[barangay], minCompetition, maxCompetition);
-        inverseNormalizedCompetition[barangay] = inverseMinMaxNormalize(competitionDensity[barangay], minCompetition, maxCompetition);
-    }
+  for (let barangay in competitorDensity) {
+    normalizedCompetition[barangay] = minMaxNormalize(
+      competitorDensity[barangay],
+      minCompetition,
+      maxCompetition
+    );
+    inverseNormalizedCompetition[barangay] = inverseMinMaxNormalize(
+      competitorDensity[barangay],
+      minCompetition,
+      maxCompetition
+    );
+  }
 
-    // Log Competition Scores
-    console.log('Normalized Competition:', normalizedCompetition);
-    console.log('Inverse Normalized Competition:', inverseNormalizedCompetition);
+  console.log("Normalized Competition:", normalizedCompetition); // Check normalized competition data
+  console.log("Inverse Normalized Competition:", inverseNormalizedCompetition); // Check inverse normalized competition data
 
-    // Step 6: Get population density from BarangayData.csv and normalize it
-    const populationDensity = {};
-    barangayData.forEach(row => {
-        populationDensity[row.Barangay] = Number(row['Population Density']);
-    });
+  // Fetch barangay area types
+  const responseArea = await fetch("/api/barangay-area-types");
+  if (!responseArea.ok) throw new Error("Failed to fetch barangay area types");
+  const areaData = await responseArea.json();
 
-    const populationValues = Object.values(populationDensity);
-    const minPopulation = Math.min(...populationValues);
-    const maxPopulation = Math.max(...populationValues);
-    const normalizedPopulation = {};
-    for (let barangay in populationDensity) {
-        normalizedPopulation[barangay] = minMaxNormalize(populationDensity[barangay], minPopulation, maxPopulation);
-    }
+  // Initialize a map to store the area types by barangay
+  const areaTypes = {};
+  areaData.forEach((row) => {
+    areaTypes[row.barangay_name] = row.area_type;
+  });
 
-    // Log Population Density
-    console.log('Normalized Population:', normalizedPopulation);
+  console.log("Barangay Area Types:", areaTypes); // Check area types
 
-    // Step 7: Calculate transportation and accessibility scores
-    const transportationScores = {};
-    const weights = { links: 0.40, accessibility: 0.40, travel: 0.20 };
-    transportationData.forEach(row => {
-        if (!transportationScores[row.Barangay]) transportationScores[row.Barangay] = [];
-        const totalScore = (row['Transportation links'] * weights.links) +
-            (row['Commercial accessibility'] * weights.accessibility) +
-            (row['Travel outside barangay'] * weights.travel);
-        transportationScores[row.Barangay].push(totalScore);
-    });
+  const areaTypeWeights = {
+    "Automotive Services": { Commercial: 50, Industrial: 15, Residential: 35 },
+    "Construction and Real Estate": {
+      Commercial: 40,
+      Industrial: 25,
+      Residential: 35,
+    },
+    "Cooperative Business": { Commercial: 45, Industrial: 20, Residential: 35 },
+    "Creative and Media Services": {
+      Commercial: 60,
+      Industrial: 0,
+      Residential: 40,
+    },
+    "Educational Services": { Commercial: 60, Industrial: 0, Residential: 40 },
+    "Entertainment and Recreation": {
+      Commercial: 60,
+      Industrial: 0,
+      Residential: 40,
+    },
+    "Finance and Insurance": { Commercial: 70, Industrial: 0, Residential: 30 },
+    "Food Services": { Commercial: 50, Industrial: 0, Residential: 50 },
+    "Healthcare Services": { Commercial: 60, Industrial: 0, Residential: 40 },
+    "IT and Digital Services": {
+      Commercial: 70,
+      Industrial: 0,
+      Residential: 30,
+    },
+    "Manufacturing and Production": {
+      Commercial: 20,
+      Industrial: 70,
+      Residential: 10,
+    },
+    "Personal and Household Services": {
+      Commercial: 40,
+      Industrial: 0,
+      Residential: 60,
+    },
+    "Personal Care Services": {
+      Commercial: 60,
+      Industrial: 0,
+      Residential: 40,
+    },
+    "Professional Services": {
+      Commercial: 60,
+      Industrial: 20,
+      Residential: 20,
+    },
+    "Retail Stores": { Commercial: 50, Industrial: 0, Residential: 50 },
+    "Tourism and Hospitality": {
+      Commercial: 60,
+      Industrial: 10,
+      Residential: 30,
+    },
+    "Transportation and Logistics": {
+      Commercial: 30,
+      Industrial: 60,
+      Residential: 10,
+    },
+    "Wholesale and Distribution": {
+      Commercial: 40,
+      Industrial: 50,
+      Residential: 10,
+    },
+  };
 
-    // Normalize transportation scores
-    const transpoValues = Object.values(transportationScores).map(arr => arr.reduce((acc, val) => acc + val) / arr.length);
-    const minTranspo = Math.min(...transpoValues);
-    const maxTranspo = Math.max(...transpoValues);
-    const normalizedTranspo = {};
-    for (let barangay in transportationScores) {
-        normalizedTranspo[barangay] = minMaxNormalize(
-            transportationScores[barangay].reduce((acc, val) => acc + val, 0) / transportationScores[barangay].length,
-            minTranspo,
-            maxTranspo
-        );
-    }
+  // Store area type data
+  const areaTypes1 = {};
+  areaData.forEach((row) => {
+    areaTypes1[row.barangay_name] = row.area_type
+      .split(",")
+      .map((type) => type.trim());
+  });
 
-    // Log Transportation Scores
-    console.log('Normalized Transportation Scores:', normalizedTranspo);
+  // Calculate area type scores
+  const areaTypeScores = {};
 
-    const areaTypeWeights = {
-        "Automotive Services": { Commercial: 50, Industrial: 15, Residential: 35 },
-        "Construction and Real Estate": { Commercial: 40, Industrial: 25, Residential: 35 },
-        "Cooperative Business": { Commercial: 45, Industrial: 20, Residential: 35 },
-        "Creative and Media Services": { Commercial: 60, Industrial: 0, Residential: 40 },
-        "Educational Services": { Commercial: 60, Industrial: 0, Residential: 40 },
-        "Entertainment and Recreation": { Commercial: 60, Industrial: 0, Residential: 40 },
-        "Finance and Insurance": { Commercial: 70, Industrial: 0, Residential: 30 },
-        "Food Services": { Commercial: 50, Industrial: 0, Residential: 50 },
-        "Healthcare Services": { Commercial: 60, Industrial: 0, Residential: 40 },
-        "IT and Digital Services": { Commercial: 70, Industrial: 0, Residential: 30 },
-        "Manufacturing and Production": { Commercial: 20, Industrial: 70, Residential: 10 },
-        "Personal and Household Services": { Commercial: 40, Industrial: 0, Residential: 60 },
-        "Personal Care Services": { Commercial: 60, Industrial: 0, Residential: 40 },
-        "Professional Services": { Commercial: 60, Industrial: 20, Residential: 20 },
-        "Retail Stores": { Commercial: 50, Industrial: 0, Residential: 50 },
-        "Tourism and Hospitality": { Commercial: 60, Industrial: 10, Residential: 30 },
-        "Transportation and Logistics": { Commercial: 30, Industrial: 60, Residential: 10 },
-        "Wholesale and Distribution": { Commercial: 40, Industrial: 50, Residential: 10 },
-      };
-    
-      const areaTypeScores = {};
-      for (const barangay of Object.keys(populationDensity)) {
-        const row = barangayData.find(r => r.Barangay === barangay);
-        if (row) {
-          const commercialScore = row.Commercial > 0 ? areaTypeWeights[selectedCategory].Commercial : 0;
-          const industrialScore = row.Industrial > 0 ? areaTypeWeights[selectedCategory].Industrial : 0;
-          const residentialScore = row.Residential > 0 ? areaTypeWeights[selectedCategory].Residential : 0;
-          areaTypeScores[barangay] = commercialScore + industrialScore + residentialScore;
-        }
+  // Iterate over all barangays
+  for (const barangay in areaTypes) {
+    const areaTypesList = areaTypes1[barangay];
+    let score = 0;
+
+    // Check if the area type is "Mixed"
+  if (areaTypesList.includes("Mixed")) {
+    score = 100; // Set score to 100 if "Mixed" is found
+  } else {
+    // For each area type, add the corresponding weight from areaTypeWeights
+    areaTypesList.forEach((area) => {
+      if (areaTypeWeights[selectedCategory][area]) {
+        score += areaTypeWeights[selectedCategory][area];
       }
-    
-
-    //WEIGHTING
-    // Multiply factors by their weights
-    const factorWeights = {
-        normalizedDemands: 0.24,
-        normalizedMarketGaps: 0.26,
-        inverseNormalizedCompetition: 0.21,
-        normalizedPopulation: 0.10,
-        normalizedTranspo: 0.07,
-        areaTypeScores: 0.12
-    };
-
-    // Initialize separate objects to store weighted values for each factor
-    const weightedNormalizedDemands = {};
-    const weightedNormalizedMarketGaps = {};
-    const weightedInverseNormalizedCompetition = {};
-    const weightedNormalizedPopulation = {};
-    const weightedNormalizedTranspo = {};
-    const weightedAreaTypeScores = {};
-
-    // Calculate weighted values for each barangay without summing them up
-    for (let barangay of allBarangays) {
-        weightedNormalizedDemands[barangay] = (normalizedDemands[barangay] || 0) * factorWeights.normalizedDemands;
-        weightedNormalizedMarketGaps[barangay] = (normalizedMarketGaps[barangay] || 0) * factorWeights.normalizedMarketGaps;
-        weightedInverseNormalizedCompetition[barangay] = (inverseNormalizedCompetition[barangay] || 0) * factorWeights.inverseNormalizedCompetition;
-        weightedNormalizedPopulation[barangay] = (normalizedPopulation[barangay] || 0) * factorWeights.normalizedPopulation;
-        weightedNormalizedTranspo[barangay] = (normalizedTranspo[barangay] || 0) * factorWeights.normalizedTranspo;
-        weightedAreaTypeScores[barangay] = (areaTypeScores[barangay] || 0) * factorWeights.areaTypeScores;
-    }
-
-
-     // KMEANS CLUSTERING
-
-    // Define the number of clusters
-    const k = 3;
-
-    // Combine the weighted factors into a single array of objects
-    const factorArray = allBarangays.map(barangay => ({
-        name: barangay,
-        weightedDemands: weightedNormalizedDemands[barangay],
-        weightedGaps: weightedNormalizedMarketGaps[barangay],
-        weightedCompetition: weightedInverseNormalizedCompetition[barangay],
-        weightedPopulation: weightedNormalizedPopulation[barangay],
-        weightedTranspo: weightedNormalizedTranspo[barangay],
-        weightedAreaType: weightedAreaTypeScores[barangay]
-    }));
-
-    // Function to initialize centroids randomly
-    function initializeCentroids(data, k) {
-        const centroids = [];
-        const usedIndexes = new Set();
-
-        while (centroids.length < k) {
-            const randomIndex = Math.floor(Math.random() * data.length);
-            if (!usedIndexes.has(randomIndex)) {
-                centroids.push(data[randomIndex]);
-                usedIndexes.add(randomIndex);
-            }
-        }
-        return centroids;
-    }
-
-    // Function to calculate the distance between two points
-    function calculateDistance(point1, point2) {
-        return Math.sqrt(
-            Math.pow(point1.weightedDemands - point2.weightedDemands, 2) +
-            Math.pow(point1.weightedGaps - point2.weightedGaps, 2) +
-            Math.pow(point1.weightedCompetition - point2.weightedCompetition, 2) +
-            Math.pow(point1.weightedPopulation - point2.weightedPopulation, 2) +
-            Math.pow(point1.weightedTranspo - point2.weightedTranspo, 2) +
-            Math.pow(point1.weightedAreaType - point2.weightedAreaType, 2)
-        );
-    }
-
-    // K-means clustering function
-    function kMeansClustering(data, k, iterations = 100) {
-        let centroids = initializeCentroids(data, k);
-        let clusters = new Array(data.length).fill(null);
-
-        for (let i = 0; i < iterations; i++) {
-            // Step 1: Assign clusters based on nearest centroid
-            clusters = data.map(barangay => {
-                let closestCentroidIndex = -1;
-                let minDistance = Infinity;
-
-                centroids.forEach((centroid, index) => {
-                    const distance = calculateDistance(barangay, centroid);
-                    if (distance < minDistance) {
-                        minDistance = distance;
-                        closestCentroidIndex = index;
-                    }
-                });
-
-                return closestCentroidIndex;
-            });
-
-            // Step 2: Update centroids based on current cluster assignments
-            const newCentroids = Array.from({ length: k }, () => ({
-                weightedDemands: 0,
-                weightedGaps: 0,
-                weightedCompetition: 0,
-                weightedPopulation: 0,
-                weightedTranspo: 0,
-                weightedAreaType: 0,
-                count: 0
-            }));
-
-            clusters.forEach((clusterIndex, barangayIndex) => {
-                newCentroids[clusterIndex].weightedDemands += data[barangayIndex].weightedDemands;
-                newCentroids[clusterIndex].weightedGaps += data[barangayIndex].weightedGaps;
-                newCentroids[clusterIndex].weightedCompetition += data[barangayIndex].weightedCompetition;
-                newCentroids[clusterIndex].weightedPopulation += data[barangayIndex].weightedPopulation;
-                newCentroids[clusterIndex].weightedTranspo += data[barangayIndex].weightedTranspo;
-                newCentroids[clusterIndex].weightedAreaType += data[barangayIndex].weightedAreaType;
-                newCentroids[clusterIndex].count++;
-            });
-
-            centroids = newCentroids.map(centroid => {
-                return {
-                    weightedDemands: centroid.weightedDemands / centroid.count,
-                    weightedGaps: centroid.weightedGaps / centroid.count,
-                    weightedCompetition: centroid.weightedCompetition / centroid.count,
-                    weightedPopulation: centroid.weightedPopulation / centroid.count,
-                    weightedTranspo: centroid.weightedTranspo / centroid.count,
-                    weightedAreaType: centroid.weightedAreaType / centroid.count
-                };
-            });
-        }
-
-        return clusters;
-    }
-
-    // Execute K-means clustering
-    const clusters = kMeansClustering(factorArray, k);
-
-    // Display the clusters
-    const clusteredResults = {};
-
-    clusters.forEach((clusterIndex, index) => {
-        const barangayName = factorArray[index].name;
-        if (!clusteredResults[clusterIndex]) {
-            clusteredResults[clusterIndex] = [];
-        }
-        clusteredResults[clusterIndex].push(barangayName);
     });
+  }
 
-    console.log("Cluster results:");
-    for (const [clusterIndex, barangays] of Object.entries(clusteredResults)) {
-        console.log(`Cluster ${clusterIndex}: ${barangays.join(', ')}`);
+    // Store the total area type score for each barangay
+    areaTypeScores[barangay] = score;
+  }
+
+  // Print the area type scores
+  console.log("Area Type Scores:", areaTypeScores); // Check area type scores
+
+  // Fetch barangay population density
+  const popDensityResponse = await fetch("/api/barangay-population-density");
+  if (!popDensityResponse.ok)
+    throw new Error("Failed to fetch barangay population density");
+  const populationData = await popDensityResponse.json();
+
+  // Process and normalize the population density data
+  const populationDensity = {};
+  populationData.forEach((row) => {
+    populationDensity[row.barangay_name] = Number(row.popdensity);
+  });
+
+  // Normalize the population density using Min-Max normalization
+  const populationValues = Object.values(populationDensity);
+  const minPopulation = Math.min(...populationValues);
+  const maxPopulation = Math.max(...populationValues);
+
+  const normalizedPopulation = {};
+  for (let barangay in populationDensity) {
+    normalizedPopulation[barangay] = minMaxNormalize(
+      populationDensity[barangay],
+      minPopulation,
+      maxPopulation
+    );
+  }
+
+  // Print the normalized population density per barangay
+
+  console.log("Normalized Counts:", normalizedCounts); // Check normalized counts
+  console.log("Normalized Population Density:", normalizedPopulation); // Check normalized population density
+
+  // Fetch transportation and accessibility scores for each barangay
+  const transpoResponse = await fetch(`/api/barangay-transportation-scores`);
+  if (!transpoResponse.ok)
+    throw new Error("Failed to fetch barangay transportation scores");
+  const transpoData = await transpoResponse.json();
+
+  // Initialize a map to store the transportation and accessibility scores by barangay
+  const transpoScores = {};
+  transpoData.forEach((row) => {
+    transpoScores[row.barangay] = row.transportation_and_accessibility;
+  });
+
+  // Normalize the transportation scores using Min-Max normalization
+  const transpoValues = Object.values(transpoScores);
+  const minTranspo = Math.min(...transpoValues);
+  const maxTranspo = Math.max(...transpoValues);
+
+  const normalizedTranspo = {};
+  for (let barangay in transpoScores) {
+    normalizedTranspo[barangay] = minMaxNormalize(
+      transpoScores[barangay],
+      minTranspo,
+      maxTranspo
+    );
+  }
+
+  // Print the transportation and accessibility scores and the normalized scores
+  console.log("Transportation and Accessibility Scores:", transpoScores);
+  console.log("Normalized Transportation Scores:", normalizedTranspo); // Check normalized transportation scores
+
+  // Fetch average market demand per barangay
+  const demandResponse = await fetch(
+    `/api/barangay-average-demand?selectedCategory=${selectedCategory}`
+  );
+  if (!demandResponse.ok)
+    throw new Error("Failed to fetch barangay average demand");
+  const demandData = await demandResponse.json();
+
+  // Initialize an object to store the average market demands
+  const avgMarketDemands = {};
+  demandData.forEach((row) => {
+    avgMarketDemands[row.barangay] = parseFloat(row.average_demand).toFixed(2);
+  });
+
+  // Normalize the market demands using Min-Max normalization
+  const demandValues = Object.values(avgMarketDemands).map(Number);
+  const minDemand = Math.min(...demandValues);
+  const maxDemand = Math.max(...demandValues);
+
+  const normalizedDemands = {};
+  for (let barangay in avgMarketDemands) {
+    normalizedDemands[barangay] = minMaxNormalize(
+      avgMarketDemands[barangay],
+      minDemand,
+      maxDemand
+    );
+  }
+
+  // Print the average market demands and normalized demands
+  console.log("Average Market Demands:", avgMarketDemands);
+  console.log("Normalized Demands:", normalizedDemands);
+
+  // Calculate market gaps (Market Demand - Counts)
+  const barangayGaps = {};
+  for (let barangay in normalizedDemands) {
+    if (normalizedCounts[barangay] !== undefined) {
+      barangayGaps[barangay] = (
+        normalizedDemands[barangay] - normalizedCounts[barangay]
+      ).toFixed(2);
+    }
+  }
+  // Normalize the market gaps
+  const gapValues = Object.values(barangayGaps);
+  const minGap = Math.min(...gapValues);
+  const maxGap = Math.max(...gapValues);
+  const normalizedMarketGaps = {};
+  for (let barangay in barangayGaps) {
+    normalizedMarketGaps[barangay] = minMaxNormalize(
+      barangayGaps[barangay],
+      minGap,
+      maxGap
+    );
+  }
+
+  console.log("Market Gaps:", normalizedMarketGaps); // Check calculated market gaps
+
+  //WEIGHTING
+  // Multiply factors by their weights
+  const factorWeights = {
+    normalizedDemands: 0.24,
+    normalizedMarketGaps: 0.26,
+    inverseNormalizedCompetition: 0.21,
+    normalizedPopulation: 0.1,
+    normalizedTranspo: 0.07,
+    areaTypeScores: 0.12,
+  };
+
+  // Initialize separate objects to store weighted values for each factor
+  const weightedNormalizedDemands = {};
+  const weightedNormalizedMarketGaps = {};
+  const weightedInverseNormalizedCompetition = {};
+  const weightedNormalizedPopulation = {};
+  const weightedNormalizedTranspo = {};
+  const weightedAreaTypeScores = {};
+
+  // Calculate weighted values for each barangay without summing them up
+  for (let barangay of allBarangays) {
+    weightedNormalizedDemands[barangay] =
+      (normalizedDemands[barangay] || 0) * factorWeights.normalizedDemands;
+    weightedNormalizedMarketGaps[barangay] =
+      (normalizedMarketGaps[barangay] || 0) *
+      factorWeights.normalizedMarketGaps;
+    weightedInverseNormalizedCompetition[barangay] =
+      (inverseNormalizedCompetition[barangay] || 0) *
+      factorWeights.inverseNormalizedCompetition;
+    weightedNormalizedPopulation[barangay] =
+      (normalizedPopulation[barangay] || 0) *
+      factorWeights.normalizedPopulation;
+    weightedNormalizedTranspo[barangay] =
+      (normalizedTranspo[barangay] || 0) * factorWeights.normalizedTranspo;
+    weightedAreaTypeScores[barangay] =
+      (areaTypeScores[barangay] || 0) * factorWeights.areaTypeScores;
+  }
+
+  // KMEANS CLUSTERING
+
+  // Define the number of clusters
+  const k = 3;
+
+  // Combine the weighted factors into a single array of objects
+  const factorArray = allBarangays.map((barangay) => ({
+    name: barangay,
+    weightedDemands: weightedNormalizedDemands[barangay],
+    weightedGaps: weightedNormalizedMarketGaps[barangay],
+    weightedCompetition: weightedInverseNormalizedCompetition[barangay],
+    weightedPopulation: weightedNormalizedPopulation[barangay],
+    weightedTranspo: weightedNormalizedTranspo[barangay],
+    weightedAreaType: weightedAreaTypeScores[barangay],
+  }));
+
+  // Function to initialize centroids randomly
+  function initializeCentroids(data, k) {
+    const centroids = [];
+    const usedIndexes = new Set();
+
+    while (centroids.length < k) {
+      const randomIndex = Math.floor(Math.random() * data.length);
+      if (!usedIndexes.has(randomIndex)) {
+        centroids.push(data[randomIndex]);
+        usedIndexes.add(randomIndex);
+      }
+    }
+    return centroids;
+  }
+
+  // Function to calculate the distance between two points
+  function calculateDistance(point1, point2) {
+    return Math.sqrt(
+      Math.pow(point1.weightedDemands - point2.weightedDemands, 2) +
+        Math.pow(point1.weightedGaps - point2.weightedGaps, 2) +
+        Math.pow(point1.weightedCompetition - point2.weightedCompetition, 2) +
+        Math.pow(point1.weightedPopulation - point2.weightedPopulation, 2) +
+        Math.pow(point1.weightedTranspo - point2.weightedTranspo, 2) +
+        Math.pow(point1.weightedAreaType - point2.weightedAreaType, 2)
+    );
+  }
+
+  // K-means clustering function
+  function kMeansClustering(data, k, iterations = 100) {
+    let centroids = initializeCentroids(data, k);
+    let clusters = new Array(data.length).fill(null);
+
+    for (let i = 0; i < iterations; i++) {
+      // Step 1: Assign clusters based on nearest centroid
+      clusters = data.map((barangay) => {
+        let closestCentroidIndex = -1;
+        let minDistance = Infinity;
+
+        centroids.forEach((centroid, index) => {
+          const distance = calculateDistance(barangay, centroid);
+          if (distance < minDistance) {
+            minDistance = distance;
+            closestCentroidIndex = index;
+          }
+        });
+
+        return closestCentroidIndex;
+      });
+
+      // Step 2: Update centroids based on current cluster assignments
+      const newCentroids = Array.from({ length: k }, () => ({
+        weightedDemands: 0,
+        weightedGaps: 0,
+        weightedCompetition: 0,
+        weightedPopulation: 0,
+        weightedTranspo: 0,
+        weightedAreaType: 0,
+        count: 0,
+      }));
+
+      clusters.forEach((clusterIndex, barangayIndex) => {
+        newCentroids[clusterIndex].weightedDemands +=
+          data[barangayIndex].weightedDemands;
+        newCentroids[clusterIndex].weightedGaps +=
+          data[barangayIndex].weightedGaps;
+        newCentroids[clusterIndex].weightedCompetition +=
+          data[barangayIndex].weightedCompetition;
+        newCentroids[clusterIndex].weightedPopulation +=
+          data[barangayIndex].weightedPopulation;
+        newCentroids[clusterIndex].weightedTranspo +=
+          data[barangayIndex].weightedTranspo;
+        newCentroids[clusterIndex].weightedAreaType +=
+          data[barangayIndex].weightedAreaType;
+        newCentroids[clusterIndex].count++;
+      });
+
+      centroids = newCentroids.map((centroid) => {
+        return {
+          weightedDemands: centroid.weightedDemands / centroid.count,
+          weightedGaps: centroid.weightedGaps / centroid.count,
+          weightedCompetition: centroid.weightedCompetition / centroid.count,
+          weightedPopulation: centroid.weightedPopulation / centroid.count,
+          weightedTranspo: centroid.weightedTranspo / centroid.count,
+          weightedAreaType: centroid.weightedAreaType / centroid.count,
+        };
+      });
     }
 
+    return clusters;
+  }
 
-        // Calculate and display average factor values for each cluster
-        const clusterAverages = Array.from({ length: k }, () => ({
-            weightedDemands: 0,
-            weightedGaps: 0,
-            weightedCompetition: 0,
-            weightedPopulation: 0,
-            weightedTranspo: 0,
-            weightedAreaType: 0,
-            count: 0,
-            compositeScore: 0
-        }));
-    
-        // Sum up factor values for each cluster
-        clusters.forEach((clusterIndex, barangayIndex) => {
-            const barangay = factorArray[barangayIndex];
-            const cluster = clusterAverages[clusterIndex];
-    
+  // Execute K-means clustering
+  const clusters = kMeansClustering(factorArray, k);
 
-            cluster.weightedDemands += barangay.weightedDemands;
-            cluster.weightedGaps += barangay.weightedGaps;
-            cluster.weightedCompetition += barangay.weightedCompetition;
-            cluster.weightedPopulation += barangay.weightedPopulation;
-            cluster.weightedTranspo += barangay.weightedTranspo;
-            cluster.weightedAreaType += barangay.weightedAreaType;
-            cluster.count++;
-        });
-    
-        // Calculate averages for each factor and composite score in each cluster
-        clusterAverages.forEach((cluster, index) => {
-            cluster.weightedDemands /= cluster.count;
-            cluster.weightedGaps /= cluster.count;
-            cluster.weightedCompetition /= cluster.count;
-            cluster.weightedPopulation /= cluster.count;
-            cluster.weightedTranspo /= cluster.count;
-            cluster.weightedAreaType /= cluster.count;
-    
-            // Calculate the composite score as the sum of the average values
-            cluster.compositeScore =
-                cluster.weightedDemands +
-                cluster.weightedGaps +
-                cluster.weightedCompetition +
-                cluster.weightedPopulation +
-                cluster.weightedTranspo +
-                cluster.weightedAreaType;
-        });
-    
-        // Display average values and composite scores for each cluster
-        console.log("\nAverage factor values and composite score for each cluster:");
-        let highestScoreCluster = { index: -1, score: -Infinity };
-    
-        clusterAverages.forEach((cluster, index) => {
-            console.log(`\nCluster ${index}:`);
-            console.log(`  Weighted Demands: ${cluster.weightedDemands.toFixed(2)}`);
-            console.log(`  Weighted Gaps: ${cluster.weightedGaps.toFixed(2)}`);
-            console.log(`  Weighted Competition: ${cluster.weightedCompetition.toFixed(2)}`);
-            console.log(`  Weighted Population: ${cluster.weightedPopulation.toFixed(2)}`);
-            console.log(`  Weighted Transpo: ${cluster.weightedTranspo.toFixed(2)}`);
-            console.log(`  Weighted Area Type: ${cluster.weightedAreaType.toFixed(2)}`);
-            console.log(`  Composite Score: ${cluster.compositeScore.toFixed(2)}`);
-    
-            // Identify the highest composite score
-            if (cluster.compositeScore > highestScoreCluster.score) {
-                highestScoreCluster = { index, score: cluster.compositeScore };
-            }
-        });
-    
-        console.log(`\nCluster with the highest composite score: Cluster ${highestScoreCluster.index} (Score: ${highestScoreCluster.score.toFixed(2)})`);
-    
-        const topClusterIndex = highestScoreCluster.index;
-    
-        // Create an array to hold barangays and their total scores in the highest scoring cluster
-        const barangayScoresInTopCluster = [];
-    
-        // Calculate the total score for each barangay in the highest scoring cluster
-        clusters.forEach((clusterIndex, barangayIndex) => {
-            if (clusterIndex === topClusterIndex) {
-                const barangay = factorArray[barangayIndex];
-                const totalScore =
-                    barangay.weightedDemands +
-                    barangay.weightedGaps +
-                    barangay.weightedCompetition +
-                    barangay.weightedPopulation +
-                    barangay.weightedTranspo +
-                    barangay.weightedAreaType;
-    
-                barangayScoresInTopCluster.push({
-                    name: barangay.name,
-                    totalScore: totalScore
-                });
-            }
-        });
-    
-        const topBarangays = barangayScoresInTopCluster
-        .sort((a, b) => b.totalScore - a.totalScore)
-        .slice(0, 3);
-    
-    // Print the top 3 barangays and their total scores
-    console.log("\nTop 3 Barangays in Cluster with Highest Score:");
-    topBarangays.forEach(({ name, totalScore }, index) => {
-        console.log(`  Rank ${index + 1}: ${name} - Total Score: ${totalScore.toFixed(2)}`);
-    });
-    
-    return topBarangays;
-}
-    
+  // Display the clusters
+  const clusteredResults = {};
 
+  clusters.forEach((clusterIndex, index) => {
+    const barangayName = factorArray[index].name;
+    if (!clusteredResults[clusterIndex]) {
+      clusteredResults[clusterIndex] = [];
+    }
+    clusteredResults[clusterIndex].push(barangayName);
+  });
 
-// Function to run analysis for the selected barangay
-async function runAnalysisModel(selectedCategory, selectedBarangay) {
-    // Process psychographic and behavioral data
-    const psychographicBehavioralData = await processPsychographicBehavioralData();
+  console.log("Cluster results:");
+  for (const [clusterIndex, barangays] of Object.entries(clusteredResults)) {
+    console.log(`Cluster ${clusterIndex}: ${barangays.join(", ")}`);
+  }
 
-    // Process market and competition data for the selected category
-    const marketCompetitionData = await processMarketCompetitionData(selectedCategory);
+  // Calculate and display average factor values for each cluster
+  const clusterAverages = Array.from({ length: k }, () => ({
+    weightedDemands: 0,
+    weightedGaps: 0,
+    weightedCompetition: 0,
+    weightedPopulation: 0,
+    weightedTranspo: 0,
+    weightedAreaType: 0,
+    count: 0,
+    compositeScore: 0,
+  }));
 
-    // Fetch other necessary data for analysis
-    const SMEData = await fetch('/api/sme-data').then(res => res.json());
-    const CompetitionData = await fetch('/api/competition-data').then(res => res.json());
-    const MarketDemandData = await fetch('/api/market-demand-data').then(res => res.json());
-    const PopulationData = await fetch('/api/population-data').then(res => res.json());
-    const TransportationData = await fetch('/api/transportation-data').then(res => res.json());
+  // Sum up factor values for each cluster
+  clusters.forEach((clusterIndex, barangayIndex) => {
+    const barangay = factorArray[barangayIndex];
+    const cluster = clusterAverages[clusterIndex];
 
-    // Filter SME data and extract specific barangay information
-    const filteredData = SMEData.filter(row => row.Category === selectedCategory);
-    const barangayData = filteredData.find(row => row.Barangay === selectedBarangay);
+    cluster.weightedDemands += barangay.weightedDemands;
+    cluster.weightedGaps += barangay.weightedGaps;
+    cluster.weightedCompetition += barangay.weightedCompetition;
+    cluster.weightedPopulation += barangay.weightedPopulation;
+    cluster.weightedTranspo += barangay.weightedTranspo;
+    cluster.weightedAreaType += barangay.weightedAreaType;
+    cluster.count++;
+  });
 
-    const totalBusinessesInCity = filteredData.length;
-    const businessesInBarangay = barangayData ? barangayData.Count : 0;
+  // Calculate averages for each factor and composite score in each cluster
+  clusterAverages.forEach((cluster, index) => {
+    cluster.weightedDemands /= cluster.count;
+    cluster.weightedGaps /= cluster.count;
+    cluster.weightedCompetition /= cluster.count;
+    cluster.weightedPopulation /= cluster.count;
+    cluster.weightedTranspo /= cluster.count;
+    cluster.weightedAreaType /= cluster.count;
 
-    // Extract market and competition data for the selected barangay
-    const {
-        barangayCounts,
-        normalizedCounts,
-        normalizedDemands,
-        normalizedMarketGaps,
-        normalizedCompetition,
-        inverseNormalizedCompetition,
-        directCompetition,
-        indirectCompetition,
-        replacementCompetition,
-        populationDensity,
-        normalizedPopulation,
-        normalizedTranspo,
-        transportChallenges,
-        areaTypes,
-        areaTypeScores
-    } = marketCompetitionData;
+    // Calculate the composite score as the sum of the average values
+    cluster.compositeScore =
+      cluster.weightedDemands +
+      cluster.weightedGaps +
+      cluster.weightedCompetition +
+      cluster.weightedPopulation +
+      cluster.weightedTranspo +
+      cluster.weightedAreaType;
+  });
 
-    const topCounts = barangayCounts[selectedBarangay] || 0;
-    const categoryCounts = normalizedCounts[selectedBarangay] || 0;
-    const marketDemandScore = normalizedDemands[selectedBarangay] || 0;
-    const marketGapScore = normalizedMarketGaps[selectedBarangay] || 0;
-    const competitionDensityScore = normalizedCompetition[selectedBarangay] || 0;
-    const normalizedPopulationDensity = normalizedPopulation[selectedBarangay] || 0;
-    const population = populationDensity[selectedBarangay] || 0;
-    const transportationAccess = normalizedTranspo[selectedBarangay] || 0;
-    const transportationChallenge = transportChallenges[selectedBarangay] || "None";
-    const topAreaTypes = areaTypes[selectedBarangay] || 0;
-    const topAreaTypeScore = areaTypeScores[selectedBarangay] || 0;
-    const direct = directCompetition[selectedBarangay] || 0;
-    const indirect = indirectCompetition[selectedBarangay] || 0;
-    const replacement = replacementCompetition [selectedBarangay] || 0;
+  // Display average values and composite scores for each cluster
+  console.log("\nAverage factor values and composite score for each cluster:");
+  let highestScoreCluster = { index: -1, score: -Infinity };
 
-    // Interpretation
-    const countDescription = categoryCounts >= 76 ? "High Count" :
-                             categoryCounts >= 51 ? "Moderate Count" :
-                            categoryCounts >= 26 ? "Low Count" : "Very Low Count";
+  clusterAverages.forEach((cluster, index) => {
+    console.log(`\nCluster ${index}:`);
+    console.log(`  Weighted Demands: ${cluster.weightedDemands.toFixed(2)}`);
+    console.log(`  Weighted Gaps: ${cluster.weightedGaps.toFixed(2)}`);
+    console.log(
+      `  Weighted Competition: ${cluster.weightedCompetition.toFixed(2)}`
+    );
+    console.log(
+      `  Weighted Population: ${cluster.weightedPopulation.toFixed(2)}`
+    );
+    console.log(`  Weighted Transpo: ${cluster.weightedTranspo.toFixed(2)}`);
+    console.log(`  Weighted Area Type: ${cluster.weightedAreaType.toFixed(2)}`);
+    console.log(`  Composite Score: ${cluster.compositeScore.toFixed(2)}`);
 
-    const countText = categoryCounts >= 76 ? "Strong concentration of businesses, indicating high activity and competition" :
-                              categoryCounts >= 51 ? "Moderate business presence, balancing demand with a reasonable supply" :
-                              categoryCounts >= 26 ? "Limited business availability, with some options but room for growth" :
-                              "Minimal business presence, suggesting potential for new entries";
+    // Identify the highest composite score
+    if (cluster.compositeScore > highestScoreCluster.score) {
+      highestScoreCluster = { index, score: cluster.compositeScore };
+    }
+  });
 
-    const demandDescription = marketDemandScore >= 76 ? "High Demand" :
-                              marketDemandScore >= 51 ? "Medium Demand" : 
-                              marketDemandScore >= 26 ? "Low Demand" : "Very Low Demand";
-    const demandText = marketDemandScore >= 76 ? "Significant need, good interest" :
-                       marketDemandScore >= 51 ? "Moderate interest" :
-                       marketDemandScore >= 26 ? "Limited interest" : "Minimal or no interest";  
+  console.log(
+    `\nCluster with the highest composite score: Cluster ${
+      highestScoreCluster.index
+    } (Score: ${highestScoreCluster.score.toFixed(2)})`
+  );
 
-    const businessGapDescription = marketGapScore >= 76 ? "Critical Gap" :
-                                   marketGapScore >= 51 ? "Moderate Gap" : 
-                                   marketGapScore >= 26 ? "Minor Gap" : "No Gap";
-     const businessGapText = marketGapScore >= 76 ? "Significant need for services/products" :
-                             marketGapScore >= 51 ? "Noticeable lack, but not urgent" :
-                             marketGapScore >= 26 ? "Slight shortfall, potential for improvement" : 
-                                                "Market is saturated, no apparent gaps";
-                                                
-     const competitionDescription = competitionDensityScore >= 76 ? "Very High Competition" :
-                                    competitionDensityScore >= 51 ? "High Competition" :
-                                    competitionDensityScore >= 26 ? "Low Competition" : "Very Low/No Competition";                                           
-    const competitionText = competitionDensityScore >= 76 ? "Very few market opportunities" :
-                            competitionDensityScore >= 51 ? "Limited market opportunities" :
-                            competitionDensityScore >= 26 ? "Some market opportunities" :
-                                                "Many market opportunities";
-                                                                  
-    // Interpret population density
-    const populationText = normalizedPopulationDensity >= 76 ? "High population density, strong customer base" :
-                           normalizedPopulationDensity >= 51 ? "Moderate population density, growth potential" :
-                           normalizedPopulationDensity >= 26 ? "Low population density, but opportunities exist for attracting new customers" :
-                           "Very low population density, indicating challenges but potential for niche markets";
+  const topClusterIndex = highestScoreCluster.index;
 
-    // Interpret transportation description
-    const transportationText = transportationAccess >= 76 ? "Excellent transport, very accessible" :
-                               transportationAccess >= 51 ? "Good transport, mostly accessible" :
-                               "Moderate transport with potential for improvement";
-    
-    const areaTypeText = topAreaTypeScore >= 76 ? "Highly Favorable" :
-                         topAreaTypeScore >= 51 ? "Moderately Favorable" :
-                         topAreaTypeScore >= 26 ? "Somewhat Favorable" : 
-                        "Unfavorable";
-          
-    const areaTypeDescription = topAreaTypeScore >= 76 ? "Ideal for your business type" :
-                                topAreaTypeScore >= 51 ? "Good for your needs with potential" :
-                                topAreaTypeScore >= 26 ? "Opportunities exist for growth" : 
-                                "Challenges present opportunities for change";
-          
+  // Create an array to hold barangays and their total scores in the highest scoring cluster
+  const barangayScoresInTopCluster = [];
 
-    // Behavior satisfaction and business lacking interpretations
-    const satisfaction = psychographicBehavioralData.satisfactionMean[selectedBarangay] || 0;
-    const lacking = psychographicBehavioralData.businessesLackingMean[selectedBarangay] || 0;
+  // Calculate the total score for each barangay in the highest scoring cluster
+  clusters.forEach((clusterIndex, barangayIndex) => {
+    if (clusterIndex === topClusterIndex) {
+      const barangay = factorArray[barangayIndex];
+      const totalScore =
+        barangay.weightedDemands +
+        barangay.weightedGaps +
+        barangay.weightedCompetition +
+        barangay.weightedPopulation +
+        barangay.weightedTranspo +
+        barangay.weightedAreaType;
 
-    const satisfactionText = satisfaction >= 3.25 ? "Highly Satisfied" :
-                             satisfaction >= 2.5 ? "Satisfied" :
-                             satisfaction >= 1.75 ? "Somewhat Satisfied" : "Not Very Satisfied";
+      barangayScoresInTopCluster.push({
+        name: barangay.name,
+        totalScore: totalScore,
+      });
+    }
+  });
 
-    const lackingText = lacking >= 3.25 ? "Many Businesses Lacking" :
-                        lacking >= 2.5 ? "Some Businesses Lacking" :
-                        lacking >= 1.75 ? "Few Businesses Lacking" : "No Businesses Lacking";
+  const topBarangays = barangayScoresInTopCluster
+    .sort((a, b) => b.totalScore - a.totalScore)
+    .slice(0, 3);
 
+  // Print the top 3 barangays and their total scores
+  console.log("\nTop 3 Barangays in Cluster with Highest Score:");
+  topBarangays.forEach(({ name, totalScore }, index) => {
+    console.log(
+      `  Rank ${index + 1}: ${name} - Total Score: ${totalScore.toFixed(2)}`
+    );
+  });
 
-  // Generate Recommendation Summary
-  const recommendationText = `Based on the analysis, we recommend that businesses focusing on ${selectedCategory.toLowerCase()} consider establishing themselves in ${selectedBarangay}.
-  The current business presence in the area falls under the category of ${countDescription.toLowerCase()}, reflecting ${countText.toLowerCase()}.
-  The demand for ${selectedCategory.toLowerCase()} is ${demandDescription.toLowerCase()}, indicating ${demandText.toLowerCase()}.
-  There is a ${businessGapDescription.toLowerCase()} in services, suggesting ${businessGapText.toLowerCase()}.
-  The competition density is ${competitionDescription.toLowerCase()}, meaning ${competitionText.toLowerCase()}.
-  Population density in ${selectedBarangay} is ${populationText.toLowerCase()}, underscoring its potential as a suitable location.
-  Transportation is ${transportationText.toLowerCase()}. Although there are some ${transportationChallenge.toLowerCase()} that could pose challenges.
-  The area type is specifically categorized as ${topAreaTypes.toLowerCase()}, which is ${areaTypeText.toLowerCase()} and indicates ${areaTypeDescription.toLowerCase()}. This makes it a suitable location for the businesses.
-  Establishing a business in ${selectedBarangay} can effectively address community needs and capitalize on market dynamics.`;
-
-    // Final Result Object
-    const result = {
-        businessOverview: {
-            mainCategory: selectedCategory,
-            totalBusinessesInCity,
-            topCounts,
-        },
-        marketDemandAndGaps: {
-            marketDemand: `${demandDescription} (${marketDemandScore}) - ${demandText}`,
-            businessGaps:`${businessGapDescription} (${marketGapScore}) - ${businessGapText}`,
-            criticalGap: "(76 - 100)",
-            moderateGap: "(51 - 75)",
-            minorGap: "(26 - 50)",
-            noGap: "(0 - 25)"
-        },
-        populationAndSegmentation: {
-            populationOverview: `${population} per sq. km`,
-            businessMotivation: psychographicBehavioralData.Motivation[selectedBarangay] || 'N/A',
-            shopingTraits: psychographicBehavioralData.ShoppingTraits[selectedBarangay] || 'N/A',
-            businessFactors: psychographicBehavioralData.Factors[selectedBarangay] || 'N/A',
-            shopingStyle: psychographicBehavioralData.ShoppingStyle[selectedBarangay] || 'N/A',
-            businessVisits: psychographicBehavioralData.businessVisits[selectedBarangay] || 'N/A',
-            frequencyVisits: psychographicBehavioralData.frequencyVisits[selectedBarangay] || 'N/A',
-            browsingBehavior: psychographicBehavioralData.browsingBehavior[selectedBarangay] || 'N/A',
-            shoppingPreference: psychographicBehavioralData.shoppingPreferences[selectedBarangay] || 'N/A',
-            businessSatisfaction: satisfactionText,
-            businessLacking: lackingText,
-        },
-        competitionAnalysis: {
-            competitionDensity: `${competitionDescription} (${competitionDensityScore}) - ${competitionText}`,
-            directCompetitor: direct ?? 0,
-            indirectCompetitor: indirect ?? 0,
-            replacementCompetitor: replacement ?? 0,
-        },
-        accessibilityAndInfrastructure: {
-            areaType: `${topAreaTypes} (${areaTypeText})`,
-            TranspoAccess: transportationText,
-            TranspoChallenge: transportationChallenge
-        },
-        recommendationSummary: {
-            summaryText: recommendationText,
-        }
-    };
-
-    console.log('Result:', result);
-
-    return result;
+  return topBarangays;
 }
 
+/*// Function to handle row selection in the barangay table
+function selectBarangayRow(row, barangayName) {
+  // Remove 'selected' class from all rows
+  const rows = document.querySelectorAll(".styled-table tbody tr");
+  rows.forEach((r) => r.classList.remove("selected-row"));
 
+  // Add 'selected' class to the clicked row
+  row.classList.add("selected-row");
 
+  // Set the selected barangay
+  selectedBarangay = barangayName;
+}*/
 
 // Function to handle row selection in the barangay table
 function selectBarangayRow(row, barangayName) {
-    // Remove 'selected' class from all rows
-    const rows = document.querySelectorAll('.styled-table tbody tr');
-    rows.forEach((r) => r.classList.remove('selected-row'));
+  // Remove 'selected' class from all rows
+  const rows = document.querySelectorAll(".styled-table tbody tr");
+  rows.forEach((r) => r.classList.remove("selected-row"));
 
-    // Add 'selected' class to the clicked row
-    row.classList.add('selected-row');
+  // Add 'selected' class to the clicked row
+  row.classList.add("selected-row");
 
-    // Set the selected barangay
-    selectedBarangay = barangayName;
+  // Set the selected barangay in localStorage
+  localStorage.setItem("selectedBarangay", barangayName);
 }

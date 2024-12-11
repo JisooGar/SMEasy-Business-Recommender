@@ -1,54 +1,119 @@
-/* Profile Dropdown Menu */
-#profileDropdownMenu {
-    min-width: 200px;
+/* Define the grid table */
+.grid-table {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background-color: #ffffff;
+    overflow: hidden;
 }
 
-/* Modal Styles */
-#changePasswordModal {
-    backdrop-filter: blur(5px); /* Adds a blur effect to the background */
+/* Define the column structure */
+.grid-table-header,
+.grid-table-body {
+    display: grid;
+    grid-template-columns: 50px 200px 200px 150px 150px 150px 150px 200px 150px 200px 150px;
 }
 
-.scrollable-table {
-    overflow-x: auto; /* Enable horizontal scrolling */
-    scrollbar-color: green; /* Style the scrollbar (gray-300 on gray-100) */
-    scrollbar-width: thin; /* Modern browsers */
+/* Header Styling */
+.grid-table-header {
+    background-color: #f9fafb;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 2px solid #d1d5db;
 }
 
-.scrollable-table::-webkit-scrollbar {
-    height: 6px; /* Set scrollbar height */
+.grid-table-header > div {
+    padding: 12px;
+    font-size: 14px;
+    text-align: left;
 }
 
-.scrollable-table::-webkit-scrollbar-thumb {
-    background-color: #D1D5DB; /* Gray color for the thumb */
-    border-radius: 3px; /* Rounded corners */
+/* Body Styling */
+.grid-table-body {
+    max-height: 400px; /* Set a fixed height for the body */
+    overflow-y: auto; /* Enable vertical scrolling */
 }
 
-/* General styles for modals */
-#popupModal {
-    z-index: 1050; /* Ensure it appears above other elements */
+.grid-table-body > div {
+    padding: 12px;
+    font-size: 14px;
+    border-bottom: 1px solid #e5e7eb;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
-#surveyIntro, #surveyForm {
-    max-height: 80vh; /* Set max height */
-    overflow-y: auto; /* Enable scrolling if content exceeds height */
+/* Table Container: Enable Horizontal Scrolling */
+.scrollable-table-container {
+    position: relative;
+    max-height: 500px; /* Adjust based on the available viewport */
+    overflow-x: auto; /* Horizontal scroll */
+    overflow-y: auto; /* Vertical scroll */
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visibility */
 }
 
-/* Ensure modal is not obstructed by navigation */
-nav.header {
-    z-index: 1000; /* Lower than modal */
+/* Table Styling */
+.scrollable-table-container table {
+    width: 100%; /* Ensure table takes full width of the container */
+    border-collapse: collapse;
 }
 
-/* Modal shadow and positioning */
-.bg-opacity-50 {
-    z-index: 1040; /* Ensure background overlay is below the modal */
+/* Fixed Header Styling */
+.scrollable-table-container thead th {
+    position: sticky;
+    top: 0;
+    z-index: 10; /* Ensure header stays above table content */
+    background-color: #f9fafb;
+    text-align: left;
+    border-bottom: 2px solid #d1d5db;
 }
 
-/* Margin adjustment for top visibility */
-#surveyIntro, #surveyForm {
-    margin-top: 2rem; /* Prevent overlap with header/navigation */
+/* Header Styling */
+.scrollable-table-container th {
+    padding: 12px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    white-space: nowrap; /* Prevent text wrapping */
 }
 
-/* Pointer events for modal interaction */
-body.modal-open {
-    overflow: hidden; /* Prevent body scrolling when modal is open */
+/* Body Row Styling */
+.scrollable-table-container td {
+    padding: 12px;
+    font-size: 0.875rem;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+    white-space: nowrap; /* Prevent wrapping */
+    text-overflow: ellipsis; /* Add ellipsis for long text */
+    overflow: hidden; /* Ensure text stays inside the cell */
 }
+
+/* Responsive Styling */
+@media screen and (max-width: 768px) {
+    .scrollable-table-container td, 
+    .scrollable-table-container th {
+        padding: 8px; /* Reduce padding for smaller screens */
+        font-size: 0.75rem; /* Smaller font size */
+    }
+}
+
+/* Custom Scrollbar */
+.scrollable-table-container::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.scrollable-table-container::-webkit-scrollbar-thumb {
+    background-color: #d1d5db;
+    border-radius: 4px;
+}
+
+.scrollable-table-container::-webkit-scrollbar-thumb:hover {
+    background-color: #9ca3af;
+}
+

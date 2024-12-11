@@ -9,6 +9,16 @@
             "username": "postgres",
             "database": "SME",
             "password": "LittleStar"
+        },
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "askForPassword": true,
+            "driver": "PostgreSQL",
+            "name": "User_Survey",
+            "database": "User_Survey",
+            "username": "postgres"
         }
     ]
 }

@@ -12,6 +12,12 @@
         setTimeout("preventBack()",0);
             window.onunload=function(){null;}
     </script>
+    <style>
+        .modal-scrollable {
+    max-height: 80vh; /* Restrict the modal height to 80% of the viewport */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+    </style>
 </head>
 <body>
     <!--header navigation bar-->
@@ -76,8 +82,8 @@
         <!-- User Profile Dropdown -->
         <div class="user-profile">
             <button id="profileDropdownButton" class="profile-btn">
-                <span class="user-initial">G</span>
-            </button>
+                <i class='bx bx-user-circle'></i>
+            </button>            
             <div id="profileDropdown" class="profile-dropdown hidden">
                 <div class="profile-info">
                     <span id="userName">Geron</span>
@@ -86,12 +92,6 @@
                 <hr>
                 <div class="header-controls">
                     <a href="" id="signOutButton" class="logout"><i class='bx bx-log-out icon'></i> Logout</a>
-                    <div class="dark-mode-toggle">
-                        <span class="mode-text">Dark mode</span>
-                        <div class="toggle-switch">
-                            <span class="switch"></span>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -115,7 +115,7 @@
   </div>
   
 <!-- First Modal (Survey Intro) -->
-<div id="popupModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+<div id="popupModal" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
     <!-- Survey Intro Content -->
     <div id="surveyIntro" class="bg-white rounded-lg shadow-lg p-6 w-10/12 max-w-md max-h-[80vh] overflow-y-auto mt-8 relative">
         <h2 class="text-lg font-bold mb-4 text-center">Survey Invitation</h2>
@@ -132,31 +132,51 @@
         </div>
     </div>
 
-    <!-- Survey Form Content -->
-    <div id="surveyForm" class="hidden bg-white rounded-lg shadow-lg p-6 w-10/12 max-w-lg max-h-[80vh] overflow-y-auto mt-8 relative">
-        <h2 class="text-lg font-bold mb-4 text-center">SMEasy Survey</h2>
-        <ul class="flex justify-center border-b mb-4 text-sm">
-            <li class="mr-4">
-                <a class="text-orange-500 font-bold" href="#">User Information</a>
-            </li>
-            <li class="mr-4">
-                <a class="text-gray-400" href="#">Preference</a>
-            </li>
-            <li>
-                <a class="text-gray-400" href="#">Market Demands</a>
-            </li>
-        </ul>
-        <form id="survey" class="space-y-4 text-sm">
-            <!-- Age Range -->
-            <div>
-                <label class="block font-semibold mb-1">Age Range:</label>
-                <div class="grid grid-cols-2 gap-2">
-                    <label><input type="radio" name="age" value="18-29" /> 18-29</label>
-                    <label><input type="radio" name="age" value="30-39" /> 30-39</label>
-                    <label><input type="radio" name="age" value="40-59" /> 40-59</label>
-                    <label><input type="radio" name="age" value="60+" /> 60+</label>
-                </div>
+   <!-- Second Modal: Survey Form -->
+<div id="surveyForm" class="hidden bg-white rounded-lg shadow-lg p-6 w-10/12 max-w-lg max-h-[80vh] overflow-y-auto mt-8 relative">
+    <h2 class="text-lg font-bold mb-4 text-center">SMEasy Survey</h2>
+    <ul class="flex justify-center border-b mb-4 text-sm">
+        <li class="mr-4">
+            <a class="text-orange-500 font-bold" href="#">User Information</a>
+        </li>
+        <li class="mr-4">
+            <a class="text-gray-400" href="#">Preference</a>
+        </li>
+        <li>
+            <a class="text-gray-400" href="#">Market Demands</a>
+        </li>
+    </ul>
+    <form id="survey" class="space-y-4 text-sm">
+        <!-- Month Conducted Dropdown -->
+        <div>
+            <label for="monthConducted" class="block font-semibold mb-1">Month Conducted:</label>
+            <select id="monthConducted" name="month_conducted" class="w-full border rounded-md p-2">
+                <option value="" disabled selected>Select a month</option>
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+            </select>
+        </div>
+
+        <!-- Age Range -->
+        <div>
+            <label class="block font-semibold mb-1">Age Range:</label>
+            <div class="grid grid-cols-2 gap-2">
+                <label><input type="radio" name="age_range" value="18-29" /> 18-29</label>
+                <label><input type="radio" name="age_range" value="30-39" /> 30-39</label>
+                <label><input type="radio" name="age_range" value="40-59" /> 40-59</label>
+                <label><input type="radio" name="age_range" value="60+" /> 60+</label>
             </div>
+        </div>
 
             <!-- Gender -->
             <div>
@@ -224,12 +244,441 @@
             </div>
         </form>
     </div>
+
+    <!-- Third Modal: Preferences -->
+<div id="preferencesForm" class="bg-white rounded-lg shadow-lg p-6 w-10/12 max-w-md modal-scrollable hidden">
+    <h2 class="text-lg font-bold mb-4 text-center">SMEasy Survey</h2>
+    <ul class="flex justify-center border-b mb-4 text-sm">
+        <li class="mr-4">
+            <a id="tabUserInfo2" class="text-gray-400 cursor-pointer">User Information</a>
+        </li>
+        <li class="mr-4">
+            <a id="tabPreferences2" class="text-orange-500 font-bold cursor-pointer">Preferences</a>
+        </li>
+        <li>
+            <a id="tabMarketDemands2" class="text-gray-400 cursor-pointer">Market Demands</a>
+        </li>
+    </ul>
+    <form id="preferences" class="space-y-4 text-sm">
+        <!-- Business Type -->
+        <div>
+            <label class="block font-semibold mb-2">Which types of businesses do you frequently visit in your barangay?</label>
+            <div class="grid grid-cols-2 gap-2">
+                <label><input type="radio" name=" business_visits" value="Grocery stores" /> Grocery stores</label>
+                <label><input type="radio" name=" business_visits" value="Restaurants and cafes" /> Restaurants and cafes</label>
+                <label><input type="radio" name=" business_visits" value="Clothing stores" /> Clothing stores</label>
+                <label><input type="radio" name=" business_visits" value="Pharmacies" /> Pharmacies</label>
+                <label><input type="text" name=" business_visits" placeholder="Others (Please specify)" class="border rounded p-1 w-full" /></label>
+            </div>
+        </div>
+
+        <!-- Frequency of Visits -->
+        <div>
+            <label class="block font-semibold mb-2">How often do you visit businesses in your barangay?</label>
+            <div class="flex space-x-4">
+                <label><input type="radio" name="frequency_visits" value="Daily" /> Daily</label>
+                <label><input type="radio" name="frequency_visits" value="Several Times a Week" /> Several Times a week</label>
+                <label><input type="radio" name="frequency_visits" value="Weekly" /> Weekly</label>
+                <label><input type="radio" name="frequency_visits" value="Monthly" /> Monthly</label>
+                <label><input type="radio" name="frequency_visits" value="Rarely" /> Rarely</label>
+            </div>
+        </div>
+
+        <!-- Browsing Behavior -->
+        <div>
+            <label class="block font-semibold mb-2">Which of the following best describes your browsing behavior before purchasing?</label>
+            <div class="flex space-x-4">
+                <label><input type="radio" name="browsing_behavior" value="Through Research" /> Through Research</label>
+                <label><input type="radio" name="browsing_behavior" value="In-Store Exploration" /> In-Store Exploration</label>
+                <label><input type="radio" name="browsing_behavior" value="Quick Decision" /> Quick Decision</label>
+                <label><input type="radio" name="browsing_behavior" value="Casual Browsing" /> Casual Browsing</label>
+                <label><input type="radio" name="browsing_behavior" value="Social Influence" /> Social Influence</label>
+            </div>
+        </div>
+
+         <!-- Agreement Questions -->
+         <div>
+            <label class="block font-semibold mb-2">I am satisfied with the variety of businesses currently available in my barangay.</label>
+            <div class="grid grid-cols-5 gap-2">
+                <label><input type="radio" name="satisfaction_with_businesses" value="4" /> Strongly Agree</label>
+                <label><input type="radio" name="satisfaction_with_businesses" value="3"/> Agree</label>
+                <label><input type="radio" name="satisfaction_with_businesses" value="2"  /> Disagree</label>
+                <label><input type="radio" name="satisfaction_with_businesses" value="1" /> Strongly Disagree</label>
+            </div>
+        </div>
+        <div>
+            <label class="block font-semibold mb-2">There are businesses that I think are lacking in my barangay.</label>
+            <div class="grid grid-cols-5 gap-2">
+                <label><input type="radio" name="businesses_lacking" value="4" /> Strongly Agree</label>
+                <label><input type="radio" name="businesses_lacking" value="3" /> Agree</label>
+                <label><input type="radio" name="businesses_lacking" value="2" /> Disagree</label>
+                <label><input type="radio" name="businesses_lacking" value="1" /> Strongly Disagree</label>
+            </div>
+        </div>
+
+        <!-- Shopping Preference -->
+        <div>
+            <label class="block font-semibold mb-2">Which of the following do you prefer more when shopping?</label>
+            <div class="flex space-x-4">
+                <label><input type="radio" name="shopping_preferences" value="Online" /> Online</label>
+                <label><input type="radio" name="shopping_preferences" value="In-Store" /> In-Store</label>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="flex justify-between items-center">
+            <span class="text-gray-500 text-xs">1/3</span>
+            <button type="submit" id="finalSubmit" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-md">
+                Next
+            </button>
+        </div>
+    </form>
+</div>
+
+<!-- Fourth Modal: Preferences Part 2 -->
+<div id="preferencesForm2" class="bg-white rounded-lg shadow-lg p-6 w-10/12 max-w-md modal-scrollable hidden">
+    <h2 class="text-lg font-bold mb-4 text-center">SMEasy Survey</h2>
+    <ul class="flex justify-center border-b mb-4 text-sm">
+        <li class="mr-4">
+            <a id="tabUserInfo4" class="text-gray-400 cursor-pointer">User Information</a>
+        </li>
+        <li class="mr-4">
+            <a id="tabPreferences4" class="text-orange-500 font-bold cursor-pointer">Preferences</a>
+        </li>
+        <li>
+            <a id="tabMarketDemands4" class="text-gray-400 cursor-pointer">Market Demands</a>
+        </li>
+    </ul>
+    <form id="preferencesPart2" class="space-y-4 text-sm">
+        <!-- What Motivates You -->
+        <div>
+            <label class="block font-semibold mb-2">What motivates you to choose certain businesses over others?</label>
+            <div class="grid grid-cols-2 gap-2">
+                <label><input type="radio" name="motivation_for_choosing_businesses" value="Price" /> Price</label>
+                <label><input type="radio" name="motivation_for_choosing_businesses" value="Quality" /> Quality</label>
+                <label><input type="radio" name="motivation_for_choosing_businesses" value="Convenience" /> Convenience</label>
+                <label><input type="radio" name="motivation_for_choosing_businesses" value="Variety" /> Variety</label>
+                <label><input type="radio" name="motivation_for_choosing_businesses" value="Customer Services" /> Customer Services</label>
+            </div>
+        </div>
+
+        <!-- Traits -->
+        <div>
+            <label class="block font-semibold mb-2">Which of these traits best describe you when it comes to shopping?</label>
+            <div class="grid grid-cols-2 gap-2">
+                <label><input type="radio" name="shopping_traits" value="Practical" /> Practical</label>
+                <label><input type="radio" name="shopping_traits" value="Loyal" /> Loyal</label>
+                <label><input type="radio" name="shopping_traits" value="Adventurous" /> Adventurous</label>
+                <label><input type="radio" name="shopping_traits" value="Spontaneous" /> Spontaneous</label>
+                <label><input type="radio" name="shopping_traits" value="Trend-Follower" /> Trend-Follower</label>
+                <label><input type="radio" name="shopping_traits" value="Detail-Oriented" /> Detail-Oriented</label>
+            </div>
+        </div>
+
+        <!-- Factors -->
+        <div>
+            <label class="block font-semibold mb-2">What factors influence your decision to visit a new business?</label>
+            <div class="grid grid-cols-2 gap-2">
+                <label><input type="radio" name="factors_for_new_business" value="Curiosity" /> Curiosity</label>
+                <label><input type="radio" name="factors_for_new_business" value="Promotions" /> Promotions</label>
+                <label><input type="radio" name="factors_for_new_business" value="Recommendation" /> Recommendation</label>
+                <label><input type="radio" name="factors_for_new_business" value="Reputation" /> Reputation</label>
+                <label><input type="radio" name="factors_for_new_business" value="Advertisement" /> Advertisement</label>
+            </div>
+        </div>
+
+        <!-- Shopping Style -->
+        <div>
+            <label class="block font-semibold mb-2">How would you describe your typical shopping style?</label>
+            <div class="flex space-x-4">
+                <label><input type="radio" name="shopping_style" value="Planned" /> Planned</label>
+                <label><input type="radio" name="shopping_style" value="Impulsive" /> Impulsive</label>
+                <label><input type="radio" name="shopping_style" value="Impulsive" />Research-Driven</label>
+            </div>
+        </div>
+
+        <!-- Values -->
+        <div>
+            <label class="block font-semibold mb-2">Which values matter most to you when supporting a business?</label>
+            <div class="grid grid-cols-2 gap-2">
+                <label><input type="radio" name="values_supported" value="Sustainability" /> Sustainability</label>
+                <label><input type="radio" name="values_supported" value="Community Support" /> Community Support</label>
+                <label><input type="radio" name="values_supported" value="High Standard and Consistency" /> High Standard and Consistency</label>
+                <label><input type="radio" name="values_supported" value="Trustworthiness" /> Trustworthiness</label>
+                <label><input type="radio" name="values_supported" value="Affordability" /> Affordability</label>
+            </div>
+        </div>
+
+        <!-- Next Button -->
+        <div class="flex justify-end">
+            <button type="submit" id="toMarketDemands" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-md">
+                Next
+            </button>
+        </div>
+    </form>
+</div>
+
+<!-- Fifth Modal: Transportation and Accessibility -->
+<div id="marketDemandsForm" class="bg-white rounded-lg shadow-lg p-6 w-10/12 max-w-md modal-scrollable hidden">
+    <h2 class="text-lg font-bold mb-4 text-center">SMEasy Survey</h2>
+    <ul class="flex justify-center border-b mb-4 text-sm">
+        <li class="mr-4">
+            <a id="tabUserInfo5" class="text-gray-400 cursor-pointer">User Information</a>
+        </li>
+        <li class="mr-4">
+            <a id="tabPreferences5" class="text-orange-500 font-bold cursor-pointer">Preferences</a>
+        </li>
+        <li>
+            <a id="tabMarketDemands5" class="text-gray-400 cursor-pointer">Market Demands</a>
+        </li>
+    </ul>
+    <form id="marketDemands" class="space-y-4 text-sm">
+        <!-- Transportation Links -->
+        <div>
+            <label class="block font-semibold mb-2">Transportation and Accessibility in your Barangay</label>
+            <div class="space-y-4">
+                <div>
+                    <label class="block font-medium mb-1">Transportation links to and within my barangay are excellent.</label>
+                    <div class="grid grid-cols-1 gap-2">
+                        <label><input type="radio" name="transportation_links" value="4" /> Strongly Agree</label>
+                        <label><input type="radio" name="transportation_links" value="3" /> Agree</label>
+                        <label><input type="radio" name="transportation_links" value="2" /> Disagree</label>
+                        <label><input type="radio" name="transportation_links" value="1" /> Strongly Disagree</label>
+                    </div>
+                </div>
+                <div>
+                    <label class="block font-medium mb-1">Commercial spaces in my barangay are easily accessible.</label>
+                    <div class="grid grid-cols-1 gap-2">
+                        <label><input type="radio" name="commercial_accessibility" value="4" /> Strongly Agree</label>
+                        <label><input type="radio" name="commercial_accessibility" value="3" /> Agree</label>
+                        <label><input type="radio" name="commercial_accessibility" value="2" /> Disagree</label>
+                        <label><input type="radio" name="commercial_accessibility" value="1" /> Strongly Disagree</label>
+                    </div>
+                </div>
+                <div>
+                    <label class="block font-medium mb-1">I am willing to travel outside my barangay for better shopping options.</label>
+                    <div class="grid grid-cols-1 gap-2">
+                        <label><input type="radio" name="travel_outside_barangay" value="4" /> Strongly Agree</label>
+                        <label><input type="radio" name="travel_outside_barangay" value="3" /> Agree</label>
+                        <label><input type="radio" name="travel_outside_barangay" value="2" /> Disagree</label>
+                        <label><input type="radio" name="travel_outside_barangay" value="1" /> Strongly Disagree</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Challenges -->
+        <div>
+            <label class="block font-semibold mb-2">What challenges do you face when accessing businesses in your barangay?</label>
+            <div class="grid grid-cols-1 gap-2">
+                <label><input type="radio" name="transportation_challenges" value="Lack of public transportation options" /> Lack of public transportation options</label>
+                <label><input type="radio" name="transportation_challenges" value="Poor road conditions" /> Poor road conditions</label>
+                <label><input type="radio" name="transportation_challenges" value="Traffic congestion" /> Traffic congestion</label>
+                <label><input type="radio" name="transportation_challenges" value="Safety concerns" /> Safety concerns</label>
+                <label><input type="radio" name="transportation_challenges" value="Long travel distances" /> Long travel distances</label>
+                <label><input type="radio" name="transportation_challenges" value="Inadequate pedestrian pathways" /> Inadequate pedestrian pathways</label>
+            </div>
+        </div>
+
+        <!-- Next Button -->
+        <div class="flex justify-end">
+            <button type="submit" id="submitSurvey" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-md">
+                Next
+            </button>
+        </div>
+    </form>
 </div>
 
 
+<!-- Sixth Modal: High Demand Categories -->
+<div id="highDemandForm" class="bg-white rounded-lg shadow-lg p-6 w-10/12 max-w-lg modal-scrollable hidden">
+    <h2 class="text-lg font-bold mb-4 text-center">SMEasy Survey</h2>
+    <ul class="flex justify-center border-b mb-4 text-sm">
+        <li class="mr-4">
+            <a id="tabUserInfo6" class="text-gray-400 cursor-pointer">User Information</a>
+        </li>
+        <li class="mr-4">
+            <a id="tabPreferences6" class="text-gray-400 cursor-pointer">Preferences</a>
+        </li>
+        <li>
+            <a id="tabMarketDemands6" class="text-orange-500 font-bold cursor-pointer">Market Demands</a>
+        </li>
+    </ul>
+    <form id="highDemand" class="space-y-4 text-sm">
+        <div>
+            <label class="block font-semibold mb-4">There are high demands in these categories in my barangay:</label>
+            <div class="overflow-x-auto">
+                <table class="table-auto border-collapse border border-gray-200 w-full text-left text-sm">
+                    <thead>
+                        <tr>
+                            <th class="border border-gray-200 px-4 py-2">Category</th>
+                            <th class="border border-gray-200 px-4 py-2 text-center">SA</th>
+                            <th class="border border-gray-200 px-4 py-2 text-center">A</th>
+                            <th class="border border-gray-200 px-4 py-2 text-center">D</th>
+                            <th class="border border-gray-200 px-4 py-2 text-center">SD</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--1-->
+                        <tr>
+                            <td class="border border-gray-200 px-4 py-2">Automotive Services</td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="automotive_services" value="4" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="automotive_services" value="3" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="automotive_services" value="2" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="automotive_services" value="1" /></td>
+                        </tr>
+                        <!--2-->
+                        <tr>
+                            <td class="border border-gray-200 px-4 py-2">Construction and Real Estate</td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="construction_and_real_estate" value="4" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="construction_and_real_estate" value="3" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="construction_and_real_estate" value="2" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="construction_and_real_estate" value="1" /></td>
+                        </tr>
+                        <!--3-->
+                        <tr>
+                            <td class="border border-gray-200 px-4 py-2">Cooperative Business</td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="cooperative_business" value="4" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="cooperative_business" value="3" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="cooperative_business" value="2" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="cooperative_business" value="1" /></td>
+                        </tr>
+                        <!--4-->
+                        <tr>
+                            <td class="border border-gray-200 px-4 py-2">Creative and Media Services</td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="creative_and_media_services" value="4" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="creative_and_media_services" value="3" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="creative_and_media_services" value="2" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="creative_and_media_services" value="1" /></td>
+                        </tr>
+                        <!--5-->
+                        <tr>
+                            <td class="border border-gray-200 px-4 py-2">Educational Services</td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="educational_services" value="4" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="educational_services" value="3" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="educational_services" value="2" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="educational_services" value="1" /></td>
+                        </tr>
+                        <!--6-->
+                        <tr>
+                            <td class="border border-gray-200 px-4 py-2">Entertainment and Recreation</td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="entertainment_and_recreation" value="4" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="entertainment_and_recreation" value="3" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="entertainment_and_recreation" value="2" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="entertainment_and_recreation" value="1" /></td>
+                        </tr>
+                        <!--7-->
+                        <tr>
+                            <td class="border border-gray-200 px-4 py-2">Finance and Insurance</td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="finance_and_insurance"value="4" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="finance_and_insurance"value="3" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="finance_and_insurance" value="2" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="finance_and_insurance" value="1" /></td>
+                        </tr>
+                         <!--8-->
+                         <tr>
+                            <td class="border border-gray-200 px-4 py-2">Food Services</td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="food_services" value="4" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="food_services" value="3" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="food_services" value="2" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="food_services" value="1" /></td>
+                        </tr>
+                        <!--9-->
+                        <tr>
+                            <td class="border border-gray-200 px-4 py-2">Healthcare Services</td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="healthcare_services" value="4" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="healthcare_services" value="3" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="healthcare_services" value="2" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="healthcare_services" value="1" /></td>
+                        </tr>
+                        <!--10-->
+                        <tr>
+                            <td class="border border-gray-200 px-4 py-2">IT and Digital Services</td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="it_and_digital_services" value="4" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="it_and_digital_services" value="3" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="it_and_digital_services" value="2" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="it_and_digital_services" value="1" /></td>
+                        </tr>
+                        <!--11-->
+                        <tr>
+                            <td class="border border-gray-200 px-4 py-2">Manufacturing and Production</td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="manufacturing_and_production" value="4" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="manufacturing_and_production" value="3" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="manufacturing_and_production" value="2" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="manufacturing_and_production" value="1" /></td>
+                        </tr>
+                        <!--12-->
+                        <tr>
+                            <td class="border border-gray-200 px-4 py-2">Personal and Household Services</td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="personal_and_household_services" value="4" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="personal_and_household_services" value="3" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="personal_and_household_services" value="2" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="personal_and_household_services" value="1" /></td>
+                        </tr>
+                         <!--13-->
+                         <tr>
+                            <td class="border border-gray-200 px-4 py-2">Personal Care Services</td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="personal_care_services" value="4" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="personal_care_services" value="3" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="personal_care_services" value="2" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="personal_care_services" value="1" /></td>
+                        </tr>
+                        <!--14-->
+                        <tr>
+                            <td class="border border-gray-200 px-4 py-2">Professional Services</td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="professional_services" value="4" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="professional_services" value="3" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="professional_services" value="2" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="professional_services" value="1" /></td>
+                        </tr>
+                        <!--15-->
+                        <tr>
+                            <td class="border border-gray-200 px-4 py-2">Retail Stores</td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="retail_stores" value="4" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="retail_stores" value="3" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="retail_stores" value="2" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="retail_stores" value="1" /></td>
+                        </tr>
+                        <!--16-->
+                        <tr>
+                            <td class="border border-gray-200 px-4 py-2">Tourism and Hospitality</td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="tourism_and_hospitality" value="4" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="tourism_and_hospitality" value="3" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="tourism_and_hospitality" value="2" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="tourism_and_hospitality" value="1" /></td>
+                        </tr>
+                        <!--17-->
+                        <tr>
+                            <td class="border border-gray-200 px-4 py-2">Transportation and Logistic</td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="transportation_and_logistics" value="4" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="transportation_and_logistics" value="3" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="transportation_and_logistics"value="2" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="transportation_and_logistics" value="1" /></td>
+                        </tr>
+                        <!--18-->
+                        <tr>
+                            <td class="border border-gray-200 px-4 py-2">Wholesale and Distribution</td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="wholesale_and_distribution" value="4" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="wholesale_and_distribution"  value="3" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="wholesale_and_distribution"  value="2" /></td>
+                            <td class="border border-gray-200 px-4 py-2 text-center"><input type="radio" name="wholesale_and_distribution"  value="1" /></td>
+                        </tr>
+                       
+                        <!-- Add more rows for other categories as needed -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-
-
+        <!-- Submit Button -->
+        <div class="flex justify-end">
+            <button type="submit" id="finalSubmit" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-md">
+                Submit
+            </button>
+        </div>
+    </form>
+</div>
+</div>
 
     <!-- Main content -->
     <div id="google-map"></div>
@@ -240,6 +689,7 @@
 
 
     <script src="homepage.js"></script>
+    <script src="userFirebase.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

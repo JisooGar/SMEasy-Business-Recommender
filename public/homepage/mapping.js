@@ -614,10 +614,10 @@ function populateCategoryDropdown() {
                     case 'Cooperative Business':
                         categoryIcon = '/images/icons/cooperative.png';
                         break;
-                    case 'Creative and Media Service':
+                    case 'Creative and Media Services':
                         categoryIcon = '/images/icons/creative_media.png';
                         break;
-                    case 'Education Services':
+                    case 'Educational Services':
                         categoryIcon = '/images/icons/education.png';
                         break;
                     case 'Entertainment and Recreation':
