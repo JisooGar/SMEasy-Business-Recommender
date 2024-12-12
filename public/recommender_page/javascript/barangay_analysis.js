@@ -1007,30 +1007,39 @@ async function runAnalysisModel(selectedCategory, selectedBarangay) {
     "Wholesale and Distribution": ["30-39", "40-59"],
   };
 
-  // Function to calculate mode
-  function calculateMode(data) {
-    const counts = {};
-    data.forEach((item) => {
+ // Function to calculate mode
+function calculateMode(data) {
+  const counts = {};
+
+  data.forEach((item) => {
+    // Only proceed if item is a valid non-null, non-undefined string
+    if (item && typeof item === 'string') {
       const values = item.split(",").map((val) => val.trim()); // Handle comma-separated values
       values.forEach((value) => {
         counts[value] = (counts[value] || 0) + 1;
       });
-    });
-
-    let maxCount = 0;
-    const modes = [];
-    for (const [key, count] of Object.entries(counts)) {
-      if (count > maxCount) {
-        maxCount = count;
-        modes.length = 0; // Reset modes
-        modes.push(key);
-      } else if (count === maxCount) {
-        modes.push(key);
-      }
+    } else {
+      // Skip null, undefined, or non-string items
+      console.warn("Skipping invalid item:", item);
     }
+  });
 
-    return modes.join(", ");
+  let maxCount = 0;
+  const modes = [];
+  for (const [key, count] of Object.entries(counts)) {
+    if (count > maxCount) {
+      maxCount = count;
+      modes.length = 0; // Reset modes
+      modes.push(key);
+    } else if (count === maxCount) {
+      modes.push(key);
+    }
   }
+
+  return modes.join(", ");
+}
+
+
 
   // Fetch the psychographic data for the selected barangay
   const responsePsychographic = await fetch(

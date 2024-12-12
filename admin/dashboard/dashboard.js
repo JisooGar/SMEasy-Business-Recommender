@@ -116,18 +116,64 @@ const fetchSMEData = async () => {
     }
 };
 
-function editSME(id) {
-    alert(`Edit SME with ID: ${id}`);
-    // Add your edit logic here
+
+// Edit SME Function
+async function editSME(id) {
+    try {
+        // Fetch the business details by ID
+        const response = await fetch(`/api/business/${id}`);
+        if (!response.ok) throw new Error("Failed to fetch business details");
+
+        const business = await response.json();
+
+        // Populate the modal with fetched data
+        document.getElementById("businessName").value = business.business_name || "";
+        document.getElementById("address").value = business.address || "";
+        document.getElementById("subarea").value = business.subarea_name || "";
+        document.getElementById("barangay").value = business.barangay_name || "";
+        document.getElementById("latitude").value = business.latitude || "";
+        document.getElementById("longitude").value = business.longitude || "";
+        document.getElementById("industry").value = business.sme_type || "";
+        document.getElementById("category").value = business.category_name || "";
+        document.getElementById("subcategory").value = business.subcategory_name || "";
+
+        // Set `selectedBusinessIndex` to the business ID for updating
+        selectedBusinessIndex = id;
+
+        // Show the modal
+        addEditBusinessModal.classList.remove("hidden");
+    } catch (error) {
+        console.error("Error fetching business:", error);
+        alert("An error occurred while fetching the business details.");
+    }
 }
 
-function deleteSME(id) {
-    alert(`Delete SME with ID: ${id}`);
-    // Add your delete logic here
+// Delete SME Function
+async function deleteSME(id) {
+    if (!confirm(`Are you sure you want to delete business with ID ${id}? This action cannot be undone.`)) {
+        return; // Exit if user cancels
+    }
+
+    try {
+        const response = await fetch(`/api/business/${id}`, { method: "DELETE" });
+        if (response.ok) {
+            alert("Business deleted successfully!");
+            fetchSMEData(); // Refresh the table
+        } else {
+            const error = await response.json();
+            throw new Error(error.message || "Failed to delete business.");
+        }
+    } catch (error) {
+        console.error("Error deleting business:", error);
+        alert("An error occurred while deleting the business. Please try again.");
+    }
 }
 
-// Call fetchSMEData on page load
+  
+
+// Initialize by fetching SME data on page load
 fetchSMEData();
+
 
 
 
@@ -154,24 +200,62 @@ addBusinessButton.addEventListener("click", () => {
     addEditBusinessModal.classList.remove("hidden"); // Show modal
 });
 
-// Show the Add/Edit Business modal (for adding new business)
-addBusinessButton.addEventListener('click', () => {
-    // Clear the form for new entries
-    addEditBusinessForm.reset();
-    selectedBusinessIndex = null; // Set to null for new business
-    addEditBusinessModal.classList.remove('hidden'); // Show modal
-});
+// // Show the Add/Edit Business modal (for adding new business)
+// addBusinessButton.addEventListener('click', () => {
+//     // Clear the form for new entries
+//     addEditBusinessForm.reset();
+//     selectedBusinessIndex = null; // Set to null for new business
+//     addEditBusinessModal.classList.remove('hidden'); // Show modal
+// });
 
 // Close Modal
 const closeModal = () => addEditBusinessModal.classList.add("hidden");
 closeAddEditBusinessModal.addEventListener("click", closeModal);
 cancelAddEditBusiness.addEventListener("click", closeModal);
 
+// //Working One
+// addEditBusinessForm.addEventListener("submit", async (e) => {
+//     e.preventDefault();
+
+//     const newBusiness = {
+//         name: document.getElementById("businessName").value.trim(),
+//         address: document.getElementById("address").value.trim(),
+//         subarea: document.getElementById("subarea").value.trim(),
+//         barangay: document.getElementById("barangay").value.trim(),
+//         latitude: document.getElementById("latitude").value.trim(),
+//         longitude: document.getElementById("longitude").value.trim(),
+//         industry: document.getElementById("industry").value.trim(),
+//         category: document.getElementById("category").value.trim(),
+//         subcategory: document.getElementById("subcategory").value.trim(),
+//     };
+
+//     try {
+//         const response = await fetch("/api/business", {
+//             method: "POST",
+//             headers: { "Content-Type": "application/json" },
+//             body: JSON.stringify(newBusiness),
+//         });
+
+//         if (response.ok) {
+//             const data = await response.json();
+//             alert(data.message || "Business added successfully!");
+//             await fetchSMEData(); // Refresh the table to include the new business
+//             addEditBusinessForm.reset();
+//             addEditBusinessModal.classList.add("hidden");
+//         } else {
+//             const error = await response.json();
+//             throw new Error(error.message || "Failed to add business.");
+//         }
+//     } catch (error) {
+//         console.error("Error adding business:", error);
+//         alert("An error occurred while adding the business. Please try again.");
+//     }
+// });
 
 addEditBusinessForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevent default form submission behavior
 
-    const newBusiness = {
+    const business = {
         name: document.getElementById("businessName").value.trim(),
         address: document.getElementById("address").value.trim(),
         subarea: document.getElementById("subarea").value.trim(),
@@ -184,25 +268,46 @@ addEditBusinessForm.addEventListener("submit", async (e) => {
     };
 
     try {
-        const response = await fetch("/api/business", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(newBusiness),
-        });
+        if (selectedBusinessIndex) {
+            // Edit existing business
+            const response = await fetch(`/api/business/${selectedBusinessIndex}`, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(business),
+            });
 
-        if (response.ok) {
-            const data = await response.json();
-            alert(data.message || "Business added successfully!");
-            await fetchSMEData(); // Refresh the table to include the new business
-            addEditBusinessForm.reset();
-            addEditBusinessModal.classList.add("hidden");
+            if (response.ok) {
+                const data = await response.json();
+                alert(data.message || "Business updated successfully!");
+                await fetchSMEData(); // Refresh table
+                closeModal(); // Close modal
+                selectedBusinessIndex = null; // Reset selected index
+            } else {
+                const error = await response.json();
+                throw new Error(error.message || "Failed to update business.");
+            }
         } else {
-            const error = await response.json();
-            throw new Error(error.message || "Failed to add business.");
+            // Add a new business
+            const response = await fetch("/api/business", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(business),
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                alert(data.message || "Business added successfully!");
+                await fetchSMEData(); // Refresh table
+                addEditBusinessForm.reset(); // Clear form
+                closeModal(); // Close modal
+            } else {
+                const error = await response.json();
+                throw new Error(error.message || "Failed to add business.");
+            }
         }
     } catch (error) {
-        console.error("Error adding business:", error);
-        alert("An error occurred while adding the business. Please try again.");
+        console.error("Error processing business:", error);
+        alert("An error occurred while processing the business. Please try again.");
     }
 });
 
@@ -233,6 +338,47 @@ fetchSMEData();
 
 
 
+// const renderSMETable = (data) => {
+//     tableHead.innerHTML = `
+//         <tr>
+//             <th class="px-4 py-2">ID</th>
+//             <th class="px-4 py-2">Name</th>
+//             <th class="px-4 py-2">Address</th>
+//             <th class="px-4 py-2">Barangay</th>
+//             <th class="px-4 py-2">Subarea</th>
+//             <th class="px-4 py-2">Latitude</th>
+//             <th class="px-4 py-2">Longitude</th>
+//             <th class="px-4 py-2">SME Type</th>
+//             <th class="px-4 py-2">Category</th>
+//             <th class="px-4 py-2">Subcategory</th>
+//             <th class="px-4 py-2">Actions</th>
+//         </tr>
+//     `;
+
+//     tableBody.innerHTML = ''; // Clear existing rows
+
+//     data.forEach((item) => {
+//         const row = document.createElement('tr');
+//         row.innerHTML = `
+//             <td class="px-4 py-2">${item.business_id}</td>
+//             <td class="px-4 py-2">${item.business_name}</td>
+//             <td class="px-4 py-2">${item.address || 'N/A'}</td>
+//             <td class="px-4 py-2">${item.barangay_name || 'N/A'}</td>
+//             <td class="px-4 py-2">${item.subarea_name || 'N/A'}</td>
+//             <td class="px-4 py-2">${item.latitude || 'N/A'}</td>
+//             <td class="px-4 py-2">${item.longitude || 'N/A'}</td>
+//             <td class="px-4 py-2">${item.sme_type || 'N/A'}</td>
+//             <td class="px-4 py-2">${item.category_name || 'N/A'}</td>
+//             <td class="px-4 py-2">${item.subcategory_name || 'N/A'}</td>
+//             <td class="px-4 py-2">
+//                 <button class="text-blue-500 hover:underline">Edit</button>
+//                 <button class="text-red-500 hover:underline">Delete</button>
+//             </td>
+//         `;
+//         tableBody.appendChild(row);
+//     });
+// };
+
 const renderSMETable = (data) => {
     tableHead.innerHTML = `
         <tr>
@@ -250,75 +396,65 @@ const renderSMETable = (data) => {
         </tr>
     `;
 
-    tableBody.innerHTML = ''; // Clear existing rows
+    tableBody.innerHTML = ""; // Clear existing rows
 
     data.forEach((item) => {
-        const row = document.createElement('tr');
+        const row = document.createElement("tr");
         row.innerHTML = `
             <td class="px-4 py-2">${item.business_id}</td>
             <td class="px-4 py-2">${item.business_name}</td>
-            <td class="px-4 py-2">${item.address || 'N/A'}</td>
-            <td class="px-4 py-2">${item.barangay_name || 'N/A'}</td>
-            <td class="px-4 py-2">${item.subarea_name || 'N/A'}</td>
-            <td class="px-4 py-2">${item.latitude || 'N/A'}</td>
-            <td class="px-4 py-2">${item.longitude || 'N/A'}</td>
-            <td class="px-4 py-2">${item.sme_type || 'N/A'}</td>
-            <td class="px-4 py-2">${item.category_name || 'N/A'}</td>
-            <td class="px-4 py-2">${item.subcategory_name || 'N/A'}</td>
+            <td class="px-4 py-2">${item.address || "N/A"}</td>
+            <td class="px-4 py-2">${item.barangay_name || "N/A"}</td>
+            <td class="px-4 py-2">${item.subarea_name || "N/A"}</td>
+            <td class="px-4 py-2">${item.latitude || "N/A"}</td>
+            <td class="px-4 py-2">${item.longitude || "N/A"}</td>
+            <td class="px-4 py-2">${item.sme_type || "N/A"}</td>
+            <td class="px-4 py-2">${item.category_name || "N/A"}</td>
+            <td class="px-4 py-2">${item.subcategory_name || "N/A"}</td>
             <td class="px-4 py-2">
-                <button class="text-blue-500 hover:underline">Edit</button>
-                <button class="text-red-500 hover:underline">Delete</button>
+                <button class="edit-button text-blue-500 hover:underline" data-id="${item.business_id}">Edit</button>
+                <button class="delete-button text-red-500 hover:underline" data-id="${item.business_id}">Delete</button>
             </td>
         `;
         tableBody.appendChild(row);
     });
 };
 
+//NEWLY ADDDED
+tableBody.addEventListener("click", (e) => {
+    const target = e.target;
 
-// Handle Edit and Delete Button Actions
-const attachActionHandlers = (data) => {
-    document.querySelectorAll('.edit-button').forEach((button) => {
-        button.addEventListener('click', () => {
+    // Handle Edit Button
+    if (target.classList.contains("edit-button")) {
+        const businessId = target.getAttribute("data-id");
+        editSME(businessId);
+    }
+
+    // Handle Delete Button
+    if (target.classList.contains("delete-button")) {
+        const businessId = target.getAttribute("data-id");
+        deleteSME(businessId);
+    }
+});
+
+// Attach Edit and Delete Button Handlers
+function attachActionHandlers(data) {
+    // Attach Edit Handlers
+    document.querySelectorAll(".edit-button").forEach((button) => {
+        button.addEventListener("click", async () => {
             const id = button.dataset.id;
-            const business = data.find((item) => item.business_id === parseInt(id, 10));
-            if (business) {
-                // Populate the form with business data
-                document.getElementById('businessName').value = business.business_name;
-                document.getElementById('address').value = business.address;
-                document.getElementById('barangay').value = business.barangay_name;
-                document.getElementById('subarea').value = business.subarea_name;
-                document.getElementById('latitude').value = business.latitude;
-                document.getElementById('longitude').value = business.longitude;
-                document.getElementById('industry').value = business.sme_type;
-                document.getElementById('category').value = business.category_name;
-                document.getElementById('subcategory').value = business.subcategory_name;
-
-                selectedBusinessIndex = id; // Store the selected ID
-                addEditBusinessModal.classList.remove('hidden'); // Show modal
-            }
+            await editSME(id); // Call edit function
         });
     });
 
-    document.querySelectorAll('.delete-button').forEach((button) => {
-        button.addEventListener('click', async () => {
+    // Attach Delete Handlers
+    document.querySelectorAll(".delete-button").forEach((button) => {
+        button.addEventListener("click", async () => {
             const id = button.dataset.id;
-            if (confirm(`Are you sure you want to delete the business with ID ${id}?`)) {
-                try {
-                    const response = await fetch(`/api/business/${id}`, { method: 'DELETE' });
-                    if (response.ok) {
-                        alert('Business deleted successfully');
-                        fetchSMEData(); // Refresh table
-                    } else {
-                        alert('Failed to delete business');
-                    }
-                } catch (error) {
-                    console.error('Error deleting business:', error);
-                }
-            }
+            await deleteSME(id); // Call delete function
         });
     });
-};
-
+}
 
 function renderGridTable(data) {
     const tableBody = document.getElementById('tableBody');

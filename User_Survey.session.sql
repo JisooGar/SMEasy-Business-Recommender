@@ -1,6 +1,5 @@
 
 SELECT * 
-FROM information_schema.tables
-WHERE table_schema = 'public' AND table_name = 'initial_survey';
-
+FROM information_schema.tables 
+WHERE table_name = 'initial_survey';
 

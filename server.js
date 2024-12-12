@@ -182,6 +182,8 @@ app.put("/api/business/:id", async (req, res) => {
       res.status(500).json({ error: "Failed to update business." });
   }
 });
+
+
 // app.get('/api/business', async (req, res) => {
 //   try {
 //       const results = await db.query('SELECT * FROM Business');
@@ -191,6 +193,63 @@ app.put("/api/business/:id", async (req, res) => {
 //       res.status(500).json({ success: false, message: "Failed to fetch businesses." });
 //   }
 // });
+
+app.get("/api/business/:id", async (req, res) => {
+  const { id } = req.params; // Extract the business ID from the request parameters
+
+  try {
+    const query = `
+      SELECT 
+        b.business_id,
+        b.business_name,
+        b.address,
+        br.barangay_name,
+        sa.subarea_name,
+        b.latitude,
+        b.longitude,
+        st.smetype_name AS sme_type,
+        c.category_name,
+        sc.subcategory_name
+      FROM Business b
+      LEFT JOIN Barangay br ON b.barangay_id = br.barangay_id
+      LEFT JOIN Subarea sa ON b.subarea_id = sa.subarea_id
+      LEFT JOIN smeType st ON b.smeType_id = st.smeType_id
+      LEFT JOIN Category c ON b.category_id = c.category_id
+      LEFT JOIN Subcategory sc ON b.subcategory_id = sc.subcategory_id
+      WHERE b.business_id = $1
+    `;
+
+    const result = await pool.query(query, [id]);
+
+    if (result.rowCount > 0) {
+      res.json(result.rows[0]); // Return the business details
+    } else {
+      res.status(404).json({ error: "Business not found." });
+    }
+  } catch (error) {
+    console.error("Error fetching business:", error);
+    res.status(500).json({ error: "Failed to fetch business details." });
+  }
+});
+
+app.delete("/api/business/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+      const query = `DELETE FROM Business WHERE business_id = $1 RETURNING *;`;
+      const result = await pool.query(query, [id]);
+
+      if (result.rowCount > 0) {
+          res.json({ message: "Business deleted successfully." });
+      } else {
+          res.status(404).json({ error: "Business not found." });
+      }
+  } catch (error) {
+      console.error("Error deleting business:", error);
+      res.status(500).json({ error: "Failed to delete business." });
+  }
+});
+
 
 //----------------------------FRONT PAGE-----------------------------//
 
@@ -223,9 +282,7 @@ const pool = new Pool({
   database: process.env.DB_DATABASE || "SME",
   password: process.env.DB_PASSWORD || "LittleStar",
   port: process.env.DB_PORT || 5432,
-  ssl: {
-    rejectUnauthorized: false,  // Allows self-signed certificates
-  },
+
 });
 
 // PostgreSQL connection setup for User_Survey
@@ -235,9 +292,7 @@ const UserSurveyPool = new Pool({
   database: process.env.USER_SURVEY_DB || "User_Survey",
   password: process.env.DB_PASSWORD || "LittleStar",
   port: process.env.DB_PORT || 5432,
-  ssl: {
-    rejectUnauthorized: false,  // Allows self-signed certificates
-  },
+
 });
 
 // Check if the connection is working right after setup
@@ -1331,7 +1386,7 @@ app.get("/api/subcategory-counts", async (req, res) => {
 // Route to  counts  per barangay
 app.get("/api/barangay-counts", async (req, res) => {
   try {
-    const { chosenCategory } = req.query; // Get the selectedBarangay from query
+    const { selectedCategory } = req.query; // Get the selectedBarangay from query
     const barangayCountQuery = `
     SELECT 
         b.barangay_name,
@@ -1348,7 +1403,7 @@ app.get("/api/barangay-counts", async (req, res) => {
         b.barangay_name;
     `;
     // Execute the query
-    const result = await pool.query(barangayCountQuery, [chosenCategory]);
+    const result = await pool.query(barangayCountQuery, [selectedCategory]);
     // Send the population data as a JSON response
     res.json(result.rows);
   } catch (err) {
@@ -1358,14 +1413,115 @@ app.get("/api/barangay-counts", async (req, res) => {
 });
 
 
+// Route to subcategory counts based on selected category
+app.get("/api/businesssubcategory-counts", async (req, res) => {
+  try {
+    const { selectedCategory } = req.query; // Get the selectedBarangay from query
+    const subCountQuery = `
+SELECT 
+    s.subcategory_name AS subcategory,
+    COUNT(b.business_id) AS counts
+FROM 
+    Category c
+JOIN 
+    Subcategory s ON c.category_id = s.parent_category_id
+LEFT JOIN 
+    Business b ON s.subcategory_id = b.subcategory_id
+WHERE 
+    c.category_name = $1  
+GROUP BY 
+    s.subcategory_name
+ORDER BY 
+    counts DESC;
+    `;
+    // Execute the query
+    const result = await pool.query(subCountQuery, [selectedCategory]);
+    // Send the population data as a JSON response
+    res.json(result.rows);
+  } catch (err) {
+    console.error("Error fetching barangay population:", err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+// Route to fetch population density per barangay
+app.get("/api/population-barangay", async (req, res) => {
+  try {
+    const result = await pool.query(`
+SELECT 
+    b.barangay_name AS Barangay,
+    b.population AS Population
+FROM 
+    Barangay b
+ORDER BY 
+    b.barangay_name;
+    `);
+
+    res.json(result.rows); // Send the raw population density data
+  } catch (err) {
+    console.error("Error fetching barangay population density:", err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+app.get("/api/barangay-average-demand1", async (req, res) => {
+  const { selectedCategory } = req.query;
+
+  // Normalize the selected category
+  const normalizedCategory = selectedCategory
+    .toLowerCase()
+    .replace(/\s+/g, "_");
+
+  console.log("Normalized Category:", normalizedCategory); // Debugging
+
+  try {
+    let query = `
+      SELECT barangay, AVG(${normalizedCategory}) AS average_demand
+      FROM initial_survey
+    `;
+
+    // Add condition to query only if a specific category is selected
+    if (normalizedCategory !== "all") {
+      query += ` WHERE ${normalizedCategory} IS NOT NULL`; // Adjust for valid categories
+    }
+
+    query += `
+      GROUP BY barangay
+      ORDER BY barangay;
+    `;
+
+    console.log("Final SQL Query:", query); // Debugging
+
+    const result = await UserSurveyPool.query(query);
+
+    res.json(result.rows);
+  } catch (err) {
+    console.error("Error fetching barangay average demand:", err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+
 
 //-----------------------------POP UP SURVEY-----------------------------//
+// Helper function to map text responses to numeric values
+function mapResponseValue(response) {
+  const mapping = {
+      "Strongly Disagree": 1,
+      "Disagree": 2,
+      "Agree": 3,
+      "Strongly Agree": 4
+  };
+  return mapping[response] || null; // Return null if the response is undefined or invalid
+}
+
+// Survey submission endpoint
 app.post('/submit-survey', async (req, res) => {
   try {
       console.log('Request Body:', req.body);
 
       // Test the database connection before doing anything else
-      const testQuery = await UserSurveyPool.query ('SELECT 1');
+      const testQuery = await UserSurveyPool.query('SELECT 1');
       console.log('Database Connected:', testQuery.rows);
 
       // Destructure request body
@@ -1383,14 +1539,13 @@ app.post('/submit-survey', async (req, res) => {
       } = req.body;
 
       if (!monthConducted || !ageRange || !gender || !education || !employment || !barangay) {
-        console.error('Validation failed. Missing required fields:', {
-            monthConducted, ageRange, gender, education, employment, barangay
-        });
-        return res.status(400).send({
-            error: 'Missing required fields: monthConducted, ageRange, gender, education, employment, barangay are all required.',
-        });
-    }
-    
+          console.error('Validation failed. Missing required fields:', {
+              monthConducted, ageRange, gender, education, employment, barangay
+          });
+          return res.status(400).send({
+              error: 'Missing required fields: monthConducted, ageRange, gender, education, employment, barangay are all required.',
+          });
+      }
 
       // Prepare SQL query and values
       const query = `
@@ -1414,47 +1569,56 @@ app.post('/submit-survey', async (req, res) => {
       `;
 
       const values = [
-        req.body.monthConducted,
-        req.body.ageRange,
-        req.body.gender,
-        req.body.education,
-        req.body.employment,
-        req.body.barangay,
-        req.body.businessVisits,
-        req.body.frequencyVisits,
-        req.body.browsingBehavior,
-        mapResponseValue(req.body.satisfactionWithBusinesses),
-        mapResponseValue(req.body.businessesLacking),
-        req.body.shoppingPreferences,
-        req.body.motivationForChoosingBusinesses,
-        req.body.shoppingTraits,
-        req.body.factorsForNewBusiness,
-        req.body.shoppingStyle,
-        req.body.valuesSupported,
-        mapResponseValue(req.body.transportationLinks),
-        mapResponseValue(req.body.commercialAccessibility),
-        mapResponseValue(req.body.travelOutsideBarangay),
-        req.body.transportationChallenges,
-        mapResponseValue(req.body.automotiveServices),
-        mapResponseValue(req.body.constructionAndRealEstate),
-        mapResponseValue(req.body.cooperativeBusiness),
-        mapResponseValue(req.body.creativeAndMediaServices),
-        mapResponseValue(req.body.educationalServices),
-        mapResponseValue(req.body.entertainmentAndRecreation),
-        mapResponseValue(req.body.financeAndInsurance),
-        mapResponseValue(req.body.foodServices),
-        mapResponseValue(req.body.healthcareServices),
-        mapResponseValue(req.body.itAndDigitalServices),
-        mapResponseValue(req.body.manufacturingAndProduction),
-        mapResponseValue(req.body.personalAndHouseholdServices),
-        mapResponseValue(req.body.personalCareServices),
-        mapResponseValue(req.body.professionalServices),
-        mapResponseValue(req.body.retailStores),
-        mapResponseValue(req.body.tourismAndHospitality),
-        mapResponseValue(req.body.transportationAndLogistics),
-        mapResponseValue(req.body.wholesaleAndDistribution)
-    ];
-    
+          monthConducted,
+          ageRange,
+          gender,
+          education,
+          employment,
+          barangay,
+          businessVisits,
+          frequencyVisits,
+          browsingBehavior,
+          satisfactionWithBusinesses,
+          businessesLacking,
+          shoppingPreferences,
+          motivationForChoosingBusinesses,
+          shoppingTraits,
+          factorsForNewBusiness,
+          shoppingStyle,
+          valuesSupported,
+          transportationLinks,
+          commercialAccessibility,
+          travelOutsideBarangay,
+          transportationChallenges,
+          automotiveServices,
+          constructionAndRealEstate,
+          cooperativeBusiness,
+          creativeAndMediaServices,
+          educationalServices,
+          entertainmentAndRecreation,
+          financeAndInsurance,
+          foodServices,
+          healthcareServices,
+          itAndDigitalServices,
+          manufacturingAndProduction,
+          personalAndHouseholdServices,
+          personalCareServices,
+          professionalServices,
+          retailStores,
+          tourismAndHospitality,
+          transportationAndLogistics,
+          wholesaleAndDistribution
+      ];
+
+      console.log('Mapped values:', {
+        satisfactionWithBusinesses: mapResponseValue(satisfactionWithBusinesses),
+        businessesLacking: mapResponseValue(businessesLacking),
+        transportationLinks: mapResponseValue(transportationLinks),
+        commercialAccessibility: mapResponseValue(commercialAccessibility),
+        travelOutsideBarangay: mapResponseValue(travelOutsideBarangay),
+        automotiveServices: mapResponseValue(automotiveServices),
+        constructionAndRealEstate: mapResponseValue(constructionAndRealEstate),
+    });
 
       // Log the SQL query and its values
       console.log('SQL Query:', query);
@@ -1472,12 +1636,6 @@ app.post('/submit-survey', async (req, res) => {
   }
 });
 
-
-
-// Route for the homepage (front.html inside the frontpage folder)
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "frontpage", "front.html"));
-});
 
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, "public")));
