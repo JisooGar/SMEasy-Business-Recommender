@@ -121,15 +121,9 @@
                 </table>
             </div>
             <!-- Analyze button with spinner below the table -->
-                <div class="button-section">
-                     <button class="btn analyze-btn" id="analyze-button" onclick="showSpinner(); handleAnalyze()">Analyze</button>
-                </div>
-
-            <!-- Spinner that appears in the middle of the screen -->
-                <div id="loading-spinner" style="display: none;">
-                    <div class="spinner"></div>
-                </div>
-
+            <div class="button-section">
+                <button class="btn analyze-btn" id="analyze-button" onclick="handleAnalyze()">Analyze</button>
+            </div>
         </div>
     </div>
 </section>
@@ -308,6 +302,11 @@
             <p id="recommendationSummary"></p>
         </div>
     </div>
+</div>
+
+
+<div id="loading-spinner" style="display: none;">
+    <div class="spinner"></div>
 </div>
 
 <script src="/homepage/homepage.js"></script>

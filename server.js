@@ -250,6 +250,66 @@ app.delete("/api/business/:id", async (req, res) => {
   }
 });
 
+// app.delete("/api/survey/:id", async (req, res) => {
+//   const { id } = req.params;
+
+//   try {
+//       const query = `DELETE FROM Initial_Survey WHERE response_id = $1 RETURNING *;`;
+//       const result = await pool.query(query, [id]);
+
+//       if (result.rowCount > 0) {
+//           res.json({ message: "Survey deleted successfully." });
+//       } else {
+//           res.status(404).json({ error: "Survey not found." });
+//       }
+//   } catch (error) {
+//       console.error("Error deleting survey:", error);
+//       res.status(500).json({ error: "Failed to delete survey." });
+//   }
+// });
+
+app.delete("/api/survey/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+      const query = `DELETE FROM public.initial_survey WHERE response_id = $1 RETURNING *;`;
+      const result = await UserSurveyPool.query(query, [id]); // Ensure you're using the correct pool for the survey DB
+
+      if (result.rowCount > 0) {
+          res.json({ message: "Survey deleted successfully.", survey: result.rows[0] });
+      } else {
+          res.status(404).json({ error: `Survey with ID ${id} not found.` });
+      }
+  } catch (error) {
+      console.error("Error deleting survey:", error.message);
+      res.status(500).json({ error: "Failed to delete survey." });
+  }
+});
+
+app.delete('/api/surveys/undefined', async (req, res) => {
+  try {
+      // Define the criteria for "undefined" surveys
+      const query = `
+          DELETE FROM public.initial_survey
+          WHERE
+              response_id IS NULL;
+      `;
+
+      // Execute the query
+      const result = await UserSurveyPool.query(query);
+
+      // Send the response
+      if (result.rowCount > 0) {
+          res.json({ message: `${result.rowCount} undefined surveys were deleted successfully.` });
+      } else {
+          res.json({ message: 'No undefined surveys found to delete.' });
+      }
+  } catch (error) {
+      console.error('Error deleting undefined surveys:', error.message, error.stack);
+      res.status(500).json({ error: 'Failed to delete undefined surveys.' });
+  }
+});
+
 
 //----------------------------FRONT PAGE-----------------------------//
 
@@ -718,6 +778,41 @@ app.get('/api/market-demands', async (req, res) => {
       res.status(500).json({ error: 'Failed to fetch Market Demands data' });
   }
 });
+
+// API to search SME data
+app.get("/api/smes/search", async (req, res) => {
+  try {
+    const searchQuery = req.query.q || ""; // Get the search query from the query parameter
+    const query = `
+          SELECT 
+              b.business_id,
+              b.business_name,
+              b.address,
+              br.barangay_name,
+              sa.subarea_name,
+              b.latitude,
+              b.longitude,
+              st.smetype_name AS sme_type,
+              c.category_name,
+              sc.subcategory_name
+          FROM Business b
+          LEFT JOIN Barangay br ON b.barangay_id = br.barangay_id
+          LEFT JOIN Subarea sa ON b.subarea_id = sa.subarea_id
+          LEFT JOIN smeType st ON b.smeType_id = st.smeType_id
+          LEFT JOIN Category c ON b.category_id = c.category_id
+          LEFT JOIN Subcategory sc ON b.subcategory_id = sc.subcategory_id
+          WHERE LOWER(b.business_name) LIKE $1 OR CAST(b.business_id AS TEXT) LIKE $1
+          ORDER BY b.business_id ASC;
+      `;
+    const values = [`%${searchQuery.toLowerCase()}%`]; // Use placeholders for search terms
+    const result = await pool.query(query, values);
+    res.json(result.rows); // Return the filtered data as JSON
+  } catch (err) {
+    console.error("Error searching SME data:", err);
+    res.status(500).json({ error: "Failed to search SME data" });
+  }
+});
+
 
 
 //-----------------------------ANALYSIS DASHBOARD-----------------------------//
@@ -1625,7 +1720,7 @@ app.post('/submit-survey', async (req, res) => {
       console.log('Query Values:', values);
 
       // Execute the query
-      const result = await UserSurveyPool.query(query, values);
+      const result = await UserSurveyPool.query(query, values); // tama na pala
       console.log('Database Insertion Result:', result);
 
       res.status(200).send({ message: 'Survey data successfully submitted' });

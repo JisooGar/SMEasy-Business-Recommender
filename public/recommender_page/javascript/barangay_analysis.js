@@ -229,6 +229,8 @@ document.addEventListener("DOMContentLoaded", async function () {
       recommendationData.suggestedData.mainCategory1;
     document.getElementById("topAreaType2").textContent =
       recommendationData.suggestedData.topAreaType2;
+    document.getElementById("topCategoryDisplay").textContent =
+      recommendationData.suggestedData.topCategoryDisplay;
     
 
 
@@ -363,8 +365,8 @@ options: {
 });
 
 
-    // Optionally, hide the spinner after the analysis is complete
-    document.getElementById("loading-spinner").style.display = "none";
+    /*// Optionally, hide the spinner after the analysis is complete
+    document.getElementById("loading-spinner").style.display = "none";*/
   } else {
     console.log("Selected barangay or category is missing.");
   }
@@ -1172,7 +1174,7 @@ const matchedSubareas = subareaList.filter((subarea) =>
 console.log("Matched Subareas:", matchedSubareas);
 
 const bestCategoriesMapping = {
-  "Automotive Services": ["Transportation and Logistics", "Wholesale and Distribution", "Retail Stores"],
+  "Automotive Services": ["Transportation and Logistics", "Wholesale and Distribution"],
   "Construction and Real Estate": ["Wholesale and Distribution", "Professional Services"],
   "Cooperative Business": ["Retail Stores", "Finance and Insurance", "Food Services"],
   "Creative and Media Services": ["Professional Services", "Educational Services", "Tourism and Hospitality"],
@@ -1198,6 +1200,12 @@ const bestCategoriesMapping = {
 const bestCategories = bestCategoriesMapping[selectedCategory];
 console.log(`Best Categories for ${selectedCategory}:`, bestCategories);
 
+// Convert array to a comma-separated string
+const bestCategoriesString = bestCategories.join(', ');
+
+// Log the formatted string
+console.log(`Best Categories for ${selectedCategory}: ${bestCategoriesString}`);
+
 // Map subarea counts per category
 const subareaCounts = {};
 areaTypeData.forEach((row) => {
@@ -1206,7 +1214,7 @@ areaTypeData.forEach((row) => {
 
   // Convert business count to a number (fall back to 0 if invalid)
   const businessCount = Number(row.businesscount) || 0;
-  
+
   // Track counts for each category in the subarea
   subareaCounts[row.subarea][row.category] = businessCount;
 });
@@ -1214,6 +1222,8 @@ areaTypeData.forEach((row) => {
 // Now find the best subarea based on the total count for the best categories
 let bestSubarea = null;
 let highestTotalCount = 0;
+let highestCategoryCount = 0;
+let highestCategory = null;
 
 Object.keys(subareaCounts).forEach((subareaName) => {
   // Skip if the subarea is missing or has no relevant categories
@@ -1229,6 +1239,17 @@ Object.keys(subareaCounts).forEach((subareaName) => {
   if (totalCount > highestTotalCount) {
     highestTotalCount = totalCount;
     bestSubarea = subareaName;
+
+    // Find the category with the highest count in this subarea
+    highestCategoryCount = 0;
+    highestCategory = null;
+    bestCategories.forEach((category) => {
+      const categoryCount = subareaCounts[subareaName][category] || 0;
+      if (categoryCount > highestCategoryCount) {
+        highestCategoryCount = categoryCount;
+        highestCategory = category;
+      }
+    });
   }
 });
 
@@ -1242,32 +1263,48 @@ let suggestedArea;
 
 // Check if resultSubareas is an array
 if (Array.isArray(resultSubareas)) {
-    // Convert the array to a string and assign to resultString
-    suggestedArea = resultSubareas.join(", ");
+  // Convert the array to a string and assign to resultString
+  suggestedArea = resultSubareas.join(", ");
 } else {
-    // If it's already a string, assign it directly to resultString
-    suggestedArea = resultSubareas;
+  // If it's already a string, assign it directly to resultString
+  suggestedArea = resultSubareas;
 }
 
-// Log the result
-console.log("Result Subareas:", suggestedArea);
+let categoryDisplay = ""; // Declare outside
+if (highestTotalCount > 0) {
+  categoryDisplay = highestCategory || ""; // Assign inside the block
+  console.log(
+    `Suggested Area: ${suggestedArea}, Highest Category: ${categoryDisplay} (${highestCategoryCount} businesses)`
+  );
+} else {
+  console.log("Suggested Area:", suggestedArea);
+}
+console.log("Category Display:", categoryDisplay); 
 
-  // Weights from the object
-  const weightDemand = 0.24;
-  const weightMarketGaps = 0.26;
-  const weightCompetitionDensity = 0.21;
-  const weightPopulationDensity = 0.1;
-  const weightTranspoScore = 0.07;
-  const weightAreaTypeScore = 0.12;
+ // Weights from the object
+const weightDemand = 0.24;
+const weightMarketGaps = 0.26;
+const weightCompetitionDensity = 0.21;
+const weightPopulationDensity = 0.1;
+const weightTranspoScore = 0.07;
+const weightAreaTypeScore = 0.12;
 
-  // Compute the total score
-  const totalScore =
-    barangayDemand * weightDemand +
-    barangayMarketGaps * weightMarketGaps +
-    barangayCompetitionDensity * weightCompetitionDensity +
-    barangayPopulationDensity * weightPopulationDensity +
-    barangayTranspoScore * weightTranspoScore +
-    barangayAreaTypeScore * weightAreaTypeScore;
+// Compute the weighted scores
+const weightedDemand = barangayDemand * weightDemand;
+const weightedMarketGaps = barangayMarketGaps * weightMarketGaps;
+const weightedCompetitionDensity = barangayCompetitionDensity * weightCompetitionDensity;
+const weightedPopulationDensity = barangayPopulationDensity * weightPopulationDensity;
+const weightedTranspoScore = barangayTranspoScore * weightTranspoScore;
+const weightedAreaTypeScore = barangayAreaTypeScore * weightAreaTypeScore;
+
+// Compute the total score by summing the weighted scores
+const totalScore =
+    weightedDemand +
+    weightedMarketGaps +
+    weightedCompetitionDensity +
+    weightedPopulationDensity +
+    weightedTranspoScore +
+    weightedAreaTypeScore;
 
   const barangayTotalScore = totalScore.toFixed(2);
   // Output the result
@@ -1433,18 +1470,19 @@ console.log("Result Subareas:", suggestedArea);
       topTranspoChallenges1: transpoChallenges,
     },
     computationData: {
-      computeDemand: String(barangayDemand),
-      computeGap: String(barangayMarketGaps),
-      computeTranpo: String(barangayTranspoScore),
-      computeArea: String(barangayAreaTypeScore),
-      computePopulation: String(barangayPopulationDensity),
-      computeCompetition: String(barangayCompetitionDensity),
-      computeTotalScore: String(barangayTotalScore),
+      computeDemand: String(weightedDemand.toFixed(2)),
+      computeGap: String(weightedMarketGaps.toFixed(2)),
+      computeTranpo: String(weightedTranspoScore.toFixed(2)),
+      computeArea: String(weightedAreaTypeScore.toFixed(2)),
+      computePopulation: String(weightedPopulationDensity.toFixed(2)),
+      computeCompetition: String(weightedCompetitionDensity.toFixed(2)),
+      computeTotalScore: String(barangayTotalScore)
     },
     suggestedData: {
       topSuggestedArea: suggestedArea,
       mainCategory1: selectedCategory,
-      topAreaType2: modifiedAreaType
+      topAreaType2: modifiedAreaType,
+      topCategoryDisplay: categoryDisplay
     },
   };
   console.log("Analysis Result:", result);

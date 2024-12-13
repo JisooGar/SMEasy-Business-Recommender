@@ -1,5 +1,6 @@
 // Selected business index for editing
 let selectedBusinessIndex = null;
+let smeData = []; // Declare globally
 
 // Example admin data (this should come from your backend in a real-world scenario)
 const adminData = {
@@ -108,13 +109,16 @@ const fetchSMEData = async () => {
     try {
         const response = await fetch('/api/smes');
         if (!response.ok) throw new Error('Failed to fetch SME data');
-        const data = await response.json();
-        renderSMETable(data);
+        smeData = await response.json(); // Populate the global variable
+        renderSMETable(smeData); // Render the initial table
     } catch (error) {
         console.error('Error fetching SME data:', error);
         alert("Failed to fetch SME data. Please try again later.");
     }
 };
+
+// Fetch the data on page load
+fetchSMEData();
 
 
 // Edit SME Function
@@ -169,6 +173,78 @@ async function deleteSME(id) {
     }
 }
 
+// async function deleteSurvey(id) {
+
+
+//     if (!confirm(`Are you sure you want to delete the survey with ID ${id}? This action cannot be undone.`)) {
+//         return; // Exit if user cancels
+//     }
+
+//     try {
+//         const response = await fetch(`/api/survey/${id}`, { method: "DELETE" });
+//         if (response.ok) {
+//             alert("Survey deleted successfully!");
+//             fetchPreferenceData();
+//             fetchMarketDemandData();
+//         } else {
+//             const error = await response.json();
+//             throw new Error(error.message || "Failed to delete survey.");
+//         }
+//     } catch (error) {
+//         console.error("Error deleting survey:", error);
+//         alert("An error occurred while deleting the survey. Please try again.");
+//     }
+// }
+
+async function deleteSurvey(id) {
+    const userConfirmed = confirm(`Are you sure you want to delete the survey with ID ${id}? This action cannot be undone.`);
+    if (!userConfirmed) return; // Exit if user cancels
+
+    try {
+        const response = await fetch(`/api/survey/${id}`, { method: "DELETE" });
+
+        if (response.ok) {
+            alert("Survey deleted successfully!");
+                // Check which table is currently active and refresh it
+                const isPreferencesActive = preferencesTabButton.classList.contains("bg-green-500"); // Adjust based on your active state logic
+                if (isPreferencesActive) {
+                    await fetchPreferencesData(); // Refresh Preferences table
+                } else {
+                    await fetchMarketDemandsData(); // Refresh Market Demands table
+                }
+        } else if (response.status === 404) {
+            alert(`Survey with ID ${id} was not found. It may have already been deleted.`);
+        } else {
+            const error = await response.json();
+            throw new Error(error.message || "Failed to delete survey.");
+        }
+    } catch (error) {
+        console.error("Error deleting survey:", error);
+        alert("An error occurred while deleting the survey. Please try again.");
+    }
+}
+
+
+async function deleteUndefinedSurveys() {
+    if (confirm("Are you sure you want to delete all undefined surveys? This action cannot be undone.")) {
+        try {
+            const response = await fetch('/api/surveys/undefined', { method: 'DELETE' });
+
+            if (response.ok) {
+                const data = await response.json();
+                alert(data.message || "Undefined surveys deleted successfully!");
+                // Optionally refresh data if needed
+                fetchSurveyData();
+            } else {
+                const error = await response.json();
+                throw new Error(error.message || "Failed to delete undefined surveys.");
+            }
+        } catch (error) {
+            console.error("Error deleting undefined surveys:", error);
+            alert("An error occurred while deleting undefined surveys. Please try again.");
+        }
+    }
+}
   
 
 // Initialize by fetching SME data on page load
@@ -435,6 +511,15 @@ tableBody.addEventListener("click", (e) => {
         const businessId = target.getAttribute("data-id");
         deleteSME(businessId);
     }
+    if (target.classList.contains("surveymddelete-button")) {
+        const surveyId = target.getAttribute("surveydata-id");
+        deleteSurvey(surveyId);
+    }
+
+    if (target.classList.contains("surveypdelete-button")) {
+        const surveyId = target.getAttribute("surveydata-id");
+        deleteSurvey(surveyId);
+    }
 });
 
 // Attach Edit and Delete Button Handlers
@@ -454,6 +539,23 @@ function attachActionHandlers(data) {
             await deleteSME(id); // Call delete function
         });
     });
+
+    // Attach Delete Handlers
+    document.querySelectorAll(".surveymddelete-button").forEach((button) => {
+        button.addEventListener("click", async () => {
+            const id = button.dataset.id;
+            await deleteSurvey(id); // Call delete function
+        });
+    });
+
+    // Attach Delete Handlers
+    document.querySelectorAll(".surveypdelete-button").forEach((button) => {
+        button.addEventListener("click", async () => {
+            const id = button.dataset.id;
+            await deleteSurvey(id); // Call delete function
+        });
+    });
+
 }
 
 function renderGridTable(data) {
@@ -517,7 +619,7 @@ const renderSurveyTable = (data) => {
             <td class="px-4 py-2">${item.category || 'N/A'}</td>
             <td class="px-4 py-2">${item.subcategory || 'N/A'}</td>
             <td class="px-4 py-2">
-                <button class="text-red-500 hover:underline">Delete</button>
+                <button class="delete-button text-red-500 hover:underline" data-id="${item.id}">Delete</button>
             </td>
         `;
         tableBody.appendChild(row);
@@ -554,6 +656,7 @@ const renderPreferencesTable = (data) => {
             <th>Accessibility</th>
             <th>Outside Barangay Travel</th>
             <th>Transportation Challenges</th>
+            <th>Actions</th>
         </tr>
     `;
 
@@ -584,6 +687,9 @@ const renderPreferencesTable = (data) => {
                 <td>${item.accessibility}</td>
                 <td>${item.outsideBarangayTravel}</td>
                 <td>${item.transportationChallenges}</td>
+                <td class="px-4 py-2">
+                <button class="surveypdelete-button text-red-500 hover:underline" surveydata-id="${item.id}">Delete</button>
+            </td>
             </tr>
         `;
         tableBody.innerHTML += row;
@@ -615,6 +721,7 @@ const renderMarketDemandsTable = (data) => {
             <th>Tourism and Hospitality</th>
             <th>Transportation</th>
             <th>Wholesale</th>
+            <th>Actions</th>
         </tr>
     `;
 
@@ -642,6 +749,9 @@ const renderMarketDemandsTable = (data) => {
                 <td>${item.tourismHospitality}</td>
                 <td>${item.transportation}</td>
                 <td>${item.wholesale}</td>
+                            <td class="px-4 py-2">
+                <button class="surveymddelete-button text-red-500 hover:underline" surveydata-id="${item.id}">Delete</button>
+            </td>
             </tr>
         `;
         tableBody.innerHTML += row;
@@ -672,68 +782,43 @@ const fetchMarketDemandsData = async () => {
     }
 };
 
-// SME Data Button Event Listener
+// Handle SME Data Button Click
 smeDataButton.addEventListener("click", () => {
-    // Reset button states
-    smeDataButton.classList.add("bg-orange-500", "text-white"); // Active button style
-    surveyDataButton.classList.remove("bg-orange-500", "text-white"); // Inactive button style
+    // Highlight SME Data button
+    smeDataButton.classList.add("bg-orange-500", "text-white");
+    surveyDataButton.classList.remove("bg-orange-500", "text-white");
     surveyDataButton.classList.add("bg-gray-200", "text-gray-800");
 
-    // Render the SME table
-    fetchSMEData(); // Fetch and render SME data
-
-    // Show the "Add Business" button
+    // Show the Search Bar and Add Business button
+    searchBar.classList.remove("hidden");
     addBusinessButton.classList.remove("hidden");
 
     // Hide survey sub-buttons
     surveySubButtons.classList.add("hidden");
 
+    // Render SME Data table
+    fetchSMEData();
 });
 
 
-// Survey Data Button Event Listener
+// Handle Survey Data Button Click
 surveyDataButton.addEventListener("click", () => {
-    // Reset button states
-    surveyDataButton.classList.add("bg-orange-500", "text-white"); // Active button style
-    smeDataButton.classList.remove("bg-orange-500", "text-white"); // Inactive button style
+    // Highlight Survey Data button
+    surveyDataButton.classList.add("bg-orange-500", "text-white");
+    smeDataButton.classList.remove("bg-orange-500", "text-white");
     smeDataButton.classList.add("bg-gray-200", "text-gray-800");
 
-    // Clear the table content
-    tableHead.innerHTML = ''; // Clear table headers
-    tableBody.innerHTML = ''; // Clear table body
-
-    // Automatically render survey preferences table
-    renderPreferencesTable(preferencesData); // Render Preferences by default
-
-    // Hide the "Add Business" button
+    // Hide the Search Bar and Add Business button
+    searchBar.classList.add("hidden");
     addBusinessButton.classList.add("hidden");
 
-    // Show the survey sub-buttons
+    // Show survey sub-buttons
     surveySubButtons.classList.remove("hidden");
 
-    // Highlight Preferences as the default tab
-    preferencesTabButton.classList.add("bg-green-500", "text-white");
-    marketDemandsTabButton.classList.remove("bg-green-500", "text-white");
-
-    // Event Listeners
-    preferencesTabButton.addEventListener('click', () => {
-        fetchPreferencesData();
-        preferencesTabButton.classList.add('bg-green-500', 'text-white');
-        marketDemandsTabButton.classList.remove('bg-green-500', 'text-white');
-    });
-    
-    marketDemandsTabButton.addEventListener('click', () => {
-        fetchMarketDemandsData();
-        marketDemandsTabButton.classList.add('bg-green-500', 'text-white');
-        preferencesTabButton.classList.remove('bg-green-500', 'text-white');
-    });
-    
-    // Survey Data Button Event Listener
-    surveyDataButton.addEventListener('click', () => {
-        surveySubButtons.classList.remove('hidden');
-        preferencesTabButton.click(); // Default to Preferences
-    });
-
+    // Clear the table content and render Preferences data by default
+    tableHead.innerHTML = ''; // Clear table headers
+    tableBody.innerHTML = ''; // Clear table body
+    renderPreferencesTable(preferencesData);
 });
 
 
@@ -850,21 +935,34 @@ renderSMETable(smeData);
 
 
 // Add search functionality
-searchBar.addEventListener('input', () => {
-    const searchTerm = searchBar.value.toLowerCase().trim(); // Normalize search term
-    let filteredData = [];
+searchBar.addEventListener("input", () => {
+    const searchTerm = searchBar.value.trim().toLowerCase(); // Normalize search term
+    if (!searchTerm) {
+        renderSMETable(smeData); // If search is empty, render the full table
+        return;
+    }
 
-    if (smeDataButton.classList.contains('bg-orange-500')) {
-        // Filter SME Data
-        filteredData = smeData.filter(item => item.name.toLowerCase().includes(searchTerm));
+    // Filter data based on the search term
+    const filteredData = smeData.filter((item) => {
+        return (
+            item.business_name?.toLowerCase().includes(searchTerm) || // Match business name
+            item.address?.toLowerCase().includes(searchTerm) || // Match address
+            item.barangay_name?.toLowerCase().includes(searchTerm) || // Match barangay
+            item.subarea_name?.toLowerCase().includes(searchTerm) || // Match subarea
+            item.business_id?.toString().includes(searchTerm) // Match ID
+        );
+    });
+
+    // Render the filtered table or show a message for no results
+    if (filteredData.length > 0) {
         renderSMETable(filteredData);
-    } else if (surveyDataButton.classList.contains('bg-orange-500')) {
-        // Filter Survey Data
-        filteredData = surveyData.filter(item => item.name.toLowerCase().includes(searchTerm));
-        renderSurveyTable(filteredData);
+    } else {
+        tableBody.innerHTML = `<tr><td colspan="11" class="text-center text-gray-500">No results found for "${searchTerm}"</td></tr>`;
     }
 });
 
+
+  
 
 // Handle Edit and Delete Button Click
 tableBody.addEventListener('click', (e) => {

@@ -1187,12 +1187,20 @@ console.log("Suggested Subcategories:", suggestedSubcategories);
   const weightCompetitionDensity = 0.26;
   const weightAreaTypeScore = 0.12;
 
-  // Compute the total score
-  const totalScore =
-    categoryDemand * weightDemand +
-    categoryMarketGaps * weightMarketGaps +
-    categoryCompetitionDensity * weightCompetitionDensity +
-    categoryAreaTypeScore * weightAreaTypeScore;
+ 
+
+// Compute the weighted scores
+const weightedDemand = categoryDemand * weightDemand;
+const weightedMarketGaps = categoryMarketGaps * weightMarketGaps;
+const weightedCompetitionDensity = categoryCompetitionDensity * weightCompetitionDensity;
+const weightedAreaTypeScore = categoryAreaTypeScore * weightAreaTypeScore;
+
+// Compute the total score by summing the weighted scores
+const totalScore =
+    weightedDemand +
+    weightedMarketGaps +
+    weightedCompetitionDensity +
+    weightedAreaTypeScore;
 
   const barangayTotalScore = totalScore.toFixed(2);
   // Output the result
@@ -1361,10 +1369,10 @@ console.log("Suggested Subcategories:", suggestedSubcategories);
       topTranspoChallenges1: transpoChallenges,
     },
     computationData: {
-      computeDemand: String(categoryDemand),
-      computeGap: String(categoryMarketGaps),
-      computeArea: String(categoryAreaTypeScore),
-      computeCompetition: String(categoryCompetitionDensity),
+      computeDemand: String(weightedDemand.toFixed(2)),
+      computeGap: String(weightedMarketGaps.toFixed(2)),
+      computeArea: String(weightedAreaTypeScore.toFixed(2)),
+      computeCompetition: String(weightedCompetitionDensity.toFixed(2)),
       computeTotalScore: String(barangayTotalScore),
     },
     suggestedData: {

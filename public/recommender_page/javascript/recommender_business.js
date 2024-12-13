@@ -35,13 +35,18 @@ const minMaxNormalize = (value, min, max) =>
 const inverseMinMaxNormalize = (value, min, max) =>
   (100 - ((value - min) / (max - min)) * 100).toFixed(2);
 
+// Function to show and hide the spinner
+function toggleSpinner(show) {
+  const spinner = document.getElementById("loading-spinner");
+  spinner.style.display = show ? "flex" : "none"; // Flex to center it, none to hide
+}
 
 // Function to populate the table with categories based on selected barangay
 async function handleProceed() {
   if (selectedBarangay) {
     try {
       console.log("Fetching categories for Barangay:", selectedBarangay);
-      showSpinner(true); // Show spinner
+      toggleSpinner(true); // Show spinner
 
       // Fetch and process data
       const topCategories = await getRecommendedCategories(selectedBarangay);
@@ -79,28 +84,22 @@ async function handleProceed() {
     } catch (error) {
       console.error("Error fetching data:", error);
     } finally {
-      hideSpinner(false); // Hide spinner after completion
+      toggleSpinner(false); // Hide spinner after completion
     }
   } else {
     alert("Please select a barangay before proceeding.");
   }
 }
 
-function showSpinner() {
-  document.getElementById("loading-spinner").style.display = "block";
-}
 
-function hideSpinner() {
-  document.getElementById("loading-spinner").style.display = "none";
-}
 
-// Modified handleAnalyze function
+// Modified handleAnalyze function with loading spinner
 function handleAnalyze() {
-  showSpinner(); // Show the spinner
+  toggleSpinner(true); // Show spinner
   setTimeout(() => {
-    window.location.href = "business_analysis.html"; // Redirect to analysis page
-    hideSpinner(); // Hide the spinner after redirection
-  }, 2000); // Simulate a short delay for demonstration purposes
+    toggleSpinner(false); // Hide spinner after a delay
+    window.location.href = "barangay_analysis.html";
+  }, 2000); // Simulate a delay of 2 seconds
 }
 
 /*// Function to populate table with top categories
