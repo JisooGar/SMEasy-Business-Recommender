@@ -232,41 +232,158 @@ app.get("/api/business/:id", async (req, res) => {
   }
 });
 
-app.delete("/api/business/:id", async (req, res) => {
+// app.delete("/api/business/:id", async (req, res) => {
+//   const { id } = req.params;
+
+//   try {
+//       const query = `DELETE FROM Business WHERE business_id = $1 RETURNING *;`;
+//       const result = await pool.query(query, [id]);
+
+//       if (result.rowCount > 0) {
+//           res.json({ message: "Business deleted successfully." });
+//       } else {
+//           res.status(404).json({ error: "Business not found." });
+//       }
+//   } catch (error) {
+//       console.error("Error deleting business:", error);
+//       res.status(500).json({ error: "Failed to delete business." });
+//   }
+// });
+
+// app.put("/api/business/inactive/:id", async (req, res) => {
+//   const { id } = req.params;
+
+//   try {
+//       const query = `UPDATE Business SET status = 'Inactive' WHERE business_id = $1 RETURNING *;`;
+//       const result = await pool.query(query, [id]);
+
+//       if (result.rowCount > 0) {
+//           res.json({ message: "Business marked as inactive successfully." });
+//       } else {
+//           res.status(404).json({ error: "Business not found." });
+//       }
+//   } catch (error) {
+//       console.error("Error marking business as inactive:", error);
+//       res.status(500).json({ error: "Failed to mark business as inactive." });
+//   }
+// });
+
+app.put("/api/business/inactive/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
-      const query = `DELETE FROM Business WHERE business_id = $1 RETURNING *;`;
+      const query = `
+          UPDATE Business
+          SET status = 'Inactive'
+          WHERE business_id = $1
+          RETURNING *;
+      `;
       const result = await pool.query(query, [id]);
 
       if (result.rowCount > 0) {
-          res.json({ message: "Business deleted successfully." });
+          res.json({ message: "Business marked as inactive successfully.", business: result.rows[0] });
       } else {
           res.status(404).json({ error: "Business not found." });
       }
   } catch (error) {
-      console.error("Error deleting business:", error);
-      res.status(500).json({ error: "Failed to delete business." });
+      console.error("Error marking business as inactive:", error);
+      res.status(500).json({ error: "Failed to mark business as inactive." });
   }
 });
 
-// app.delete("/api/survey/:id", async (req, res) => {
-//   const { id } = req.params;
 
-//   try {
-//       const query = `DELETE FROM Initial_Survey WHERE response_id = $1 RETURNING *;`;
-//       const result = await pool.query(query, [id]);
+app.put("/api/business/active/:id", async (req, res) => {
+  const { id } = req.params;
 
-//       if (result.rowCount > 0) {
-//           res.json({ message: "Survey deleted successfully." });
-//       } else {
-//           res.status(404).json({ error: "Survey not found." });
-//       }
-//   } catch (error) {
-//       console.error("Error deleting survey:", error);
-//       res.status(500).json({ error: "Failed to delete survey." });
-//   }
-// });
+  try {
+      const query = `
+          UPDATE Business
+          SET status = 'Active'
+          WHERE business_id = $1
+          RETURNING *;
+      `;
+      const result = await pool.query(query, [id]);
+
+      if (result.rowCount > 0) {
+          res.json({ message: "Business marked as active successfully." });
+      } else {
+          res.status(404).json({ error: "Business not found." });
+      }
+  } catch (error) {
+      console.error("Error marking business as active:", error);
+      res.status(500).json({ error: "Failed to mark business as active." });
+  }
+});
+
+
+
+
+
+app.get("/api/activeSME", async (req, res) => {
+  try {
+    const query = `
+          SELECT 
+              b.business_id,
+              b.business_name,
+              b.address,
+              br.barangay_name,
+              sa.subarea_name,
+              b.latitude,
+              b.longitude,
+              st.smetype_name AS sme_type,
+              c.category_name,
+              sc.subcategory_name
+          FROM Business b
+          LEFT JOIN Barangay br ON b.barangay_id = br.barangay_id
+          LEFT JOIN Subarea sa ON b.subarea_id = sa.subarea_id
+          LEFT JOIN smeType st ON b.smeType_id = st.smeType_id
+          LEFT JOIN Category c ON b.category_id = c.category_id
+          LEFT JOIN Subcategory sc ON b.subcategory_id = sc.subcategory_id
+          WHERE status = 'Active'
+          ORDER BY b.business_id ASC;
+      `;
+
+    const result = await pool.query(query);
+    res.json(result.rows); // Return the data as JSON
+  } catch (err) {
+    console.error("Error fetching  Active SME data:", err);
+    res.status(500).json({ error: "ailed to fetch inactive businesses" });
+  }
+});
+
+app.get("/api/inactiveSME", async (req, res) => {
+  try {
+    const query = `
+          SELECT 
+              b.business_id,
+              b.business_name,
+              b.address,
+              br.barangay_name,
+              sa.subarea_name,
+              b.latitude,
+              b.longitude,
+              st.smetype_name AS sme_type,
+              c.category_name,
+              sc.subcategory_name
+          FROM Business b
+          LEFT JOIN Barangay br ON b.barangay_id = br.barangay_id
+          LEFT JOIN Subarea sa ON b.subarea_id = sa.subarea_id
+          LEFT JOIN smeType st ON b.smeType_id = st.smeType_id
+          LEFT JOIN Category c ON b.category_id = c.category_id
+          LEFT JOIN Subcategory sc ON b.subcategory_id = sc.subcategory_id
+          WHERE status = 'Inactive'
+          ORDER BY b.business_id ASC;
+      `;
+
+    const result = await pool.query(query);
+    res.json(result.rows); // Return the data as JSON
+  } catch (err) {
+    console.error("Error fetching inactive businesses", err);
+    res.status(500).json({ error: "ailed to fetch inactive businesses" });
+  }
+});
+
+
 
 app.delete("/api/survey/:id", async (req, res) => {
   const { id } = req.params;
@@ -286,29 +403,7 @@ app.delete("/api/survey/:id", async (req, res) => {
   }
 });
 
-app.delete('/api/surveys/undefined', async (req, res) => {
-  try {
-      // Define the criteria for "undefined" surveys
-      const query = `
-          DELETE FROM public.initial_survey
-          WHERE
-              response_id IS NULL;
-      `;
 
-      // Execute the query
-      const result = await UserSurveyPool.query(query);
-
-      // Send the response
-      if (result.rowCount > 0) {
-          res.json({ message: `${result.rowCount} undefined surveys were deleted successfully.` });
-      } else {
-          res.json({ message: 'No undefined surveys found to delete.' });
-      }
-  } catch (error) {
-      console.error('Error deleting undefined surveys:', error.message, error.stack);
-      res.status(500).json({ error: 'Failed to delete undefined surveys.' });
-  }
-});
 
 
 //----------------------------FRONT PAGE-----------------------------//
@@ -812,7 +907,6 @@ app.get("/api/smes/search", async (req, res) => {
     res.status(500).json({ error: "Failed to search SME data" });
   }
 });
-
 
 
 //-----------------------------ANALYSIS DASHBOARD-----------------------------//

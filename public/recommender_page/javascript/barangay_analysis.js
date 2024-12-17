@@ -240,66 +240,84 @@ document.addEventListener("DOMContentLoaded", async function () {
       document.getElementById("gapDiv").style.backgroundColor =
       recommendationData.chartData.topGapColor || "#ffffff";
       
-    // Population Chart
-    const ctx1 = document.getElementById("populationChart").getContext("2d");
-    new Chart(ctx1, {
-      type: "doughnut",
-      data: {
-        labels: ["0-5", "6-12", "13-17", "18-35", "36-50", "51-65", "66+"],
-        datasets: [
-          {
-            data: recommendationData.chartData.ageRangePopulation,
-            backgroundColor: ["#41B05A", "#FFD700", "#FF5733"],
-          },
-        ],
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: true,
-        plugins: { legend: { display: false } },
-        layout: { padding: 5 },
-      },
-    });
+  // Function to toggle legend visibility
+function toggleDetails(legendId) {
+  const legendElement = document.getElementById(legendId);
+  legendElement.classList.toggle("hidden");
+}
 
-    // SMEs Chart
-    const ctx2 = document.getElementById("smesChart").getContext("2d");
-    new Chart(ctx2, {
-      type: "doughnut",
-      data: {
-        labels: recommendationData.chartData.categories,
-        datasets: [
-          {
-            data: recommendationData.chartData.categoryCounts,
-            backgroundColor: [
-              "#FF5733",
-              "#33FF57",
-              "#3357FF",
-              "#FF33A1",
-              "#A1FF33",
-              "#5733FF",
-              "#33A1FF",
-              "#FF8E33",
-              "#8EFF33",
-              "#FF33FF",
-              "#33FF8E",
-              "#FF8E8E",
-              "#8E33FF",
-              "#FF5733",
-              "#B33DFF",
-              "#FFD700",
-              "#FF4500",
-              "#32CD32",
-            ],
-          },
-        ],
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: true,
-        plugins: { legend: { display: false } },
-        layout: { padding: 5 },
-      },
-    });
+// Population Chart
+const ctx1 = document.getElementById("populationChart").getContext("2d");
+const populationData = {
+  labels: ["0-5", "6-12", "13-17", "18-35", "36-50", "51-65", "66+"],
+  datasets: [
+    {
+      data: recommendationData.chartData.ageRangePopulation,
+      backgroundColor: ["#41B05A", "#FFD700", "#FF5733", "#33FF57", "#3357FF", "#FF33A1", "#A1FF33"],
+    },
+  ],
+};
+new Chart(ctx1, {
+  type: "doughnut",
+  data: populationData,
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: { legend: { display: false } },
+  },
+});
+
+// Generate Population Chart Legends
+const populationLegend = document.getElementById("populationLegend");
+populationData.labels.forEach((label, index) => {
+  const legendItem = document.createElement("li");
+  legendItem.classList.add("flex", "items-center", "space-x-2");
+  legendItem.innerHTML = `
+    <span class="inline-block w-4 h-4 rounded" style="background-color: ${populationData.datasets[0].backgroundColor[index]}"></span>
+    <span class="text-gray-700">${label}</span>
+  `;
+  populationLegend.appendChild(legendItem);
+});
+
+// SMEs Chart
+const ctx2 = document.getElementById("smesChart").getContext("2d");
+const businessData = {
+  labels: recommendationData.chartData.categories,
+  datasets: [
+    {
+      data: recommendationData.chartData.categoryCounts,
+      backgroundColor: [
+        "#FF5733", "#33FF57", "#3357FF", "#FF33A1", "#A1FF33",
+        "#5733FF", "#33A1FF", "#FF8E33", "#8EFF33", "#FF33FF",
+        "#33FF8E", "#FF8E8E", "#8E33FF", "#FF5733", "#B33DFF",
+        "#FFD700", "#FF4500", "#32CD32",
+      ],
+    },
+  ],
+};
+new Chart(ctx2, {
+  type: "doughnut",
+  data: businessData,
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: { legend: { display: false } },
+  },
+});
+
+// Generate Business Chart Legends
+const businessLegend = document.getElementById("businessLegend");
+businessData.labels.forEach((label, index) => {
+  const legendItem = document.createElement("li");
+  legendItem.classList.add("flex", "items-center", "space-x-2");
+  legendItem.innerHTML = `
+    <span class="inline-block w-4 h-4 rounded" style="background-color: ${businessData.datasets[0].backgroundColor[index]}"></span>
+    <span class="text-gray-700">${label}</span>
+  `;
+  businessLegend.appendChild(legendItem);
+});
+
+
 
     // Competition Chart
     const ctx3 = document.getElementById("competitionChart").getContext("2d");

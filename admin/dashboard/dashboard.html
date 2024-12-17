@@ -167,6 +167,18 @@
             </button>
         </div>
 
+        <!-- Active and Inactive Buttons for SME Data -->
+        <div id="smeSubButtons" class="hidden flex space-x-4 mb-4">
+            <button id="activeTabButton" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg shadow hover:bg-gray-300 focus:ring-4 focus:ring-gray-300 transition">
+                Active
+            </button>
+            <button id="inactiveTabButton" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg shadow hover:bg-gray-300 focus:ring-4 focus:ring-gray-300 transition">
+                Inactive
+            </button>
+        </div>
+
+
+
 
 <!-- SME Data Table Container -->
 <div class="flex justify-center items-center min-h-screen bg-gray-100">
@@ -194,7 +206,7 @@
 </div>
 
 
-    <!-- Add/Edit Business Modal -->
+<!-- Add/Edit Business Modal -->
 <div id="addEditBusinessModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
     <div class="bg-white rounded-lg w-[90%] max-w-2xl p-6 shadow-lg">
         <div class="flex justify-between items-center mb-4">
@@ -206,39 +218,104 @@
                 <div>
                     <label for="businessName" class="block text-sm font-medium text-gray-700">Business Name:</label>
                     <input type="text" id="businessName" name="businessName" class="mt-1 block w-full border rounded-md p-2">
+                    <p class="text-gray-500 text-xs mt-1">(For example: Jomar's Coffee Shop)</p>
                 </div>
+                
+
                 <div>
                     <label for="industry" class="block text-sm font-medium text-gray-700">Industry:</label>
-                    <input type="text" id="industry" name="industry" class="mt-1 block w-full border rounded-md p-2">
+                    <select id="industry" name="industry" class="mt-1 block w-full border rounded-md p-2">
+                        <option value="">Select Industry</option>
+                        <option value="Product">Product</option>
+                        <option value="Services">Services</option>
+                        <option value="Product and Services">Product and Services</option>
+                    </select>
+                    <p class="text-gray-500 text-xs mt-1">(Product, Services, Product and Services)</p>
                 </div>
-                <div>
-                    <label for="address" class="block text-sm font-medium text-gray-700">Address:</label>
-                    <input type="text" id="address" name="address" class="mt-1 block w-full border rounded-md p-2">
-                </div>
-                <div>
-                    <label for="category" class="block text-sm font-medium text-gray-700">Category:</label>
-                    <input type="text" id="category" name="category" class="mt-1 block w-full border rounded-md p-2">
-                </div>
-                <div>
-                    <label for="subarea" class="block text-sm font-medium text-gray-700">Subarea:</label>
-                    <input type="text" id="subarea" name="subarea" class="mt-1 block w-full border rounded-md p-2">
-                </div>
-                <div>
-                    <label for="subcategory" class="block text-sm font-medium text-gray-700">Subcategory:</label>
-                    <input type="text" id="subcategory" name="subcategory" class="mt-1 block w-full border rounded-md p-2">
-                </div>
+
                 <div>
                     <label for="barangay" class="block text-sm font-medium text-gray-700">Barangay:</label>
-                    <input type="text" id="barangay" name="barangay" class="mt-1 block w-full border rounded-md p-2">
+                    <select id="barangay" name="barangay" class="mt-1 block w-full border rounded-md p-2">
+                        <option value="" selected disabled>Select Barangay</option>
+                        <option value="Baclaran">Baclaran</option>
+                        <option value="Banaybanay">Banaybanay</option>
+                        <option value="Banlic">Banlic</option>
+                        <option value="Bigaa">Bigaa</option>
+                        <option value="Butong">Butong</option>
+                        <option value="Casile">Casile</option>
+                        <option value="Diezmo">Diezmo</option>
+                        <option value="Gulod">Gulod</option>
+                        <option value="Mamatid">Mamatid</option>
+                        <option value="Marinig">Marinig</option>
+                        <option value="Niugan">Niugan</option>
+                        <option value="Pittland">Pittland</option>
+                        <option value="Poblacion Uno">Poblacion Uno</option>
+                        <option value="Poblacion Dos">Poblacion Dos</option>
+                        <option value="Poblacion Tres">Poblacion Tres</option>
+                        <option value="Pulo">Pulo</option>
+                        <option value="SanIsidro">San Isidro</option>
+                    </select>
                 </div>
+
+                <div>
+                    <label for="category" class="block text-sm font-medium text-gray-700">Category:</label>
+                    <select id="category" name="category" class="mt-1 block w-full border rounded-md p-2">
+                        <option value="" selected disabled>Select Category</option>
+                        <option value="Automotive Services">Automotive Services</option>
+                        <option value="Construction and Real Estate">Construction and Real Estate</option>
+                        <option value="Cooperative Business">Cooperative Business</option>
+                        <option value="Creative and Media Services">Creative and Media Services</option>
+                        <option value="Educational Services">Educational Services</option>
+                        <option value="Entertainment and Recreation">Entertainment and Recreation</option>
+                        <option value="Finance and Insurance">Finance and Insurance</option>
+                        <option value="Food Services">Food Services</option>
+                        <option value="Healthcare Services">Healthcare Services</option>
+                        <option value="IT and Digital Services">IT and Digital Services</option>
+                        <option value="Manufacturing and Production">Manufacturing and Production</option>
+                        <option value="Personal and Household Services">Personal and Household Services</option>
+                        <option value="Personal Care Services">Personal Care Services</option>
+                        <option value="Professional Services">Professional Services</option>
+                        <option value="Retail Stores">Retail Stores</option>
+                        <option value="Tourism and Hospitality">Tourism and Hospitality</option>
+                        <option value="Transportation and Logistics">Transportation and Logistics</option>
+                        <option value="Wholesale and Distribution">Wholesale and Distribution</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="subarea" class="block text-sm font-medium text-gray-700">Subarea:</label>
+                    <select id="subarea" name="subarea" class="mt-1 block w-full border rounded-md p-2" style="max-height: 200px; overflow-y: auto;">
+                        <option value="" selected disabled>Select Subarea</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="subcategory" class="block text-sm font-medium text-gray-700">Subcategory:</label>
+                    <select id="subcategory" name="subcategory" class="mt-1 block w-full border rounded-md p-2" style="max-height: 200px; overflow-y: auto;">
+                        <option value="" selected disabled>Select Subcategory</option>
+                    </select>
+                </div>
+
                 <div>
                     <label for="latitude" class="block text-sm font-medium text-gray-700">Latitude:</label>
                     <input type="text" id="latitude" name="latitude" class="mt-1 block w-full border rounded-md p-2">
+                    <p class="text-gray-500 text-xs mt-1">(For Example: 14.230344)</p>
                 </div>
+
+                <div>
+                    <label for="address" class="block text-sm font-medium text-gray-700">Address:</label>
+                    <input type="text" id="address" name="address" class="mt-1 block w-full border rounded-md p-2">
+                    <p class="text-gray-500 text-xs mt-1">(For example: B 18 L 116 Phase 1 Mabuhay)</p>
+                </div>
+
                 <div>
                     <label for="longitude" class="block text-sm font-medium text-gray-700">Longitude:</label>
-                    <input type="text" id="longitude" name="longitude" class="mt-1 block w-full border rounded-md p-2">
+                    <input type="text" id="longitude" name="longitude" class="mt-1 block w-full border rounded-md p-2" >
+                    <p class="text-gray-500 text-xs mt-1">(For Example: 121.094027)</p>
                 </div>
+
+                
+
             </div>
             <div class="flex justify-end space-x-4 mt-6">
                 <button type="button" id="cancelAddEditBusiness" class="bg-gray-200 px-4 py-2 rounded-md">Exit</button>
@@ -247,6 +324,16 @@
         </form>
     </div>
 </div>
+
+<!-- Google Maps Modal -->
+<div id="mapModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+    <div class="bg-white rounded-lg w-[90%] max-w-3xl p-6 shadow-lg relative">
+        <h3 class="text-lg font-bold mb-4">Select Location on Map</h3>
+        <div id="map" style="height: 400px; width: 100%; border: 1px solid #ccc;"></div>
+        <button id="closeMapModal" class="absolute top-2 right-4 text-gray-500 hover:text-gray-700 text-xl">&times;</button>
+    </div>
+</div>
+
 
     <!-- Survey Data Section -->
 <div id="surveyDataSection" class="hidden">
@@ -334,6 +421,7 @@
 
 
     <!-- Link to External JavaScript -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_z7u9wO-yxnehj8bCXiryGGPDjI8VT5k&callback=initMap" async defer></script>
     <script src="/admin/dashboard/dashboard.js"></script>
 </body>
 </html>

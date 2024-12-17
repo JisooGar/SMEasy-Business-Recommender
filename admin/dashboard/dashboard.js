@@ -1,6 +1,220 @@
+let map;
+let marker;
+
+// Function to initialize Google Map
+function initMap() {
+    const defaultLocation = { lat: 14.2763, lng: 121.1095 }; // Default center
+
+    map = new google.maps.Map(document.getElementById("map"), {
+        center: defaultLocation,
+        zoom: 13,
+    });
+
+    // Add a click listener to place a marker, update inputs, and close modal
+    map.addListener("click", (event) => {
+        const clickedLocation = event.latLng;
+
+        // Update the Latitude and Longitude fields
+        document.getElementById("latitude").value = clickedLocation.lat().toFixed(6);
+        document.getElementById("longitude").value = clickedLocation.lng().toFixed(6);
+
+        // Place a marker
+        if (marker) marker.setMap(null);
+        marker = new google.maps.Marker({
+            position: clickedLocation,
+            map: map,
+        });
+
+        // Automatically close the map modal
+        document.getElementById("mapModal").classList.add("hidden");
+    });
+}
+
+
+// Show the map modal and initialize map
+function showMapModal() {
+    const mapModal = document.getElementById("mapModal");
+    mapModal.classList.remove("hidden");
+
+    // Initialize map only once
+    if (!map) {
+        initMap();
+    }
+}
+
+// Event Listeners for Latitude and Longitude inputs
+document.getElementById("latitude").addEventListener("click", showMapModal);
+document.getElementById("longitude").addEventListener("click", showMapModal);
+
+// Close Map Modal
+document.getElementById("closeMapModal").addEventListener("click", () => {
+    document.getElementById("mapModal").classList.add("hidden");
+});
+
+
+
+
+// Mapping of Barangays to Subareas
+const barangaySubareas = {
+    Baclaran: ["Crystal Ville", "Mabuhay City", "PH 1 Mabuhay City", "Purok 3", "Villa Estella Subdivision", "Blanks"],
+    Banaybanay: ["Bamboo Orchard", "Corner Road 1", "Del Rosario Compound", "Don Onofre Village", "Gatchalian Subdivision", "Gatchalian Industrial Estate",
+        "Grand Acacia Grove", "Greenleaf Residences", "Hongkong Village", "Katapatan Homes", "Lakeside Nest Subdivision", "National Highway", "NIA Road",
+        "San Carlos Village", "Southville 1", "Southpoint Subdivision", "Blanks"
+    ],
+    Banlic: ["Alimagno Compound", "Camella Homes", "Camella Homes Bermuda", "Dona Ines Compound", "Felicias Compound", "Gran Seville", "Mamatid Road",
+        "National Highway", "Palmsville Subdivision", "Prince Village", "Purok 1", "Purok 2", "Purok 3", "Purok 4", "San Isidro Heights", "Tamis Compounds", 
+        "Blanks"
+    ],
+    Bigaa: ["Bella Solana", "Bigaa Road", "Blanks", "Egaland", "Major Homes Subdivision", "Marinig Road", "Purok 1", "Purok 2",
+        "Purok 3", "Purok 4", "Purok 5", "Purok 6", "Stoneridge Ville", "Tierra Elsol Subdivision"
+    ],
+    Butong: ["Blanks", "Purok 1", "Purok 2", "Purok 3", "Purok 4", "Purok 5", "Purok 6", "St. Joseph Village 4", "St. Joseph Village 6", "St. Joseph Village 8"
+    ],
+    Casile: ["Blanks", "Purok 1", "Purok 3", "Purok 4", "Purok 5", "Purok 6", "Purok Tagaytay Cabuyao"
+    ],
+    Diezmo: ["Blanks", "Cavitehan Road", "Celestine Ville", "Centerra","New Mahogany Village 3", "NIA Road",
+    ],
+    Gulod: ["Purok 1", "Purok 2", "Purok 3", "Purok 4", "Purok 5", "Purok 6", "Purok 7", 
+        "St. Joseph Homes 1", "St. Joseph Homes 2", "St. Joseph Village 2", "St. Joseph Village 7", "St. Joseph Windfield 2"
+    ],
+    Mamatid: ["Blanks", "Brillianz Residences", "Buena Rosario", "Ciudad Montrina", "Extraordinary Homes Executive", "Extraordinary Homes Mabuhay", 
+          "Luxury Mabuhay City", "Mabuhay City", "Main Road", "Mamatid Road", "Montrina Subdivision", "NIA Road", "Phase 1 Mabuhay", "Phase 2 Mabuhay", 
+          "Phase 3 Cluster Mabuhay", "Phase 3 Executive Mabuhay", "Phase 3 Extension Mabuhay", "Phase 3 Mabuhay", "Phase 4 Mabuhay", "Phase 5 Mabuhay", 
+          "Phase 6 Mabuhay", "Phase 7 Mabuhay", "Purok 1", "Purok 2", "Purok 3"," Purok 4", "St. Joseph Village 3", "St. Vincent Compound", "Value Homes 1", "Value Homes 2", "Value Homes 3"
+    ],
+    Marinig: ["Blanks", "Celestine Homes", "Lakeside Nest Subdivision", "Lynville Residences", "Maripaz Ville", 
+          "Purok 1", "Purok 2", "Purok 3", "Purok 4", "Purok 5", "Purok 6", "Southville 1", "St. Joesph Village 7", "Sunrise Subdivision"
+    ],
+    Niugan: ["Blanks", "Console Village", "Hemedez Compound", "National Highway", "NIA Road", "Purok 3", "Regatta South Executive Homes", 
+        "Riverside Road", "San Antonio", "SB Hain Compound", "Southville 1", "St. Francis Homes 6"
+    ],
+    Pittland: ["Blanks", "Camella La vecina Dos Rios", "Hana Garden Villas", "Inc Compound", "Tereley Industrial Park"
+    ],
+    "Poblacion Uno": ["Bermudez Compound", "Blanks", "JP Rizal St.", "Juan Luna St.", "Limacaoco St.", "Mabini St.", "Malvar St.", "ML Quezon St.", 
+        "Osmena St", "P Burgos St.", "Vanessa Compound"
+    ],
+    "Poblacion Dos": ["A. Bonifacion St.", "Cabuyao Retail Plaza", "El Sol Plaza", "JP Rizal St.", "MH Del Pilar", 
+        "ML Quezon St.", "National Highway", "Osmena St."
+    ],
+    "Poblacion Tres": ["Blanks", "Cemetery Road", "Elso Subdivision", "JP Rizal St.", "Limcaoco Subdivision", "Osmena St.", "Sto. Nino Executive Homes"
+    ],
+    Pulo: ["Arabelle Homes", "Birmingham Village", "Blanks", "Cabuyao Centrale", "Centennial Homes 2", "Diezmo Road", 
+        "Divimall", "Don Vicente Village", "Eastland 2", "Evergreen Subdivision", "Fortezza Subdivision", "Mahogany Promenade",
+        "Mahogany Village Ph1", "Millwood Ville", "National Highway", "NIA road", "Paseo de Cabuyao", "Pulo-Diezmo Road", "Pulo-San Isidro Road", "Realica", "Villa Adelinia 2", "Willow Park Homes", "Pulo-Diezmo Road", "Pulo-San Isidro Road", "Realica", "Villa Adelinia 2", "Willow Park Homes"
+    ],
+    Sala: ["Asia Brewery Compound", "Bagong Silang", "Bella Subdivision", "Blanks", "Casa Esperanza", "Don Onofre Building 2", "Florence Homes", "JP Rizal St.", "La Bella Homes", 
+        "Marinig Road", "Mercedez Village", "Multiland III", "National Highway", "Nevalga Farm Drive", "NIA Road", "PFB Bailon St.", "Purok 1", "Purok 2", "Purok 4", "Purok 5", "Rosario Village", "Rotonda", "Shineland"
+    ],
+    SanIsidro: ["Blanks", "Canaan Homes", "Centennial Plaza", "Centennial Town Homes", "Emmanual SJB Complex", "Fortezza Subdivision", "IFL Compound", "Manila South Road", "National Highway",
+        "New Mahogany Village 3", "NIA Road", "Our Mahogany Village 2", "Purok 1", "Purok 2", "Purok 4", "Purok 5", "San Isidro Heights", "San Isidro Homes", "San Isidro Road", 
+        "St. Isidore Executive Village", "Tierra Allegra", "Vanessa Homes"
+    ],
+};
+
+document.getElementById('barangay').addEventListener('change', function () {
+    const selectedBarangay = this.value;
+    const subareaDropdown = document.getElementById('subarea');
+
+// Clear current subarea options
+subareaDropdown.innerHTML = '<option value="" selected disabled>Select Subarea</option>';
+
+    // Populate new subareas based on selected barangay
+    if (barangaySubareas[selectedBarangay]) {
+        barangaySubareas[selectedBarangay].forEach(subarea => {
+            const option = document.createElement('option');
+            option.value = subarea;
+            option.textContent = subarea;
+            subareaDropdown.appendChild(option);
+        });
+    }
+});
+
+// Mapping of Categories to Subcategories
+const categorySubcategories = {
+    "Automotive Services": ["Auto Repair Services", "Body and Welding Shops", "Car wash and Detailing", "Fuel Services",
+         "Motorcycle Dealer", "Specialized Automotive Services", "Vulcanizing Services"
+    ],
+    "Construction and Real Estate": ["Apartment/Apartelle", "Building Contractor", "Construction Services", "Contractor", "Electrical/Mechanical Contractor", "Facilities and Infrastracture",
+         "General Contruction", "General Contractor", "General Engineering Contractor", "Heavy Equipment Rental", "Lessor (Commercial Space", "Lessor (Excluding Subd. Operators/Lessor",
+         "Lessor (Industrial Space", "Lessor (Residential)", "Lot Rental", "Memorial Park", "Property Rental and Management", "Real Estate Developer", "Realty", "Realy Broker", "Services Contractor",
+         "Warehousing"
+    ],
+    "Cooperative Business": ["Cooperative"],
+    "Creative and Media Services": ["Advertising and Marketing", "Event Design Service", "Photography and Videography", "Printing Services"
+    ],
+    "Educational Services": ["Driving School", "Learning Center", "Private School", "School Service", "Training Center", "Tutorial Services",
+          "Vocational and Special Schools" 
+    ],
+    "Entertainment and Recreation": ["Dining and Leisure", "Egames/Ebingo", "Fireworks and Pyrotechnics", "Golf Cart Rental", "Party Rentals", "Play Center",
+          "Sound & Light Rental", "Sports and Fitness" 
+    ],
+    "Finance and Insurance": ["ATM Off Site Stations", "Banks", "Financing Institutions", "General Financial Services", "Holding Company", "Insurance Agents/Companies",
+          "Lending Investor", "Money Remittance/ Bill Payment", "Pawnshop & Financial Services", "Payment Center" 
+    ],
+    "Food Services": ["Burger Stand", "Canteen" , "Catering Service", "Coffee Shop", "Eatery", "Fast Food", "Food Concessionaire", "Food Stand",
+          "Milk Tea Shop", "Panciteria", "Refreshment Parlor", "Restaurant", "Restobar"
+    ],
+    "Healthcare Services": ["Animal Bite Clinics", "Dental Clinics", "Diagnostic and Medical Clinics", "Dialysis Center", "Gerontology Services", "Hospital", 
+          "Laboratory Equipment Repair Service", "Maternity Clinics & Family Planning", "Medical and Healthcare Services", "Optical Clinics", "Pharmacies", 
+          "Pharmacy & Medical Clinics", "Rehabilitation Centers", "Service Contractor", "Therapy Centers", "Veterinary Clinics"
+    ],
+    "IT and Digital Services": ["Administrative Support Services", "Audio & Video System Services", "Computer Services / IT Services", "Computer Shop", "Customer Support & BPO Service",
+         "Internet Service Provider", "Repair Service", "Service Contractor", "Telecom Services", "Virtual Assistance" 
+    ],
+    "Manufacturing and Production": ["Agricultural Products", "Contractor and Service Manufacturing", "Essential Manufacturer", "Fabrication Services",
+         "Food Products Manufacturer", "Garment Manufacturer", "General Manufacturing", "Glass & Aluminum Fabrication Services", "Hollowblock Making",
+         "Industrial Equipment Services", "Machine Fabrication and Shop", "Metal Fabrication", "Non-Essential Manufacturer", "PEZA Registered Business",
+         "Plastic Products Manufacturer", "Specialty Manufacturing", "Woodcraft"
+    ],
+    "Personal and Household Services": ["Air Conditioner Services", "Bottle Cleaning", "Funeral Services", "Furniture & Carpentry", "Gown/Barong/Dress/Toga Rental",
+         "Janitorial Services", "Kitchen Equipment Repair Services", "Laundy Shops", "Pest Control", "Plumbing Services", "Refrigerator & Air-Con Repair Services",
+        "Service Contractor", "Tailor and Dress Shop", "Upholstery and Repair Shop" 
+    ],
+    "Personal Care Services": ["Aesthetic Services", "Barbershop", "Beauty Taylor", "Fitness Gym", "Home Massage Services",
+        "Nail Spa", "Skin care Center" 
+    ],
+    "Professional Services": ["Accounting Agencies", "Administrative Office Services", "Administrative Support Services", "Business Agent", "Calibration Services",
+        "Consultancy and Management Services", "Contracting and Manpower Services", "Design Services", "Emission and Testing Center", "Engineering and Technical Services",
+        "Organizations", "Referral Service", "Repair and Maintenance Services", "Security Agency", "Water Treatment and Testing Services"
+    ],
+    "Retail Stores": ["Clothing and Apparel", "Convenience Store", "Electronics and Gadgets", "Food and Beverage", "Fuel and Energy Supplies", "Furniture and Home Decor",
+        "General Merchandise", "Grocery and Supermarkets", "Hardware and Constructiom Supplies", "Health and Personal Care", "Household Supplies", "Online Shops", "Sari-sari Store",
+        "School and Office Supplies", "Specialty Stores", "Vehicle and Parts Supplies", "Water Supply" 
+    ],
+    "Tourism and Hospitality": ["Hotel", "Resort", "Travel Agency"
+    ],
+    "Transportation and Logistics": ["Car Rental", "Common Courier", "Delivery Services", "Forwarder", "Hauling Services", "Logistic Services", "Operator & Drivers Association",
+        "Service Contractor", "Shuttle Service/Transport", "Transport Services", "Trucking Services/Transport", "Vehicle Storage", "Warehous and Storage Services"
+    ],
+    "Wholesale and Distribution": ["Agricultural Products", "Auction", "Automotive", "Cleaning Supplies", "Electronics Products", "Essential/ Non Essential", "Food Products", "Fuel and Energy Supplies", 
+        "Industrial and Construction Supplies", "Junk Shops", "Medical and Health Supplies", "Non Essential", "Office & Packaging Supplies", "Recycle Materials", "Service Contractor", "Trading"
+    ]
+};
+
+// Event listener for Category dropdown
+document.getElementById('category').addEventListener('change', function () {
+    const selectedCategory = this.value;
+    const subcategoryDropdown = document.getElementById('subcategory');
+
+    // Clear current subcategory options
+    subcategoryDropdown.innerHTML = '<option value="" selected disabled>Select Subcategory</option>';
+
+    // Populate new subcategories based on selected category
+    if (categorySubcategories[selectedCategory]) {
+        categorySubcategories[selectedCategory].forEach(subcategory => {
+            const option = document.createElement('option');
+            option.value = subcategory;
+            option.textContent = subcategory;
+            subcategoryDropdown.appendChild(option);
+        });
+    }
+});
+
+
 // Selected business index for editing
 let selectedBusinessIndex = null;
 let smeData = []; // Declare globally
+let inactiveSMEData = []; // Inactive SMEs
 
 // Example admin data (this should come from your backend in a real-world scenario)
 const adminData = {
@@ -90,24 +304,11 @@ document.getElementById('changePasswordForm').addEventListener('submit', async (
     }
 });
 
-// //Fetch SME Data from Backend
-// async function fetchSMEData() {
-//     try {
-//         const response = await fetch('/api/smes');
-//         if (!response.ok) throw new Error('Failed to fetch SME data');
-        
-//         const data = await response.json();
-//         console.log('Fetched SME Data:', data); // Debug the response
-//         renderSMETable(data); // Render the table
-//     } catch (err) {
-//         console.error('Error fetching SME data:', err);
-//     }
-// }
 
 // Fetch SME Data from the API
 const fetchSMEData = async () => {
     try {
-        const response = await fetch('/api/smes');
+        const response = await fetch('/api/activeSME');
         if (!response.ok) throw new Error('Failed to fetch SME data');
         smeData = await response.json(); // Populate the global variable
         renderSMETable(smeData); // Render the initial table
@@ -116,6 +317,7 @@ const fetchSMEData = async () => {
         alert("Failed to fetch SME data. Please try again later.");
     }
 };
+
 
 // Fetch the data on page load
 fetchSMEData();
@@ -152,49 +354,84 @@ async function editSME(id) {
     }
 }
 
-// Delete SME Function
-async function deleteSME(id) {
-    if (!confirm(`Are you sure you want to delete business with ID ${id}? This action cannot be undone.`)) {
-        return; // Exit if user cancels
-    }
+
+async function deactivateSME(id) {
+    const confirmDeactivate = confirm(`Are you sure you want to deactivate business ID ${id}?`);
+    if (!confirmDeactivate) return;
 
     try {
-        const response = await fetch(`/api/business/${id}`, { method: "DELETE" });
-        if (response.ok) {
-            alert("Business deleted successfully!");
-            fetchSMEData(); // Refresh the table
-        } else {
+        const response = await fetch(`/api/business/inactive/${id}`, { method: "PUT" });
+        if (!response.ok) {
             const error = await response.json();
-            throw new Error(error.message || "Failed to delete business.");
+            throw new Error(error.message || "Failed to deactivate business.");
         }
+
+        alert("Business deactivated successfully!");
+        fetchSMEData();// Refresh the active businesses table
     } catch (error) {
-        console.error("Error deleting business:", error);
-        alert("An error occurred while deleting the business. Please try again.");
+        console.error("Error deactivating business:", error);
+        alert("An error occurred while deactivating the business. Please try again.");
     }
 }
 
-// async function deleteSurvey(id) {
+async function activateSME(id) {
+    const confirmActivate = confirm(`Are you sure you want to activate business ID ${id}?`);
+    if (!confirmActivate) return;
 
+    try {
+        const response = await fetch(`/api/business/active/${id}`, { method: "PUT" });
+        if (!response.ok) {
+            const error = await response.json();
+            throw new Error(error.message || "Failed to activate business.");
+        }
 
-//     if (!confirm(`Are you sure you want to delete the survey with ID ${id}? This action cannot be undone.`)) {
-//         return; // Exit if user cancels
-//     }
+        alert("Business activated successfully!");
+        fetchInactiveBusinesses(); // Refresh the inactive table
+    } catch (error) {
+        console.error("Error activating business:", error);
+        alert("An error occurred while activating the business. Please try again.");
+    }
+}
 
+async function fetchActiveBusinesses() {
+    try {
+        const response = await fetch("/api/activeSME"); // Ensure endpoint is correct
+        if (!response.ok) throw new Error("Failed to fetch active SMEs");
+
+        const data = await response.json();
+        smeData = data; // Update global variable
+        renderSMETable(smeData); // Render the table with active SMEs
+        console.log("Active SMEs rendered successfully:", smeData); // Debugging
+    } catch (error) {
+        console.error("Error fetching active SMEs:", error);
+        alert("Failed to fetch active SMEs. Please try again later.");
+    }
+}
+
+// async function fetchActiveBusinesses() {
 //     try {
-//         const response = await fetch(`/api/survey/${id}`, { method: "DELETE" });
-//         if (response.ok) {
-//             alert("Survey deleted successfully!");
-//             fetchPreferenceData();
-//             fetchMarketDemandData();
-//         } else {
-//             const error = await response.json();
-//             throw new Error(error.message || "Failed to delete survey.");
-//         }
+//         const response = await fetch("api/activeSME");
+//         if (!response.ok) throw new Error("Failed to fetch active businesses");
+//         const data = await response.json();
+//         smeData = data; // Update the global `smeData`
+//         renderSMETable(smeData); // Render Active SMEs
 //     } catch (error) {
-//         console.error("Error deleting survey:", error);
-//         alert("An error occurred while deleting the survey. Please try again.");
+//         console.error("Error fetching active businesses:", error);
 //     }
 // }
+
+
+async function fetchInactiveBusinesses() {
+    try {
+        const response = await fetch("/api/inactiveSME");
+        if (!response.ok) throw new Error("Failed to fetch inactive businesses");
+        const data = await response.json();
+        renderInactiveSMETable(data); // Render Inactive SMEs
+    } catch (error) {
+        console.error("Error fetching inactive businesses:", error);
+    }
+}
+
 
 async function deleteSurvey(id) {
     const userConfirmed = confirm(`Are you sure you want to delete the survey with ID ${id}? This action cannot be undone.`);
@@ -225,34 +462,6 @@ async function deleteSurvey(id) {
 }
 
 
-async function deleteUndefinedSurveys() {
-    if (confirm("Are you sure you want to delete all undefined surveys? This action cannot be undone.")) {
-        try {
-            const response = await fetch('/api/surveys/undefined', { method: 'DELETE' });
-
-            if (response.ok) {
-                const data = await response.json();
-                alert(data.message || "Undefined surveys deleted successfully!");
-                // Optionally refresh data if needed
-                fetchSurveyData();
-            } else {
-                const error = await response.json();
-                throw new Error(error.message || "Failed to delete undefined surveys.");
-            }
-        } catch (error) {
-            console.error("Error deleting undefined surveys:", error);
-            alert("An error occurred while deleting undefined surveys. Please try again.");
-        }
-    }
-}
-  
-
-// Initialize by fetching SME data on page load
-fetchSMEData();
-
-
-
-
 // DOM Elements
 const smeDataButton = document.getElementById('smeDataButton');
 const surveyDataButton = document.getElementById('surveyDataButton');
@@ -267,6 +476,9 @@ const addEditBusinessModal = document.getElementById('addEditBusinessModal');
 const closeAddEditBusinessModal = document.getElementById('closeAddEditBusinessModal');
 const cancelAddEditBusiness = document.getElementById('cancelAddEditBusiness');
 const addEditBusinessForm = document.getElementById('addEditBusinessForm');
+const smeSubButtons = document.getElementById('smeSubButtons');
+const activeTabButton = document.getElementById('activeTabButton');
+const inactiveTabButton = document.getElementById('inactiveTabButton');
 
 
 // Show Add/Edit Business Modal
@@ -276,57 +488,12 @@ addBusinessButton.addEventListener("click", () => {
     addEditBusinessModal.classList.remove("hidden"); // Show modal
 });
 
-// // Show the Add/Edit Business modal (for adding new business)
-// addBusinessButton.addEventListener('click', () => {
-//     // Clear the form for new entries
-//     addEditBusinessForm.reset();
-//     selectedBusinessIndex = null; // Set to null for new business
-//     addEditBusinessModal.classList.remove('hidden'); // Show modal
-// });
 
 // Close Modal
 const closeModal = () => addEditBusinessModal.classList.add("hidden");
 closeAddEditBusinessModal.addEventListener("click", closeModal);
 cancelAddEditBusiness.addEventListener("click", closeModal);
 
-// //Working One
-// addEditBusinessForm.addEventListener("submit", async (e) => {
-//     e.preventDefault();
-
-//     const newBusiness = {
-//         name: document.getElementById("businessName").value.trim(),
-//         address: document.getElementById("address").value.trim(),
-//         subarea: document.getElementById("subarea").value.trim(),
-//         barangay: document.getElementById("barangay").value.trim(),
-//         latitude: document.getElementById("latitude").value.trim(),
-//         longitude: document.getElementById("longitude").value.trim(),
-//         industry: document.getElementById("industry").value.trim(),
-//         category: document.getElementById("category").value.trim(),
-//         subcategory: document.getElementById("subcategory").value.trim(),
-//     };
-
-//     try {
-//         const response = await fetch("/api/business", {
-//             method: "POST",
-//             headers: { "Content-Type": "application/json" },
-//             body: JSON.stringify(newBusiness),
-//         });
-
-//         if (response.ok) {
-//             const data = await response.json();
-//             alert(data.message || "Business added successfully!");
-//             await fetchSMEData(); // Refresh the table to include the new business
-//             addEditBusinessForm.reset();
-//             addEditBusinessModal.classList.add("hidden");
-//         } else {
-//             const error = await response.json();
-//             throw new Error(error.message || "Failed to add business.");
-//         }
-//     } catch (error) {
-//         console.error("Error adding business:", error);
-//         alert("An error occurred while adding the business. Please try again.");
-//     }
-// });
 
 addEditBusinessForm.addEventListener("submit", async (e) => {
     e.preventDefault(); // Prevent default form submission behavior
@@ -387,114 +554,91 @@ addEditBusinessForm.addEventListener("submit", async (e) => {
     }
 });
 
-// Fetch updated SME data
-// const fetchSMEData = async () => {
-//     try {
-//         const response = await fetch("/api/smes");
-//         const data = await response.json();
-
-//         if (response.ok) {
-//             renderSMETable(data); // Render the updated SME data in the table
-//             // const row = document.querySelector(`tr:nth-child(${newBusiness.id})`);
-//             //     if (row) {
-//             //         row.classList.add('bg-green-100'); // Highlight the row
-//             //         setTimeout(() => row.classList.remove('bg-green-100'), 2000); // Remove highlight after 2 seconds
-//             //     }
-//         } else {
-//             throw new Error("Failed to fetch SME data.");
-//         }
-//     } catch (error) {
-//         console.error("Error fetching SME data:", error);
-//         alert("An error occurred while fetching SME data. Please refresh the page.");
-//     }
-// };
-
-// Initialize by fetching SME data on page load
-fetchSMEData();
-
-
-
-// const renderSMETable = (data) => {
-//     tableHead.innerHTML = `
-//         <tr>
-//             <th class="px-4 py-2">ID</th>
-//             <th class="px-4 py-2">Name</th>
-//             <th class="px-4 py-2">Address</th>
-//             <th class="px-4 py-2">Barangay</th>
-//             <th class="px-4 py-2">Subarea</th>
-//             <th class="px-4 py-2">Latitude</th>
-//             <th class="px-4 py-2">Longitude</th>
-//             <th class="px-4 py-2">SME Type</th>
-//             <th class="px-4 py-2">Category</th>
-//             <th class="px-4 py-2">Subcategory</th>
-//             <th class="px-4 py-2">Actions</th>
-//         </tr>
-//     `;
-
-//     tableBody.innerHTML = ''; // Clear existing rows
-
-//     data.forEach((item) => {
-//         const row = document.createElement('tr');
-//         row.innerHTML = `
-//             <td class="px-4 py-2">${item.business_id}</td>
-//             <td class="px-4 py-2">${item.business_name}</td>
-//             <td class="px-4 py-2">${item.address || 'N/A'}</td>
-//             <td class="px-4 py-2">${item.barangay_name || 'N/A'}</td>
-//             <td class="px-4 py-2">${item.subarea_name || 'N/A'}</td>
-//             <td class="px-4 py-2">${item.latitude || 'N/A'}</td>
-//             <td class="px-4 py-2">${item.longitude || 'N/A'}</td>
-//             <td class="px-4 py-2">${item.sme_type || 'N/A'}</td>
-//             <td class="px-4 py-2">${item.category_name || 'N/A'}</td>
-//             <td class="px-4 py-2">${item.subcategory_name || 'N/A'}</td>
-//             <td class="px-4 py-2">
-//                 <button class="text-blue-500 hover:underline">Edit</button>
-//                 <button class="text-red-500 hover:underline">Delete</button>
-//             </td>
-//         `;
-//         tableBody.appendChild(row);
-//     });
-// };
-
 const renderSMETable = (data) => {
     tableHead.innerHTML = `
         <tr>
-            <th class="px-4 py-2">ID</th>
-            <th class="px-4 py-2">Name</th>
-            <th class="px-4 py-2">Address</th>
-            <th class="px-4 py-2">Barangay</th>
-            <th class="px-4 py-2">Subarea</th>
-            <th class="px-4 py-2">Latitude</th>
-            <th class="px-4 py-2">Longitude</th>
-            <th class="px-4 py-2">SME Type</th>
-            <th class="px-4 py-2">Category</th>
-            <th class="px-4 py-2">Subcategory</th>
-            <th class="px-4 py-2">Actions</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Barangay</th>
+            <th>Subarea</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>SME Type</th>
+            <th>Category</th>
+            <th>Subcategory</th>
+            <th>Actions</th>
         </tr>
     `;
 
-    tableBody.innerHTML = ""; // Clear existing rows
+    tableBody.innerHTML = ''; // Clear the body first
 
     data.forEach((item) => {
         const row = document.createElement("tr");
         row.innerHTML = `
-            <td class="px-4 py-2">${item.business_id}</td>
-            <td class="px-4 py-2">${item.business_name}</td>
-            <td class="px-4 py-2">${item.address || "N/A"}</td>
-            <td class="px-4 py-2">${item.barangay_name || "N/A"}</td>
-            <td class="px-4 py-2">${item.subarea_name || "N/A"}</td>
-            <td class="px-4 py-2">${item.latitude || "N/A"}</td>
-            <td class="px-4 py-2">${item.longitude || "N/A"}</td>
-            <td class="px-4 py-2">${item.sme_type || "N/A"}</td>
-            <td class="px-4 py-2">${item.category_name || "N/A"}</td>
-            <td class="px-4 py-2">${item.subcategory_name || "N/A"}</td>
-            <td class="px-4 py-2">
+            <td>${item.business_id}</td>
+            <td>${item.business_name}</td>
+            <td>${item.address || "N/A"}</td>
+            <td>${item.barangay_name || "N/A"}</td>
+            <td>${item.subarea_name || "N/A"}</td>
+            <td>${item.latitude || "N/A"}</td>
+            <td>${item.longitude || "N/A"}</td>
+            <td>${item.sme_type || "N/A"}</td>
+            <td>${item.category_name || "N/A"}</td>
+            <td>${item.subcategory_name || "N/A"}</td>
+            <td>
                 <button class="edit-button text-blue-500 hover:underline" data-id="${item.business_id}">Edit</button>
-                <button class="delete-button text-red-500 hover:underline" data-id="${item.business_id}">Delete</button>
+                <button class="deactivate-button text-red-500 hover:underline" data-id="${item.business_id}">Deactivate</button>
             </td>
         `;
         tableBody.appendChild(row);
     });
 };
+
+
+
+const renderInactiveSMETable = (data) => {
+    tableHead.innerHTML = `
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Barangay</th>
+            <th>Subarea</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>SME Type</th>
+            <th>Category</th>
+            <th>Subcategory</th>
+            <th>Actions</th>
+        </tr>
+    `;
+
+    tableBody.innerHTML = ''; // Clear existing rows
+
+    data.forEach((item) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${item.business_id}</td>
+            <td>${item.business_name}</td>
+            <td>${item.address || "N/A"}</td>
+            <td>${item.barangay_name || "N/A"}</td>
+            <td>${item.subarea_name || "N/A"}</td>
+            <td>${item.latitude || "N/A"}</td>
+            <td>${item.longitude || "N/A"}</td>
+            <td>${item.sme_type || "N/A"}</td>
+            <td>${item.category_name || "N/A"}</td>
+            <td>${item.subcategory_name || "N/A"}</td>
+            <td>
+                <button class="edit-button text-blue-500 hover:underline" data-id="${item.business_id}">Edit</button>
+                <button class="activate-button text-red-500 hover:underline" ActivateData-id="${item.business_id}">Activate</button>
+
+            </td>
+        `;
+        tableBody.appendChild(row);
+    });
+};
+
 
 //NEWLY ADDDED
 tableBody.addEventListener("click", (e) => {
@@ -507,9 +651,14 @@ tableBody.addEventListener("click", (e) => {
     }
 
     // Handle Delete Button
-    if (target.classList.contains("delete-button")) {
+    if (target.classList.contains("deactivate-button")) {
         const businessId = target.getAttribute("data-id");
-        deleteSME(businessId);
+        deactivateSME(businessId);
+    }
+
+    if (target.classList.contains("activate-button")) {
+        const businessId = target.getAttribute("ActivateData-id");
+        activateSME(businessId);
     }
     if (target.classList.contains("surveymddelete-button")) {
         const surveyId = target.getAttribute("surveydata-id");
@@ -533,10 +682,17 @@ function attachActionHandlers(data) {
     });
 
     // Attach Delete Handlers
-    document.querySelectorAll(".delete-button").forEach((button) => {
+    document.querySelectorAll(".deactivate-button").forEach((button) => {
         button.addEventListener("click", async () => {
             const id = button.dataset.id;
-            await deleteSME(id); // Call delete function
+            await deactivateSME(id); // Call delete function
+        });
+    });
+
+    document.querySelectorAll(".activate-button").forEach((button) => {
+        button.addEventListener("click", async () => {
+            const id = button.dataset.id;
+            await activateSME(id); // Call delete function
         });
     });
 
@@ -782,6 +938,62 @@ const fetchMarketDemandsData = async () => {
     }
 };
 
+document.addEventListener("DOMContentLoaded", () => {
+    // Highlight SME Data button as default active
+    smeDataButton.classList.add("bg-orange-500", "text-white");
+    surveyDataButton.classList.remove("bg-orange-500", "text-white");
+    surveyDataButton.classList.add("bg-gray-200", "text-gray-800");
+
+    // Show SME Sub Buttons (Active/Inactive) and hide Survey Sub Buttons
+    smeSubButtons.classList.remove("hidden");
+    surveySubButtons.classList.add("hidden");
+
+    // Show Search Bar and Add Business Button
+    searchBar.classList.remove("hidden");
+    addBusinessButton.classList.remove("hidden");
+
+    // Ensure Active tab is selected as default within SME Sub Buttons
+    activeTabButton.classList.add("bg-green-500", "text-white");
+    inactiveTabButton.classList.remove("bg-green-500", "text-white");
+
+    // Set Preferences Tab as default active for Survey Sub Buttons
+    preferencesTabButton.classList.add("bg-green-500", "text-white");
+    marketDemandsTabButton.classList.remove("bg-green-500", "text-white");
+
+    // Fetch and render Active SME Data by default
+    try {
+        fetchActiveBusinesses();
+    } catch (error) {
+        console.error("Error initializing active SMEs:", error);
+    }
+});
+
+
+
+// Ensure SME Sub Buttons and Active tab are visible by default
+// document.addEventListener("DOMContentLoaded", () => {
+//     // Highlight SME Data button
+//     smeDataButton.classList.add("bg-orange-500", "text-white");
+//     surveyDataButton.classList.add("bg-gray-200", "text-gray-800");
+
+//     // Highlight Active tab as the default
+//     activeTabButton.classList.add("bg-green-500", "text-white");
+//     inactiveTabButton.classList.remove("bg-green-500", "text-white");
+
+//     // Show SME Sub Buttons (Active/Inactive)
+//     smeSubButtons.classList.remove("hidden");
+
+//     // Show Search Bar and Add Business Button
+//     searchBar.classList.remove("hidden");
+//     addBusinessButton.classList.remove("hidden");
+
+//     // Hide Survey Sub Buttons (Preferences/Market Demands)
+//     surveySubButtons.classList.add("hidden");
+
+//     // Render SME Data Table (Active)
+//     fetchSMEData(); // Fetch and render Active SMEs
+// });
+
 // Handle SME Data Button Click
 smeDataButton.addEventListener("click", () => {
     // Highlight SME Data button
@@ -789,17 +1001,19 @@ smeDataButton.addEventListener("click", () => {
     surveyDataButton.classList.remove("bg-orange-500", "text-white");
     surveyDataButton.classList.add("bg-gray-200", "text-gray-800");
 
-    // Show the Search Bar and Add Business button
+    // Show SME Sub Buttons (Active/Inactive)
+    smeSubButtons.classList.remove("hidden");
+
+    // Show the Search Bar and Add Business Button
     searchBar.classList.remove("hidden");
     addBusinessButton.classList.remove("hidden");
 
-    // Hide survey sub-buttons
+    // Hide Survey Sub Buttons (Preferences/Market Demands)
     surveySubButtons.classList.add("hidden");
 
-    // Render SME Data table
-    fetchSMEData();
+    // Default to Active tab
+    activeTabButton.click();
 });
-
 
 // Handle Survey Data Button Click
 surveyDataButton.addEventListener("click", () => {
@@ -808,17 +1022,127 @@ surveyDataButton.addEventListener("click", () => {
     smeDataButton.classList.remove("bg-orange-500", "text-white");
     smeDataButton.classList.add("bg-gray-200", "text-gray-800");
 
-    // Hide the Search Bar and Add Business button
+    // Hide SME Sub Buttons (Active/Inactive)
+    smeSubButtons.classList.add("hidden");
+
+    // Hide the Search Bar and Add Business Button
     searchBar.classList.add("hidden");
     addBusinessButton.classList.add("hidden");
 
-    // Show survey sub-buttons
+    // Show Survey Sub Buttons (Preferences/Market Demands)
     surveySubButtons.classList.remove("hidden");
 
-    // Clear the table content and render Preferences data by default
-    tableHead.innerHTML = ''; // Clear table headers
-    tableBody.innerHTML = ''; // Clear table body
-    renderPreferencesTable(preferencesData);
+    // Default to Preferences tab
+    preferencesTabButton.click();
+});
+
+// document.addEventListener("DOMContentLoaded", () => {
+//     activeTabButton.addEventListener("click", () => {
+//         console.log("Active tab clicked");
+//         fetchSMEData();
+//     });
+// });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Setup Active Tab Button (SME Data)
+    activeTabButton.addEventListener("click", () => {
+        console.log("Active tab clicked");
+        fetchActiveBusinesses(); // Fetch Active SME Data
+    });
+
+    // Setup Inactive Tab Button (SME Data)
+    inactiveTabButton.addEventListener("click", () => {
+        console.log("Inactive tab clicked");
+        fetchInactiveBusinesses(); // Fetch Inactive SME Data
+    });
+
+    // Setup Preferences Tab Button (Survey Data)
+    preferencesTabButton.addEventListener("click", async () => {
+        console.log("Preferences tab clicked");
+        // Highlight the Preferences tab
+        preferencesTabButton.classList.add("bg-green-500", "text-white");
+        marketDemandsTabButton.classList.remove("bg-green-500", "text-white");
+
+        // Clear table content and fetch data
+        tableHead.innerHTML = '<tr><td colspan="22" class="text-center text-gray-500">Loading Preferences...</td></tr>';
+        tableBody.innerHTML = '';
+        try {
+            await fetchPreferencesData();
+        } catch (error) {
+            console.error("Error fetching Preferences data:", error);
+        }
+    });
+
+    // Setup Market Demands Tab Button (Survey Data)
+    marketDemandsTabButton.addEventListener("click", async () => {
+        console.log("Market Demands tab clicked");
+        // Highlight the Market Demands tab
+        marketDemandsTabButton.classList.add("bg-green-500", "text-white");
+        preferencesTabButton.classList.remove("bg-green-500", "text-white");
+
+        // Clear table content and fetch data
+        tableHead.innerHTML = '<tr><td colspan="19" class="text-center text-gray-500">Loading Market Demands...</td></tr>';
+        tableBody.innerHTML = '';
+        try {
+            await fetchMarketDemandsData();
+        } catch (error) {
+            console.error("Error fetching Market Demands data:", error);
+        }
+    });
+});
+
+
+// Active Tab Click
+activeTabButton.addEventListener("click", async () => {
+    // Highlight Active tab
+    activeTabButton.classList.add("bg-green-500", "text-white");
+    inactiveTabButton.classList.remove("bg-green-500", "text-white");
+
+    // Clear existing table content
+    tableHead.innerHTML = '<tr><td colspan="11" class="text-center text-gray-500">Loading Active SMEs...</td></tr>';
+    tableBody.innerHTML = '';
+
+    // Fetch and render only Active SMEs
+    try {
+        console.log("Fetching active SMEs...");
+        await fetchSMEData();
+    } catch (error) {
+        console.error("Error fetching active SMEs:", error);
+        alert("Failed to load Active SMEs.");
+    }
+});
+
+// Inactive Tab Click
+inactiveTabButton.addEventListener("click", async () => {
+    // Highlight Inactive tab
+    inactiveTabButton.classList.add("bg-green-500", "text-white");
+    activeTabButton.classList.remove("bg-green-500", "text-white");
+
+    // Clear existing table content
+    tableHead.innerHTML = '<tr><td colspan="11" class="text-center text-gray-500">Loading Inactive SMEs...</td></tr>';
+    tableBody.innerHTML = '';
+
+    // Fetch and render only Inactive SMEs
+    try {
+        console.log("Fetching inactive SMEs...");
+        await fetchInactiveBusinesses();
+    } catch (error) {
+        console.error("Error fetching inactive SMEs:", error);
+        alert("Failed to load Inactive SMEs.");
+    }
+});
+s
+
+document.addEventListener("DOMContentLoaded", async () => {
+    activeTabButton.classList.add("bg-green-500", "text-white");
+    inactiveTabButton.classList.remove("bg-green-500", "text-white");
+
+    try {
+        await fetchSMEData(); // Fetch and display active SMEs by default
+    } catch (error) {
+        console.error("Error fetching default active SMEs:", error);
+    }
 });
 
 
@@ -835,6 +1159,9 @@ surveyDataButton.addEventListener("click", () => {
     
         // Show sub-buttons for Preferences and Market Demands
         surveySubButtons.classList.remove("hidden");
+
+         // Hide SME Sub Buttons
+        smeSubButtons.classList.add("hidden");
     
         // Clear the table and show loading placeholder
         tableHead.innerHTML = '<tr><td colspan="22" class="text-center text-gray-500">Loading...</td></tr>';
@@ -844,60 +1171,6 @@ surveyDataButton.addEventListener("click", () => {
         preferencesTabButton.click();
 });
 
-
-
-// //Preferences and Market Demands Data
-// const preferencesData = [
-//     {
-//         id: "",
-//         month: "",
-//         barangay: "",
-//         ageRange: "",
-//         gender: "",
-//         education: "",
-//         employment: "",
-//         businessVisits: "",
-//         frequentVisits: "",
-//         browsingBehavior: "",
-//         satisfaction: "",
-//         lacking: "",
-//         shoppingPreference: "",
-//         motivationForChoosing: "",
-//         shoppingTraits:"",
-//         factorsForNewBusinesses: "",
-//         shoppingStyle: "",
-//         values: "",
-//         transportationLinks: "",
-//         accessibility: "",
-//         outsideBarangayTravel: "",
-//         transportationChallenges:"",
-//     },
-// ];
-
-// const marketDemandsData = [
-//     {
-//         id:"",
-//         barangay: "",
-//         automotive: "",
-//         construction: "",
-//         cooperativeBusiness: "",
-//         creativeMedia: "",
-//         educationServices: "",
-//         entertainment: "",
-//         financeInsurance: "",
-//         foodServices: "",
-//         healthcare: "",
-//         itDigital: "",
-//         manufacturing: "",
-//         personalHousehold: "",
-//         personalCare: "",
-//         professionalServices: "",
-//         retail: "",
-//         tourismHospitality:"",
-//         transportation: "",
-//         wholesale: "",
-//     },
-// ];
 
 // Preferences Button Event Listener
 preferencesTabButton.addEventListener("click", async () => { // Add 'async' here
@@ -929,11 +1202,6 @@ marketDemandsTabButton.addEventListener("click", async () => { // Add 'async' he
 });
 
 
-// Initialize with SME Data (default table)
-renderSMETable(smeData);
-
-
-
 // Add search functionality
 searchBar.addEventListener("input", () => {
     const searchTerm = searchBar.value.trim().toLowerCase(); // Normalize search term
@@ -962,7 +1230,6 @@ searchBar.addEventListener("input", () => {
 });
 
 
-  
 
 // Handle Edit and Delete Button Click
 tableBody.addEventListener('click', (e) => {
@@ -995,40 +1262,4 @@ tableBody.addEventListener('click', (e) => {
         }
     }
 
-    // Handle Delete Button Click
-    if (e.target.classList.contains('text-red-500')) {
-        const confirmDelete = confirm(`Are you sure you want to delete the item with ID: ${id}?`);
-
-        if (confirmDelete) {
-            const isSMEDataActive = smeDataButton.classList.contains('bg-orange-500');
-            if (isSMEDataActive) {
-                // Remove the item and reassign IDs for SME Data
-                const indexToDelete = smeData.findIndex((business) => business.id === id);
-                if (indexToDelete !== -1) {
-                    smeData.splice(indexToDelete, 1); // Remove the item
-
-                    // Reassign IDs
-                    smeData.forEach((business, index) => {
-                        business.id = index + 1; // Sequential numbering (1-based index)
-                    });
-
-                    renderSMETable(smeData); // Re-render the table
-                }
-            } else {
-                // Remove the item and reassign IDs for Survey Data
-                const indexToDelete = surveyData.findIndex((survey) => survey.id === id);
-                if (indexToDelete !== -1) {
-                    surveyData.splice(indexToDelete, 1); // Remove the item
-
-                    // Reassign IDs
-                    surveyData.forEach((survey, index) => {
-                        survey.id = index + 1; // Sequential numbering (1-based index)
-                    });
-
-                    renderSurveyTable(surveyData); // Re-render the table
-                }
-            }
-            alert(`Item with ID: ${id} has been deleted.`);
-        }
-    }
 });

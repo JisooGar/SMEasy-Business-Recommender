@@ -116,4 +116,35 @@
 .scrollable-table-container::-webkit-scrollbar-thumb:hover {
     background-color: #9ca3af;
 }
+.dropdown-container {
+    position: relative;
+}
+
+.dropdown-button {
+    cursor: pointer;
+    outline: none;
+}
+
+.dropdown-list {
+    display: none;
+    position: absolute;
+    top: 100%; /* Always appear below the button */
+    left: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    max-height: 200px; /* Limit the dropdown height */
+    overflow-y: auto; /* Scrollbar if too many options */
+    z-index: 50; /* Ensure it stays on top */
+}
+
+.dropdown-list div {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.dropdown-list div:hover {
+    background-color: #f3f4f6; /* Light gray hover effect */
+}
+
 
